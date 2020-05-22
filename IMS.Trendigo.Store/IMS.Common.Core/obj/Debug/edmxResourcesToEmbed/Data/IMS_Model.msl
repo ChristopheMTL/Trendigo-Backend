@@ -1,0 +1,2114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TRENDIGO_OKIOKModelStoreContainer" CdmEntityContainer="IMS_StoreEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Address">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="App" ColumnName="App" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankInfos">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.BankInfo">
+        <MappingFragment StoreEntitySet="BankInfos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BankNumber" ColumnName="BankNumber" />
+          <ScalarProperty Name="BranchNumber" ColumnName="BranchNumber" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="UserNumber" ColumnName="UserNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardPointHistories">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.CardPointHistory">
+        <MappingFragment StoreEntitySet="CardPointHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IMSCardId" ColumnName="IMSCardId" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="PromoCodeId" ColumnName="PromoCodeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardStatuses">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.CardStatus">
+        <MappingFragment StoreEntitySet="CardStatuses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CardTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.CardType">
+        <MappingFragment StoreEntitySet="CardTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="city_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.city_translations">
+        <MappingFragment StoreEntitySet="city_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="city_id" ColumnName="city_id" />
+          <ScalarProperty Name="locale" ColumnName="locale" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommandStatus">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.CommandStatu">
+        <MappingFragment StoreEntitySet="CommandStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractCommissions">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.ContractCommission">
+        <MappingFragment StoreEntitySet="ContractCommissions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+          <ScalarProperty Name="IMSUserId" ColumnName="IMSUserId" />
+          <ScalarProperty Name="CommissionRate" ColumnName="CommissionRate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContractLocations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.ContractLocation">
+        <MappingFragment StoreEntitySet="ContractLocations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="TransaxEnterpriseContractId" ColumnName="TransaxEnterpriseContractId" />
+          <ScalarProperty Name="TransaxSalesRepContractId" ColumnName="TransaxSalesRepContractId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Contract">
+        <MappingFragment StoreEntitySet="Contracts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="IMS_LineItemId" ColumnName="IMS_LineItemId" />
+          <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ContractStartDate" ColumnName="ContractStartDate" />
+          <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+          <ScalarProperty Name="SalesRepId" ColumnName="SalesRepId" />
+          <ScalarProperty Name="CommissionRate" ColumnName="CommissionRate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alpha2Code" ColumnName="Alpha2Code" />
+          <ScalarProperty Name="Alpha3Code" ColumnName="Alpha3Code" />
+          <ScalarProperty Name="NumericCode" ColumnName="NumericCode" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="country_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.country_translations">
+        <MappingFragment StoreEntitySet="country_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="Locale" ColumnName="Locale" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditCardTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.CreditCardType">
+        <MappingFragment StoreEntitySet="CreditCardTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Currency">
+        <MappingFragment StoreEntitySet="Currencies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceRequestStatus">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.DeviceRequestStatu">
+        <MappingFragment StoreEntitySet="DeviceRequestStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceRequestStatus_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.DeviceRequestStatus_translations">
+        <MappingFragment StoreEntitySet="DeviceRequestStatus_translations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DeviceRequestStatusId" ColumnName="DeviceRequestStatusId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Locale" ColumnName="Locale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.DeviceType">
+        <MappingFragment StoreEntitySet="DeviceTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceTypeTranslations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.DeviceTypeTranslation">
+        <MappingFragment StoreEntitySet="DeviceTypeTranslations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+          <ScalarProperty Name="Locale" ColumnName="Locale" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollLocations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.EnrollLocation">
+        <MappingFragment StoreEntitySet="EnrollLocation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentProcesses">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.EnrollmentProcess">
+        <MappingFragment StoreEntitySet="EnrollmentProcess">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollments">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Enrollment">
+        <MappingFragment StoreEntitySet="Enrollments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="OldMembershipId" ColumnName="OldMembershipId" />
+          <ScalarProperty Name="NewMembershipId" ColumnName="NewMembershipId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="EnrollmentProcessId" ColumnName="EnrollmentProcessId" />
+          <ScalarProperty Name="EnrollmentProcessResponse" ColumnName="EnrollmentProcessResponse" />
+          <ScalarProperty Name="EnrollmentSequenceNumber" ColumnName="EnrollmentSequenceNumber" />
+          <ScalarProperty Name="EnrollmentStatusId" ColumnName="EnrollmentStatusId" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="OtherId" ColumnName="OtherId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnrollmentStatus">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.EnrollmentStatu">
+        <MappingFragment StoreEntitySet="EnrollmentStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enterprises">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Enterprise">
+        <MappingFragment StoreEntitySet="Enterprises">
+          <ScalarProperty Name="ActiveCampaignId" ColumnName="ActiveCampaignId" />
+          <ScalarProperty Name="ActiveCampaignToken" ColumnName="ActiveCampaignToken" />
+          <ScalarProperty Name="ActiveCampaignAddress" ColumnName="ActiveCampaignAddress" />
+          <ScalarProperty Name="ActiveCampaignEnable" ColumnName="ActiveCampaignEnable" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="BankingInfoId" ColumnName="BankingInfoId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EntityTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.EntityType">
+        <MappingFragment StoreEntitySet="EntityTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvaluationCategories">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.EvaluationCategory">
+        <MappingFragment StoreEntitySet="EvaluationCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvaluationCategory_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.EvaluationCategory_translations">
+        <MappingFragment StoreEntitySet="EvaluationCategory_translations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EvaluationCategoryId" ColumnName="EvaluationCategoryId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Identities">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Identity">
+        <MappingFragment StoreEntitySet="Identities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_devise_id" ColumnName="user_devise_id" />
+          <ScalarProperty Name="provider" ColumnName="provider" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMS_Detail">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMS_Detail">
+        <MappingFragment StoreEntitySet="IMS_Detail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HeaderId" ColumnName="HeaderId" />
+          <ScalarProperty Name="LineItemId" ColumnName="LineItemId" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMS_LineItem">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMS_LineItem">
+        <MappingFragment StoreEntitySet="IMS_LineItem">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationOfficer" ColumnName="CreationOfficer" />
+          <ScalarProperty Name="ModificationOfficer" ColumnName="ModificationOfficer" />
+          <ScalarProperty Name="ShowInBackOffice" ColumnName="ShowInBackOffice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSCards">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMSCard">
+        <MappingFragment StoreEntitySet="IMSCards">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CardTypeId" ColumnName="CardTypeId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="CardDesignSpecification" ColumnName="CardDesignSpecification" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="CardStatusId" ColumnName="CardStatusId" />
+          <ScalarProperty Name="ActivationNumber" ColumnName="ActivationNumber" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="EnterpriseID" ColumnName="EnterpriseID" />
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="PrefixPoints" ColumnName="PrefixPoints" />
+          <ScalarProperty Name="BalancePoints" ColumnName="BalancePoints" />
+          <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+          <ScalarProperty Name="ShippingDate" ColumnName="ShippingDate" />
+          <ScalarProperty Name="ActivationDate" ColumnName="ActivationDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="RenewalNotificationDate" ColumnName="RenewalNotificationDate" />
+          <ScalarProperty Name="NoShipping" ColumnName="NoShipping" />
+          <ScalarProperty Name="IsVirtual" ColumnName="IsVirtual" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSEnterpriseParameters">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMSEnterpriseParameter">
+        <MappingFragment StoreEntitySet="IMSEnterpriseParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+          <ScalarProperty Name="AcquirerId" ColumnName="AcquirerId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="MaxPercentDiscountPerPromotion" ColumnName="MaxPercentDiscountPerPromotion" />
+          <ScalarProperty Name="MaxPercentAmountPerPromotion" ColumnName="MaxPercentAmountPerPromotion" />
+          <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
+          <ScalarProperty Name="DefaultLanguage" ColumnName="DefaultLanguage" />
+          <ScalarProperty Name="BatchCloseTime" ColumnName="BatchCloseTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSEnterpriseParameterTerminals">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMSEnterpriseParameterTerminal">
+        <MappingFragment StoreEntitySet="IMSEnterpriseParameterTerminals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IMSEnterpriseParameterId" ColumnName="IMSEnterpriseParameterId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSMemberships">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMSMembership">
+        <MappingFragment StoreEntitySet="IMSMemberships">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+          <ScalarProperty Name="PromoCodeId" ColumnName="PromoCodeId" />
+          <ScalarProperty Name="NoShipping" ColumnName="NoShipping" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="RenewalNotificationDate" ColumnName="RenewalNotificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSPointTrackers">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMSPointTracker">
+        <MappingFragment StoreEntitySet="IMSPointTrackers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="enterpriseId" ColumnName="enterpriseId" />
+          <ScalarProperty Name="dateTracker" ColumnName="dateTracker" />
+          <ScalarProperty Name="transactionToDay" ColumnName="transactionToDay" />
+          <ScalarProperty Name="pointsGivenToDay" ColumnName="pointsGivenToDay" />
+          <ScalarProperty Name="pointsGivenToMonth" ColumnName="pointsGivenToMonth" />
+          <ScalarProperty Name="pointsGivenToYear" ColumnName="pointsGivenToYear" />
+          <ScalarProperty Name="pointsGivenTotal" ColumnName="pointsGivenTotal" />
+          <ScalarProperty Name="pointsRedeemToDay" ColumnName="pointsRedeemToDay" />
+          <ScalarProperty Name="pointsRedeemToMonth" ColumnName="pointsRedeemToMonth" />
+          <ScalarProperty Name="pointsRedeemToYear" ColumnName="pointsRedeemToYear" />
+          <ScalarProperty Name="pointsRedeemTotal" ColumnName="pointsRedeemTotal" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSTransferMessages">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMSTransferMessage">
+        <MappingFragment StoreEntitySet="IMSTransferMessages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSTransferStatus">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMSTransferStatu">
+        <MappingFragment StoreEntitySet="IMSTransferStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMSUsers">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMSUser">
+        <MappingFragment StoreEntitySet="IMSUsers">
+          <ScalarProperty Name="AvatarLink" ColumnName="AvatarLink" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="language_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.language_translations">
+        <MappingFragment StoreEntitySet="language_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="language_id" ColumnName="language_id" />
+          <ScalarProperty Name="locale" ColumnName="locale" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ISO639_1" ColumnName="ISO639_1" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Location_Terminals">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Location_Terminals">
+        <MappingFragment StoreEntitySet="Location_Terminals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationBusinessHours">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.LocationBusinessHour">
+        <MappingFragment StoreEntitySet="LocationBusinessHours">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="DayOfWeekID" ColumnName="DayOfWeekID" />
+          <ScalarProperty Name="OpeningHour" ColumnName="OpeningHour" />
+          <ScalarProperty Name="ClosingHour" ColumnName="ClosingHour" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationMemberDistances">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.LocationMemberDistance">
+        <MappingFragment StoreEntitySet="LocationMemberDistances">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationTaxes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.LocationTax">
+        <MappingFragment StoreEntitySet="LocationTaxes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="StateTaxId" ColumnName="StateTaxId" />
+          <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MemberPromoCodeHistories">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.MemberPromoCodeHistory">
+        <MappingFragment StoreEntitySet="MemberPromoCodeHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="PromocodeId" ColumnName="PromocodeId" />
+          <ScalarProperty Name="CardId" ColumnName="CardId" />
+          <ScalarProperty Name="CardPointHistoryId" ColumnName="CardPointHistoryId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MembershipTransactionDetails">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.MembershipTransactionDetail">
+        <MappingFragment StoreEntitySet="MembershipTransactionDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HeaderId" ColumnName="HeaderId" />
+          <ScalarProperty Name="LineItemId" ColumnName="LineItemId" />
+          <ScalarProperty Name="IMSMembershipId" ColumnName="IMSMembershipId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ApprovalNbr" ColumnName="ApprovalNbr" />
+          <ScalarProperty Name="TraceNbr" ColumnName="TraceNbr" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MembershipTransactionHeaders">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.MembershipTransactionHeader">
+        <MappingFragment StoreEntitySet="MembershipTransactionHeaders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="OutsideChannelId" ColumnName="OutsideChannelId" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="merchant_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.merchant_translations">
+        <MappingFragment StoreEntitySet="merchant_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="merchant_id" ColumnName="merchant_id" />
+          <ScalarProperty Name="locale" ColumnName="locale" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantEvaluations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.MerchantEvaluation">
+        <MappingFragment StoreEntitySet="MerchantEvaluations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="EvaluationCategoryId" ColumnName="EvaluationCategoryId" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlyBonusPoints">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.MonthlyBonusPoint">
+        <MappingFragment StoreEntitySet="MonthlyBonusPoints">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="CommandStatusId" ColumnName="CommandStatusId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationMessages">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.NotificationMessage">
+        <MappingFragment StoreEntitySet="NotificationMessages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationMessageTranslations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.NotificationMessageTranslation">
+        <MappingFragment StoreEntitySet="NotificationMessageTranslations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NotificationMessageId" ColumnName="NotificationMessageId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NotificationTypeId" ColumnName="NotificationTypeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Removed" ColumnName="Removed" />
+          <ScalarProperty Name="NotificationStatusId" ColumnName="NotificationStatusId" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignId" />
+          <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+          <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+          <ScalarProperty Name="EmailContent" ColumnName="EmailContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationStatus">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.NotificationStatu">
+        <MappingFragment StoreEntitySet="NotificationStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.NotificationType">
+        <MappingFragment StoreEntitySet="NotificationTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+          <ScalarProperty Name="Interval" ColumnName="Interval" />
+          <ScalarProperty Name="SendEmail" ColumnName="SendEmail" />
+          <ScalarProperty Name="DisplayBanner" ColumnName="DisplayBanner" />
+          <ScalarProperty Name="NotificationMessageId" ColumnName="NotificationMessageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OAuthAccessTokens">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.OAuthAccessToken">
+        <MappingFragment StoreEntitySet="OAuthAccessTokens">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="expires" ColumnName="expires" />
+          <ScalarProperty Name="sessionkey" ColumnName="sessionkey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OAuthRefreshTokens">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.OAuthRefreshToken">
+        <MappingFragment StoreEntitySet="OAuthRefreshTokens">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="expires" ColumnName="expires" />
+          <ScalarProperty Name="sessionkey" ColumnName="sessionkey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutsideChannels">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.OutsideChannel">
+        <MappingFragment StoreEntitySet="OutsideChannels">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IMSUserId" ColumnName="IMSUserId" />
+          <ScalarProperty Name="CommissionRate" ColumnName="CommissionRate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutsideChannelStyles">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.OutsideChannelStyle">
+        <MappingFragment StoreEntitySet="OutsideChannelStyles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OutsideChannelId" ColumnName="OutsideChannelId" />
+          <ScalarProperty Name="StyleType" ColumnName="StyleType" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="FlaggedForDeletion" ColumnName="FlaggedForDeletion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Packages">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Package">
+        <MappingFragment StoreEntitySet="Packages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="PackageTypeId" ColumnName="PackageTypeId" />
+          <ScalarProperty Name="PackageCommission" ColumnName="PackageCommission" />
+          <ScalarProperty Name="ContractId" ColumnName="ContractId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MinRebatePercent" ColumnName="MinRebatePercent" />
+          <ScalarProperty Name="MinBonusPercent" ColumnName="MinBonusPercent" />
+          <ScalarProperty Name="MaxPackageSales" ColumnName="MaxPackageSales" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="StartingDate" ColumnName="StartingDate" />
+          <ScalarProperty Name="EndingDate" ColumnName="EndingDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PackageType_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PackageType_translations">
+        <MappingFragment StoreEntitySet="PackageType_translations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PackageTypeId" ColumnName="PackageTypeId" />
+          <ScalarProperty Name="locale" ColumnName="locale" />
+          <ScalarProperty Name="AllYearTitle" ColumnName="AllYearTitle" />
+          <ScalarProperty Name="AllYearTeaser" ColumnName="AllYearTeaser" />
+          <ScalarProperty Name="AllYearDescription" ColumnName="AllYearDescription" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PackageTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PackageType">
+        <MappingFragment StoreEntitySet="PackageTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AllowRebate" ColumnName="AllowRebate" />
+          <ScalarProperty Name="AllowBonification" ColumnName="AllowBonification" />
+          <ScalarProperty Name="MinDaysOnline" ColumnName="MinDaysOnline" />
+          <ScalarProperty Name="MaxDaysOnline" ColumnName="MaxDaysOnline" />
+          <ScalarProperty Name="PackageFees" ColumnName="PackageFees" />
+          <ScalarProperty Name="PackageCommission" ColumnName="PackageCommission" />
+          <ScalarProperty Name="AllYear" ColumnName="AllYear" />
+          <ScalarProperty Name="MinCommissionAllYear" ColumnName="MinCommissionAllYear" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentStatus">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PaymentStatu">
+        <MappingFragment StoreEntitySet="PaymentStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrefixPointValues">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PrefixPointValue">
+        <MappingFragment StoreEntitySet="PrefixPointValues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PricingCategories">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PricingCategory">
+        <MappingFragment StoreEntitySet="PricingCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PricingCategory_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PricingCategory_translations">
+        <MappingFragment StoreEntitySet="PricingCategory_translations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PricingCategoryId" ColumnName="PricingCategoryId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="program_feature_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.program_feature_translations">
+        <MappingFragment StoreEntitySet="program_feature_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="program_feature_id" ColumnName="program_feature_id" />
+          <ScalarProperty Name="locale" ColumnName="locale" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="program_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.program_translations">
+        <MappingFragment StoreEntitySet="program_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="program_id" ColumnName="program_id" />
+          <ScalarProperty Name="locale" ColumnName="locale" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramFeatures">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.ProgramFeature">
+        <MappingFragment StoreEntitySet="ProgramFeatures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Locale" ColumnName="Locale" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramFees">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.ProgramFee">
+        <MappingFragment StoreEntitySet="ProgramFees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="AssociatedFees" ColumnName="AssociatedFees" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Program">
+        <MappingFragment StoreEntitySet="Programs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FidelityRewardPercent" ColumnName="FidelityRewardPercent" />
+          <ScalarProperty Name="LoyaltyCostUsingPoints" ColumnName="LoyaltyCostUsingPoints" />
+          <ScalarProperty Name="LoyaltyValueGainingPoints" ColumnName="LoyaltyValueGainingPoints" />
+          <ScalarProperty Name="WithoutPromoAllowed" ColumnName="WithoutPromoAllowed" />
+          <ScalarProperty Name="ExpirationInMonth" ColumnName="ExpirationInMonth" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CardTypeId" ColumnName="CardTypeId" />
+          <ScalarProperty Name="ProgramTypeId" ColumnName="ProgramTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProgramTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.ProgramType">
+        <MappingFragment StoreEntitySet="ProgramTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromoCodes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PromoCode">
+        <MappingFragment StoreEntitySet="PromoCodes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OutsideChannelId" ColumnName="OutsideChannelId" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="PrefixPoints" ColumnName="PrefixPoints" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="MaxLimit" ColumnName="MaxLimit" />
+          <ScalarProperty Name="AlreadyUsed" ColumnName="AlreadyUsed" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="NewMemberOnly" ColumnName="NewMemberOnly" />
+          <ScalarProperty Name="FromGiftCard" ColumnName="FromGiftCard" />
+          <ScalarProperty Name="ForNewsletter" ColumnName="ForNewsletter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="promotion_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.promotion_translations">
+        <MappingFragment StoreEntitySet="promotion_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="locale" ColumnName="locale" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="promotion_id" ColumnName="promotion_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PromotionType">
+        <MappingFragment StoreEntitySet="PromotionTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReferralCampaigns">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.ReferralCampaign">
+        <MappingFragment StoreEntitySet="ReferralCampaigns">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartingDate" ColumnName="StartingDate" />
+          <ScalarProperty Name="EndingDate" ColumnName="EndingDate" />
+          <ScalarProperty Name="PointsToReferrer" ColumnName="PointsToReferrer" />
+          <ScalarProperty Name="PointsToReferred" ColumnName="PointsToReferred" />
+          <ScalarProperty Name="MaxReferredPerReferrer" ColumnName="MaxReferredPerReferrer" />
+          <ScalarProperty Name="MaxReferredPerCampaign" ColumnName="MaxReferredPerCampaign" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Referrals">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Referral">
+        <MappingFragment StoreEntitySet="Referrals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReferralCampaignId" ColumnName="ReferralCampaignId" />
+          <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+          <ScalarProperty Name="ReferredToEmail" ColumnName="ReferredToEmail" />
+          <ScalarProperty Name="ReferredTo" ColumnName="ReferredTo" />
+          <ScalarProperty Name="IsProfileCompleted" ColumnName="IsProfileCompleted" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesReps">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.SalesRep">
+        <MappingFragment StoreEntitySet="SalesRep">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IMSUserId" ColumnName="IMSUserId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SocialMediaUsers">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.SocialMediaUser">
+        <MappingFragment StoreEntitySet="SocialMediaUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="state_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.state_translations">
+        <MappingFragment StoreEntitySet="state_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="state_id" ColumnName="state_id" />
+          <ScalarProperty Name="Locale" ColumnName="Locale" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="EntityTypeId" ColumnName="EntityTypeId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Alpha2Code" ColumnName="Alpha2Code" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateTaxes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.StateTax">
+        <MappingFragment StoreEntitySet="StateTaxes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tag_translations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.tag_translations">
+        <MappingFragment StoreEntitySet="tag_translations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+          <ScalarProperty Name="locale" ColumnName="locale" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="header_path" ColumnName="header_path" />
+          <ScalarProperty Name="background_path" ColumnName="background_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="taggings">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.tagging">
+        <MappingFragment StoreEntitySet="taggings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tag_id" ColumnName="tag_id" />
+          <ScalarProperty Name="taggable_id" ColumnName="taggable_id" />
+          <ScalarProperty Name="taggable_type" ColumnName="taggable_type" />
+          <ScalarProperty Name="tagger_id" ColumnName="tagger_id" />
+          <ScalarProperty Name="tagger_type" ColumnName="tagger_type" />
+          <ScalarProperty Name="context" ColumnName="context" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tags">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.tag">
+        <MappingFragment StoreEntitySet="tags">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="taggings_count" ColumnName="taggings_count" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="IsSearchable" ColumnName="IsSearchable" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telephones">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Telephone">
+        <MappingFragment StoreEntitySet="Telephones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TelephoneTypeId" ColumnName="TelephoneTypeId" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelephoneTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.TelephoneType">
+        <MappingFragment StoreEntitySet="TelephoneTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terminals">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Terminal">
+        <MappingFragment StoreEntitySet="Terminals">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TerminalNumber" ColumnName="TerminalNumber" />
+          <ScalarProperty Name="Make" ColumnName="Make" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="E10001" ColumnName="E10001" />
+          <ScalarProperty Name="E10002" ColumnName="E10002" />
+          <ScalarProperty Name="E10003" ColumnName="E10003" />
+          <ScalarProperty Name="E10004" ColumnName="E10004" />
+          <ScalarProperty Name="E10005" ColumnName="E10005" />
+          <ScalarProperty Name="E10006" ColumnName="E10006" />
+          <ScalarProperty Name="E10007" ColumnName="E10007" />
+          <ScalarProperty Name="E10008" ColumnName="E10008" />
+          <ScalarProperty Name="E10009" ColumnName="E10009" />
+          <ScalarProperty Name="E10010" ColumnName="E10010" />
+          <ScalarProperty Name="E10011" ColumnName="E10011" />
+          <ScalarProperty Name="E10012" ColumnName="E10012" />
+          <ScalarProperty Name="E10013" ColumnName="E10013" />
+          <ScalarProperty Name="E10014" ColumnName="E10014" />
+          <ScalarProperty Name="E10015" ColumnName="E10015" />
+          <ScalarProperty Name="E10016" ColumnName="E10016" />
+          <ScalarProperty Name="E10017" ColumnName="E10017" />
+          <ScalarProperty Name="E10018" ColumnName="E10018" />
+          <ScalarProperty Name="E10019" ColumnName="E10019" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="LastSynchroDate" ColumnName="LastSynchroDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeZones">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.TimeZone">
+        <MappingFragment StoreEntitySet="TimeZones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.TransactionType">
+        <MappingFragment StoreEntitySet="TransactionTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDevises">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.UserDevis">
+        <MappingFragment StoreEntitySet="UserDevises">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="encrypted_password" ColumnName="encrypted_password" />
+          <ScalarProperty Name="reset_password_token" ColumnName="reset_password_token" />
+          <ScalarProperty Name="reset_password_sent_at" ColumnName="reset_password_sent_at" />
+          <ScalarProperty Name="remember_created_at" ColumnName="remember_created_at" />
+          <ScalarProperty Name="sign_in_count" ColumnName="sign_in_count" />
+          <ScalarProperty Name="current_sign_in_at" ColumnName="current_sign_in_at" />
+          <ScalarProperty Name="last_sign_in_at" ColumnName="last_sign_in_at" />
+          <ScalarProperty Name="current_sign_in_ip" ColumnName="current_sign_in_ip" />
+          <ScalarProperty Name="last_sign_in_ip" ColumnName="last_sign_in_ip" />
+          <ScalarProperty Name="authentication_token" ColumnName="authentication_token" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscribers">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Subscriber">
+        <MappingFragment StoreEntitySet="Subscribers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PromocodeId" ColumnName="PromocodeId" />
+          <ScalarProperty Name="Unsubscribe" ColumnName="Unsubscribe" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EnterprisePrograms" TypeName="TRENDIGO_OKIOKModel.EnterprisePrograms" StoreEntitySet="EnterprisePrograms">
+      <EndProperty Name="Enterprises">
+        <ScalarProperty Name="Id" ColumnName="EnterpriseId" />
+      </EndProperty>
+      <EndProperty Name="Programs">
+        <ScalarProperty Name="Id" ColumnName="ProgramId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OutsideChannelPrograms" TypeName="TRENDIGO_OKIOKModel.OutsideChannelPrograms" StoreEntitySet="OutsideChannelPrograms">
+      <EndProperty Name="OutsideChannels">
+        <ScalarProperty Name="Id" ColumnName="OutsideChannelId" />
+      </EndProperty>
+      <EndProperty Name="Programs">
+        <ScalarProperty Name="Id" ColumnName="ProgramId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProgramCardTypes" TypeName="TRENDIGO_OKIOKModel.ProgramCardTypes" StoreEntitySet="ProgramCardTypes">
+      <EndProperty Name="CardTypes">
+        <ScalarProperty Name="Id" ColumnName="CardTypeId" />
+      </EndProperty>
+      <EndProperty Name="Programs">
+        <ScalarProperty Name="Id" ColumnName="ProgramId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Campaigns">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Campaign">
+        <MappingFragment StoreEntitySet="Campaigns">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="CampaignTypeId" ColumnName="CampaignTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CampaignTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.CampaignType">
+        <MappingFragment StoreEntitySet="CampaignTypes">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsletterContents">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.NewsletterContent">
+        <MappingFragment StoreEntitySet="NewsletterContents">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="NewsletterId" ColumnName="NewsletterId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Newsletters">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Newsletter">
+        <MappingFragment StoreEntitySet="Newsletters">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsletterSections">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.NewsletterSection">
+        <MappingFragment StoreEntitySet="NewsletterSections">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="NewsletterId" ColumnName="NewsletterId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsletterSectionTranslations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.NewsletterSectionTranslation">
+        <MappingFragment StoreEntitySet="NewsletterSectionTranslations">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="NewsletterSectionId" ColumnName="NewsletterSectionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Section">
+        <MappingFragment StoreEntitySet="Sections">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SectionTypeId" ColumnName="SectionTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectionTranslations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.SectionTranslation">
+        <MappingFragment StoreEntitySet="SectionTranslations">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectionTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.SectionType">
+        <MappingFragment StoreEntitySet="SectionTypes">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDynamic" ColumnName="IsDynamic" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnterpriseStateTaxNumbers">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.EnterpriseStateTaxNumber">
+        <MappingFragment StoreEntitySet="EnterpriseStateTaxNumbers">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="StateTaxeId" ColumnName="StateTaxeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlobalResponseCodes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.GlobalResponseCode">
+        <MappingFragment StoreEntitySet="GlobalResponseCode">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ResponseCode" ColumnName="ResponseCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftCardPurchases">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.GiftCardPurchas">
+        <MappingFragment StoreEntitySet="GiftCardPurchases">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="EmailConfirmationDate" ColumnName="EmailConfirmationDate" />
+          <ScalarProperty Name="PromoCodeId" ColumnName="PromoCodeId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="ReceiverEmail" ColumnName="ReceiverEmail" />
+          <ScalarProperty Name="IsVirtual" ColumnName="IsVirtual" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ReceiverName" ColumnName="ReceiverName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftCardTransactionDetails">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.GiftCardTransactionDetail">
+        <MappingFragment StoreEntitySet="GiftCardTransactionDetails">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="TraceNbr" ColumnName="TraceNbr" />
+          <ScalarProperty Name="ApprovalNbr" ColumnName="ApprovalNbr" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="GiftCardPurchaseId" ColumnName="GiftCardPurchaseId" />
+          <ScalarProperty Name="LineItemId" ColumnName="LineItemId" />
+          <ScalarProperty Name="HeaderId" ColumnName="HeaderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftCardTransactionHeaders">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.GiftCardTransactionHeader">
+        <MappingFragment StoreEntitySet="GiftCardTransactionHeaders">
+          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Templates">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Template">
+        <MappingFragment StoreEntitySet="Templates">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TemplateSections">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.TemplateSection">
+        <MappingFragment StoreEntitySet="TemplateSections">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EnterpriseLanguages" TypeName="TRENDIGO_OKIOKModel.EnterpriseLanguages" StoreEntitySet="EnterpriseLanguages">
+      <EndProperty Name="Language">
+        <ScalarProperty Name="Id" ColumnName="LanguageId" />
+      </EndProperty>
+      <EndProperty Name="Enterprise">
+        <ScalarProperty Name="Id" ColumnName="EnterpriseId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EnterpriseTelephones" TypeName="TRENDIGO_OKIOKModel.EnterpriseTelephones" StoreEntitySet="EnterpriseTelephones">
+      <EndProperty Name="Telephone">
+        <ScalarProperty Name="Id" ColumnName="TelephoneId" />
+      </EndProperty>
+      <EndProperty Name="Enterprise">
+        <ScalarProperty Name="Id" ColumnName="EnterpriseId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CampaignNewsletters" TypeName="TRENDIGO_OKIOKModel.CampaignNewsletters" StoreEntitySet="CampaignNewsletters">
+      <EndProperty Name="Newsletter">
+        <ScalarProperty Name="Id" ColumnName="NewsletterId" />
+      </EndProperty>
+      <EndProperty Name="Campaign">
+        <ScalarProperty Name="Id" ColumnName="CampaignId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="DirectDepositLogs">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.DirectDepositLog">
+        <MappingFragment StoreEntitySet="DirectDepositLogs">
+          <ScalarProperty Name="LogFileDate" ColumnName="LogFileDate" />
+          <ScalarProperty Name="LogFileStatus" ColumnName="LogFileStatus" />
+          <ScalarProperty Name="LogFilename" ColumnName="LogFilename" />
+          <ScalarProperty Name="FileShippedDate" ColumnName="FileShippedDate" />
+          <ScalarProperty Name="FileShipped" ColumnName="FileShipped" />
+          <ScalarProperty Name="FileCreationDate" ColumnName="FileCreationDate" />
+          <ScalarProperty Name="FileCreated" ColumnName="FileCreated" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+          <ScalarProperty Name="SequenceNumber" ColumnName="SequenceNumber" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrencyRates">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.CurrencyRate">
+        <MappingFragment StoreEntitySet="CurrencyRates">
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="TargetCurrencyId" ColumnName="TargetCurrencyId" />
+          <ScalarProperty Name="SourceCurrencyId" ColumnName="SourceCurrencyId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeviceRequests">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.DeviceRequest">
+        <MappingFragment StoreEntitySet="DeviceRequests">
+          <ScalarProperty Name="IMSCardId" ColumnName="IMSCardId" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="DeviceRequestStatutId" ColumnName="DeviceRequestStatutId" />
+          <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+          <ScalarProperty Name="IMSMembershipId" ColumnName="IMSMembershipId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BatchCloseLogs">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.BatchCloseLog">
+        <MappingFragment StoreEntitySet="BatchCloseLogs">
+          <ScalarProperty Name="trxcapResponseCode" ColumnName="trxcapResponseCode" />
+          <ScalarProperty Name="batchEndTime" ColumnName="batchEndTime" />
+          <ScalarProperty Name="batchStartTime" ColumnName="batchStartTime" />
+          <ScalarProperty Name="traceNumber" ColumnName="traceNumber" />
+          <ScalarProperty Name="batchTotal" ColumnName="batchTotal" />
+          <ScalarProperty Name="batchNumberSequence" ColumnName="batchNumberSequence" />
+          <ScalarProperty Name="clerkMessageResponse" ColumnName="clerkMessageResponse" />
+          <ScalarProperty Name="responseCode" ColumnName="responseCode" />
+          <ScalarProperty Name="batchClosingDate" ColumnName="batchClosingDate" />
+          <ScalarProperty Name="terminalId" ColumnName="terminalId" />
+          <ScalarProperty Name="merchantId" ColumnName="merchantId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Acquirers">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Acquirer">
+        <MappingFragment StoreEntitySet="Acquirers">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMS_Header">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IMS_Header">
+        <MappingFragment StoreEntitySet="IMS_Header">
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="PaymentStatusId" ColumnName="PaymentStatusId" />
+          <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="BatchNumber" ColumnName="BatchNumber" />
+          <ScalarProperty Name="CurrentFiscalYear" ColumnName="CurrentFiscalYear" />
+          <ScalarProperty Name="CurrentFiscalMonth" ColumnName="CurrentFiscalMonth" />
+          <ScalarProperty Name="ClosingAmount" ColumnName="ClosingAmount" />
+          <ScalarProperty Name="DueAmount" ColumnName="DueAmount" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="OpeningAmount" ColumnName="OpeningAmount" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="ContractCommissionId" ColumnName="ContractCommissionId" />
+          <ScalarProperty Name="SalesRepId" ColumnName="SalesRepId" />
+          <ScalarProperty Name="OutsideChannelId" ColumnName="OutsideChannelId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="PortalId" ColumnName="PortalId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrxFinancialTransactions">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.TrxFinancialTransaction">
+        <MappingFragment StoreEntitySet="TrxFinancialTransactions">
+          <ScalarProperty Name="creditCardId" ColumnName="creditCardId" />
+          <ScalarProperty Name="idRelatedTransaction" ColumnName="idRelatedTransaction" />
+          <ScalarProperty Name="TerminalId" ColumnName="TerminalId" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="IMSTransferDate" ColumnName="IMSTransferDate" />
+          <ScalarProperty Name="IMSTransferMessageId" ColumnName="IMSTransferMessageId" />
+          <ScalarProperty Name="IMSTransferStatusId" ColumnName="IMSTransferStatusId" />
+          <ScalarProperty Name="concluded" ColumnName="concluded" />
+          <ScalarProperty Name="refunded" ColumnName="refunded" />
+          <ScalarProperty Name="voided" ColumnName="voided" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="acquirerResponseCode" ColumnName="acquirerResponseCode" />
+          <ScalarProperty Name="merchantResponseMessage" ColumnName="merchantResponseMessage" />
+          <ScalarProperty Name="transaxTerminalId" ColumnName="transaxTerminalId" />
+          <ScalarProperty Name="systemDateTime" ColumnName="systemDateTime" />
+          <ScalarProperty Name="legTransaction" ColumnName="legTransaction" />
+          <ScalarProperty Name="transactionTypeId" ColumnName="transactionTypeId" />
+          <ScalarProperty Name="cardTypeId" ColumnName="cardTypeId" />
+          <ScalarProperty Name="inputModeId" ColumnName="inputModeId" />
+          <ScalarProperty Name="currencyId" ColumnName="currencyId" />
+          <ScalarProperty Name="acquirerReference" ColumnName="acquirerReference" />
+          <ScalarProperty Name="localDateTime" ColumnName="localDateTime" />
+          <ScalarProperty Name="terminalReference" ColumnName="terminalReference" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="entityId" ColumnName="entityId" />
+          <ScalarProperty Name="tip" ColumnName="tip" />
+          <ScalarProperty Name="aditionalAmount" ColumnName="aditionalAmount" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="approvedAmount" ColumnName="approvedAmount" />
+          <ScalarProperty Name="baseAmount" ColumnName="baseAmount" />
+          <ScalarProperty Name="acquirerId" ColumnName="acquirerId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrxNonFinancialTransactions">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.TrxNonFinancialTransaction">
+        <MappingFragment StoreEntitySet="TrxNonFinancialTransactions">
+          <ScalarProperty Name="orderNumber" ColumnName="orderNumber" />
+          <ScalarProperty Name="memberId" ColumnName="memberId" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="transaxTerminalId" ColumnName="transaxTerminalId" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="receipt" ColumnName="receipt" />
+          <ScalarProperty Name="concluded" ColumnName="concluded" />
+          <ScalarProperty Name="refunded" ColumnName="refunded" />
+          <ScalarProperty Name="voided" ColumnName="voided" />
+          <ScalarProperty Name="transactionTypeId" ColumnName="transactionTypeId" />
+          <ScalarProperty Name="inputModeId" ColumnName="inputModeId" />
+          <ScalarProperty Name="vendorId" ColumnName="vendorId" />
+          <ScalarProperty Name="promotion_appliedId" ColumnName="promotion_appliedId" />
+          <ScalarProperty Name="entityId" ColumnName="entityId" />
+          <ScalarProperty Name="program" ColumnName="program" />
+          <ScalarProperty Name="localDateTime" ColumnName="localDateTime" />
+          <ScalarProperty Name="systemDateTime" ColumnName="systemDateTime" />
+          <ScalarProperty Name="pointsGained" ColumnName="pointsGained" />
+          <ScalarProperty Name="pointsExpended" ColumnName="pointsExpended" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="cardNonFinancialId" ColumnName="cardNonFinancialId" />
+          <ScalarProperty Name="approvedAmount" ColumnName="approvedAmount" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="tip" ColumnName="tip" />
+          <ScalarProperty Name="aditionalAmount" ColumnName="aditionalAmount" />
+          <ScalarProperty Name="baseAmount" ColumnName="baseAmount" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditCards">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.CreditCard">
+        <MappingFragment StoreEntitySet="CreditCards">
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="defaultCard" ColumnName="defaultCard" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CreditCardTypeId" ColumnName="CreditCardTypeId" />
+          <ScalarProperty Name="CardHolder" ColumnName="CardHolder" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BadgeCategories">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.BadgeCategory">
+        <MappingFragment StoreEntitySet="BadgeCategories">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Badges">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Badge">
+        <MappingFragment StoreEntitySet="Badges">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CampaignTypeId" ColumnName="CampaignTypeId" />
+          <ScalarProperty Name="Filepath" ColumnName="Filepath" />
+          <ScalarProperty Name="SendAfter" ColumnName="SendAfter" />
+          <ScalarProperty Name="Stars" ColumnName="Stars" />
+          <ScalarProperty Name="Levels" ColumnName="Levels" />
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="BadgeCategoryId" ColumnName="BadgeCategoryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BadgeTranslations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.BadgeTranslation">
+        <MappingFragment StoreEntitySet="BadgeTranslations">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="BadgeId" ColumnName="BadgeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enterprise_Contacts">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Enterprise_Contacts">
+        <MappingFragment StoreEntitySet="Enterprise_Contacts">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnterpriseProcessors">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.EnterpriseProcessor">
+        <MappingFragment StoreEntitySet="EnterpriseProcessors">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ProcessorId" ColumnName="ProcessorId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLoggings">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.ErrorLogging">
+        <MappingFragment StoreEntitySet="ErrorLoggings">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="InnerException" ColumnName="InnerException" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="Method" ColumnName="Method" />
+          <ScalarProperty Name="Application" ColumnName="Application" />
+          <ScalarProperty Name="ErrorLoggingStatusId" ColumnName="ErrorLoggingStatusId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLoggingStatus">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.ErrorLoggingStatu">
+        <MappingFragment StoreEntitySet="ErrorLoggingStatus">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IncentiveProgramRefunds">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.IncentiveProgramRefund">
+        <MappingFragment StoreEntitySet="IncentiveProgramRefunds">
+          <ScalarProperty Name="HeaderId" ColumnName="HeaderId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="PercentageRefund" ColumnName="PercentageRefund" />
+          <ScalarProperty Name="RefundDateTime" ColumnName="RefundDateTime" />
+          <ScalarProperty Name="TransactionDateTime" ColumnName="TransactionDateTime" />
+          <ScalarProperty Name="OnSpotTransaction" ColumnName="OnSpotTransaction" />
+          <ScalarProperty Name="TaxRefund" ColumnName="TaxRefund" />
+          <ScalarProperty Name="BaseRefund" ColumnName="BaseRefund" />
+          <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+          <ScalarProperty Name="BaseAmount" ColumnName="BaseAmount" />
+          <ScalarProperty Name="FinancialTransactionId" ColumnName="FinancialTransactionId" />
+          <ScalarProperty Name="LocationPromoCodeId" ColumnName="LocationPromoCodeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationPromoCodes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.LocationPromoCode">
+        <MappingFragment StoreEntitySet="LocationPromoCodes">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="PercentCommunity" ColumnName="PercentCommunity" />
+          <ScalarProperty Name="PercentOnSpot" ColumnName="PercentOnSpot" />
+          <ScalarProperty Name="PromoCodeId" ColumnName="PromoCodeId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationPromotionCalendars">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.LocationPromotionCalendar">
+        <MappingFragment StoreEntitySet="LocationPromotionCalendars">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="PromotionCalendarId" ColumnName="PromotionCalendarId" />
+          <ScalarProperty Name="Locationid" ColumnName="Locationid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionCalendarDetails">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PromotionCalendarDetail">
+        <MappingFragment StoreEntitySet="PromotionCalendarDetails">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="DayOfWeekId" ColumnName="DayOfWeekId" />
+          <ScalarProperty Name="PromotionCalendarId" ColumnName="PromotionCalendarId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionCalendarNotifications">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PromotionCalendarNotification">
+        <MappingFragment StoreEntitySet="PromotionCalendarNotifications">
+          <ScalarProperty Name="SelectedBy" ColumnName="SelectedBy" />
+          <ScalarProperty Name="SelectedPromoCalendarId" ColumnName="SelectedPromoCalendarId" />
+          <ScalarProperty Name="SelectedNewsletter" ColumnName="SelectedNewsletter" />
+          <ScalarProperty Name="SelectedDate" ColumnName="SelectedDate" />
+          <ScalarProperty Name="WarningNewsletter" ColumnName="WarningNewsletter" />
+          <ScalarProperty Name="WarningDate" ColumnName="WarningDate" />
+          <ScalarProperty Name="NotificationNewsletter" ColumnName="NotificationNewsletter" />
+          <ScalarProperty Name="NotificationDate" ColumnName="NotificationDate" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="TargetedDate" ColumnName="TargetedDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionCalendars">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PromotionCalendar">
+        <MappingFragment StoreEntitySet="PromotionCalendars">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="PromotionCalendarTypeId" ColumnName="PromotionCalendarTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionCalendarTranslations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PromotionCalendarTranslation">
+        <MappingFragment StoreEntitySet="PromotionCalendarTranslations">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="PromotionCalendarId" ColumnName="PromotionCalendarId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionCalendarTypes">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.PromotionCalendarType">
+        <MappingFragment StoreEntitySet="PromotionCalendarTypes">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="AvatarLink" ColumnName="AvatarLink" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ActivationKey" ColumnName="ActivationKey" />
+          <ScalarProperty Name="PasswordNotSet" ColumnName="PasswordNotSet" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="EnterpriseId" ColumnName="EnterpriseId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspnetuserBadges" TypeName="TRENDIGO_OKIOKModel.AspnetuserBadges" StoreEntitySet="AspnetuserBadges">
+      <EndProperty Name="Badge">
+        <ScalarProperty Name="Id" ColumnName="BadgeId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="TRENDIGO_OKIOKModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUser">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRole">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="LocationHolidays">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.LocationHoliday">
+        <MappingFragment StoreEntitySet="LocationHolidays">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Rating">
+        <MappingFragment StoreEntitySet="Ratings">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="FinancialTransactionId" ColumnName="FinancialTransactionId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserNotifications">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.UserNotification">
+        <MappingFragment StoreEntitySet="UserNotifications">
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="NotificationToken" ColumnName="NotificationToken" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="PayWithPoints" ColumnName="PayWithPoints" />
+          <ScalarProperty Name="EnableTips" ColumnName="EnableTips" />
+          <ScalarProperty Name="ApplyTaxes" ColumnName="ApplyTaxes" />
+          <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="BankingInfoId" ColumnName="BankingInfoId" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="IMSUserLocations" TypeName="TRENDIGO_OKIOKModel.IMSUserLocations" StoreEntitySet="IMSUserLocations">
+      <EndProperty Name="Location">
+        <ScalarProperty Name="Id" ColumnName="LocationId" />
+      </EndProperty>
+      <EndProperty Name="IMSUser">
+        <ScalarProperty Name="Id" ColumnName="IMSUserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Promotions">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Promotion">
+        <MappingFragment StoreEntitySet="Promotions">
+          <ScalarProperty Name="ComingSoon" ColumnName="ComingSoon" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="MinBonusPercent" ColumnName="MinBonusPercent" />
+          <ScalarProperty Name="MinRebatePercent" ColumnName="MinRebatePercent" />
+          <ScalarProperty Name="MaxAmountForPromotion" ColumnName="MaxAmountForPromotion" />
+          <ScalarProperty Name="MaxDiscountForPromotion" ColumnName="MaxDiscountForPromotion" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PackageId" ColumnName="PackageId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="PromotionTypeId" ColumnName="PromotionTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PromotionLocations" TypeName="TRENDIGO_OKIOKModel.PromotionLocations" StoreEntitySet="PromotionLocations">
+      <EndProperty Name="Promotion">
+        <ScalarProperty Name="Id" ColumnName="PromotionId" />
+      </EndProperty>
+      <EndProperty Name="Location">
+        <ScalarProperty Name="Id" ColumnName="LocationId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PromotionPrograms" TypeName="TRENDIGO_OKIOKModel.PromotionPrograms" StoreEntitySet="PromotionPrograms">
+      <EndProperty Name="Promotion">
+        <ScalarProperty Name="Id" ColumnName="PromotionId" />
+      </EndProperty>
+      <EndProperty Name="Program">
+        <ScalarProperty Name="Id" ColumnName="ProgramId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Promotion_Schedules">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Promotion_Schedules">
+        <MappingFragment StoreEntitySet="Promotion_Schedules">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsPrime" ColumnName="IsPrime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="PromotionId" ColumnName="PromotionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantTags">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.MerchantTag">
+        <MappingFragment StoreEntitySet="MerchantTags">
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantImages">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.MerchantImage">
+        <MappingFragment StoreEntitySet="MerchantImages">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="IsPromoted" ColumnName="IsPromoted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Filepath" ColumnName="Filepath" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Merchants">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.Merchant">
+        <MappingFragment StoreEntitySet="Merchants">
+          <ScalarProperty Name="LogoPath" ColumnName="LogoPath" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+          <ScalarProperty Name="TaxableProduct" ColumnName="TaxableProduct" />
+          <ScalarProperty Name="PricingCategoryId" ColumnName="PricingCategoryId" />
+          <ScalarProperty Name="MobileId" ColumnName="MobileId" />
+          <ScalarProperty Name="LogoId" ColumnName="LogoId" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="BankingInfoId" ColumnName="BankingInfoId" />
+          <ScalarProperty Name="FacebookLink" ColumnName="FacebookLink" />
+          <ScalarProperty Name="WebLink" ColumnName="WebLink" />
+          <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TransaxId" ColumnName="TransaxId" />
+          <ScalarProperty Name="EntityTypeId" ColumnName="EntityTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EnterpriseMerchants" TypeName="TRENDIGO_OKIOKModel.EnterpriseMerchants" StoreEntitySet="EnterpriseMerchants">
+      <EndProperty Name="Merchant">
+        <ScalarProperty Name="Id" ColumnName="MerchantId" />
+      </EndProperty>
+      <EndProperty Name="Enterprise">
+        <ScalarProperty Name="Id" ColumnName="EnterpriseId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Favorites" TypeName="TRENDIGO_OKIOKModel.Favorites" StoreEntitySet="Favorites">
+      <EndProperty Name="Merchant">
+        <ScalarProperty Name="Id" ColumnName="MerchantId" />
+      </EndProperty>
+      <EndProperty Name="Member">
+        <ScalarProperty Name="Id" ColumnName="MemberId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="IMSUserMerchants" TypeName="TRENDIGO_OKIOKModel.IMSUserMerchants" StoreEntitySet="IMSUserMerchants">
+      <EndProperty Name="Merchant">
+        <ScalarProperty Name="Id" ColumnName="MerchantId" />
+      </EndProperty>
+      <EndProperty Name="IMSUser">
+        <ScalarProperty Name="Id" ColumnName="IMSUserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="BankingInfos">
+      <EntityTypeMapping TypeName="TRENDIGO_OKIOKModel.BankingInfo">
+        <MappingFragment StoreEntitySet="BankingInfos">
+          <ScalarProperty Name="SpecimenPath" ColumnName="SpecimenPath" />
+          <ScalarProperty Name="TransaxTerminalId" ColumnName="TransaxTerminalId" />
+          <ScalarProperty Name="TransaxMerchantId" ColumnName="TransaxMerchantId" />
+          <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="Transit" ColumnName="Transit" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

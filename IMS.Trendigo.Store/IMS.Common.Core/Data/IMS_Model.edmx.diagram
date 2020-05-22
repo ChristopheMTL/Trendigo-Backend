@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1c265cc6833c49a2811a4f3716ef745e" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Address" Width="1.5" PointX="7.5" PointY="88.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.AspNetRole" Width="1.5" PointX="18" PointY="74.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.AspNetUserClaim" Width="1.5" PointX="22.5" PointY="70.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.AspNetUserLogin" Width="1.5" PointX="22.5" PointY="65.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.BankInfo" Width="1.5" PointX="5.25" PointY="80.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.CardPointHistory" Width="1.5" PointX="35" PointY="83.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.CardStatus" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.CardType" Width="1.5" PointX="23.25" PointY="77.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.City" Width="1.5" PointX="7.5" PointY="93.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.city_translations" Width="1.5" PointX="9.75" PointY="90.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.CommandStatu" Width="1.5" PointX="30.5" PointY="77.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.ContractCommission" Width="1.5" PointX="5.25" PointY="75.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.ContractLocation" Width="1.5" PointX="8.25" PointY="75.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Contract" Width="1.5" PointX="3" PointY="74.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Country" Width="1.5" PointX="3" PointY="85.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.country_translations" Width="1.5" PointX="5.25" PointY="88.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.CreditCardType" Width="1.5" PointX="22.5" PointY="75.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Currency" Width="1.5" PointX="0.75" PointY="75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.DeviceRequestStatu" Width="1.5" PointX="22.5" PointY="95.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.DeviceRequestStatus_translations" Width="1.5" PointX="24.75" PointY="101.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.DeviceType" Width="1.5" PointX="22.5" PointY="105.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.DeviceTypeTranslation" Width="1.5" PointX="24.75" PointY="105.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.EnrollLocation" Width="1.5" PointX="38.25" PointY="92.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.EnrollmentProcess" Width="1.5" PointX="28.5" PointY="74.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Enrollment" Width="1.5" PointX="30.75" PointY="88" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.EnrollmentStatu" Width="1.5" PointX="28.5" PointY="102.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Enterprise" Width="1.5" PointX="12.75" PointY="87.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.EntityType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.EvaluationCategory" Width="1.5" PointX="28.5" PointY="105.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.EvaluationCategory_translations" Width="1.5" PointX="30.75" PointY="104.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Identity" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMS_Detail" Width="1.5" PointX="17.25" PointY="79.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMS_LineItem" Width="1.5" PointX="0.75" PointY="67.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMSCard" Width="1.5" PointX="32.75" PointY="72.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMSEnterpriseParameter" Width="1.5" PointX="10.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMSEnterpriseParameterTerminal" Width="1.5" PointX="13" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMSMembership" Width="1.5" PointX="33" PointY="88.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMSPointTracker" Width="1.5" PointX="15" PointY="85.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMSTransferMessage" Width="1.5" PointX="5.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMSTransferStatu" Width="1.5" PointX="5.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMSUser" Width="1.5" PointX="18" PointY="88" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.language_translations" Width="1.5" PointX="22.5" PointY="108.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Language" Width="1.5" PointX="20.25" PointY="97.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Location_Terminals" Width="1.5" PointX="41.25" PointY="93.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.LocationBusinessHour" Width="1.5" PointX="38.25" PointY="99.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.LocationMemberDistance" Width="1.5" PointX="27.75" PointY="84.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.LocationTax" Width="1.5" PointX="38.25" PointY="88.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.MemberPromoCodeHistory" Width="1.5" PointX="30" PointY="83.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.MembershipTransactionDetail" Width="1.5" PointX="37.25" PointY="84.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.MembershipTransactionHeader" Width="1.5" PointX="22.5" PointY="81.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.merchant_translations" Width="1.5" PointX="36" PointY="100" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.MerchantEvaluation" Width="1.5" PointX="30.75" PointY="93.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.MonthlyBonusPoint" Width="1.5" PointX="32.75" PointY="83.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.NotificationMessage" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.NotificationMessageTranslation" Width="1.5" PointX="22.5" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Notification" Width="1.5" PointX="22.5" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.NotificationStatu" Width="1.5" PointX="20.25" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.NotificationType" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.OAuthAccessToken" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.OAuthRefreshToken" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.OutsideChannel" Width="1.5" PointX="20.25" PointY="88.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.OutsideChannelStyle" Width="1.5" PointX="22.5" PointY="101.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Package" Width="1.5" PointX="5.25" PointY="69.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PackageType_translations" Width="1.5" PointX="17.25" PointY="96.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PackageType" Width="1.5" PointX="15" PointY="95.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PaymentStatu" Width="1.5" PointX="12.75" PointY="80.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PrefixPointValue" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PricingCategory" Width="1.5" PointX="31.5" PointY="101.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PricingCategory_translations" Width="1.5" PointX="33.75" PointY="101.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.program_feature_translations" Width="1.5" PointX="30" PointY="98.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.program_translations" Width="1.5" PointX="27.75" PointY="94" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.ProgramFeature" Width="1.5" PointX="27.75" PointY="97.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.ProgramFee" Width="1.5" PointX="30.75" PointY="79.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Program" Width="1.5" PointX="25.5" PointY="87.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.ProgramType" Width="1.5" PointX="23.25" PointY="99" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PromoCode" Width="1.5" PointX="27.75" PointY="87.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.promotion_translations" Width="1.5" PointX="9.75" PointY="72.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PromotionType" Width="1.5" PointX="5.25" PointY="66.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.ReferralCampaign" Width="1.5" PointX="25.5" PointY="78.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Referral" Width="1.5" PointX="27.75" PointY="79.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.SalesRep" Width="1.5" PointX="20.25" PointY="93.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.SocialMediaUser" Width="1.5" PointX="22.5" PointY="61.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.state_translations" Width="1.5" PointX="7.5" PointY="102.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.State" Width="1.5" PointX="5.25" PointY="91.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.StateTax" Width="1.5" PointX="7.5" PointY="83.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.tag_translations" Width="1.5" PointX="12" PointY="93.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.tagging" Width="1.5" PointX="12" PointY="97.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.tag" Width="1.5" PointX="9.75" PointY="95.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Telephone" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.TelephoneType" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Terminal" Width="1.5" PointX="39" PointY="103.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.TimeZone" Width="1.5" PointX="5.25" PointY="96.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.TransactionType" Width="1.5" PointX="15" PointY="75.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.UserDevis" Width="1.5" PointX="22.5" PointY="56.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Subscriber" Width="1.5" PointX="36" PointY="88.875" IsExpanded="true" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Address_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Address_State" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Enterprise_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_BankInfos_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_BankInfos_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_CardPointHistories_IMSCards" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_CardPointHistories_PromoCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MemberPromoCodeHistories_CardPointHistories" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Programs_CardTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Cities_TimeZones" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_City_State" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_city_translations_city" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_tags_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MonthlyBonusPoints_CommandStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ContractCommission_Contracts" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ContractCommission_IMSUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ContractLocations_Contracts" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Contracts_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Contracts_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Contracts_IMS_LineItem" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Contracts_SalesRep" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Packages_Contracts" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Countries_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_CountriesTranslation_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MembershipTransactionHeaders_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ProgramFees_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_StateTaxes_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_DeviceRequestStatus_translations_DeviceRequestStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_DeviceTypeTranslations_DeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Enrollments_EnrollmentProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Enrollments_EnrollmentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Enrollments_IMSMemberships" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Enrollments_IMSMemberships1" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSPointTracker_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSUsers_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MembershipTransactionHeaders_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_OutsideChannels_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Packages_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PackageTypes_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Program_Enterprise" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Subscribers_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_EvaluationCategory_translations_EvaluationCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MerchantEvaluations_EvaluationCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_EvaluationCategory_translations_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_LineItem" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Detail_TransactionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MemberPromoCodeHistories_IMSCards" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_EnterpriseTerminals_IMSEnterpriseParameters" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSMembership_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSMemberships_PromoCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MembershipTransactionDetails_IMSMemberships" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSUser_Merchants_IMSUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_OutsideChannels_IMSUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_language_translations_language" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_NotificationMessageTranslations_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PricingCategory_translations_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ProgramFeatures_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Merchant_Terminal_Terminal" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MerchantTaxes_StateTaxes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MemberPromoCodeHistories_PromoCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MembershipTransactionDetail_MembershipTransactionHeader" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MembershipTransactionHeaders_OutsideChannels" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_NotificationMessageTranslations_NotificationMessages" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_NotificationTypes_NotificationMessages" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Notifications_NotificationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Notifications_NotificationTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_OutsideChannelStyles_OutsideChannels" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PromoCode_OutsideChannel" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Packages_PackageTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PackageType_translations_PackageTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PricingCategory_translations_PricingCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_program_feature_translations_ProgramFeatures" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_program_translations_Programs" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ProgramFeatures_Programs" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ProgramFees_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Programs_ProgramTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PromoCode_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Subscribers_PromoCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Referrals_ReferralCampaigns" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_StatesTranslation_States" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_StateTaxes_States" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_tag_translations" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_taggings_tags" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_tags_tags" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Telephone_TelephoneType" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.EnterprisePrograms" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.OutsideChannelPrograms" ManuallyRouted="false" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.ProgramCardTypes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Campaign" Width="1.5" PointX="15" PointY="91.5" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.CampaignType" Width="1.5" PointX="12.75" PointY="83.875" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Campaigns_CampaignTypes" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Campaigns_tags" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.NewsletterContent" Width="1.5" PointX="25.875" PointY="61.25" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Newsletter" Width="1.5" PointX="3" PointY="19.75" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.NewsletterSection" Width="1.5" PointX="5.25" PointY="15.875" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.NewsletterSectionTranslation" Width="1.5" PointX="25.875" PointY="53.25" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Section" Width="1.5" PointX="3" PointY="15.625" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.SectionTranslation" Width="1.5" PointX="25.875" PointY="57.125" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.SectionType" Width="1.5" PointX="0.75" PointY="15.875" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_NewsletterContents_Languages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_SectionContentTranslations_Languages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_SectionTranslations_Languages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_NewsletterContents_Newsletters" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_NewsletterSections_Newsletters" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_NewsletterSections_Sections" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_SectionContentTranslations_NewsletterSections" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Sections_SectionTypes" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_SectionTranslations_Sections" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.EnterpriseStateTaxNumber" Width="1.5" PointX="18" PointY="84.125" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_EnterpriseStateTaxNumbers_Enterprises" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_EnterpriseStateTaxNumbers_StateTaxes" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.GlobalResponseCode" Width="1.5" PointX="7.375" PointY="14.875" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.GiftCardPurchas" Width="1.5" PointX="38" PointY="79.625" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.GiftCardTransactionDetail" Width="1.5" PointX="27.25" PointY="70.375" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.GiftCardTransactionHeader" Width="1.5" PointX="25" PointY="74" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_GiftCardTransactionHeaders_Currencies" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_GiftCardTransactionHeaders_Enterprises" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_GiftCardPurchases_PromoCodes" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_GiftCardTransactionDetails_GiftCardTransactionHeaders" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_GiftCardTransactionDetails_IMS_LineItem" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Template" Width="1.5" PointX="10.5" PointY="82" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.TemplateSection" Width="1.5" PointX="12.75" PointY="48.875" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_CampaignTypes_Templates" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_TemplateSections_Sections" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_TemplateSections_Templates" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSCard_Program" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.EnterpriseLanguages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_CardPointHistories_IMSUsers1" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Card_Card_Status" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.EnterpriseTelephones" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSCards_Enterprises" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.CampaignNewsletters" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Card_CardTypeID" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.DirectDepositLog" Width="1.5" PointX="9.375" PointY="14.75" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSUsers_Languages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMSCards_Languages" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.CurrencyRate" Width="1.5" PointX="3" PointY="81" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_CurrencyRates_Currencies" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_CurrencyRates_Currencies1" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.DeviceRequest" Width="1.5" PointX="40.25" PointY="83.125" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_DeviceRequest_DeviceRequestStatus" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_DeviceRequest_DeviceType" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_DeviceRequest_IMSCards" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_DeviceRequest_IMSMemberships" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_DeviceRequests_IMSCards" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.BatchCloseLog" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Acquirer" Width="1.5" PointX="7.375" PointY="8.875" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IMS_Header" Width="1.5" PointX="43.25" PointY="84.25" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Header_ContractCommissions" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Header_Currencies" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Header_Enterprises" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_Header" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Header_OutsideChannels" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Header_PaymentStatus" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Header_SalesRep" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.TrxFinancialTransaction" Width="1.5" PointX="13.625" PointY="6.125" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.TrxNonFinancialTransaction" Width="1.5" PointX="11.375" PointY="14.75" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_Acquirers" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_GlobalResponseCode" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_IMSTransferMessages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_IMSTransferStatus" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.CreditCard" Width="1.5" PointX="24.75" PointY="94.375" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_CreditCards_CreditCardTypes" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.BadgeCategory" Width="1.5" PointX="12" PointY="100.875" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Badge" Width="1.5" PointX="25.5" PointY="82.5" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.BadgeTranslation" Width="1.5" PointX="25.5" PointY="98.625" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Enterprise_Contacts" Width="1.5" PointX="15" PointY="82.875" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.EnterpriseProcessor" Width="1.5" PointX="15" PointY="101.375" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.ErrorLogging" Width="1.5" PointX="17.625" PointY="1" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.ErrorLoggingStatu" Width="1.5" PointX="15.375" PointY="1.5" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.IncentiveProgramRefund" Width="1.5" PointX="45.5" PointY="46.75" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.LocationPromoCode" Width="1.5" PointX="41.25" PointY="97.875" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.LocationPromotionCalendar" Width="1.5" PointX="41.25" PointY="59.125" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PromotionCalendarDetail" Width="1.5" PointX="17.875" PointY="20.25" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PromotionCalendarNotification" Width="1.5" PointX="38.25" PointY="58.625" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PromotionCalendar" Width="1.5" PointX="15.625" PointY="21.375" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PromotionCalendarTranslation" Width="1.5" PointX="17.875" PointY="23.625" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.PromotionCalendarType" Width="1.5" PointX="13.375" PointY="22.125" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_BadgeCategories_tags" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Badges_BadgeCategories" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Badges_CampaignTypes" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Badges_Tags" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_BadgeTranslations_Badges" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_BadgeTranslations_Languages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Enterprise_Contact_Enterprise" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_EnterpriseProcessors_Enterprises" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ErrorLoggings_ErrorLoggingStatus" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IncentiveProgramRefunds_IMS_Header" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IncentiveProgramRefunds_LocationPromoCodes" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IncentiveProgramRefunds_TrxFinancialTransactions" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationPromoCodes_PromoCodes" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationPromotionCalendars_PromotionCalendars" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PromotionCalendarDetails_PromotionCalendars" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PromotionCalendarNotifications_PromotionCalendars" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PromotionCalendars_PromotionCalendarTypes" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PromotionCalendarTranslations_PromotionCalendars" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Member" Width="1.5" PointX="22.5" PointY="86.25" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MemberEWallet_Member" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_DeviceRequest_Members" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Enrollments_Members" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Member_Enterprise" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_GiftCardPurchases_Members" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Membership_Member" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Members_Languages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationMemberDistances_Members" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MemberPromoCodeHistories_Members" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MerchantEvaluations_Members" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MonthlyBonusPoints_Members" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Referrals_Members" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Referrals_Members1" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.AspNetUser" Width="1.5" PointX="20.25" PointY="73" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_User_AspNetUsers" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Members_AspNetUsers" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Notifications_AspNetUsers" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_SocialMediaUsers_AspNetUsers" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_UserDevises_AspNetUsers" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.AspnetuserBadges" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.LocationHoliday" Width="1.5" PointX="38.25" PointY="96.125" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Rating" Width="1.5" PointX="46.5" PointY="95.125" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.UserNotification" Width="1.5" PointX="22.5" PointY="47.375" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_UserNotifications_AspNetUsers" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Location" Width="1.5" PointX="46.5" PointY="87.125" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Location_Address" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_ContractLocations_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_EnterpriseLocations_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Header_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Merchant_Terminals_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationBusinessHours_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationHolidays_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationMemberDistances_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationPromoCodes_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationPromotionCalendars_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Locations_TimeZones" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_LocationTaxes_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MonthlyBonusPoints_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PromotionCalendarNotifications_Locations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.IMSUserLocations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_CreditCards" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Promotion" Width="1.5" PointX="48.75" PointY="77.75" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Promotions_Packages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_promotion_translations_promotion" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Promotion_PromotionType" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.PromotionLocations" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.PromotionPrograms" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Promotion_Schedules" Width="1.5" PointX="51" PointY="83.5" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Promotion_Schedules_IMSUsers" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Promotion_Schedule_Promotion" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_PromotionCalendarTranslations_Languages" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.MerchantTag" Width="1.5" PointX="46.5" PointY="98.5" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MerchantTags_tags" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.MerchantImage" Width="1.5" PointX="46" PointY="101.875" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.Merchant" Width="1.5" PointX="43.75" PointY="92.5" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Contracts_Merchants" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_IMS_Header_Merchants" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Location_Merchant" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_merchant_translations_merchant" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MerchantEvaluations_Merchants" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MerchantImages_Merchants" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Merchants_MerchantImages" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Merchants_MerchantImages1" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Merchants_PricingCategory" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Merchants_Programs" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_MerchantTags_Merchants" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Packages_Merchants" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Ratings_Merchants" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.EnterpriseMerchants" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.Favorites" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.IMSUserMerchants" />
+        <EntityTypeShape EntityType="TRENDIGO_OKIOKModel.BankingInfo" Width="1.5" PointX="13.375" PointY="16" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Enterprises_BankingInfos" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Locations_BankingInfos" />
+        <AssociationConnector Association="TRENDIGO_OKIOKModel.FK_Merchants_BankingInfos" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

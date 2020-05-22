@@ -1,0 +1,570 @@
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csprojAssemblyReference.cache
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.Messages.resources
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.GenerateResource.cache
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.CoreCompileInputs.cache
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.dll.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.exe
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.exe.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.rsp
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.exe
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.exe.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.rsp
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.AppContext.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Collections.Immutable.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Console.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Compression.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.FileSystem.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Pipes.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.AccessControl.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Claims.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.ValueTuple.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XPath.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.exe
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.exe.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.rsp
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\VBCSCompiler.exe
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\VBCSCompiler.exe.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Antlr3.Runtime.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\AutoMapper.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.SqlServer.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Geocoding.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\log4net.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Logging.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Google.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Web.Infrastructure.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Newtonsoft.Json.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Owin.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.Formatting.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Algorithms.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Encoding.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Primitives.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.ValueTuple.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Cors.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Helpers.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Cors.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Owin.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.WebHost.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Mvc.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Optimization.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Razor.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Deployment.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Razor.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\WebGrease.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\FluentValidation.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Azure.KeyVault.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNetCore.WebUtilities.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Azure.KeyVault.WebKey.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\RestSharp.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.Common.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.Azure.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\netstandard.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Buffers.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Net.Http.Headers.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Extensions.Primitives.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Text.Encodings.Web.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.SqlServer.Types.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Memory.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Numerics.Vectors.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.dll.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.dll.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.dll.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\AutoMapper.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\log4net.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Logging.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.Formatting.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.ValueTuple.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Cors.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Newtonsoft.Json.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Helpers.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.WebHost.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Mvc.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Optimization.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Razor.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Deployment.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Razor.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Antlr3.Runtime.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.SqlServer.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Google.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Owin.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\FluentValidation.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\FluentValidation.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNetCore.WebUtilities.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.Azure.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Buffers.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Net.Http.Headers.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Extensions.Primitives.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Text.Encodings.Web.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Memory.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Numerics.Vectors.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fr\System.Web.Optimization.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fr\EntityFramework.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fr\EntityFramework.SqlServer.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\da\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\de\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\es\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fi\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fr\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\it\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\ko\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\nl\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\pl\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\pt\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\ru\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\sv\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\tr\FluentValidation.resources.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.CopyComplete
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\Trendigo\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csprojAssemblyReference.cache
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.Messages.resources
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.GenerateResource.cache
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.CoreCompileInputs.cache
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.dll.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.pdb
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.exe
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.exe.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.rsp
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.exe
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.exe.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.rsp
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.AppContext.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Collections.Immutable.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Console.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Compression.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.FileSystem.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Pipes.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Reflection.Metadata.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.AccessControl.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Claims.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.ValueTuple.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XPath.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.exe
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.exe.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.rsp
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\VBCSCompiler.exe
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\VBCSCompiler.exe.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Antlr3.Runtime.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\AutoMapper.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.SqlServer.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Geocoding.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\log4net.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Azure.KeyVault.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Azure.KeyVault.WebKey.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Logging.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Tokens.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Google.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.Azure.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Web.Infrastructure.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Newtonsoft.Json.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Owin.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Diagnostics.DiagnosticSource.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.Formatting.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Algorithms.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Encoding.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Primitives.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.X509Certificates.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.ValueTuple.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Cors.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Helpers.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Cors.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Owin.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.WebHost.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Mvc.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Optimization.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Razor.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Deployment.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Razor.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\WebGrease.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\FluentValidation.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.WebForms.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNetCore.WebUtilities.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\RestSharp.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.Common.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\netstandard.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Buffers.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Net.Http.Headers.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Extensions.Primitives.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Text.Encodings.Web.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Memory.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Numerics.Vectors.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.pdb
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.dll.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.pdb
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.dll.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.pdb
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.dll.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\AutoMapper.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\log4net.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Logging.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Tokens.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.Azure.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.Formatting.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.ValueTuple.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Cors.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Newtonsoft.Json.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Helpers.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.WebHost.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Mvc.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Optimization.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Razor.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Deployment.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Razor.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Antlr3.Runtime.pdb
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.pdb
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.pdb
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.SqlServer.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Google.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Owin.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fr\EntityFramework.resources.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fr\EntityFramework.SqlServer.resources.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.CopyComplete
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.dll.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.exe
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.exe.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csc.rsp
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.exe
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.exe.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\csi.rsp
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.AppContext.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Console.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Compression.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Claims.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.ValueTuple.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.exe
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.exe.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\vbc.rsp
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\VBCSCompiler.exe
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Antlr3.Runtime.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\AutoMapper.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.SqlServer.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Geocoding.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\log4net.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Azure.KeyVault.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Azure.KeyVault.WebKey.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.Azure.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Newtonsoft.Json.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Owin.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Swashbuckle.Core.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.Formatting.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.ValueTuple.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Cors.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Helpers.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Cors.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Owin.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.WebHost.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Mvc.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Optimization.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Razor.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Razor.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\WebActivatorEx.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\WebGrease.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\FluentValidation.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\RestSharp.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\netstandard.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Buffers.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Net.Http.Headers.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Text.Encodings.Web.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Memory.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Numerics.Vectors.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Common.Core.dll.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Payment.PaymentAPI.dll.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Utilities.PaymentAPI.dll.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\AutoMapper.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\log4net.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Rest.ClientRuntime.Azure.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Net.Http.Formatting.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.ValueTuple.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Cors.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Newtonsoft.Json.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Helpers.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.WebHost.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Mvc.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Optimization.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Razor.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.WebPages.Razor.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Antlr3.Runtime.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\zxing.presentation.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\EntityFramework.SqlServer.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Web.Http.Owin.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fr\EntityFramework.resources.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csprojAssemblyReference.cache
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.Messages.resources
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.GenerateResource.cache
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.CoreCompileInputs.cache
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.csproj.CopyComplete
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\obj\Debug\IMS.Service.WebAPI2.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\bin\IMS.Service.WebAPI2.xml

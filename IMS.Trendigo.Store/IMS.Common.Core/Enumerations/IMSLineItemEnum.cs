@@ -1,0 +1,44 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IMS.Common.Core.Enumerations
+{
+    public enum IMSLineItem
+    {
+        SALE_TRANSACTION = 1,
+        SALE_TAX = 2,
+        SALE_TIPS = 3,
+        VOID_TRANSACTION = 4,
+        VOID_TAX = 5,
+        VOID_TIPS = 6,
+        MERCHANT_REIMBURSEMENT = 7,
+        MERCHANT_TAX_REIMBURSEMENT = 8,
+        MERCHANT_TIPS_REIMBURSEMENT = 9,
+        MERCHANT_REIMBURSEMENT_VOID = 10,
+        MERCHANT_TAX_REIMBURSEMENT_VOID = 11,
+        MERCHANT_TIPS_REIMBURSEMENT_VOID = 12,
+        MEMBERSHIP_FEES = 13,
+        INFOMERCIAL = 14,
+        PACKAGE = 15,
+        PRIME_PROMOTION = 16,
+        MULTIMEDIA_SERVICE = 17,
+        TRANSLATION_SERVICE = 18,
+        PHOTOGRAPH_SERVICE = 19,
+        EQUIPMENT_LOCATION = 20,
+        EDITORIAL_SERVICE = 21,
+        GRAPHIC_ARTIST_SERVICE = 22,
+        PACKAGE_COMMISSION = 700,
+        PACKAGE_COMMISSION_TAX = 701,
+        PACKAGE_COMMISSION_VOID = 750,
+        PACKAGE_COMMISSION_TAX_VOID = 751,
+        SALESREP_COMMISSION = 800,
+        SALESREP_COMMISSION_VOID = 850,
+        CONTRACT_COMMISSION = 900,
+        CONTRACT_COMMISSION_VOID = 950,
+        OUTSIDECHANNEL_COMMISSION = 1000,
+        OUTSIDECHANNEL_COMMISSION_VOID = 1050
+    }
+}

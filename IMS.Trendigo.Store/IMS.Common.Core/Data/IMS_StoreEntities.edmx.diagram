@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b9bf4b02c8044bb9ad42e36d6a1ac5ed" Name="Diagram1" ZoomLevel="41">
+        <EntityTypeShape EntityType="IMS_StoreModel.AspNetRole" Width="1.5" PointX="23.25" PointY="119" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.AspNetUserClaim" Width="1.5" PointX="27.75" PointY="120" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.AspNetUserLogin" Width="1.5" PointX="27.75" PointY="127.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.AspNetUser" Width="1.5" PointX="25.5" PointY="117.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.BankInfo" Width="1.5" PointX="5.25" PointY="91.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.BankingInfo" Width="1.5" PointX="10.5" PointY="96.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.BatchCloseLog" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.CardStatus" Width="1.5" PointX="15" PointY="107" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.CardType" Width="1.5" PointX="25.5" PointY="98.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.City" Width="1.5" PointX="7.5" PointY="104.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.city_translations" Width="1.5" PointX="9.75" PointY="101.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.CommandStatu" Width="1.5" PointX="30.75" PointY="124" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.ContractCommission" Width="1.5" PointX="5.25" PointY="86.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.ContractLocation" Width="1.5" PointX="8.25" PointY="86.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Contract" Width="1.5" PointX="3" PointY="85.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Country" Width="1.5" PointX="3" PointY="96.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.country_translations" Width="1.5" PointX="5.25" PointY="99.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.CreditCardType" Width="1.5" PointX="30.75" PointY="121" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.CreditCardValidation" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Currency" Width="1.5" PointX="0.75" PointY="85.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.DeviceRequest" Width="1.5" PointX="22.5" PointY="103" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.DeviceRequestStatu" Width="1.5" PointX="20.25" PointY="102.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.DeviceRequestStatus_translations" Width="1.5" PointX="22.5" PointY="99.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.DeviceType" Width="1.5" PointX="20.25" PointY="99" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.DeviceTypeTranslation" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.DirectDepositLog" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.EnrollLocation" Width="1.5" PointX="40.5" PointY="102" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.EnrollmentProcess" Width="1.5" PointX="30.75" PointY="89.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.EnrollmentStatu" Width="1.5" PointX="30.75" PointY="106.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Enterprise_Contacts" Width="1.5" PointX="15" PointY="92.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Enterprise" Width="1.5" PointX="12.75" PointY="96.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.EnterpriseStateTaxNumber" Width="1.5" PointX="15" PointY="97.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.EntityType" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.GiftCardPurchas" Width="1.5" PointX="35.25" PointY="105.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.GiftCardTransactionDetail" Width="1.5" PointX="17.25" PointY="86.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.GiftCardTransactionHeader" Width="1.5" PointX="15" PointY="88.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.GlobalResponseCode" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMS_Detail" Width="1.5" PointX="20.25" PointY="92.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMS_Header" Width="1.5" PointX="18" PointY="90.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMS_LineItem" Width="1.5" PointX="0.75" PointY="81.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMSCard" Width="1.5" PointX="17.25" PointY="106.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMSEnterpriseParameter" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMSEnterpriseParameterTerminal" Width="1.5" PointX="8" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMSMembership" Width="1.5" PointX="35.25" PointY="100.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMSPointTracker" Width="1.5" PointX="15" PointY="109.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMSTransferMessage" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMSTransferStatu" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.language_translations" Width="1.5" PointX="17.25" PointY="120" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Language" Width="1.5" PointX="15" PointY="119.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Location_Terminals" Width="1.5" PointX="43.5" PointY="102.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.LocationBusinessHour" Width="1.5" PointX="40.5" PointY="107.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Location" Width="1.5" PointX="38.25" PointY="101.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.LocationTax" Width="1.5" PointX="43.5" PointY="97.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.MemberPromoCodeHistory" Width="1.5" PointX="24.75" PointY="108.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Member" Width="1.5" PointX="27.75" PointY="105.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.MembershipTransactionDetail" Width="1.5" PointX="40.5" PointY="98.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.MembershipTransactionHeader" Width="1.5" PointX="27.75" PointY="94.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.merchant_translations" Width="1.5" PointX="35.25" PointY="93.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.MerchantImage" Width="1.5" PointX="35.25" PointY="114.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Merchant" Width="1.5" PointX="33" PointY="95" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.MonthlyBonusPoint" Width="1.5" PointX="33" PointY="113" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.NotificationMessage" Width="1.5" PointX="25.5" PointY="123.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.NotificationMessageTranslation" Width="1.5" PointX="17.25" PointY="117.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.NotificationType" Width="1.5" PointX="27.75" PointY="123.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.OutsideChannel" Width="1.5" PointX="25.5" PointY="102.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.OutsideChannelStyle" Width="1.5" PointX="27.75" PointY="116" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Package" Width="1.5" PointX="5.25" PointY="80.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PackageType_translations" Width="1.5" PointX="17.25" PointY="124" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PackageType" Width="1.5" PointX="15" PointY="123.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PaymentStatu" Width="1.5" PointX="15.75" PointY="100.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PrefixPointValue" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.program_feature_translations" Width="1.5" PointX="32.25" PointY="117.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.program_translations" Width="1.5" PointX="30" PointY="96.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.ProgramFeature" Width="1.5" PointX="30" PointY="109" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.ProgramFee" Width="1.5" PointX="30" PointY="93" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Program" Width="1.5" PointX="27.75" PointY="98.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.ProgramType" Width="1.5" PointX="25.5" PointY="95.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PromoCode" Width="1.5" PointX="30" PointY="100.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Promotion_Schedules" Width="1.5" PointX="22.5" PointY="94.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.promotion_translations" Width="1.5" PointX="9.75" PointY="83" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Promotion" Width="1.5" PointX="7.5" PointY="80.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PromotionType" Width="1.5" PointX="5.25" PointY="77.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.ReferralCampaign" Width="1.5" PointX="33.75" PointY="121.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Referral" Width="1.5" PointX="36" PointY="110.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.SalesRep" Width="1.5" PointX="22.5" PointY="113.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.SocialMediaUser" Width="1.5" PointX="27.75" PointY="130.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.state_translations" Width="1.5" PointX="7.5" PointY="112.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.State" Width="1.5" PointX="5.25" PointY="102.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.StateTax" Width="1.5" PointX="7.5" PointY="94" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.tagging" Width="1.5" PointX="12" PointY="108" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Telephone" Width="1.5" PointX="38.25" PointY="97" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.TelephoneType" Width="1.5" PointX="36" PointY="90.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.TimeZone" Width="1.5" PointX="5.25" PointY="107.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.TransactionType" Width="1.5" PointX="18" PointY="98.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMS_StoreModel.TrxNonFinancialTransaction" Width="1.5" PointX="5.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="IMS_StoreModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Member_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_SocialMediaUsers_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_BankInfos_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_BankInfos_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Enterprises_BankingInfos" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Locations_BankingInfos" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Merchants_BankingInfos" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Card_Card_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Card_CardTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Cities_TimeZones" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_City_State" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_city_translations_city" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MonthlyBonusPoints_CommandStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_ContractCommission_Contracts" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Header_ContractCommissions" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_ContractLocations_Contracts" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_ContractLocations_Locations1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Contracts_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Contracts_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Contracts_IMS_LineItem" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Contracts_Merchants" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Contracts_SalesRep" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Packages_Contracts" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Countries_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_CountriesTranslation_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_GiftCardTransactionHeaders_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Header_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MembershipTransactionHeaders_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_ProgramFees_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_StateTaxes_Currencies" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_DeviceRequest_DeviceRequestStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_DeviceRequest_DeviceType" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_DeviceRequest_IMSCards" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_DeviceRequest_IMSMemberships" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_DeviceRequest_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_DeviceRequestStatus_translations_DeviceRequestStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_EnrollLocation_Locations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Enterprise_Contact_Enterprise" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_EnterpriseStateTaxNumbers_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_GiftCardTransactionHeaders_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Header_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSCards_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSPointTracker_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Member_Enterprise" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MembershipTransactionHeaders_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_OutsideChannels_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Packages_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_PackageTypes_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Programs_Enterprises" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_EnterpriseStateTaxNumbers_StateTaxes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_GiftCardPurchases_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_GiftCardPurchases_PromoCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_GiftCardTransactionDetails_GiftCardTransactionHeaders" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_GiftCardTransactionDetails_IMS_LineItem" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Detail_IMS_Header" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Detail_IMS_LineItem" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Detail_TransactionTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Header_Locations1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Header_Merchants" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Header_OutsideChannels" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Header_PaymentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_Header_SalesRep" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSCard_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSCard_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSCards_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MemberPromoCodeHistories_IMSCards" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_EnterpriseTerminals_IMSEnterpriseParameters" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSMembership_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSMemberships_PromoCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Membership_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MembershipTransactionDetails_IMSMemberships" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_language_translations_language" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Members_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_NotificationMessageTranslations_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_ProgramFeatures_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Location_Terminals_Locations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_LocationBusinessHours_Locations1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Location_Merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_LocationTaxes_Locations1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MonthlyBonusPoints_Locations1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MerchantTaxes_StateTaxes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MemberPromoCodeHistories_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MemberPromoCodeHistories_PromoCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Members_OutsideChannels" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MonthlyBonusPoints_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Referrals_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Referrals_Members1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MembershipTransactionDetail_MembershipTransactionHeader" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MembershipTransactionHeaders_OutsideChannels" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_merchant_translations_merchant" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MerchantImages_Merchants" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Merchants_MerchantImages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Merchants_MerchantImages1" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Packages_Merchants" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_NotificationMessageTranslations_NotificationMessages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_NotificationTypes_NotificationMessages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_OutsideChannelStyles_OutsideChannels" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_PromoCodes_OutsideChannels" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Packages_PackageTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Promotions_Packages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_PackageType_translations_PackageTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_program_feature_translations_ProgramFeatures" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_program_translations_Programs" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_ProgramFeatures_Programs" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_ProgramFees_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Programs_ProgramTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_PromoCodes_Programs" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Promotion_Schedule_Promotion" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_promotion_translations_promotion" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Promotion_PromotionType" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Referrals_ReferralCampaigns" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_StatesTranslation_States" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_StateTaxes_States" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Telephone_TelephoneType" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.EnterpriseLanguages" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.EnterpriseMerchants" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.EnterprisePrograms" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.EnterpriseTelephones" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.Favorites" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.Merchant_Telephones" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.OutsideChannelPrograms" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.ProgramCardTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.PromotionLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.PromotionPrograms" ManuallyRouted="false" />
+        <AssociationConnector Association="IMS_StoreModel.FK_DeviceTypeTranslations_DeviceType" />
+        <EntityTypeShape EntityType="IMS_StoreModel.IMSUser" Width="1.5" PointX="37.75" PointY="114.25" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMS_User_AspNetUsers" />
+        <AssociationConnector Association="IMS_StoreModel.FK_ContractCommission_IMSUsers" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSUsers_Enterprises" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSUser_Merchants_IMSUsers" />
+        <AssociationConnector Association="IMS_StoreModel.FK_IMSUsers_Languages" />
+        <AssociationConnector Association="IMS_StoreModel.FK_OutsideChannels_IMSUsers" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Promotion_Schedules_IMSUsers" />
+        <AssociationConnector Association="IMS_StoreModel.IMSUserLocations" />
+        <AssociationConnector Association="IMS_StoreModel.IMSUserMerchants" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Address" Width="1.5" PointX="7.5" PointY="99.125" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Address_Country" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Address_State" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Enterprise_Address" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Location_Address" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Member_Address" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Subscriber" Width="1.5" PointX="38.25" PointY="92.75" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Subscribers_Enterprises" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Subscribers_PromoCodes" />
+        <EntityTypeShape EntityType="IMS_StoreModel.CardPointHistory" Width="1.5" PointX="40" PointY="110.875" />
+        <AssociationConnector Association="IMS_StoreModel.FK_CardPointHistories_IMSCards" />
+        <AssociationConnector Association="IMS_StoreModel.FK_CardPointHistories_IMSUsers1" />
+        <AssociationConnector Association="IMS_StoreModel.FK_CardPointHistories_PromoCodes" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MemberPromoCodeHistories_CardPointHistories" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Enrollment" Width="1.5" PointX="40.5" PointY="92.625" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Enrollments_EnrollmentProcess" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Enrollments_EnrollmentStatus" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Enrollments_IMSMemberships" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Enrollments_IMSMemberships1" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Enrollments_Members" />
+        <EntityTypeShape EntityType="IMS_StoreModel.NotificationStatu" Width="1.5" PointX="27.75" PointY="134.125" />
+        <EntityTypeShape EntityType="IMS_StoreModel.CreditCard" Width="1.5" PointX="33" PointY="108.375" />
+        <AssociationConnector Association="IMS_StoreModel.FK_CreditCards_CreditCardTypes" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MemberEWallet_Member" />
+        <EntityTypeShape EntityType="IMS_StoreModel.EvaluationCategory" Width="1.5" PointX="36" PointY="120.625" />
+        <EntityTypeShape EntityType="IMS_StoreModel.EvaluationCategory_translations" Width="1.5" PointX="38.25" PointY="120.625" />
+        <EntityTypeShape EntityType="IMS_StoreModel.MerchantEvaluation" Width="1.5" PointX="38.25" PointY="107.125" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PricingCategory" Width="1.5" PointX="30.75" PointY="86.5" />
+        <AssociationConnector Association="IMS_StoreModel.FK_EvaluationCategory_translations_EvaluationCategory" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MerchantEvaluations_EvaluationCategory" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MerchantEvaluations_Members" />
+        <AssociationConnector Association="IMS_StoreModel.FK_MerchantEvaluations_Merchants" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Merchants_PricingCategory" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PricingCategory_translations" Width="1.5" PointX="33" PointY="103.75" />
+        <AssociationConnector Association="IMS_StoreModel.FK_EvaluationCategory_translations_Languages" />
+        <AssociationConnector Association="IMS_StoreModel.FK_PricingCategory_translations_Languages" />
+        <AssociationConnector Association="IMS_StoreModel.FK_PricingCategory_translations_PricingCategory" />
+        <EntityTypeShape EntityType="IMS_StoreModel.OAuthAccessToken" Width="1.5" PointX="8.375" PointY="12.75" />
+        <EntityTypeShape EntityType="IMS_StoreModel.OAuthRefreshToken" Width="1.5" PointX="10.375" PointY="12.75" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Terminal" Width="1.5" PointX="12.375" PointY="4.125" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Merchant_Terminal_Terminal" />
+        <EntityTypeShape EntityType="IMS_StoreModel.TrxFinancialTransaction" Width="1.5" PointX="3" PointY="1.375" />
+        <AssociationConnector Association="IMS_StoreModel.FK_TrxFinancialTransactions_GlobalResponseCode" />
+        <AssociationConnector Association="IMS_StoreModel.FK_TrxFinancialTransactions_IMSTransferMessages" />
+        <AssociationConnector Association="IMS_StoreModel.FK_TrxFinancialTransactions_IMSTransferStatus" />
+        <EntityTypeShape EntityType="IMS_StoreModel.tag_translations" Width="1.5" PointX="12" PointY="111.75" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PromotionScheduleForecast" Width="1.5" PointX="9.75" PointY="78.25" />
+        <EntityTypeShape EntityType="IMS_StoreModel.PromotionScheduleForecastStatu" Width="1.5" PointX="7.5" PointY="77.25" />
+        <AssociationConnector Association="IMS_StoreModel.FK_PromotionScheduleForecasts_Promotions" />
+        <AssociationConnector Association="IMS_StoreModel.FK_PromotionScheduleForecasts_PromotionScheduleForecastStatus" />
+        <EntityTypeShape EntityType="IMS_StoreModel.tag" Width="1.5" PointX="9.75" PointY="105.375" />
+        <AssociationConnector Association="IMS_StoreModel.FK_tags_Cities" />
+        <AssociationConnector Association="IMS_StoreModel.FK_tag_translations" />
+        <AssociationConnector Association="IMS_StoreModel.FK_taggings_tags" />
+        <AssociationConnector Association="IMS_StoreModel.FK_tags_tags" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Notification" Width="1.5" PointX="30" PointY="74" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Notifications_AspNetUsers" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Notifications_NotificationStatus" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Notifications_NotificationTypes" />
+        <EntityTypeShape EntityType="IMS_StoreModel.LocationMemberDistance" Width="1.5" PointX="43.5" PointY="106.5" />
+        <AssociationConnector Association="IMS_StoreModel.FK_LocationMemberDistances_Locations" />
+        <AssociationConnector Association="IMS_StoreModel.FK_LocationMemberDistances_Members" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Campaign" Width="1.5" PointX="18" PointY="101.625" />
+        <EntityTypeShape EntityType="IMS_StoreModel.CampaignType" Width="1.5" PointX="15.75" PointY="82" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Newsletter" Width="1.5" PointX="20.25" PointY="106" />
+        <EntityTypeShape EntityType="IMS_StoreModel.SectionType" Width="1.5" PointX="13.5" PointY="129.375" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Template" Width="1.5" PointX="13.5" PointY="82" />
+        <EntityTypeShape EntityType="IMS_StoreModel.TemplateSection" Width="1.5" PointX="20" PointY="109.875" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Campaigns_CampaignTypes" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Campaigns_tags" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Notifications_Campaigns" />
+        <AssociationConnector Association="IMS_StoreModel.FK_CampaignTypes_Templates" />
+        <AssociationConnector Association="IMS_StoreModel.FK_TemplateSections_Templates" />
+        <AssociationConnector Association="IMS_StoreModel.CampaignNewsletters" />
+        <EntityTypeShape EntityType="IMS_StoreModel.NewsletterContent" Width="1.5" PointX="25.5" PointY="113.5" />
+        <AssociationConnector Association="IMS_StoreModel.FK_NewsletterContents_Languages" />
+        <AssociationConnector Association="IMS_StoreModel.FK_NewsletterContents_Newsletters" />
+        <EntityTypeShape EntityType="IMS_StoreModel.NewsletterSection" Width="1.5" PointX="22.5" PointY="121.875" />
+        <EntityTypeShape EntityType="IMS_StoreModel.NewsletterSectionTranslation" Width="1.5" PointX="24.75" PointY="126.75" />
+        <AssociationConnector Association="IMS_StoreModel.FK_SectionContentTranslations_Languages" />
+        <AssociationConnector Association="IMS_StoreModel.FK_NewsletterSections_Newsletters" />
+        <AssociationConnector Association="IMS_StoreModel.FK_NewsletterSectionTranslations_NewsletterSections" />
+        <EntityTypeShape EntityType="IMS_StoreModel.Section" Width="1.5" PointX="15.75" PointY="129.125" />
+        <EntityTypeShape EntityType="IMS_StoreModel.SectionTranslation" Width="1.5" PointX="20" PointY="124.625" />
+        <AssociationConnector Association="IMS_StoreModel.FK_SectionTranslations_Languages" />
+        <AssociationConnector Association="IMS_StoreModel.FK_NewsletterSections_Sections" />
+        <AssociationConnector Association="IMS_StoreModel.FK_Sections_SectionTypes" />
+        <AssociationConnector Association="IMS_StoreModel.FK_SectionTranslations_Sections" />
+        <AssociationConnector Association="IMS_StoreModel.FK_TemplateSections_Sections" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

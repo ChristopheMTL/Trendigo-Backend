@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountCreationFailed_en" xml:space="preserve">
+    <value>Account creation failed</value>
+  </data>
+  <data name="AccountCreationFailed_fr" xml:space="preserve">
+    <value>La création du compte a échoué</value>
+  </data>
+  <data name="AccountLocked_en" xml:space="preserve">
+    <value>Account locked</value>
+  </data>
+  <data name="AccountLocked_fr" xml:space="preserve">
+    <value>Compte bloqué</value>
+  </data>
+  <data name="BankingInfoExist_en" xml:space="preserve">
+    <value>Banking information already exist</value>
+  </data>
+  <data name="BankingInfoExist_fr" xml:space="preserve">
+    <value>Les informations bancaires exitent déjà</value>
+  </data>
+  <data name="BankingInfoNotFound_en" xml:space="preserve">
+    <value>Banking info not found</value>
+  </data>
+  <data name="BankingInfoNotFound_fr" xml:space="preserve">
+    <value>Information bancaire introuvable</value>
+  </data>
+  <data name="BusinessHourDeleted_en" xml:space="preserve">
+    <value>Business hour was successfully deleted</value>
+  </data>
+  <data name="BusinessHourDeleted_fr" xml:space="preserve">
+    <value>Les heures d'ouverture ont été supprimées avec succès</value>
+  </data>
+  <data name="BusinessHourExistForThatDay_en" xml:space="preserve">
+    <value>Business hour exist for that day</value>
+  </data>
+  <data name="BusinessHourExistForThatDay_fr" xml:space="preserve">
+    <value>Les heures d'ouvertures existent pour ce jour</value>
+  </data>
+  <data name="BusinessHourNotFound_en" xml:space="preserve">
+    <value>Business hour not found</value>
+  </data>
+  <data name="BusinessHourNotFound_fr" xml:space="preserve">
+    <value>Heures d'ouverture introuvable</value>
+  </data>
+  <data name="CannotAddNewImageQuotaReached_en" xml:space="preserve">
+    <value>Cannot add new image, quota has been reached</value>
+  </data>
+  <data name="CannotAddNewImageQuotaReached_fr" xml:space="preserve">
+    <value>Impossible d'ajouter une nouvelle image, le quota a été atteint</value>
+  </data>
+  <data name="CannotAddNewImage_en" xml:space="preserve">
+    <value>Cannot add new image</value>
+  </data>
+  <data name="CannotAddNewImage_fr" xml:space="preserve">
+    <value>Impossible d'ajouter une nouvelle image</value>
+  </data>
+  <data name="CannotChangePasswordForThatMember_en" xml:space="preserve">
+    <value>Cannot change password for that member</value>
+  </data>
+  <data name="CannotChangePasswordForThatMember_fr" xml:space="preserve">
+    <value>Impossible de changer le mot de passe pour ce membre</value>
+  </data>
+  <data name="CannotCreateMember_en" xml:space="preserve">
+    <value>Cannot create member</value>
+  </data>
+  <data name="CannotCreateMember_fr" xml:space="preserve">
+    <value>Impossible de créer le membre</value>
+  </data>
+  <data name="CannotCreateUser_en" xml:space="preserve">
+    <value>Cannot create user</value>
+  </data>
+  <data name="CannotCreateUser_fr" xml:space="preserve">
+    <value>Impossible de créer l'utilisateur</value>
+  </data>
+  <data name="CommunityNotFound_en" xml:space="preserve">
+    <value>Community not found</value>
+  </data>
+  <data name="CommunityNotFound_fr" xml:space="preserve">
+    <value>Communauté introuvable</value>
+  </data>
+  <data name="CourrielEmailValidationSubject_en" xml:space="preserve">
+    <value>Email validation</value>
+  </data>
+  <data name="CourrielEmailValidationSubject_fr" xml:space="preserve">
+    <value>Confirmation du courriel</value>
+  </data>
+  <data name="CourrielEmailValidationTextLink_en" xml:space="preserve">
+    <value>Confirm my email</value>
+  </data>
+  <data name="CourrielEmailValidationTextLink_fr" xml:space="preserve">
+    <value>Confirmer mon adresse courriel</value>
+  </data>
+  <data name="CourrielPasswordResetBody_en" xml:space="preserve">
+    <value>Please reset your password by clicking here: {0}</value>
+  </data>
+  <data name="CourrielPasswordResetBody_fr" xml:space="preserve">
+    <value>Veuillez réinitialiser votre mot de passe en cliquant ici: {0}</value>
+  </data>
+  <data name="CourrielPasswordResetSubject_en" xml:space="preserve">
+    <value>Password reset</value>
+  </data>
+  <data name="CourrielPasswordResetSubject_fr" xml:space="preserve">
+    <value>Réinitialisation du mot de passe</value>
+  </data>
+  <data name="CourrielPasswordResetTextLink_en" xml:space="preserve">
+    <value>Reset my password</value>
+  </data>
+  <data name="CourrielPasswordResetTextLink_fr" xml:space="preserve">
+    <value>Réinitialiser mon mot de passe</value>
+  </data>
+  <data name="CourrielProfileCompletionSubject_en" xml:space="preserve">
+    <value>You completed your registration!</value>
+  </data>
+  <data name="CourrielProfileCompletionSubject_fr" xml:space="preserve">
+    <value>Vous avez complété votre inscription!</value>
+  </data>
+  <data name="CourrielRegisterMemberSubject_en" xml:space="preserve">
+    <value>Registration confirmation!</value>
+  </data>
+  <data name="CourrielRegisterMemberSubject_fr" xml:space="preserve">
+    <value>Confirmation d’inscription Trendigo!</value>
+  </data>
+  <data name="CourrielSetPasswordSubject_en" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="CourrielSetPasswordSubject_fr" xml:space="preserve">
+    <value>Insertion du mot de passe</value>
+  </data>
+  <data name="CourrielSetPasswordTextLink_en" xml:space="preserve">
+    <value>Set my password</value>
+  </data>
+  <data name="CourrielSetPasswordTextLink_fr" xml:space="preserve">
+    <value>Insérer mon mot de passe</value>
+  </data>
+  <data name="CreditCardAlreadyExist_en" xml:space="preserve">
+    <value>Credit card already exist</value>
+  </data>
+  <data name="CreditCardAlreadyExist_fr" xml:space="preserve">
+    <value>La carte de crédit existe déjà</value>
+  </data>
+  <data name="CreditCardDeleted_en" xml:space="preserve">
+    <value>Credit card was successfully deleted</value>
+  </data>
+  <data name="CreditCardDeleted_fr" xml:space="preserve">
+    <value>La carte de crédit a été supprimée avec succès</value>
+  </data>
+  <data name="CreditCardNotFound_en" xml:space="preserve">
+    <value>Credit card not found</value>
+  </data>
+  <data name="CreditCardNotFound_fr" xml:space="preserve">
+    <value>Carte de crédit introuvable</value>
+  </data>
+  <data name="CreditCardUpdated_en" xml:space="preserve">
+    <value>Credit card updated successfully</value>
+  </data>
+  <data name="CreditCardUpdated_fr" xml:space="preserve">
+    <value>Carte de crédit mise à jour avec succès</value>
+  </data>
+  <data name="EmailAddressValidated_en" xml:space="preserve">
+    <value>Email address was validated successfully</value>
+  </data>
+  <data name="EmailAddressValidated_fr" xml:space="preserve">
+    <value>Adresse courriel validé avec succès</value>
+  </data>
+  <data name="EmailAlreadyUsed_en" xml:space="preserve">
+    <value>Email already used</value>
+  </data>
+  <data name="EmailAlreadyUsed_fr" xml:space="preserve">
+    <value>Adresse courriel déjà utilisée</value>
+  </data>
+  <data name="EmailNotValidated_en" xml:space="preserve">
+    <value>Email not validated</value>
+  </data>
+  <data name="EmailNotValidated_fr" xml:space="preserve">
+    <value>Courriel non confirmé</value>
+  </data>
+  <data name="EmailValidationNecessary_en" xml:space="preserve">
+    <value>Email validation necessary before performing this action, please check your inbox of the account used for this application and proceed with the confirmation</value>
+  </data>
+  <data name="EmailValidationNecessary_fr" xml:space="preserve">
+    <value>Validation de l'adresse courriel nécessaire avant d'effectuer cette action, veuillez vérifier votre boîte de réception du compte utilisé pour cette application et procéder avec la confirmation</value>
+  </data>
+  <data name="EndingDateNotAValidDate_en" xml:space="preserve">
+    <value>Ending date is not a valid date</value>
+  </data>
+  <data name="EndingDateNotAValidDate_fr" xml:space="preserve">
+    <value>La date de fin n'est pas valide</value>
+  </data>
+  <data name="HolidayAlreadyExist_en" xml:space="preserve">
+    <value>Holiday already exist for that date</value>
+  </data>
+  <data name="HolidayAlreadyExist_fr" xml:space="preserve">
+    <value>Un congé existe déjà pour cette date</value>
+  </data>
+  <data name="HolidayDeleted_en" xml:space="preserve">
+    <value>Holiday deleted successfully</value>
+  </data>
+  <data name="HolidayDeleted_fr" xml:space="preserve">
+    <value>Le congé a été supprimé avec succès</value>
+  </data>
+  <data name="ImageDeleted_en" xml:space="preserve">
+    <value>Image deleted successfully</value>
+  </data>
+  <data name="ImageDeleted_fr" xml:space="preserve">
+    <value>Image suppriméé avec succès</value>
+  </data>
+  <data name="ImageNotFound_en" xml:space="preserve">
+    <value>Image not found</value>
+  </data>
+  <data name="ImageNotFound_fr" xml:space="preserve">
+    <value>Image introuvable</value>
+  </data>
+  <data name="ImageSizeNotAccepted_en" xml:space="preserve">
+    <value>Image size must be less than 2mb</value>
+  </data>
+  <data name="ImageSizeNotAccepted_fr" xml:space="preserve">
+    <value>La taille de l'image ne doit pas dépasser 2mb</value>
+  </data>
+  <data name="ImageTypeNotAccepted_en" xml:space="preserve">
+    <value>Image type must be .jpg, .gif or .png</value>
+  </data>
+  <data name="ImageTypeNotAccepted_fr" xml:space="preserve">
+    <value>Type d'image doit être .jpg, .gif ou .png</value>
+  </data>
+  <data name="ImageTypeNotFound_en" xml:space="preserve">
+    <value>Image type not found</value>
+  </data>
+  <data name="ImageTypeNotFound_fr" xml:space="preserve">
+    <value>Type d'image introuvable</value>
+  </data>
+  <data name="InvalidUsernameOrPassword_en" xml:space="preserve">
+    <value>Invalid username or password</value>
+  </data>
+  <data name="InvalidUsernameOrPassword_fr" xml:space="preserve">
+    <value>Code d'utilisateur ou mot de passe invalide</value>
+  </data>
+  <data name="InvoiceNotFound_en" xml:space="preserve">
+    <value>Invoice not found</value>
+  </data>
+  <data name="InvoiceNotFound_fr" xml:space="preserve">
+    <value>La facture est introuvable</value>
+  </data>
+  <data name="LanguageNotFound_en" xml:space="preserve">
+    <value>Language not found</value>
+  </data>
+  <data name="LanguageNotFound_fr" xml:space="preserve">
+    <value>Langue introuvable</value>
+  </data>
+  <data name="LinkWasSentSuccessfully_en" xml:space="preserve">
+    <value>Link was sent successfully</value>
+  </data>
+  <data name="LinkWasSentSuccessfully_fr" xml:space="preserve">
+    <value>Le lien a été envoyé avec succès</value>
+  </data>
+  <data name="MemberDeleted_en" xml:space="preserve">
+    <value>Member was successfully deleted</value>
+  </data>
+  <data name="MemberDeleted_fr" xml:space="preserve">
+    <value>Le membre a été supprimé avec succès</value>
+  </data>
+  <data name="MemberNotFound_en" xml:space="preserve">
+    <value>Member not found</value>
+  </data>
+  <data name="MemberNotFound_fr" xml:space="preserve">
+    <value>Membre introuvable</value>
+  </data>
+  <data name="MerchantAlreadyInCommunity_en" xml:space="preserve">
+    <value>Merchant already part of a community</value>
+  </data>
+  <data name="MerchantAlreadyInCommunity_fr" xml:space="preserve">
+    <value>Le marchand fait déjà partie d'une communauté</value>
+  </data>
+  <data name="MerchantDeleted_en" xml:space="preserve">
+    <value>Merchant was successfully deleted</value>
+  </data>
+  <data name="MerchantDeleted_fr" xml:space="preserve">
+    <value>Le marchand a été supprimé avec succès</value>
+  </data>
+  <data name="MerchantNotFound_en" xml:space="preserve">
+    <value>Merchant not found</value>
+  </data>
+  <data name="MerchantNotFound_fr" xml:space="preserve">
+    <value>Marchand introuvable</value>
+  </data>
+  <data name="MerchantNotOpenOnThatDate_en" xml:space="preserve">
+    <value>The merchant is not open on that date</value>
+  </data>
+  <data name="MerchantNotOpenOnThatDate_fr" xml:space="preserve">
+    <value>Le marchand n'est pas ouvert à cette date</value>
+  </data>
+  <data name="MerchantTagNotFound_en" xml:space="preserve">
+    <value>Tag not found for that merchant</value>
+  </data>
+  <data name="MerchantTagNotFounf_fr" xml:space="preserve">
+    <value>Tag introuvable pour ce marchand</value>
+  </data>
+  <data name="MerchantTagRemoved_en" xml:space="preserve">
+    <value>Merchant tag removed successfully</value>
+  </data>
+  <data name="MerchantTagRemoved_fr" xml:space="preserve">
+    <value>Tag retiré de ce marchand avec succès</value>
+  </data>
+  <data name="MissingParameter_en" xml:space="preserve">
+    <value>Missing parameter</value>
+  </data>
+  <data name="MissingParameter_fr" xml:space="preserve">
+    <value>Paramètre manquant</value>
+  </data>
+  <data name="NoLocalisationFound_en" xml:space="preserve">
+    <value>No localisation found for that geolocation</value>
+  </data>
+  <data name="NoLocalisationFound_fr" xml:space="preserve">
+    <value>Aucune localisation trouvée pour cette géolocalisation</value>
+  </data>
+  <data name="NotActivated_en" xml:space="preserve">
+    <value>Card not yet activated</value>
+  </data>
+  <data name="NotActivated_fr" xml:space="preserve">
+    <value>Carte non-activée</value>
+  </data>
+  <data name="NotificationAddedSuccessfully_en" xml:space="preserve">
+    <value>Notification added successfully</value>
+  </data>
+  <data name="NotificationAddedSuccessfully_fr" xml:space="preserve">
+    <value>Notification ajoutée avec succès</value>
+  </data>
+  <data name="NotOpenBusinessDay_en" xml:space="preserve">
+    <value>Date unavailable, this is not an open business day for that merchant</value>
+  </data>
+  <data name="NotOpenBusinessDay_fr" xml:space="preserve">
+    <value>Date non disponible, ce n'est pas un jour ouvrable pour ce marchand</value>
+  </data>
+  <data name="NotOpenHoliday_en" xml:space="preserve">
+    <value>Date unavailable, this is a holiday period for that merchant</value>
+  </data>
+  <data name="NotOpenHoliday_fr" xml:space="preserve">
+    <value>Date non disponible, il s'agit d'une période de congé pour ce marchand</value>
+  </data>
+  <data name="PasswordSuccessfullyUpdated_en" xml:space="preserve">
+    <value>Password successfully updated</value>
+  </data>
+  <data name="PasswordSuccessfullyUpdated_fr" xml:space="preserve">
+    <value>Mot de passe mis à jour avec succès</value>
+  </data>
+  <data name="PasswordWasSetSuccessfully_en" xml:space="preserve">
+    <value>Password was set successfully</value>
+  </data>
+  <data name="PasswordWasSetSuccessfully_fr" xml:space="preserve">
+    <value>Mot de passe défini avec succès</value>
+  </data>
+  <data name="RatingAddedSuccessfully_en" xml:space="preserve">
+    <value>Rating added successfully</value>
+  </data>
+  <data name="RatingAddedSuccessfully_fr" xml:space="preserve">
+    <value>Cote ajouté avec succès</value>
+  </data>
+  <data name="ReferralPointsEmailSubject_en" xml:space="preserve">
+    <value>Referral Program</value>
+  </data>
+  <data name="ReferralPointsEmailSubject_fr" xml:space="preserve">
+    <value>Programme de référencement</value>
+  </data>
+  <data name="ResetPasswordFailed_en" xml:space="preserve">
+    <value>Reset password failed</value>
+  </data>
+  <data name="ResetPasswordFailed_fr" xml:space="preserve">
+    <value>Échec de réinitialisation du mot de passe</value>
+  </data>
+  <data name="RewardDeleted_en" xml:space="preserve">
+    <value>Reward was deleted successfully</value>
+  </data>
+  <data name="RewardDeleted_fr" xml:space="preserve">
+    <value>La bonification a été supprimée avec succès</value>
+  </data>
+  <data name="RewardExistForThatDate_en" xml:space="preserve">
+    <value>A reward already exist for that date</value>
+  </data>
+  <data name="RewardExistForThatDate_fr" xml:space="preserve">
+    <value>Une bonification existe déjà pour cette date</value>
+  </data>
+  <data name="RewardNotFound_en" xml:space="preserve">
+    <value>Reward not found</value>
+  </data>
+  <data name="RewardNotFound_fr" xml:space="preserve">
+    <value>Bonification introuvable</value>
+  </data>
+  <data name="RewardNotSetForThatMerchant_en" xml:space="preserve">
+    <value>Base reward not set for that merchant</value>
+  </data>
+  <data name="RewardNotSetForThatMerchant_fr" xml:space="preserve">
+    <value>La bonification de base n'est pas défini pour ce marchand</value>
+  </data>
+  <data name="SocialMediaUserAlreadyUsed_en" xml:space="preserve">
+    <value>Social media user already used</value>
+  </data>
+  <data name="SocialMediaUserAlreadyUsed_fr" xml:space="preserve">
+    <value>Utlisateur pour ce média social déjà utilisé</value>
+  </data>
+  <data name="StartingDateNotAValidDate_en" xml:space="preserve">
+    <value>Starting date is not a valid date</value>
+  </data>
+  <data name="StartingDateNotAValidDate_fr" xml:space="preserve">
+    <value>La date de début n'est pas valide</value>
+  </data>
+  <data name="StartingDateOlderThanEndingDate_en" xml:space="preserve">
+    <value>The starting date must be older than the ending date</value>
+  </data>
+  <data name="StartingDateOlderThanEndingDate_fr" xml:space="preserve">
+    <value>La date de début doit être antérieur à la date de fin</value>
+  </data>
+  <data name="SuccessfullyUpdatedEmailValidation_en" xml:space="preserve">
+    <value>Updated successfully, email validation sent to the new email address</value>
+  </data>
+  <data name="SuccessfullyUpdatedEmailValidation_fr" xml:space="preserve">
+    <value>Mise à jour réussie, une validation du courriel a été envoyé à la nouvelle adresse</value>
+  </data>
+  <data name="SuccessfullyUpdated_en" xml:space="preserve">
+    <value>Updated successfully</value>
+  </data>
+  <data name="SuccessfullyUpdated_fr" xml:space="preserve">
+    <value>Mise à jour réussie</value>
+  </data>
+  <data name="TransactionNotFound_en" xml:space="preserve">
+    <value>Transaction not found</value>
+  </data>
+  <data name="TransactionNotFound_fr" xml:space="preserve">
+    <value>Transaction introuvable</value>
+  </data>
+  <data name="UnableToAddBankingInfo_en" xml:space="preserve">
+    <value>Unable to add banking information</value>
+  </data>
+  <data name="UnableToAddBankingInfo_fr" xml:space="preserve">
+    <value>Impossible d'ajouter les informations bancaires</value>
+  </data>
+  <data name="UnableToAddBaseReward_en" xml:space="preserve">
+    <value>Unable to add base reward</value>
+  </data>
+  <data name="UnableToAddBaseReward_fr" xml:space="preserve">
+    <value>Impossible d'ajouter la bonification de base</value>
+  </data>
+  <data name="UnableToAddBusinessHour_en" xml:space="preserve">
+    <value>Unable to add business hour</value>
+  </data>
+  <data name="UnableToAddBusinessHour_fr" xml:space="preserve">
+    <value>Impossible d'ajouter ces heures d'ouverture</value>
+  </data>
+  <data name="UnableToAddCategory_en" xml:space="preserve">
+    <value>Unable to add the category</value>
+  </data>
+  <data name="UnableToAddCategory_fr" xml:space="preserve">
+    <value>Impossible d'ajouter la catégorie</value>
+  </data>
+  <data name="UnableToAddCommunity_en" xml:space="preserve">
+    <value>Unable to add this community</value>
+  </data>
+  <data name="UnableToAddCommunity_fr" xml:space="preserve">
+    <value>Impossible d'ajouter cette communauté</value>
+  </data>
+  <data name="UnableToAddCreditCard_en" xml:space="preserve">
+    <value>Unable to add credit card</value>
+  </data>
+  <data name="UnableToAddCreditCard_fr" xml:space="preserve">
+    <value>Impossible d'ajouter la carte de crédit</value>
+  </data>
+  <data name="UnableToAddHoliday_en" xml:space="preserve">
+    <value>Unable to add this holiday</value>
+  </data>
+  <data name="UnableToAddHoliday_fr" xml:space="preserve">
+    <value>Impossible d'ajouter ce congé</value>
+  </data>
+  <data name="UnableToAddMerchant_en" xml:space="preserve">
+    <value>Unable to add merchant</value>
+  </data>
+  <data name="UnableToAddMerchant_fr" xml:space="preserve">
+    <value>Impossible d'ajouter le marchand</value>
+  </data>
+  <data name="UnableToAddNotification_en" xml:space="preserve">
+    <value>Unable to add notification</value>
+  </data>
+  <data name="UnableToAddNotification_fr" xml:space="preserve">
+    <value>Impossible d'ajouter la notification</value>
+  </data>
+  <data name="UnableToAddRating_en" xml:space="preserve">
+    <value>Unable to add rating</value>
+  </data>
+  <data name="UnableToAddRating_fr" xml:space="preserve">
+    <value>Impossible d'ajouter la cote</value>
+  </data>
+  <data name="UnableToAddReward_en" xml:space="preserve">
+    <value>Unable to add reward</value>
+  </data>
+  <data name="UnableToAddReward_fr" xml:space="preserve">
+    <value>Impossible d'ajouter la bonification</value>
+  </data>
+  <data name="UnableToAddTagToMerchant_en" xml:space="preserve">
+    <value>Unable to add this tag to that merchant</value>
+  </data>
+  <data name="UnableToAddTagToMerchant_fr" xml:space="preserve">
+    <value>Impossible d'ajouter ce tag au marchand</value>
+  </data>
+  <data name="UnableToAddUser_en" xml:space="preserve">
+    <value>Unable to add user</value>
+  </data>
+  <data name="UnableToAddUser_fr" xml:space="preserve">
+    <value>Impossible d'ajouter l'utilisateur</value>
+  </data>
+  <data name="UnableToDeleteBusinessHour_en" xml:space="preserve">
+    <value>Unable to delete business hour</value>
+  </data>
+  <data name="UnableToDeleteBusinessHour_fr" xml:space="preserve">
+    <value>Impossible de supprimer ces heures d'ouverture</value>
+  </data>
+  <data name="UnableToDeleteCreditCard_en" xml:space="preserve">
+    <value>Unable to delete credit card</value>
+  </data>
+  <data name="UnableToDeleteCreditCard_fr" xml:space="preserve">
+    <value>Impossible de supprimer la carte de crédit</value>
+  </data>
+  <data name="UnableToDeleteHoliday_en" xml:space="preserve">
+    <value>Unable to delete this holiday</value>
+  </data>
+  <data name="UnableToDeleteHoliday_fr" xml:space="preserve">
+    <value>Impossible de supprimer le congé</value>
+  </data>
+  <data name="UnableToDeleteImage_en" xml:space="preserve">
+    <value>Unable to delete image</value>
+  </data>
+  <data name="UnableToDeleteImage_fr" xml:space="preserve">
+    <value>Impossible de supprimer cette image</value>
+  </data>
+  <data name="UnableToDeleteMember_en" xml:space="preserve">
+    <value>Unable to delete member</value>
+  </data>
+  <data name="UnableToDeleteMember_fr" xml:space="preserve">
+    <value>Impossible de supprimer le membre</value>
+  </data>
+  <data name="UnableToDeleteReward_en" xml:space="preserve">
+    <value>Unable to delete reward</value>
+  </data>
+  <data name="UnableToDeleteReward_fr" xml:space="preserve">
+    <value>Impossible de supprimer la bonification</value>
+  </data>
+  <data name="UnableToDeleteUser_en" xml:space="preserve">
+    <value>Unable to delete user</value>
+  </data>
+  <data name="UnableToDeleteUser_fr" xml:space="preserve">
+    <value>Impossible de supprimer l'utilisateur</value>
+  </data>
+  <data name="UnableToGenerateQrCode_en" xml:space="preserve">
+    <value>Unable to generate the QRCode</value>
+  </data>
+  <data name="UnableToGenerateQrCode_fr" xml:space="preserve">
+    <value>Impossible de générer le code QR</value>
+  </data>
+  <data name="UnableToGetInvoice_en" xml:space="preserve">
+    <value>Unable to get invoice information</value>
+  </data>
+  <data name="UnableToGetInvoice_fr" xml:space="preserve">
+    <value>Impossible d'obtenir les informations de la facture</value>
+  </data>
+  <data name="UnableToGetReward_en" xml:space="preserve">
+    <value>Unable to get reward</value>
+  </data>
+  <data name="UnableToGetReward_fr" xml:space="preserve">
+    <value>Impossible d'obtenir la bonification</value>
+  </data>
+  <data name="UnableToGetStatistic_en" xml:space="preserve">
+    <value>Unable to get the statistics</value>
+  </data>
+  <data name="UnableToGetStatistic_fr" xml:space="preserve">
+    <value>Impossible d'obtenir les statistiques</value>
+  </data>
+  <data name="UnableToGetTransactionHistory_en" xml:space="preserve">
+    <value>Unable to get transaction history</value>
+  </data>
+  <data name="UnableToGetTransactionHistory_fr" xml:space="preserve">
+    <value>Impossible d'obtenir l'historique des transactions</value>
+  </data>
+  <data name="UnableToJoinCommunity_en" xml:space="preserve">
+    <value>Unable to join community</value>
+  </data>
+  <data name="UnableToJoinCommunity_fr" xml:space="preserve">
+    <value>Impossible de joindre la communauté</value>
+  </data>
+  <data name="UnableToLogin_en" xml:space="preserve">
+    <value>Unable to login</value>
+  </data>
+  <data name="UnableToLogin_fr" xml:space="preserve">
+    <value>Connexion impossible</value>
+  </data>
+  <data name="UnableToRemoveMerchantTag_en" xml:space="preserve">
+    <value>Unable to remove that tag from this merchant</value>
+  </data>
+  <data name="UnableToRemoveMerchantTag_fr" xml:space="preserve">
+    <value>Impossible de retirer ce tag de ce marchand</value>
+  </data>
+  <data name="UnableToRetrieveInvoiceInfo_fr" xml:space="preserve">
+    <value>Impossible de récupérer les informations de la facture</value>
+  </data>
+  <data name="UnableToRetrievePointBalance_en" xml:space="preserve">
+    <value>Unable to retrieve point balance</value>
+  </data>
+  <data name="UnableToRetrievePointBalance_fr" xml:space="preserve">
+    <value>Impossible de récupérer la balance de points</value>
+  </data>
+  <data name="UnableToRetrieveTheCategory_en" xml:space="preserve">
+    <value>Unable to retrieve the categories</value>
+  </data>
+  <data name="UnableToRetrieveTheCategory_fr" xml:space="preserve">
+    <value>Impossible de récupérer les catégories</value>
+  </data>
+  <data name="UnableToRetrieveTheCommunity_en" xml:space="preserve">
+    <value>Unable to retrieve the communities</value>
+  </data>
+  <data name="UnableToRetrieveTheCommunity_fr" xml:space="preserve">
+    <value>Impossible de récupérer les communautés</value>
+  </data>
+  <data name="UnableToRetrieveTheCountry_en" xml:space="preserve">
+    <value>Unable to retrieve the countries</value>
+  </data>
+  <data name="UnableToRetrieveTheCountry_fr" xml:space="preserve">
+    <value>Impossible de récupérer les pays</value>
+  </data>
+  <data name="UnableToRetrieveTheState_en" xml:space="preserve">
+    <value>Unable to retrieve the states</value>
+  </data>
+  <data name="UnableToRetrieveTheState_fr" xml:space="preserve">
+    <value>Impossible de récupérer les provinces/états</value>
+  </data>
+  <data name="UnableToRetrieveTheTag_en" xml:space="preserve">
+    <value>Unable to retrieve the tags</value>
+  </data>
+  <data name="UnableToRetrieveTheTag_fr" xml:space="preserve">
+    <value>Impossible de récupérer les tags</value>
+  </data>
+  <data name="UnableToRetrieveTransaction_fr" xml:space="preserve">
+    <value>Impossible de récupérer les transactions pour ce membre</value>
+  </data>
+  <data name="UnableToRetrieveUser_en" xml:space="preserve">
+    <value>Unable to retrieve user information</value>
+  </data>
+  <data name="UnableToRetrieveUser_fr" xml:space="preserve">
+    <value>Impossible de récupérer les informations de l'utilisateur</value>
+  </data>
+  <data name="UnableToRetrieve_en" xml:space="preserve">
+    <value>Unable to retrieve the information</value>
+  </data>
+  <data name="UnableToRetrieve_fr" xml:space="preserve">
+    <value>Impossible de récupérer les informations</value>
+  </data>
+  <data name="UnableToRetriveInvoiceInfo_en" xml:space="preserve">
+    <value>Unable to retrieve invoice information</value>
+  </data>
+  <data name="UnableToRetriveTransaction_en" xml:space="preserve">
+    <value>Unable to retrieve the transactions for that member</value>
+  </data>
+  <data name="UnableToUpdateBankingInfo_en" xml:space="preserve">
+    <value>Unable to update banking information</value>
+  </data>
+  <data name="UnableToUpdateBankingInfo_fr" xml:space="preserve">
+    <value>Impossible de modifier les informations bancaires</value>
+  </data>
+  <data name="UnableToUpdateBusinessHour_en" xml:space="preserve">
+    <value>Unable to update business hour</value>
+  </data>
+  <data name="UnableToUpdateBusinessHour_fr" xml:space="preserve">
+    <value>Impossible de modifier les heures d'ouverture</value>
+  </data>
+  <data name="UnableToUpdateCategory_en" xml:space="preserve">
+    <value>Unable to update the category</value>
+  </data>
+  <data name="UnableToUpdateCategory_fr" xml:space="preserve">
+    <value>Impossible de modifier la catégorie</value>
+  </data>
+  <data name="UnableToUpdateCommunity_en" xml:space="preserve">
+    <value>Unable to update community</value>
+  </data>
+  <data name="UnableToUpdateCommunity_fr" xml:space="preserve">
+    <value>Impossible de modifier la communauté</value>
+  </data>
+  <data name="UnableToUpdateCreditCard_en" xml:space="preserve">
+    <value>Unable to update credit card</value>
+  </data>
+  <data name="UnableToUpdateCreditCard_fr" xml:space="preserve">
+    <value>Impossible de modifier la carte de crédit</value>
+  </data>
+  <data name="UnableToUpdateHoliday_en" xml:space="preserve">
+    <value>Unable to update this holiday</value>
+  </data>
+  <data name="UnableToUpdateHoliday_fr" xml:space="preserve">
+    <value>Impossible de modifier ce congé</value>
+  </data>
+  <data name="UnableToUpdateImage_en" xml:space="preserve">
+    <value>Unable to update image</value>
+  </data>
+  <data name="UnableToUpdateImage_fr" xml:space="preserve">
+    <value>Impossible de modifier l'image</value>
+  </data>
+  <data name="UnableToUpdateMember_en" xml:space="preserve">
+    <value>Unable to update member</value>
+  </data>
+  <data name="UnableToUpdateMember_fr" xml:space="preserve">
+    <value>Impossible de modifier le membre</value>
+  </data>
+  <data name="UnableToUpdateMerchant_en" xml:space="preserve">
+    <value>Unable to update merchant</value>
+  </data>
+  <data name="UnableToUpdateMerchant_fr" xml:space="preserve">
+    <value>Impossible de modifier le marchand</value>
+  </data>
+  <data name="UnableToUpdateReward_en" xml:space="preserve">
+    <value>Unable to update reward</value>
+  </data>
+  <data name="UnableToUpdateReward_fr" xml:space="preserve">
+    <value>Impossible de modifier la bonification</value>
+  </data>
+  <data name="UnableToUpdateUser_en" xml:space="preserve">
+    <value>Unable to update user</value>
+  </data>
+  <data name="UnableToUpdateUser_fr" xml:space="preserve">
+    <value>Impossible de modifier l'utilisateur</value>
+  </data>
+  <data name="UnableToValidateEmailAddress_en" xml:space="preserve">
+    <value>Unable to validate email address</value>
+  </data>
+  <data name="UnableToValidateEmailAddress_fr" xml:space="preserve">
+    <value>Impossible de valider l'adresse courriel</value>
+  </data>
+  <data name="UnauthorizedToLogin_en" xml:space="preserve">
+    <value>Unauthorized to login</value>
+  </data>
+  <data name="UnauthorizedToLogin_fr" xml:space="preserve">
+    <value>Connexion non autorisée</value>
+  </data>
+  <data name="Unknown_en" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Unknown_fr" xml:space="preserve">
+    <value>Aucune</value>
+  </data>
+  <data name="UserDeleted_en" xml:space="preserve">
+    <value>User was successfully deleted</value>
+  </data>
+  <data name="UserDeleted_fr" xml:space="preserve">
+    <value>L'utilisateur a été supprimé avec succès</value>
+  </data>
+  <data name="UserInfoNotAccessible_en" xml:space="preserve">
+    <value>Unable to access user information</value>
+  </data>
+  <data name="UserInfoNotAccessible_fr" xml:space="preserve">
+    <value>Impossible d'accéder les informations de l'utilisateur</value>
+  </data>
+  <data name="UserNotFound_en" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="UserNotFound_fr" xml:space="preserve">
+    <value>Utilisateur introuvable</value>
+  </data>
+  <data name="UnableToAddBaseRewardCalendar_en" xml:space="preserve">
+    <value>Unable to add base reward calendar</value>
+  </data>
+  <data name="UnableToAddBaseRewardCalendar_fr" xml:space="preserve">
+    <value>Impossible d'ajouter le calendrier de bonification de base</value>
+  </data>
+</root>

@@ -1,0 +1,307 @@
+INFO  2020-04-14 10:26:24,044   150ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-14 10:30:31,584   135ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-14 15:10:53,234   156ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 07:51:13,083   180ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 08:02:20,053   139ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 08:03:51,097   146ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 08:05:11,493   129ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 08:10:21,270   215ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 08:12:49,963   140ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 09:32:52,914  1030ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+ERROR 2020-04-15 09:34:50,498 118614ms MembersController      MoveNext           - CreateASync - UserId d70ec9f7-82b1-4323-95c6-3560b1b9b574
+ERROR 2020-04-15 09:37:01,617 249733ms MembersController      MoveNext           - CreateASync - UserId 86eeac9c-8352-4aa9-be55-193b3d8bde30
+INFO  2020-04-15 13:35:06,395   147ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 13:37:51,276   210ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 13:41:14,589   153ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 13:44:43,702   215ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 13:50:31,472   599ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 13:54:29,957   190ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 13:59:59,380   142ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 14:04:35,060   157ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 14:11:50,191   169ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 14:14:03,314   177ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 15:11:22,879   267ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 15:33:04,609   363ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-15 15:37:12,948   184ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 07:59:27,426   207ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 08:24:58,464   436ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 15:50:24,612   157ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 15:56:38,520   154ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 16:12:57,433   320ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 16:26:17,556   247ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 16:29:21,539   338ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 16:33:50,569  1013ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 16:42:28,356   250ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 16:45:21,218   255ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 16:50:01,058   301ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-16 16:50:39,540   295ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-17 11:17:43,519   165ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-19 17:46:51,287   185ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-19 17:52:20,468   134ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-19 18:10:45,891   248ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-19 18:16:14,464   130ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-20 07:31:24,529   168ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-20 07:47:48,572   137ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-22 09:24:25,608   129ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-22 09:27:34,017   128ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 07:39:05,024   184ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 07:40:37,472   121ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 12:12:47,885   173ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 15:02:21,748   251ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 16:05:24,159   111ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 16:08:10,130   127ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 16:13:17,945   144ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 16:28:13,115   134ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-23 16:35:59,439   122ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-24 07:26:27,211   145ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-24 07:46:04,812   133ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-27 17:52:30,942   285ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-04-27 18:30:48,883   198ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-11 21:23:12,035    61ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-11 21:24:18,709    79ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-11 21:26:56,776    87ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+ERROR 2020-05-11 21:46:59,082 1202393ms WebApiApplication      Application_Error  - System.InvalidOperationException: A model description could not be created. Duplicate model name 'NotificationRQ' was found for types 'IMS.Service.WebAPI2.Models.notificationRQ' and 'IMS.Service.WebAPI2.Models.NotificationRQ'. Use the [ModelName] attribute to change the model name for at least one of the types so that it has a unique name.
+   at IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GetOrCreateModelDescription(Type modelType) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs:line 129
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.InitializeModelDescriptionGenerator(HttpConfiguration config) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 452
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.<>c__DisplayClass15_0.<GetModelDescriptionGenerator>b__0(Object k) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 208
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(HttpConfiguration config) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 206
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GenerateApiModel(ApiDescription apiDescription, HttpConfiguration config) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 244
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(HttpConfiguration config, String apiDescriptionId) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 229
+   at IMS.Service.WebAPI2.Areas.HelpPage.Controllers.HelpController.Api(String apiId) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\Controllers\HelpController.cs:line 38
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecuteCore>b__152_1(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecute>b__151_2(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c.<BeginProcessRequest>b__20_1(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2020-05-11 21:51:17,438 1460749ms WebApiApplication      Application_Error  - System.InvalidOperationException: A model description could not be created. Duplicate model name 'NotificationRQ' was found for types 'IMS.Service.WebAPI2.Models.notificationRQ' and 'IMS.Service.WebAPI2.Models.NotificationRQ'. Use the [ModelName] attribute to change the model name for at least one of the types so that it has a unique name.
+   at IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GetOrCreateModelDescription(Type modelType) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs:line 129
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.InitializeModelDescriptionGenerator(HttpConfiguration config) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 452
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.<>c__DisplayClass15_0.<GetModelDescriptionGenerator>b__0(Object k) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 208
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(HttpConfiguration config) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 206
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GenerateApiModel(ApiDescription apiDescription, HttpConfiguration config) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 244
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(HttpConfiguration config, String apiDescriptionId) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 229
+   at IMS.Service.WebAPI2.Areas.HelpPage.Controllers.HelpController.Api(String apiId) in D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\Controllers\HelpController.cs:line 38
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecuteCore>b__152_1(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecute>b__151_2(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c.<BeginProcessRequest>b__20_1(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+INFO  2020-05-11 21:51:44,463    77ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-18 12:56:48,043   212ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-18 13:01:48,537   254ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-18 13:47:46,939   254ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-18 13:50:43,515   256ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-18 16:07:57,504    56ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+INFO  2020-05-18 19:32:27,567    66ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+ERROR 2020-05-18 22:21:56,434 10168933ms MembersController      MoveNext           - CreateASync - UserId 86bac2c6-6c54-4368-85c4-046f1cbeb1cf
+ERROR 2020-05-18 22:22:55,752 10228252ms MembersController      MoveNext           - CreateASync - UserId 8559361a-8053-4ca2-b0af-bf77d3e8e580
+ERROR 2020-05-18 22:23:32,369 10264868ms MembersController      MoveNext           - CreateASync - UserId 60899d70-f7c6-4b43-932c-1f81c9d1e8fb
+ERROR 2020-05-18 22:24:30,321 10322820ms MembersController      MoveNext           - CreateASync - UserId 23bb67dc-3299-4891-a901-4d288331d13d
+INFO  2020-05-19 10:49:38,257    65ms WebApiApplication      Application_Start  - IMS.Service.WebAPI2 - Application Start
+ERROR 2020-05-19 10:54:23,664 285472ms MembersController      MoveNext           - CreateASync - UserId c24a0dd2-1935-4cb7-af65-4af35a7d5b7e
+ERROR 2020-05-19 10:54:59,415 321223ms MembersController      MoveNext           - CreateASync - UserId 7c2bb590-4bc7-46f5-9cc5-2e3315f50ac1
+ERROR 2020-05-19 11:39:22,848 2984657ms WebApiApplication      Application_Error  - System.InvalidOperationException: A model description could not be created. Duplicate model name 'NotificationRQ' was found for types 'IMS.Service.WebAPI2.Models.notificationRQ' and 'IMS.Service.WebAPI2.Models.NotificationRQ'. Use the [ModelName] attribute to change the model name for at least one of the types so that it has a unique name.
+   at IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GetOrCreateModelDescription(Type modelType) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs:line 129
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.InitializeModelDescriptionGenerator(HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 452
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.<>c__DisplayClass15_0.<GetModelDescriptionGenerator>b__0(Object k) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 208
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 206
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GenerateApiModel(ApiDescription apiDescription, HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 244
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(HttpConfiguration config, String apiDescriptionId) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 229
+   at IMS.Service.WebAPI2.Areas.HelpPage.Controllers.HelpController.Api(String apiId) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\Controllers\HelpController.cs:line 38
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecuteCore>b__152_1(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecute>b__151_2(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c.<BeginProcessRequest>b__20_1(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2020-05-19 11:39:24,124 2985933ms WebApiApplication      Application_Error  - System.InvalidOperationException: A model description could not be created. Duplicate model name 'NotificationRQ' was found for types 'IMS.Service.WebAPI2.Models.notificationRQ' and 'IMS.Service.WebAPI2.Models.NotificationRQ'. Use the [ModelName] attribute to change the model name for at least one of the types so that it has a unique name.
+   at IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GetOrCreateModelDescription(Type modelType) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs:line 129
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.InitializeModelDescriptionGenerator(HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 452
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.<>c__DisplayClass15_0.<GetModelDescriptionGenerator>b__0(Object k) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 208
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 206
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GenerateApiModel(ApiDescription apiDescription, HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 244
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(HttpConfiguration config, String apiDescriptionId) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 229
+   at IMS.Service.WebAPI2.Areas.HelpPage.Controllers.HelpController.Api(String apiId) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\Controllers\HelpController.cs:line 38
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecuteCore>b__152_1(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecute>b__151_2(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c.<BeginProcessRequest>b__20_1(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2020-05-19 11:40:26,587 3048395ms WebApiApplication      Application_Error  - System.InvalidOperationException: A model description could not be created. Duplicate model name 'NotificationRQ' was found for types 'IMS.Service.WebAPI2.Models.notificationRQ' and 'IMS.Service.WebAPI2.Models.NotificationRQ'. Use the [ModelName] attribute to change the model name for at least one of the types so that it has a unique name.
+   at IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator.GetOrCreateModelDescription(Type modelType) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs:line 129
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.InitializeModelDescriptionGenerator(HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 452
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.<>c__DisplayClass15_0.<GetModelDescriptionGenerator>b__0(Object k) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 208
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 206
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GenerateApiModel(ApiDescription apiDescription, HttpConfiguration config) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 244
+   at IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(HttpConfiguration config, String apiDescriptionId) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\HelpPageConfigurationExtensions.cs:line 229
+   at IMS.Service.WebAPI2.Areas.HelpPage.Controllers.HelpController.Api(String apiId) in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Areas\HelpPage\Controllers\HelpController.cs:line 38
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c.<BeginInvokeSynchronousActionMethod>b__9_0(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__11_0()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass11_1.<InvokeActionMethodFilterAsynchronouslyRecursive>b__2()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass7_0.<BeginInvokeActionMethodWithFilters>b__1(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_6.<BeginInvokeAction>b__3()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass3_1.<BeginInvokeAction>b__5(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecuteCore>b__152_1(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<>c.<BeginExecute>b__151_2(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<>c.<BeginProcessRequest>b__20_1(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2020-05-19 12:00:56,585 4278393ms MembersController      MoveNext           - UserManager.ResetPasswordAsync MemberId 11858 Result Invalid token. Code Jujl6ejYzLF0QdUVSGH8brttzpOKeZt%2Bqup9RfBo3dLzLE9LvNpE7MFPikdgc2Xtyu1FxECg7TWEwhNhKJqMD4U%2FF8RrzDf1CVSoaL6Hm4f1NoWEau6lm98h9fHTCQajs8AdPwRJm4rUyOFCz5zjOzJqsTCcfbfj6qn%2FBaUiDvDA%2FdSwk2l6lWmb%2BeKjIUyQPHoKnmg6bCmlnh%2BpuIRn%2Fg%3D%3D
+ERROR 2020-05-19 12:53:12,006 7413814ms MembersController      MoveNext           - Login GenerateToken - MemberId 11855 Exception System.MissingMethodException: Method not found: 'Void Microsoft.Azure.KeyVault.KeyVaultClient..ctor(AuthenticationCallback, System.Net.Http.DelegatingHandler[])'.
+   at IMS.Common.Core.Services.TokenManager.<generateToken>d__0.MoveNext()
+   at System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start[TStateMachine](TStateMachine& stateMachine)
+   at IMS.Common.Core.Services.TokenManager.generateToken(String deviceId)
+   at IMS.Service.WebAPI2.Controllers.MembersController.<SocialLogin>d__17.MoveNext() in C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Service.WebAPI2\Controllers\MembersController.cs:line 823 InnerException 

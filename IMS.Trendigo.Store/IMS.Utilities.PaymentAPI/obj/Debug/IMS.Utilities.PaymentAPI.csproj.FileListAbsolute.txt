@@ -1,0 +1,31 @@
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.dll.config
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\log4net.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\Newtonsoft.Json.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\RestSharp.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\System.ValueTuple.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\log4net.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\Newtonsoft.Json.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\bin\Debug\System.ValueTuple.xml
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csproj.CoreCompileInputs.cache
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csproj.CopyComplete
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.dll
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.pdb
+C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csprojAssemblyReference.cache
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.dll.config
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.pdb
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csprojAssemblyReference.cache
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csproj.CoreCompileInputs.cache
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csproj.CopyComplete
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.dll
+D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.dll.config
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.pdb
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csprojAssemblyReference.cache
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csproj.CoreCompileInputs.cache
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.csproj.CopyComplete
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.dll
+C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Utilities.PaymentAPI\obj\Debug\IMS.Utilities.PaymentAPI.pdb

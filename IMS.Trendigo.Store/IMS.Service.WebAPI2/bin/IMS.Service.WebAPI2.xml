@@ -1,0 +1,1795 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IMS.Service.WebAPI2</name>
+    </assembly>
+    <members>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:IMS.Service.WebAPI2.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,IMS.Service.WebAPI2.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,IMS.Service.WebAPI2.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},IMS.Service.WebAPI2.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.#ctor(IMS.Service.WebAPI2.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,IMS.Service.WebAPI2.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:IMS.Service.WebAPI2.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IMS.Service.WebAPI2.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:IMS.Service.WebAPI2.Messages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.AccountCreationFailed_en">
+            <summary>
+              Looks up a localized string similar to Account creation failed.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.AccountCreationFailed_fr">
+            <summary>
+              Looks up a localized string similar to La création du compte a échoué.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.AccountLocked_en">
+            <summary>
+              Looks up a localized string similar to Account locked.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.AccountLocked_fr">
+            <summary>
+              Looks up a localized string similar to Compte bloqué.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BankingInfoExist_en">
+            <summary>
+              Looks up a localized string similar to Banking information already exist.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BankingInfoExist_fr">
+            <summary>
+              Looks up a localized string similar to Les informations bancaires exitent déjà.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BankingInfoNotFound_en">
+            <summary>
+              Looks up a localized string similar to Banking info not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BankingInfoNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Information bancaire introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BusinessHourDeleted_en">
+            <summary>
+              Looks up a localized string similar to Business hour was successfully deleted.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BusinessHourDeleted_fr">
+            <summary>
+              Looks up a localized string similar to Les heures d&apos;ouverture ont été supprimées avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BusinessHourExistForThatDay_en">
+            <summary>
+              Looks up a localized string similar to Business hour exist for that day.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BusinessHourExistForThatDay_fr">
+            <summary>
+              Looks up a localized string similar to Les heures d&apos;ouvertures existent pour ce jour.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BusinessHourNotFound_en">
+            <summary>
+              Looks up a localized string similar to Business hour not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.BusinessHourNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Heures d&apos;ouverture introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotAddNewImage_en">
+            <summary>
+              Looks up a localized string similar to Cannot add new image.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotAddNewImage_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter une nouvelle image.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotAddNewImageQuotaReached_en">
+            <summary>
+              Looks up a localized string similar to Cannot add new image, quota has been reached.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotAddNewImageQuotaReached_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter une nouvelle image, le quota a été atteint.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotChangePasswordForThatMember_en">
+            <summary>
+              Looks up a localized string similar to Cannot change password for that member.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotChangePasswordForThatMember_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de changer le mot de passe pour ce membre.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotCreateMember_en">
+            <summary>
+              Looks up a localized string similar to Cannot create member.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotCreateMember_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de créer le membre.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotCreateUser_en">
+            <summary>
+              Looks up a localized string similar to Cannot create user.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CannotCreateUser_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de créer l&apos;utilisateur.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CommunityNotFound_en">
+            <summary>
+              Looks up a localized string similar to Community not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CommunityNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Communauté introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielEmailValidationSubject_en">
+            <summary>
+              Looks up a localized string similar to Email validation.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielEmailValidationSubject_fr">
+            <summary>
+              Looks up a localized string similar to Confirmation du courriel.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielEmailValidationTextLink_en">
+            <summary>
+              Looks up a localized string similar to Confirm my email.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielEmailValidationTextLink_fr">
+            <summary>
+              Looks up a localized string similar to Confirmer mon adresse courriel.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielPasswordResetBody_en">
+            <summary>
+              Looks up a localized string similar to Please reset your password by clicking here: {0}.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielPasswordResetBody_fr">
+            <summary>
+              Looks up a localized string similar to Veuillez réinitialiser votre mot de passe en cliquant ici: {0}.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielPasswordResetSubject_en">
+            <summary>
+              Looks up a localized string similar to Password reset.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielPasswordResetSubject_fr">
+            <summary>
+              Looks up a localized string similar to Réinitialisation du mot de passe.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielPasswordResetTextLink_en">
+            <summary>
+              Looks up a localized string similar to Reset my password.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielPasswordResetTextLink_fr">
+            <summary>
+              Looks up a localized string similar to Réinitialiser mon mot de passe.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielProfileCompletionSubject_en">
+            <summary>
+              Looks up a localized string similar to You completed your registration!.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielProfileCompletionSubject_fr">
+            <summary>
+              Looks up a localized string similar to Vous avez complété votre inscription!.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielRegisterMemberSubject_en">
+            <summary>
+              Looks up a localized string similar to Registration confirmation!.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielRegisterMemberSubject_fr">
+            <summary>
+              Looks up a localized string similar to Confirmation d’inscription Trendigo!.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielSetPasswordSubject_en">
+            <summary>
+              Looks up a localized string similar to Set password.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielSetPasswordSubject_fr">
+            <summary>
+              Looks up a localized string similar to Insertion du mot de passe.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielSetPasswordTextLink_en">
+            <summary>
+              Looks up a localized string similar to Set my password.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CourrielSetPasswordTextLink_fr">
+            <summary>
+              Looks up a localized string similar to Insérer mon mot de passe.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CreditCardAlreadyExist_en">
+            <summary>
+              Looks up a localized string similar to Credit card already exist.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CreditCardAlreadyExist_fr">
+            <summary>
+              Looks up a localized string similar to La carte de crédit existe déjà.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CreditCardDeleted_en">
+            <summary>
+              Looks up a localized string similar to Credit card was successfully deleted.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CreditCardDeleted_fr">
+            <summary>
+              Looks up a localized string similar to La carte de crédit a été supprimée avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CreditCardNotFound_en">
+            <summary>
+              Looks up a localized string similar to Credit card not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CreditCardNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Carte de crédit introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CreditCardUpdated_en">
+            <summary>
+              Looks up a localized string similar to Credit card updated successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.CreditCardUpdated_fr">
+            <summary>
+              Looks up a localized string similar to Carte de crédit mise à jour avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EmailAddressValidated_en">
+            <summary>
+              Looks up a localized string similar to Email address was validated successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EmailAddressValidated_fr">
+            <summary>
+              Looks up a localized string similar to Adresse courriel validé avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EmailAlreadyUsed_en">
+            <summary>
+              Looks up a localized string similar to Email already used.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EmailAlreadyUsed_fr">
+            <summary>
+              Looks up a localized string similar to Adresse courriel déjà utilisée.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EmailNotValidated_en">
+            <summary>
+              Looks up a localized string similar to Email not validated.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EmailNotValidated_fr">
+            <summary>
+              Looks up a localized string similar to Courriel non confirmé.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EmailValidationNecessary_en">
+            <summary>
+              Looks up a localized string similar to Email validation necessary before performing this action, please check your inbox of the account used for this application and proceed with the confirmation.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EmailValidationNecessary_fr">
+            <summary>
+              Looks up a localized string similar to Validation de l&apos;adresse courriel nécessaire avant d&apos;effectuer cette action, veuillez vérifier votre boîte de réception du compte utilisé pour cette application et procéder avec la confirmation.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EndingDateNotAValidDate_en">
+            <summary>
+              Looks up a localized string similar to Ending date is not a valid date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.EndingDateNotAValidDate_fr">
+            <summary>
+              Looks up a localized string similar to La date de fin n&apos;est pas valide.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.HolidayAlreadyExist_en">
+            <summary>
+              Looks up a localized string similar to Holiday already exist for that date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.HolidayAlreadyExist_fr">
+            <summary>
+              Looks up a localized string similar to Un congé existe déjà pour cette date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.HolidayDeleted_en">
+            <summary>
+              Looks up a localized string similar to Holiday deleted successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.HolidayDeleted_fr">
+            <summary>
+              Looks up a localized string similar to Le congé a été supprimé avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageDeleted_en">
+            <summary>
+              Looks up a localized string similar to Image deleted successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageDeleted_fr">
+            <summary>
+              Looks up a localized string similar to Image suppriméé avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageNotFound_en">
+            <summary>
+              Looks up a localized string similar to Image not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Image introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageSizeNotAccepted_en">
+            <summary>
+              Looks up a localized string similar to Image size must be less than 2mb.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageSizeNotAccepted_fr">
+            <summary>
+              Looks up a localized string similar to La taille de l&apos;image ne doit pas dépasser 2mb.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageTypeNotAccepted_en">
+            <summary>
+              Looks up a localized string similar to Image type must be .jpg, .gif or .png.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageTypeNotAccepted_fr">
+            <summary>
+              Looks up a localized string similar to Type d&apos;image doit être .jpg, .gif ou .png.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageTypeNotFound_en">
+            <summary>
+              Looks up a localized string similar to Image type not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ImageTypeNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Type d&apos;image introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.InvalidUsernameOrPassword_en">
+            <summary>
+              Looks up a localized string similar to Invalid username or password.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.InvalidUsernameOrPassword_fr">
+            <summary>
+              Looks up a localized string similar to Code d&apos;utilisateur ou mot de passe invalide.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.InvoiceNotFound_en">
+            <summary>
+              Looks up a localized string similar to Invoice not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.InvoiceNotFound_fr">
+            <summary>
+              Looks up a localized string similar to La facture est introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.LanguageNotFound_en">
+            <summary>
+              Looks up a localized string similar to Language not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.LanguageNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Langue introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.LinkWasSentSuccessfully_en">
+            <summary>
+              Looks up a localized string similar to Link was sent successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.LinkWasSentSuccessfully_fr">
+            <summary>
+              Looks up a localized string similar to Le lien a été envoyé avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MemberDeleted_en">
+            <summary>
+              Looks up a localized string similar to Member was successfully deleted.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MemberDeleted_fr">
+            <summary>
+              Looks up a localized string similar to Le membre a été supprimé avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MemberNotFound_en">
+            <summary>
+              Looks up a localized string similar to Member not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MemberNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Membre introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantAlreadyInCommunity_en">
+            <summary>
+              Looks up a localized string similar to Merchant already part of a community.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantAlreadyInCommunity_fr">
+            <summary>
+              Looks up a localized string similar to Le marchand fait déjà partie d&apos;une communauté.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantDeleted_en">
+            <summary>
+              Looks up a localized string similar to Merchant was successfully deleted.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantDeleted_fr">
+            <summary>
+              Looks up a localized string similar to Le marchand a été supprimé avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantNotFound_en">
+            <summary>
+              Looks up a localized string similar to Merchant not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Marchand introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantNotOpenOnThatDate_en">
+            <summary>
+              Looks up a localized string similar to The merchant is not open on that date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantNotOpenOnThatDate_fr">
+            <summary>
+              Looks up a localized string similar to Le marchand n&apos;est pas ouvert à cette date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantTagNotFound_en">
+            <summary>
+              Looks up a localized string similar to Tag not found for that merchant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantTagNotFounf_fr">
+            <summary>
+              Looks up a localized string similar to Tag introuvable pour ce marchand.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantTagRemoved_en">
+            <summary>
+              Looks up a localized string similar to Merchant tag removed successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MerchantTagRemoved_fr">
+            <summary>
+              Looks up a localized string similar to Tag retiré de ce marchand avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MissingParameter_en">
+            <summary>
+              Looks up a localized string similar to Missing parameter.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.MissingParameter_fr">
+            <summary>
+              Looks up a localized string similar to Paramètre manquant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NoLocalisationFound_en">
+            <summary>
+              Looks up a localized string similar to No localisation found for that geolocation.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NoLocalisationFound_fr">
+            <summary>
+              Looks up a localized string similar to Aucune localisation trouvée pour cette géolocalisation.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NotActivated_en">
+            <summary>
+              Looks up a localized string similar to Card not yet activated.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NotActivated_fr">
+            <summary>
+              Looks up a localized string similar to Carte non-activée.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NotificationAddedSuccessfully_en">
+            <summary>
+              Looks up a localized string similar to Notification added successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NotificationAddedSuccessfully_fr">
+            <summary>
+              Looks up a localized string similar to Notification ajoutée avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NotOpenBusinessDay_en">
+            <summary>
+              Looks up a localized string similar to Date unavailable, this is not an open business day for that merchant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NotOpenBusinessDay_fr">
+            <summary>
+              Looks up a localized string similar to Date non disponible, ce n&apos;est pas un jour ouvrable pour ce marchand.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NotOpenHoliday_en">
+            <summary>
+              Looks up a localized string similar to Date unavailable, this is a holiday period for that merchant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.NotOpenHoliday_fr">
+            <summary>
+              Looks up a localized string similar to Date non disponible, il s&apos;agit d&apos;une période de congé pour ce marchand.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.PasswordSuccessfullyUpdated_en">
+            <summary>
+              Looks up a localized string similar to Password successfully updated.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.PasswordSuccessfullyUpdated_fr">
+            <summary>
+              Looks up a localized string similar to Mot de passe mis à jour avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.PasswordWasSetSuccessfully_en">
+            <summary>
+              Looks up a localized string similar to Password was set successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.PasswordWasSetSuccessfully_fr">
+            <summary>
+              Looks up a localized string similar to Mot de passe défini avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RatingAddedSuccessfully_en">
+            <summary>
+              Looks up a localized string similar to Rating added successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RatingAddedSuccessfully_fr">
+            <summary>
+              Looks up a localized string similar to Cote ajouté avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ReferralPointsEmailSubject_en">
+            <summary>
+              Looks up a localized string similar to Referral Program.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ReferralPointsEmailSubject_fr">
+            <summary>
+              Looks up a localized string similar to Programme de référencement.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ResetPasswordFailed_en">
+            <summary>
+              Looks up a localized string similar to Reset password failed.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.ResetPasswordFailed_fr">
+            <summary>
+              Looks up a localized string similar to Échec de réinitialisation du mot de passe.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RewardDeleted_en">
+            <summary>
+              Looks up a localized string similar to Reward was deleted successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RewardDeleted_fr">
+            <summary>
+              Looks up a localized string similar to La bonification a été supprimée avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RewardExistForThatDate_en">
+            <summary>
+              Looks up a localized string similar to A reward already exist for that date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RewardExistForThatDate_fr">
+            <summary>
+              Looks up a localized string similar to Une bonification existe déjà pour cette date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RewardNotFound_en">
+            <summary>
+              Looks up a localized string similar to Reward not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RewardNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Bonification introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RewardNotSetForThatMerchant_en">
+            <summary>
+              Looks up a localized string similar to Base reward not set for that merchant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.RewardNotSetForThatMerchant_fr">
+            <summary>
+              Looks up a localized string similar to La bonification de base n&apos;est pas défini pour ce marchand.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.SocialMediaUserAlreadyUsed_en">
+            <summary>
+              Looks up a localized string similar to Social media user already used.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.SocialMediaUserAlreadyUsed_fr">
+            <summary>
+              Looks up a localized string similar to Utlisateur pour ce média social déjà utilisé.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.StartingDateNotAValidDate_en">
+            <summary>
+              Looks up a localized string similar to Starting date is not a valid date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.StartingDateNotAValidDate_fr">
+            <summary>
+              Looks up a localized string similar to La date de début n&apos;est pas valide.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.StartingDateOlderThanEndingDate_en">
+            <summary>
+              Looks up a localized string similar to The starting date must be older than the ending date.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.StartingDateOlderThanEndingDate_fr">
+            <summary>
+              Looks up a localized string similar to La date de début doit être antérieur à la date de fin.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.SuccessfullyUpdated_en">
+            <summary>
+              Looks up a localized string similar to Updated successfully.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.SuccessfullyUpdated_fr">
+            <summary>
+              Looks up a localized string similar to Mise à jour réussie.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.SuccessfullyUpdatedEmailValidation_en">
+            <summary>
+              Looks up a localized string similar to Updated successfully, email validation sent to the new email address.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.SuccessfullyUpdatedEmailValidation_fr">
+            <summary>
+              Looks up a localized string similar to Mise à jour réussie, une validation du courriel a été envoyé à la nouvelle adresse.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.TransactionNotFound_en">
+            <summary>
+              Looks up a localized string similar to Transaction not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.TransactionNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Transaction introuvable.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddBankingInfo_en">
+            <summary>
+              Looks up a localized string similar to Unable to add banking information.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddBankingInfo_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter les informations bancaires.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddBaseReward_en">
+            <summary>
+              Looks up a localized string similar to Unable to add base reward.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddBaseReward_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter la bonification de base.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddBaseRewardCalendar_en">
+            <summary>
+              Looks up a localized string similar to Unable to add base reward calendar.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddBaseRewardCalendar_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter le calendrier de bonification de base.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddBusinessHour_en">
+            <summary>
+              Looks up a localized string similar to Unable to add business hour.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddBusinessHour_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter ces heures d&apos;ouverture.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddCategory_en">
+            <summary>
+              Looks up a localized string similar to Unable to add the category.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddCategory_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter la catégorie.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddCommunity_en">
+            <summary>
+              Looks up a localized string similar to Unable to add this community.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddCommunity_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter cette communauté.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddCreditCard_en">
+            <summary>
+              Looks up a localized string similar to Unable to add credit card.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddCreditCard_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter la carte de crédit.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddHoliday_en">
+            <summary>
+              Looks up a localized string similar to Unable to add this holiday.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddHoliday_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter ce congé.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddMerchant_en">
+            <summary>
+              Looks up a localized string similar to Unable to add merchant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddMerchant_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter le marchand.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddNotification_en">
+            <summary>
+              Looks up a localized string similar to Unable to add notification.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddNotification_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter la notification.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddRating_en">
+            <summary>
+              Looks up a localized string similar to Unable to add rating.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddRating_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter la cote.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddReward_en">
+            <summary>
+              Looks up a localized string similar to Unable to add reward.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddReward_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter la bonification.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddTagToMerchant_en">
+            <summary>
+              Looks up a localized string similar to Unable to add this tag to that merchant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddTagToMerchant_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter ce tag au marchand.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddUser_en">
+            <summary>
+              Looks up a localized string similar to Unable to add user.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToAddUser_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;ajouter l&apos;utilisateur.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteBusinessHour_en">
+            <summary>
+              Looks up a localized string similar to Unable to delete business hour.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteBusinessHour_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de supprimer ces heures d&apos;ouverture.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteCreditCard_en">
+            <summary>
+              Looks up a localized string similar to Unable to delete credit card.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteCreditCard_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de supprimer la carte de crédit.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteHoliday_en">
+            <summary>
+              Looks up a localized string similar to Unable to delete this holiday.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteHoliday_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de supprimer le congé.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteImage_en">
+            <summary>
+              Looks up a localized string similar to Unable to delete image.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteImage_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de supprimer cette image.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteMember_en">
+            <summary>
+              Looks up a localized string similar to Unable to delete member.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteMember_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de supprimer le membre.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteReward_en">
+            <summary>
+              Looks up a localized string similar to Unable to delete reward.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteReward_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de supprimer la bonification.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteUser_en">
+            <summary>
+              Looks up a localized string similar to Unable to delete user.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToDeleteUser_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de supprimer l&apos;utilisateur.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGenerateQrCode_en">
+            <summary>
+              Looks up a localized string similar to Unable to generate the QRCode.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGenerateQrCode_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de générer le code QR.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGetInvoice_en">
+            <summary>
+              Looks up a localized string similar to Unable to get invoice information.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGetInvoice_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;obtenir les informations de la facture.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGetReward_en">
+            <summary>
+              Looks up a localized string similar to Unable to get reward.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGetReward_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;obtenir la bonification.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGetStatistic_en">
+            <summary>
+              Looks up a localized string similar to Unable to get the statistics.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGetStatistic_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;obtenir les statistiques.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGetTransactionHistory_en">
+            <summary>
+              Looks up a localized string similar to Unable to get transaction history.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToGetTransactionHistory_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;obtenir l&apos;historique des transactions.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToJoinCommunity_en">
+            <summary>
+              Looks up a localized string similar to Unable to join community.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToJoinCommunity_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de joindre la communauté.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToLogin_en">
+            <summary>
+              Looks up a localized string similar to Unable to login.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToLogin_fr">
+            <summary>
+              Looks up a localized string similar to Connexion impossible.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRemoveMerchantTag_en">
+            <summary>
+              Looks up a localized string similar to Unable to remove that tag from this merchant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRemoveMerchantTag_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de retirer ce tag de ce marchand.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieve_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve the information.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieve_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les informations.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveInvoiceInfo_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les informations de la facture.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrievePointBalance_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve point balance.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrievePointBalance_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer la balance de points.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheCategory_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve the categories.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheCategory_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les catégories.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheCommunity_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve the communities.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheCommunity_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les communautés.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheCountry_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve the countries.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheCountry_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les pays.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheState_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve the states.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheState_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les provinces/états.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheTag_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve the tags.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTheTag_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les tags.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveTransaction_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les transactions pour ce membre.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveUser_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve user information.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetrieveUser_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de récupérer les informations de l&apos;utilisateur.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetriveInvoiceInfo_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve invoice information.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToRetriveTransaction_en">
+            <summary>
+              Looks up a localized string similar to Unable to retrieve the transactions for that member.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateBankingInfo_en">
+            <summary>
+              Looks up a localized string similar to Unable to update banking information.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateBankingInfo_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier les informations bancaires.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateBusinessHour_en">
+            <summary>
+              Looks up a localized string similar to Unable to update business hour.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateBusinessHour_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier les heures d&apos;ouverture.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateCategory_en">
+            <summary>
+              Looks up a localized string similar to Unable to update the category.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateCategory_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier la catégorie.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateCommunity_en">
+            <summary>
+              Looks up a localized string similar to Unable to update community.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateCommunity_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier la communauté.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateCreditCard_en">
+            <summary>
+              Looks up a localized string similar to Unable to update credit card.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateCreditCard_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier la carte de crédit.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateHoliday_en">
+            <summary>
+              Looks up a localized string similar to Unable to update this holiday.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateHoliday_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier ce congé.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateImage_en">
+            <summary>
+              Looks up a localized string similar to Unable to update image.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateImage_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier l&apos;image.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateMember_en">
+            <summary>
+              Looks up a localized string similar to Unable to update member.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateMember_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier le membre.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateMerchant_en">
+            <summary>
+              Looks up a localized string similar to Unable to update merchant.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateMerchant_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier le marchand.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateReward_en">
+            <summary>
+              Looks up a localized string similar to Unable to update reward.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateReward_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier la bonification.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateUser_en">
+            <summary>
+              Looks up a localized string similar to Unable to update user.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToUpdateUser_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de modifier l&apos;utilisateur.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToValidateEmailAddress_en">
+            <summary>
+              Looks up a localized string similar to Unable to validate email address.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnableToValidateEmailAddress_fr">
+            <summary>
+              Looks up a localized string similar to Impossible de valider l&apos;adresse courriel.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnauthorizedToLogin_en">
+            <summary>
+              Looks up a localized string similar to Unauthorized to login.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UnauthorizedToLogin_fr">
+            <summary>
+              Looks up a localized string similar to Connexion non autorisée.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.Unknown_en">
+            <summary>
+              Looks up a localized string similar to None.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.Unknown_fr">
+            <summary>
+              Looks up a localized string similar to Aucune.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UserDeleted_en">
+            <summary>
+              Looks up a localized string similar to User was successfully deleted.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UserDeleted_fr">
+            <summary>
+              Looks up a localized string similar to L&apos;utilisateur a été supprimé avec succès.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UserInfoNotAccessible_en">
+            <summary>
+              Looks up a localized string similar to Unable to access user information.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UserInfoNotAccessible_fr">
+            <summary>
+              Looks up a localized string similar to Impossible d&apos;accéder les informations de l&apos;utilisateur.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UserNotFound_en">
+            <summary>
+              Looks up a localized string similar to User not found.
+            </summary>
+        </member>
+        <member name="P:IMS.Service.WebAPI2.Messages.UserNotFound_fr">
+            <summary>
+              Looks up a localized string similar to Utilisateur introuvable.
+            </summary>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Models.createMemberRQ.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Models.SocialLoginRQ.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Models.ResetPasswordRQ.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+        <member name="M:IMS.Service.WebAPI2.Models.LoginMerchantRQ.ToString">
+            <summary>
+            Get the string presentation of the object
+            </summary>
+            <returns>String presentation of the object</returns>
+        </member>
+    </members>
+</doc>
