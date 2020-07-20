@@ -18,6 +18,7 @@ namespace IMS.Common.Core.Data
         public ProgramType()
         {
             this.Programs = new HashSet<Program>();
+            this.ProgramTypeFees = new HashSet<ProgramTypeFee>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,7 @@ namespace IMS.Common.Core.Data
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Program> Programs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProgramTypeFee> ProgramTypeFees { get; set; }
     }
 }

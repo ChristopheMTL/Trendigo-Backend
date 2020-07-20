@@ -18,13 +18,11 @@ namespace IMS.Common.Core.Data
         public long HeaderId { get; set; }
         public int LineItemId { get; set; }
         public long TransactionId { get; set; }
-        public int TransactionTypeId { get; set; }
         public decimal Amount { get; set; }
         public string Description { get; set; }
         public System.DateTime CreationDate { get; set; }
     
-        public virtual IMS_LineItem IMS_LineItem { get; set; }
-        public virtual TransactionType TransactionType { get; set; }
         public virtual IMS_Header IMS_Header { get; set; }
+        public virtual IMS_LineItem IMS_LineItem { get; set; }
     }
 }

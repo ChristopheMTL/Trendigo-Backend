@@ -139,21 +139,21 @@ namespace IMS.Common.Core.Services
                 throw new Exception("campaign not found");
             }
 
-            IMSCard referrer_card = await new CardManager().GetActiveIMSCard(referrer_memberId);
+            //IMSCard referrer_card = await new CardManager().GetActiveIMSCard(referrer_memberId);
 
-            if (referrer_card == null)
-            {
-                logger.ErrorFormat("CompletedReferred - Referrer Card not found - ReferrerId {0} ReferredId {1} CampaignId {2}", referrer_memberId, referred_memberId, campaignId);
-                throw new Exception("referrer card not found");
-            }
+            //if (referrer_card == null)
+            //{
+            //    logger.ErrorFormat("CompletedReferred - Referrer Card not found - ReferrerId {0} ReferredId {1} CampaignId {2}", referrer_memberId, referred_memberId, campaignId);
+            //    throw new Exception("referrer card not found");
+            //}
 
-            IMSCard referred_card = await new CardManager().GetActiveIMSCard(referred_memberId);
+            //IMSCard referred_card = await new CardManager().GetActiveIMSCard(referred_memberId);
 
-            if (referred_card == null)
-            {
-                logger.ErrorFormat("CompletedReferred - Referred Card not found - ReferrerId {0} ReferredId {1} CampaignId {2}", referrer_memberId, referred_memberId, campaignId);
-                throw new Exception("referred card not found");
-            }
+            //if (referred_card == null)
+            //{
+            //    logger.ErrorFormat("CompletedReferred - Referred Card not found - ReferrerId {0} ReferredId {1} CampaignId {2}", referrer_memberId, referred_memberId, campaignId);
+            //    throw new Exception("referred card not found");
+            //}
 
             Member referrer_member = await db.Members.FirstOrDefaultAsync(a => a.Id == referrer_memberId);
 
@@ -211,28 +211,28 @@ namespace IMS.Common.Core.Services
                 IMSUser ims_user = new RegistrationManager().GetUserWithEmail("francois.verdon@trendigo.com");
 
                 //Referrer
-                CardPointHistory referrer_cardHistory = new CardPointHistoryService().AddCardPointHistory(referrer_card.Id, campaign.PointsToReferrer, null, CardPointHistoryReason.ReferralProgramReferrer.ToString(), "0", ims_user.Id, this.db);
+                //CardPointHistory referrer_cardHistory = new CardPointHistoryService().AddCardPointHistory(referrer_card.Id, campaign.PointsToReferrer, null, CardPointHistoryReason.ReferralProgramReferrer.ToString(), "0", ims_user.Id, this.db);
 
-                var referrer_command = DataCommandFactory.AddMembershipPointsCommand(referrer_cardHistory, referrer_membership.TransaxId, campaign.PointsToReferrer, this.db);
+                //var referrer_command = DataCommandFactory.AddMembershipPointsCommand(referrer_cardHistory, referrer_membership.TransaxId, campaign.PointsToReferrer, this.db);
 
-                var referrer_result = await referrer_command.Execute();
+                //var referrer_result = await referrer_command.Execute();
 
-                if (referrer_result != DataCommandResult.Success)
-                {
-                    throw new Exception(string.Format("CompletedReferred - Unable to add points to referrer ReferrerId {0} ReferredId {1} Exception {2}", referrer_memberId, referred_memberId, referrer_result.ToString()));
-                }
+                //if (referrer_result != DataCommandResult.Success)
+                //{
+                //    throw new Exception(string.Format("CompletedReferred - Unable to add points to referrer ReferrerId {0} ReferredId {1} Exception {2}", referrer_memberId, referred_memberId, referrer_result.ToString()));
+                //}
 
                 //Referred
-                CardPointHistory referred_cardHistory = new CardPointHistoryService().AddCardPointHistory(referred_card.Id, campaign.PointsToReferred, null, CardPointHistoryReason.ReferralProgramReferred.ToString(), "0", ims_user.Id, this.db);
+                //CardPointHistory referred_cardHistory = new CardPointHistoryService().AddCardPointHistory(referred_card.Id, campaign.PointsToReferred, null, CardPointHistoryReason.ReferralProgramReferred.ToString(), "0", ims_user.Id, this.db);
 
-                var referred_command = DataCommandFactory.AddMembershipPointsCommand(referred_cardHistory, referred_membership.TransaxId, campaign.PointsToReferred, this.db);
+                //var referred_command = DataCommandFactory.AddMembershipPointsCommand(referred_cardHistory, referred_membership.TransaxId, campaign.PointsToReferred, this.db);
 
-                var referred_result = await referred_command.Execute();
+                //var referred_result = await referred_command.Execute();
 
-                if (referred_result != DataCommandResult.Success)
-                {
-                    throw new Exception(string.Format("CompletedReferred - Unable to add points to referred ReferrerId {0} ReferredId {1} Exception {2}", referrer_memberId, referred_memberId, referred_result.ToString()));
-                }
+                //if (referred_result != DataCommandResult.Success)
+                //{
+                //    throw new Exception(string.Format("CompletedReferred - Unable to add points to referred ReferrerId {0} ReferredId {1} Exception {2}", referrer_memberId, referred_memberId, referred_result.ToString()));
+                //}
 
                 #endregion
 

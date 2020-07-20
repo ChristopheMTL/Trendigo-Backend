@@ -22,12 +22,12 @@ namespace IMS.Payment.PaymentAPI.Model
     public long? LocationId { get; set; }
 
     /// <summary>
-    /// The clerk identifier. Let blank if the QR Code is generated outside the merchant mobile application.
+    /// The userId identifier. Use 0 if the QR Code is generated outside the merchant mobile application.
     /// </summary>
-    /// <value>The clerk identifier. Let blank if the QR Code is generated outside the merchant mobile application.</value>
-    [DataMember(Name="clerk", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "clerk")]
-    public string Clerk { get; set; }
+    /// <value>The userId identifier. Use 0 if the QR Code is generated outside the merchant mobile application.</value>
+    [DataMember(Name="userId", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "userId")]
+    public long UserId { get; set; }
 
     /// <summary>
     /// The amount in cents (excluding the taxes and tips). If the amount is set to 0 (zero), it mean that we are dealing with a static merchant QR Code and the application must be able to specify the amount.
@@ -85,7 +85,7 @@ namespace IMS.Payment.PaymentAPI.Model
       var sb = new StringBuilder();
       sb.Append("class QrcodeGenerationRequest {\n");
       sb.Append("  LocationId: ").Append(LocationId).Append("\n");
-      sb.Append("  Clerk: ").Append(Clerk).Append("\n");
+      sb.Append("  UserId: ").Append(UserId).Append("\n");
       sb.Append("  Amount: ").Append(Amount).Append("\n");
       sb.Append("  OrderNumber: ").Append(OrderNumber).Append("\n");
       sb.Append("  SupportTips: ").Append(SupportTips).Append("\n");

@@ -27,6 +27,8 @@ namespace IMS.Common.Core.Data
             this.CurrencyRates = new HashSet<CurrencyRate>();
             this.CurrencyRates1 = new HashSet<CurrencyRate>();
             this.IMS_Header = new HashSet<IMS_Header>();
+            this.MerchantTransactions = new HashSet<MerchantTransaction>();
+            this.ProgramTypeFees = new HashSet<ProgramTypeFee>();
         }
     
         public int Id { get; set; }
@@ -58,5 +60,9 @@ namespace IMS.Common.Core.Data
         public virtual ICollection<CurrencyRate> CurrencyRates1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMS_Header> IMS_Header { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MerchantTransaction> MerchantTransactions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProgramTypeFee> ProgramTypeFees { get; set; }
     }
 }

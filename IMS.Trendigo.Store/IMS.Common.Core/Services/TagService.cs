@@ -162,10 +162,10 @@ namespace IMS.Common.Core.Services
             {
                 throw new Exception("Tag not found");
             }
-
+            var merchantTag = await db.MerchantTags.FirstOrDefaultAsync(a => a.tag.ParentId == null && a.tag.IsSearchable == true && a.tag.CityId == null && a.MerchantId == merchantId);
             tagging tagging = await db.taggings.FirstOrDefaultAsync(a => a.tag.ParentId == null && a.tag.IsSearchable == true && a.tag.CityId == null && a.taggable_id == merchantId && a.taggable_type == TaggableTypeEnum.Merchant.ToString());
 
-            if (tagging == null)
+            if (tagging == null || merchantTag == null)
             {
                 throw new Exception("Merchant category not found");
             }
@@ -173,7 +173,8 @@ namespace IMS.Common.Core.Services
             #endregion
 
             tagging.tag_id = tagId;
-
+            merchantTag.TagId = tagId;
+            db.Entry(merchantTag).State = EntityState.Modified;
             db.Entry(tagging).State = EntityState.Modified;
             await db.SaveChangesAsync();
 

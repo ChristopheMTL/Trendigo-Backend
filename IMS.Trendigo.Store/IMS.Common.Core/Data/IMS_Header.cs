@@ -17,8 +17,8 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public IMS_Header()
         {
-            this.IMS_Detail = new HashSet<IMS_Detail>();
             this.IncentiveProgramRefunds = new HashSet<IncentiveProgramRefund>();
+            this.IMS_Detail = new HashSet<IMS_Detail>();
         }
     
         public long Id { get; set; }
@@ -47,8 +47,6 @@ namespace IMS.Common.Core.Data
         public virtual ContractCommission ContractCommission { get; set; }
         public virtual Currency Currency { get; set; }
         public virtual Enterprise Enterprise { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IMS_Detail> IMS_Detail { get; set; }
         public virtual OutsideChannel OutsideChannel { get; set; }
         public virtual PaymentStatu PaymentStatu { get; set; }
         public virtual SalesRep SalesRep { get; set; }
@@ -56,5 +54,7 @@ namespace IMS.Common.Core.Data
         public virtual ICollection<IncentiveProgramRefund> IncentiveProgramRefunds { get; set; }
         public virtual Location Location { get; set; }
         public virtual Merchant Merchant { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<IMS_Detail> IMS_Detail { get; set; }
     }
 }

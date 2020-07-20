@@ -29,6 +29,9 @@ namespace IMS.Common.Core.Data
             this.Enterprises = new HashSet<Enterprise>();
             this.Members = new HashSet<Member>();
             this.IMSUsers = new HashSet<IMSUser>();
+            this.Subscriptions = new HashSet<Subscription>();
+            this.MerchantTransactions = new HashSet<MerchantTransaction>();
+            this.MerchantProcessors = new HashSet<MerchantProcessor>();
         }
     
         public long Id { get; set; }
@@ -67,7 +70,6 @@ namespace IMS.Common.Core.Data
         public virtual MerchantImage MerchantImage { get; set; }
         public virtual MerchantImage MerchantImage1 { get; set; }
         public virtual PricingCategory PricingCategory { get; set; }
-        public virtual Program Program { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MerchantTag> MerchantTags { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -81,5 +83,12 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMSUser> IMSUsers { get; set; }
         public virtual BankingInfo BankingInfo { get; set; }
+        public virtual Program Program { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MerchantTransaction> MerchantTransactions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MerchantProcessor> MerchantProcessors { get; set; }
     }
 }

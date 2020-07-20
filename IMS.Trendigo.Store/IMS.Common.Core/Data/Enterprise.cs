@@ -24,19 +24,19 @@ namespace IMS.Common.Core.Data
             this.OutsideChannels = new HashSet<OutsideChannel>();
             this.Packages = new HashSet<Package>();
             this.PackageTypes = new HashSet<PackageType>();
-            this.Programs = new HashSet<Program>();
             this.Subscribers = new HashSet<Subscriber>();
-            this.Programs1 = new HashSet<Program>();
             this.EnterpriseStateTaxNumbers = new HashSet<EnterpriseStateTaxNumber>();
             this.GiftCardTransactionHeaders = new HashSet<GiftCardTransactionHeader>();
             this.Languages = new HashSet<Language>();
             this.Telephones = new HashSet<Telephone>();
-            this.IMSCards = new HashSet<IMSCard>();
             this.IMS_Header = new HashSet<IMS_Header>();
             this.Enterprise_Contacts = new HashSet<Enterprise_Contacts>();
             this.EnterpriseProcessors = new HashSet<EnterpriseProcessor>();
             this.Members = new HashSet<Member>();
             this.Merchants = new HashSet<Merchant>();
+            this.EnterpriseCommissionFees = new HashSet<EnterpriseCommissionFee>();
+            this.Programs = new HashSet<Program>();
+            this.Programs1 = new HashSet<Program>();
         }
     
         public long Id { get; set; }
@@ -69,11 +69,7 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PackageType> PackageTypes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Program> Programs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscriber> Subscribers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Program> Programs1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EnterpriseStateTaxNumber> EnterpriseStateTaxNumbers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -82,8 +78,6 @@ namespace IMS.Common.Core.Data
         public virtual ICollection<Language> Languages { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Telephone> Telephones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IMSCard> IMSCards { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMS_Header> IMS_Header { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -95,5 +89,11 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Merchant> Merchants { get; set; }
         public virtual BankingInfo BankingInfo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EnterpriseCommissionFee> EnterpriseCommissionFees { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Program> Programs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Program> Programs1 { get; set; }
     }
 }

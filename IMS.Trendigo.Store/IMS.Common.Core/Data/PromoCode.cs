@@ -17,12 +17,12 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PromoCode()
         {
-            this.CardPointHistories = new HashSet<CardPointHistory>();
             this.IMSMemberships = new HashSet<IMSMembership>();
             this.MemberPromoCodeHistories = new HashSet<MemberPromoCodeHistory>();
             this.Subscribers = new HashSet<Subscriber>();
             this.GiftCardPurchases = new HashSet<GiftCardPurchas>();
             this.LocationPromoCodes = new HashSet<LocationPromoCode>();
+            this.CardPointHistories = new HashSet<CardPointHistory>();
         }
     
         public long Id { get; set; }
@@ -43,18 +43,18 @@ namespace IMS.Common.Core.Data
         public Nullable<bool> ForNewsletter { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CardPointHistory> CardPointHistories { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMSMembership> IMSMemberships { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MemberPromoCodeHistory> MemberPromoCodeHistories { get; set; }
         public virtual OutsideChannel OutsideChannel { get; set; }
-        public virtual Program Program { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscriber> Subscribers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiftCardPurchas> GiftCardPurchases { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LocationPromoCode> LocationPromoCodes { get; set; }
+        public virtual Program Program { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CardPointHistory> CardPointHistories { get; set; }
     }
 }

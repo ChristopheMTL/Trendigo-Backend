@@ -27,6 +27,7 @@ namespace IMS.Common.Core.Data
             this.Badges = new HashSet<Badge>();
             this.AspNetRoles = new HashSet<AspNetRole>();
             this.UserNotifications = new HashSet<UserNotification>();
+            this.CreditCards = new HashSet<CreditCard>();
         }
     
         public string Id { get; set; }
@@ -62,5 +63,7 @@ namespace IMS.Common.Core.Data
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserNotification> UserNotifications { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CreditCard> CreditCards { get; set; }
     }
 }

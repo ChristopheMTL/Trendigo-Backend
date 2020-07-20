@@ -100,13 +100,11 @@ namespace IMS.Common.Core.DataCommands
     public class DeleteMembershipCommand : BaseDataCommand<IMSMembership, IMS.Utilities.PaymentAPI.Model.Membership>
     {
         private int _membershipId;
-        private int _memberId;
 
-        public DeleteMembershipCommand(IMSMembership imsEntity, string memberId, string membershipId, IMSEntities context) : base(imsEntity)
+        public DeleteMembershipCommand(IMSMembership imsEntity, IMSEntities context) : base(imsEntity)
         {
             base.context = context;
-            _memberId = Convert.ToInt32(memberId);
-            _membershipId = Convert.ToInt32(membershipId);
+            _membershipId = Convert.ToInt32(imsEntity.TransaxId);
         }
 
         protected override async Task<IMS.Utilities.PaymentAPI.Model.Membership> ExecuteTransaxOperation()

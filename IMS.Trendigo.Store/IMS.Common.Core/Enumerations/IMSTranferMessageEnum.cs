@@ -18,6 +18,7 @@ namespace IMS.Common.Core.Enumerations
         MISSING_CURRENCY_ID = 7,
         MISSING_TRANSACTION_TYPE_ID = 8,
         MISSING_LEG_TRANSACTION_ID = 9,
+        MISSING_CREDIT_CARD_ID = 10,
 
         //Logical level
         GET_TIMEZONE_INFO_FOR_ENTRY_ERROR = 100,

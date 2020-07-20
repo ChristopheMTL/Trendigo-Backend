@@ -48,15 +48,6 @@
     <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Azure.Core, Version=1.0.2.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\Azure.Core.1.0.2\lib\netstandard2.0\Azure.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Azure.Identity, Version=1.1.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\Azure.Identity.1.1.1\lib\netstandard2.0\Azure.Identity.dll</HintPath>
-    </Reference>
-    <Reference Include="Azure.Security.KeyVault.Keys, Version=4.0.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
-      <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\Azure.Security.KeyVault.Keys.4.0.1\lib\netstandard2.0\Azure.Security.KeyVault.Keys.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -66,11 +57,8 @@
     <Reference Include="FluentValidation">
       <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\FluentValidation.5.5.0.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="Geocoding">
-      <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\Geocoding.net.3.2.1\lib\net40\Geocoding.dll</HintPath>
-    </Reference>
-    <Reference Include="IMS.Utilities.PaymentAPI">
-      <HintPath>..\IMS.Utilities.PaymentAPI\bin\Debug\IMS.Utilities.PaymentAPI.dll</HintPath>
+    <Reference Include="Geocoding, Version=3.6.0.0, Culture=neutral, PublicKeyToken=7c714700b88674c7, processorArchitecture=MSIL">
+      <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\Geocoding.net.3.6.1\lib\net40\Geocoding.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -89,7 +77,7 @@
     </Reference>
     <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.KeyVault, Version=3.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\Trendigo\IMS.Trendigo.Store\packages\Microsoft.Azure.KeyVault.3.0.5\lib\net461\Microsoft.Azure.KeyVault.dll</HintPath>
@@ -226,6 +214,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.4.5.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
@@ -333,6 +325,9 @@
     <Compile Include="Data\BatchCloseLog.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\BillingPeriod.cs">
+      <DependentUpon>IMS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\Campaign.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
@@ -373,6 +368,9 @@
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\CreditCard.cs">
+      <DependentUpon>IMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CreditCardIssuer.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\CreditCardType.cs">
@@ -417,6 +415,9 @@
     <Compile Include="Data\Enterprise.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\EnterpriseCommissionFee.cs">
+      <DependentUpon>IMS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\EnterpriseProcessor.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
@@ -454,9 +455,6 @@
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Identity.cs">
-      <DependentUpon>IMS_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\IMSCard.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\IMSEnterpriseParameter.cs">
@@ -559,7 +557,13 @@
     <Compile Include="Data\MerchantImage.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\MerchantProcessor.cs">
+      <DependentUpon>IMS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\MerchantTag.cs">
+      <DependentUpon>IMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MerchantTransaction.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\merchant_translations.cs">
@@ -628,6 +632,9 @@
     <Compile Include="Data\PricingCategory_translations.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Processor.cs">
+      <DependentUpon>IMS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\Program.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
@@ -638,6 +645,9 @@
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\ProgramType.cs">
+      <DependentUpon>IMS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ProgramTypeFee.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\program_feature_translations.cs">
@@ -712,6 +722,9 @@
     <Compile Include="Data\Subscriber.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Subscription.cs">
+      <DependentUpon>IMS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\tag.cs">
       <DependentUpon>IMS_Model.tt</DependentUpon>
     </Compile>
@@ -763,6 +776,7 @@
     <Compile Include="DTO\MerchantDTO.cs" />
     <Compile Include="DTO\MonthlyPointDTO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\ProcessorDTO.cs" />
     <Compile Include="DTO\StateDTO.cs" />
     <Compile Include="DTO\TokenDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
@@ -849,6 +863,7 @@
     <Compile Include="Entities\Transax\TransaxUserRS.cs" />
     <Compile Include="Enumerations\AcquirerEnum.cs" />
     <Compile Include="Enumerations\APIPaymentExceptionEnum.cs" />
+    <Compile Include="Enumerations\BillingPeriodEnum.cs" />
     <Compile Include="Enumerations\CampaignTypeEnum.cs" />
     <Compile Include="Enumerations\CardPointActionEnum.cs" />
     <Compile Include="Enumerations\CardPointHistoryEnum.cs" />
@@ -864,6 +879,7 @@
     <Compile Include="Enumerations\DistanceUnit.cs" />
     <Compile Include="Enumerations\EnrollmentProcessEnum.cs" />
     <Compile Include="Enumerations\EnrollmentStatusEnum.cs" />
+    <Compile Include="Enumerations\ImageTypeEnum.cs" />
     <Compile Include="Enumerations\IMSCardStatusEnum.cs" />
     <Compile Include="Enumerations\IMSCardTypeEnum.cs" />
     <Compile Include="Enumerations\IMSCodeMessageEnum.cs" />
@@ -883,8 +899,11 @@
     <Compile Include="Enumerations\LocationStatusEnum.cs" />
     <Compile Include="Enumerations\MerchantActionEnum.cs" />
     <Compile Include="Enumerations\MerchantStatusEnum.cs" />
+    <Compile Include="Enumerations\MerchantTransactionStatusEnum.cs" />
+    <Compile Include="Enumerations\MerchantTransactionTypeEnum.cs" />
     <Compile Include="Enumerations\NotificationStatusEnum.cs" />
     <Compile Include="Enumerations\NotificationTypeEnum.cs" />
+    <Compile Include="Enumerations\ProcessorEnum.cs" />
     <Compile Include="Enumerations\ProgramTypeEnum.cs" />
     <Compile Include="Enumerations\PromotionCalendarNotificationState.cs" />
     <Compile Include="Enumerations\PromotionCalendarNotificationTypeEnum.cs" />
@@ -897,6 +916,7 @@
     <Compile Include="Enumerations\SlackChannelEnum.cs" />
     <Compile Include="Enumerations\SponsorActionEnum.cs" />
     <Compile Include="Enumerations\StatisticTypeEnum.cs" />
+    <Compile Include="Enumerations\SubscriptionStatusEnum.cs" />
     <Compile Include="Enumerations\TaggableTypeEnum.cs" />
     <Compile Include="Enumerations\TelephoneTypeEnum.cs" />
     <Compile Include="Enumerations\TerminalLanguageEnum.cs" />
@@ -938,11 +958,10 @@
     <Compile Include="Mapping\AspNetUserMap.cs" />
     <Compile Include="Mapping\BankInfoMap.cs" />
     <Compile Include="Mapping\BankingInfoMap.cs" />
-    <Compile Include="Mapping\CardPointHistoryMap.cs" />
     <Compile Include="Mapping\CardStatusesMap.cs" />
     <Compile Include="Mapping\ContractMap.cs" />
+    <Compile Include="Mapping\CreditCardMap.cs" />
     <Compile Include="Mapping\CurrencyMap.cs" />
-    <Compile Include="Mapping\DeviceRequestMap.cs" />
     <Compile Include="Mapping\DeviceRequestStatusTranslationMap.cs" />
     <Compile Include="Mapping\DeviceTypeTranslationMap.cs" />
     <Compile Include="Mapping\EnrollLocationMap.cs" />
@@ -950,13 +969,11 @@
     <Compile Include="Mapping\EnrollmentProcessMap.cs" />
     <Compile Include="Mapping\EnterpriseMap.cs" />
     <Compile Include="Mapping\GlobalResponseCodeMap.cs" />
-    <Compile Include="Mapping\IMSCardMap.cs" />
     <Compile Include="Mapping\IMSDetailMap.cs" />
     <Compile Include="Mapping\IMSHeaderMap.cs" />
     <Compile Include="Mapping\IMSUserMap.cs" />
     <Compile Include="Mapping\LocationMap.cs" />
     <Compile Include="Mapping\MemberMap.cs" />
-    <Compile Include="Mapping\MemberPromoCodeHistoryMap.cs" />
     <Compile Include="Mapping\MembershipTransactionDetailMap.cs" />
     <Compile Include="Mapping\MerchantImageMap.cs" />
     <Compile Include="Mapping\MerchantMap.cs" />
@@ -1003,6 +1020,7 @@
     <Compile Include="Services\FinancialTransactionService.cs" />
     <Compile Include="Services\GeolocationManager.cs" />
     <Compile Include="Services\HistoryService.cs" />
+    <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\MemberManager.cs" />
     <Compile Include="Services\MembershipManager.cs" />
@@ -1011,6 +1029,7 @@
     <Compile Include="Services\PackageManager.cs" />
     <Compile Include="Services\PortalService.cs" />
     <Compile Include="Services\PricingService.cs" />
+    <Compile Include="Services\ProcessorManager.cs" />
     <Compile Include="Services\ProgramManager.cs" />
     <Compile Include="Services\PromoCodeService.cs" />
     <Compile Include="Services\PromotionCalendarService.cs" />
@@ -1023,6 +1042,7 @@
     <Compile Include="Services\SalesRepManager.cs" />
     <Compile Include="Services\NewsletterService.cs" />
     <Compile Include="Services\SecurityManager.cs" />
+    <Compile Include="Services\TaxManager.cs" />
     <Compile Include="Services\TokenManager.cs" />
     <Compile Include="Services\SharepointService.cs" />
     <Compile Include="Services\SocialMediaManager.cs" />
@@ -1066,6 +1086,12 @@
       <DependentUpon>IMS_Model.edmx</DependentUpon>
       <LastGenOutput>IMS_Model.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IMS.Utilities.PaymentAPI\IMS.Utilities.PaymentAPI.csproj">
+      <Project>{de6b5ab3-c189-42b6-b72e-658162fd0c62}</Project>
+      <Name>IMS.Utilities.PaymentAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

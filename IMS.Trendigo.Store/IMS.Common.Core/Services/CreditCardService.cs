@@ -19,9 +19,6 @@ namespace IMS.Common.Core.Services
         IMSEntities db = new IMSEntities();
         readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        IMS.Utilities.PaymentAPI.Api.MembersApi memberApi = new IMS.Utilities.PaymentAPI.Api.MembersApi();
-        
-
         /// <summary>
         /// This method format the credit card number to display according to the number of digits
         /// </summary>
@@ -88,144 +85,6 @@ namespace IMS.Common.Core.Services
                 return true;
         }
 
-        //public async Task<List<CreditCardDTO>> GetTransaxCreditCards(long memberId)
-        //{
-        //    List<CreditCardDTO> ccards = new List<CreditCardDTO>();
-        //    List<IMS.Utilities.PaymentAPI.Model.Creditcard> _ccards = new List<IMS.Utilities.PaymentAPI.Model.Creditcard>();
-        //    List<CreditCardType> ccType = await db.CreditCardTypes.ToListAsync();
-        //    Member member = await db.Members.FirstOrDefaultAsync(a => a.Id == memberId);
-
-        //    try
-        //    {
-        //        _ccards = await new IMS.Utilities.PaymentAPI.Api.MembersApi().FindCreditCards(Convert.ToInt32(member.TransaxId));
-        //    }
-        //    catch (ApiException apiEx)
-        //    {
-        //        switch (apiEx.ErrorCode)
-        //        {
-        //            case (int)APIPaymentException.NOTAUTHORIZED:
-        //                logger.ErrorFormat("CreditCardService - GetCreditCards - FindCreditCard - transaxMemberId {0} Not Authorized", member.TransaxId);
-        //                break;
-        //            case (int)APIPaymentException.NOTFOUND:
-        //                logger.ErrorFormat("CreditCardService - GetCreditCards - FindCreditCard - transaxMemberId {0} Not Found", member.TransaxId);
-        //                break;
-        //            case (int)APIPaymentException.OTHER:
-        //                logger.ErrorFormat("CreditCardService - GetCreditCards - Unknowned error {0}", apiEx.ErrorContent);
-        //                break;
-        //            default:
-        //                throw new NotImplementedException();
-        //        }
-
-        //        throw new Exception(string.Format("CreditCardService - GetCreditCards - FindCreditCard ErrorCode {0} ErrorContent {1}", apiEx.ErrorCode, apiEx.ErrorContent));
-        //    }
-
-        //    if (_ccards.Count() > 0)
-        //    {
-        //        var map = Mapper.CreateMap<IMS.Utilities.PaymentAPI.Model.Creditcard, CreditCardDTO>();
-        //        map.ForMember(x => x.Id, o => o.MapFrom(model => model.CreditCardId.Value));
-        //        map.ForMember(x => x.CardNumber, o => o.MapFrom(model => model.PanMask.PadLeft(12, '*')));
-        //        map.ForMember(x => x.CardHolder, o => o.MapFrom(model => model.NameOnCard));
-        //        map.ForMember(x => x.CreditCardTypeId, o => o.MapFrom(model => model.CardTypeId.Value));
-        //        map.ForMember(x => x.CreditCardType, o => o.MapFrom(model => new CreditCardService().GetCreditCardTypeDTO(Convert.ToInt32(model.CardTypeId))));
-        //        map.ForMember(x => x.ExpiryDate, o => o.MapFrom(model => model.ExpirationDate));
-        //        map.ForMember(x => x.IsActive, o => o.MapFrom(model => true));
-        //        map.ForMember(x => x.MemberId, o => o.MapFrom(model => _ccards.FirstOrDefault().MemberId));
-        //        map.ForMember(x => x.Token, o => o.MapFrom(model => model.Token));
-
-        //        ccards = Mapper.Map<List<CreditCardDTO>>(_ccards);
-        //    }
-
-        //    return ccards;
-        //}
-
-        //public async Task<CreditCardDTO> GetTransaxCreditCard(string memberId, string creditCardId)
-        //{
-        //    CreditCardDTO ccard = new CreditCardDTO();
-        //    IMS.Utilities.PaymentAPI.Model.Creditcard _ccard = null;
-
-        //    try
-        //    {
-        //        _ccard = await new IMS.Utilities.PaymentAPI.Api.MembersApi().FindCreditCard(Convert.ToInt32(memberId), Convert.ToInt32(creditCardId));
-        //    }
-        //    catch (ApiException apiEx)
-        //    {
-        //        switch (apiEx.ErrorCode)
-        //        {
-        //            case (int)APIPaymentException.NOTAUTHORIZED:
-        //                logger.ErrorFormat("CreditCardService - GetCreditCard - FindCreditCard - MemberId {0} Not Authorized", memberId.ToString());
-        //                break;
-        //            case (int)APIPaymentException.NOTFOUND:
-        //                logger.ErrorFormat("CreditCardService - GetCreditCard - FindCreditCard - MemberId {0} Not Found", memberId.ToString());
-        //                break;
-        //            default:
-        //                throw new NotImplementedException();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        logger.ErrorFormat("CreditCardService - GetCreditCards - MemberId {0} Exception {1} InnerException {2}", memberId.ToString(), ex.ToString(), ex.InnerException.ToString());
-        //        throw new Exception(string.Format("Error extracting the credit card info for member {0}", memberId.ToString()));
-        //    }
-
-        //    if (_ccard != null)
-        //    {
-        //        var map = Mapper.CreateMap<IMS.Utilities.PaymentAPI.Model.Creditcard, CreditCardDTO>();
-        //        map.ForMember(x => x.TransaxId, o => o.MapFrom(model => model.CreditCardId));
-        //        map.ForMember(x => x.CardNumber, o => o.MapFrom(model => model.PanMask));
-        //        map.ForMember(x => x.CardHolder, o => o.MapFrom(model => model.NameOnCard));
-        //        //map.ForMember(x => x.CreditCardTypeId, o => o.MapFrom(model => model.))
-        //        map.ForMember(x => x.ExpiryDate, o => o.MapFrom(model => model.ExpirationDate));
-        //        map.ForMember(x => x.IsActive, o => o.MapFrom(model => model.Status.ToLower() == "active" ? true : false));
-        //        map.ForMember(x => x.MemberId, o => o.MapFrom(model => model.MemberId));
-
-        //        ccard = Mapper.Map<CreditCardDTO>(_ccard);
-
-        //        ccard.Id = db.CreditCards.Where(a => a.TransaxId == ccard.TransaxId).Select(b => b.Id).FirstOrDefault();
-        //    }
-
-        //    return ccard;
-        //}
-
-        public async Task<List<CreditCard>> GetCreditCards(long memberId)
-        {
-            List<CreditCard> ccards = new List<CreditCard>();
-            Member member = await db.Members.FirstOrDefaultAsync(a => a.Id == memberId);
-
-            try
-            {
-                ccards = await db.CreditCards.Where(a => a.MemberId == memberId && a.IsActive == true).ToListAsync();
-            }
-            catch (ApiException apiEx)
-            {
-                logger.ErrorFormat("ServerError - CreditCardService - GetCreditCards - MemberId {0}", member.TransaxId);
-                throw new Exception(string.Format("CreditCardService - GetCreditCards - FindCreditCard ErrorCode {0} ErrorContent {1}", apiEx.ErrorCode, apiEx.ErrorContent));
-            }
-
-            return ccards;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="memberId"></param>
-        /// <returns></returns>
-        public async Task<CreditCard> GetCreditCard(long memberId, long creditCardId)
-        {
-            CreditCard _ccard = null;
-
-            try
-            {
-                _ccard = await db.CreditCards.Where(a => a.MemberId == memberId && a.Id == creditCardId && a.IsActive == true).FirstOrDefaultAsync();
-            }
-            catch (Exception ex)
-            {
-                logger.ErrorFormat("CreditCardService - GetCreditCard - MemberId {0} CreditCardId {1} Exception {2} InnerException {3}", memberId.ToString(), creditCardId.ToString(), ex.ToString(), ex.InnerException.ToString());
-                throw new Exception(string.Format("Error extracting the credit card info for memberId {0} creditCardId {1}", memberId.ToString(), creditCardId.ToString()));
-            }
-
-            return _ccard;
-        }
-
         public CreditCardTypeDTO GetCreditCardTypeDTO(int Id)
         {
             CreditCardTypeDTO dto = new CreditCardTypeDTO();
@@ -240,5 +99,148 @@ namespace IMS.Common.Core.Services
 
             return dto;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ccDTO"></param>
+        /// <returns></returns>
+        public async Task<CreditCard> AddCreditCard(CreditCardDTO ccDTO)
+        {
+            CreditCard cc = new CreditCard();
+
+            using (IMSEntities db = new IMSEntities())
+            {
+                cc = Mapper.Map<CreditCardDTO, CreditCard>(ccDTO);
+                cc.CreationDate = DateTime.Now;
+                cc.IsActive = true;
+
+                var command = DataCommandFactory.AddCreditCardCommand(cc, ccDTO.Token, ccDTO.TransaxId, db);
+
+                try
+                {
+                    var result = await command.Execute();
+
+                    if (result != DataCommandResult.Success)
+                    {
+                        throw new Exception(string.Format("CreditCardService - AddCreditCard - Cannot insert credit card - {0}", result.ToString()));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    logger.ErrorFormat("CreditCardService - AddCreditCard - UserId {0} Exception {1} InnerException {2}", ccDTO.UserId, ex, ex.InnerException);
+                    throw new Exception(string.Format("CreditCardService - AddCreditCard - Cannot insert credit card - UserId {0} Exception {1} InnerException {2}", ccDTO.UserId, ex.ToString(), ex.InnerException.ToString()));
+                }
+            }
+
+            return cc;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public async Task<List<CreditCard>> GetCreditCards(string userId)
+        {
+            List<CreditCard> creditCards = null;
+
+            creditCards = await db.CreditCards.Where(a => a.AspNetUser.Id == userId && a.IsActive == true).ToListAsync();
+
+            return creditCards;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="creditCardId"></param>
+        /// <returns></returns>
+        public async Task<CreditCard> GetCreditCard(string userId, long creditCardId)
+        {
+
+            CreditCard ccard = null;
+
+            ccard = await db.CreditCards.Where(a => a.AspNetUser.Id == userId && a.Id == creditCardId && a.IsActive == true).FirstOrDefaultAsync();
+
+            return ccard;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cc"></param>
+        /// <returns></returns>
+        public async Task<Boolean> UpdateCreditCard(CreditCardDTO cc)
+        {
+
+            CreditCard ccard = await db.CreditCards.FirstOrDefaultAsync(x => x.Id == cc.Id && x.AspNetUser.Id == cc.UserId && x.IsActive == true);
+
+            if (ccard == null)
+            {
+                return false;
+            }
+
+            ccard.CardHolder = cc.CardHolder;
+            ccard.ExpiryDate = cc.ExpiryDate;
+
+            var command = DataCommandFactory.UpdateCreditCardCommand(ccard, db);
+
+            try
+            {
+                var result = await command.Execute();
+
+                if (result != DataCommandResult.Success)
+                {
+                    logger.ErrorFormat("CreditCardService - UpdateCreditCard - UserId {0} DataCommandResult {1}", cc.UserId, result);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("CreditCardService - UpdateCreditCard - UserId {0} Exception {1} InnerException {2}", cc.UserId, ex, ex.InnerException);
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ccDTO"></param>
+        /// <returns></returns>
+        public async Task<Boolean> DeleteCreditCard(string UserId, long creditCardId)
+        {
+            #region Validation Section
+
+            CreditCard creditCard = await db.CreditCards.FirstOrDefaultAsync(a => a.Id == creditCardId && a.AspNetUser.Id == UserId && a.IsActive == true);
+
+            if (creditCard == null)
+                return false;
+
+            #endregion
+
+            var command = DataCommandFactory.DeleteCreditCardCommand(creditCard, db);
+
+            try
+            {
+                var result = await command.Execute();
+
+                if (result != DataCommandResult.Success)
+                {
+                    logger.ErrorFormat("CreditCardService - DeleteCreditCard - CreditCarId {0} result {1}", creditCard.Id, result.ToString());
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("MemberController - DeleteCreditCard - MemberId {0} CardId {1} Exception {2} InnerException {3}", creditCard.AspNetUser.Members.FirstOrDefault().Id, creditCard.Id, ex.ToString(), ex.InnerException.ToString());
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

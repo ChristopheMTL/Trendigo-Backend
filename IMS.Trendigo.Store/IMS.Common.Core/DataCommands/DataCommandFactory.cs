@@ -331,9 +331,9 @@ namespace IMS.Common.Core.DataCommands
         /// <param name="memberId">The Transax member Id related to that card</param>
         /// <param name="context">The data context</param>
         /// <returns></returns>
-        public static IDataCommand AddCreditCardCommand(Data.CreditCard creditCard, CreditCardDTO cc, string memberId, IMSEntities context)
+        public static IDataCommand AddCreditCardCommand(Data.CreditCard creditCard, string token, string memberId, IMSEntities context)
         {
-            return new AddCreditCardCommand(creditCard, cc, memberId, context);
+            return new AddCreditCardCommand(creditCard, token, memberId, context);
         }
 
         /// <summary>
@@ -344,9 +344,9 @@ namespace IMS.Common.Core.DataCommands
         /// <param name="creditCardId">The Transax credit card Id of the credit card</param>
         /// <param name="context">The data context</param>
         /// <returns></returns>
-        public static IDataCommand UpdateCreditCardCommand(Data.CreditCard creditCard, CreditCardDTO cc, IMSEntities context)
+        public static IDataCommand UpdateCreditCardCommand(Data.CreditCard creditCard, IMSEntities context)
         {
-            return new UpdateCreditCardCommand(creditCard, cc, context);
+            return new UpdateCreditCardCommand(creditCard, context);
         }
 
         /// <summary>
@@ -414,6 +414,19 @@ namespace IMS.Common.Core.DataCommands
         public static IDataCommand DeleteMerchantCommand(Merchant merchant, string merchantId, IMSEntities context)
         {
             return new DeleteMerchantCommand(merchant, merchantId, context);
+        }
+
+        /// <summary>
+        /// This method will add a merchant in both environment (Trendigo back-office and Trendigo PaymentAPI)
+        /// </summary>
+        /// <param name="merchant">Merchant model</param>
+        /// <param name="enterpriseId">Transax enterprise Id</param>
+        /// <param name="transaxUserId">Obsolete</param>
+        /// <param name="context">Data Context</param>
+        /// <returns></returns>
+        public static IDataCommand AddMerchantProcessorCommand(MerchantProcessor merchantProcessor, IMSEntities context)
+        {
+            return new AddMerchantProcessorCommand(merchantProcessor, context);
         }
 
         #endregion
@@ -927,9 +940,9 @@ namespace IMS.Common.Core.DataCommands
         /// <param name="membershipId"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public static IDataCommand DeleteMembershipCommand(IMSMembership membership, string memberId, string membershipId, IMSEntities context)
+        public static IDataCommand DeleteMembershipCommand(IMSMembership membership, IMSEntities context)
         {
-            return new DeleteMembershipCommand(membership, memberId, membershipId, context);
+            return new DeleteMembershipCommand(membership, context);
         }
 
         #endregion

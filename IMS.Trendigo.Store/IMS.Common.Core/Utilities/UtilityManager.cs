@@ -78,15 +78,24 @@ namespace IMS.Common.Core.Utilities
 
         public Geocoding.Address getCoordinateWithAddress(String fullAddress)
         {
-            String GeoApiKey = "AIzaSyAMKtf-vyo8MQNv3BLetgYKPUb92e52Xpc"; //"AIzaSyCR9l-L2mj1vSHF55-SKRiNOQZzJKhmpFo"; //ConfigurationManager.AppSettings["GeoCodingApiKey"];
-            IGeocoder geocoder = new GoogleGeocoder() { ApiKey = GeoApiKey };
-            IEnumerable<Geocoding.Address> addresses = geocoder.Geocode(fullAddress);
-            return addresses.FirstOrDefault();
+            String GeoApiKey = "AIzaSyDVi-distTEh6bjEM1yYVyt8oKaDRnt77M"; //"AIzaSyAMKtf -vyo8MQNv3BLetgYKPUb92e52Xpc"; //"AIzaSyCR9l-L2mj1vSHF55-SKRiNOQZzJKhmpFo"; //ConfigurationManager.AppSettings["GeoCodingApiKey"];
+
+            try
+            {
+                IGeocoder geocoder = new GoogleGeocoder() { ApiKey = GeoApiKey };
+
+                IEnumerable<Geocoding.Address> addresses = geocoder.Geocode(fullAddress);
+                return addresses.FirstOrDefault();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         public IEnumerable<Geocoding.Google.GoogleAddress> getAddresses(String fullAddress)
         {
-            String GeoApiKey = "AIzaSyAMKtf-vyo8MQNv3BLetgYKPUb92e52Xpc"; //"AIzaSyCR9l-L2mj1vSHF55-SKRiNOQZzJKhmpFo"; //ConfigurationManager.AppSettings["GeoCodingApiKey"];
+            String GeoApiKey = "AIzaSyDVi-distTEh6bjEM1yYVyt8oKaDRnt77M"; //"AIzaSyAMKtf-vyo8MQNv3BLetgYKPUb92e52Xpc"; //"AIzaSyCR9l-L2mj1vSHF55-SKRiNOQZzJKhmpFo"; //ConfigurationManager.AppSettings["GeoCodingApiKey"];
             GoogleGeocoder geocoder = new GoogleGeocoder() { ApiKey = GeoApiKey };
             IEnumerable<GoogleAddress> addresses = geocoder.Geocode(fullAddress);
             return addresses;

@@ -1,35 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.Entity;
-using System.Device.Location;
-using System.IO;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Web.Http.ModelBinding;
-using System.Web.Http.Routing;
-using AutoMapper;
 using IMS.Common.Core.Data;
-using IMS.Common.Core.DataCommands;
-using IMS.Common.Core.DTO;
 using IMS.Common.Core.Enumerations;
-using IMS.Common.Core.Identity;
-using IMS.Common.Core.Services;
-using IMS.Common.Core.Utilities;
+using IMS.Service.WebAPI2.Bindings;
 using IMS.Service.WebAPI2.Filters;
 using IMS.Service.WebAPI2.Models;
 using IMS.Service.WebAPI2.Services;
-using IMS.Utilities.PaymentAPI.Client;
-using IMS.Utilities.PaymentAPI.Model;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 
 namespace IMS.Service.WebAPI2.Controllers
 {
@@ -59,7 +42,7 @@ namespace IMS.Service.WebAPI2.Controllers
             //Prepare path for files
             switch (imageTypeId)
             {
-                case 1:
+                case (int)ImageType.AVATAR_MEMBER:
                     sectionPathForImage = "members";
                     if(await db.Members.Where(a => a.Id == identifier).FirstOrDefaultAsync() == null)
                     {
@@ -71,7 +54,7 @@ namespace IMS.Service.WebAPI2.Controllers
                     }
                     sectionPathForImage = sectionPathForImage + "/avatar";
                     break;
-                case 2:
+                case (int)ImageType.AVATAR_MERCHANT:
                     sectionPathForImage = "users";
                     if (await db.IMSUsers.Where(a => a.Id == identifier).FirstOrDefaultAsync() == null)
                     {
@@ -83,7 +66,7 @@ namespace IMS.Service.WebAPI2.Controllers
                     }
                     sectionPathForImage = sectionPathForImage + "/avatar";
                     break;
-                case 3:
+                case (int)ImageType.LOGO:
                     sectionPathForImage = "merchants";
                     if (await db.Merchants.Where(a => a.Id == identifier).FirstOrDefaultAsync() == null)
                     {
@@ -95,7 +78,7 @@ namespace IMS.Service.WebAPI2.Controllers
                     }
                     sectionPathForImage = sectionPathForImage + "/logo";
                     break;
-                case 4:
+                case (int)ImageType.STORE:
                     sectionPathForImage = "merchants";
                     if (await db.Merchants.Where(a => a.Id == identifier).FirstOrDefaultAsync() == null)
                     {
@@ -107,9 +90,9 @@ namespace IMS.Service.WebAPI2.Controllers
                     }
                     sectionPathForImage = sectionPathForImage + "/store";
                     break;
-                case 5:
+                case (int)ImageType.SPECIMEN:
                     sectionPathForImage = "merchants";
-                    if (await db.Merchants.Where(a => a.Id == identifier && a.BankingInfoId != null).FirstOrDefaultAsync() == null)
+                    if (await db.Merchants.Where(a => a.Id == identifier && a.Locations.FirstOrDefault(b => b.IsActive == true).BankingInfoId != null).FirstOrDefaultAsync() == null)
                     {
                         return Content(HttpStatusCode.NotFound, MessageService.GetMessage("BankingInfoNotFound_", locale));
                     }
@@ -176,13 +159,29 @@ namespace IMS.Service.WebAPI2.Controllers
 
                         switch (imageTypeId)
                         {
-                            case 1: //AvatarLink for member
+                            case (int)ImageType.AVATAR_MEMBER:
                                 try
                                 {
-                                    Common.Core.Data.Member m = await db.Members.Where(a => a.Id == identifier).FirstOrDefaultAsync();
+                                    string avatarFileToDelete = "";
+                                    Member m = await db.Members.Where(a => a.Id == identifier).FirstOrDefaultAsync();
+
+                                    if (m.AvatarLink != null)
+                                    {
+                                        avatarFileToDelete = System.IO.Path.GetFileName(m.AvatarLink);
+                                        var filePathToDelete = HttpContext.Current.Server.MapPath(newFileDirectory);
+
+                                        string[] files = System.IO.Directory.GetFiles(filePathToDelete, avatarFileToDelete + ".*");
+                                        foreach (string f in files)
+                                        {
+                                            System.IO.File.Delete(f);
+                                        }
+                                    }
+
+                                    //Add file to member
                                     m.AvatarLink = newFileName.ToString();
                                     db.Entry(m).State = EntityState.Modified;
                                     await db.SaveChangesAsync();
+
                                 }
                                 catch(Exception ex)
                                 {
@@ -190,10 +189,10 @@ namespace IMS.Service.WebAPI2.Controllers
                                     return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateMember_", locale));
                                 }
                                 break;
-                            case 2: //AvatarLink for merchant admin and user
+                            case (int)ImageType.AVATAR_MERCHANT:
                                 try
                                 {
-                                    Common.Core.Data.IMSUser u = await db.IMSUsers.Where(a => a.Id == identifier).FirstOrDefaultAsync();
+                                    IMSUser u = await db.IMSUsers.Where(a => a.Id == identifier).FirstOrDefaultAsync();
                                     u.AvatarLink = newFileName.ToString();
                                     db.Entry(u).State = EntityState.Modified;
                                     await db.SaveChangesAsync();
@@ -204,12 +203,26 @@ namespace IMS.Service.WebAPI2.Controllers
                                     return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateUser_", locale));
                                 }
                                 break;
-                            case 3: //LogoLink for merchant
+                            case (int)ImageType.LOGO:
                                 try
                                 {
-                                    Common.Core.Data.Merchant m = await db.Merchants.Where(a => a.Id == identifier).FirstOrDefaultAsync();
-                                    m.LogoId = newFileName;
-                                    m.LogoPath = newFilePath;
+                                    string logoFileToDelete = "";
+                                    Merchant m = await db.Merchants.Where(a => a.Id == identifier).FirstOrDefaultAsync();
+
+                                    if (m.LogoPath != null)
+                                    {
+                                        logoFileToDelete = System.IO.Path.GetFileName(m.LogoPath);
+                                        var filePathToDelete = HttpContext.Current.Server.MapPath(newFileDirectory);
+
+                                        string[] files = System.IO.Directory.GetFiles(filePathToDelete, logoFileToDelete + ".*");
+                                        foreach (string f in files)
+                                        {
+                                            System.IO.File.Delete(f);
+                                        }
+                                    }
+
+                                    //m.LogoId = newFileName;
+                                    m.LogoPath = newFileName.ToString();
                                     db.Entry(m).State = EntityState.Modified;
                                     await db.SaveChangesAsync();
                                 }
@@ -219,10 +232,10 @@ namespace IMS.Service.WebAPI2.Controllers
                                     return Content(HttpStatusCode.InternalServerError, "Unable to update merchant profile");
                                 }
                                 break;
-                            case 4: //ImageLink for merchant
+                            case (int)ImageType.STORE: 
                                 try
                                 {
-                                    Common.Core.Data.Merchant m = await db.Merchants.Where(a => a.Id == identifier).FirstOrDefaultAsync();
+                                    Merchant m = await db.Merchants.Where(a => a.Id == identifier).FirstOrDefaultAsync();
                                     int merchantImageCount = m.MerchantImages == null ? 0 : m.MerchantImages.Count();
                                     MerchantImage mi = new MerchantImage();
                                     mi.CreationDate = DateTime.Now;
@@ -231,6 +244,7 @@ namespace IMS.Service.WebAPI2.Controllers
                                     mi.IsActive = true;
                                     mi.IsPromoted = false;
                                     mi.IsPublished = true;
+                                    mi.Id = Guid.NewGuid();
                                     mi.Weight = Convert.ToInt16(merchantImageCount + 1);
                                     m.MerchantImages.Add(mi);
                                     await db.SaveChangesAsync();
@@ -241,11 +255,25 @@ namespace IMS.Service.WebAPI2.Controllers
                                     return Content(HttpStatusCode.InternalServerError, "Unable to update merchant profile");
                                 }
                                 break;
-                            case 5: //SpecimenLink for merchant
+                            case (int)ImageType.SPECIMEN:
                                 try
                                 {
-                                    Common.Core.Data.Merchant m = await db.Merchants.Where(a => a.Id == identifier).FirstOrDefaultAsync();
-                                    m.BankingInfo.SpecimenPath = newFileName.ToString();
+                                    string specimenFileToDelete = "";
+                                    Merchant m = await db.Merchants.Where(a => a.Id == identifier).FirstOrDefaultAsync();
+
+                                    if (m.Locations.FirstOrDefault(a => a.IsActive == true).BankingInfo.SpecimenPath != null)
+                                    {
+                                        specimenFileToDelete = System.IO.Path.GetFileName(m.Locations.FirstOrDefault(a => a.IsActive == true).BankingInfo.SpecimenPath);
+                                        var filePathToDelete = HttpContext.Current.Server.MapPath(newFileDirectory);
+
+                                        string[] files = System.IO.Directory.GetFiles(filePathToDelete, specimenFileToDelete + ".*");
+                                        foreach (string f in files)
+                                        {
+                                            System.IO.File.Delete(f);
+                                        }
+                                    }
+
+                                    m.Locations.FirstOrDefault(a => a.IsActive == true).BankingInfo.SpecimenPath = newFileName.ToString();
                                     db.Entry(m).State = EntityState.Modified;
                                     await db.SaveChangesAsync();
                                 }
@@ -264,9 +292,12 @@ namespace IMS.Service.WebAPI2.Controllers
                         imagesRS.Add(imageRS);
                     }
 
-                    return Content(HttpStatusCode.OK, imagesRS) ;
+                 
                 }
 
+                if (imagesRS.Count > 0)
+                    return Content(HttpStatusCode.OK, imagesRS);
+                else
                 return Content(HttpStatusCode.NotFound, "No image was found");
             }
             catch (Exception ex)
@@ -275,6 +306,41 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.InternalServerError, "Unable to upload image");
             }
         }
-        
+
+        [HttpDelete]
+        [Route("{imageId:guid}")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> DeleteImage(Guid imageId, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+
+            Common.Core.Data.MerchantImage image = null;
+
+            #endregion
+
+            #region Validation Section
+
+            image = await db.MerchantImages.Where(a => a.Id == imageId).FirstOrDefaultAsync();
+
+            if (image == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("ImageNotFound_", locale));
+            }
+
+            #endregion
+
+            try
+            {
+                db.Entry(image).State = EntityState.Deleted;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("DeleteImage - ImageId {0} Exception {1} InnerException {2}", imageId, ex.ToString(), ex.InnerException);
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToDeleteImage_", locale));
+            }
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("ImageDeleted_", locale));
+        }
     }
 }

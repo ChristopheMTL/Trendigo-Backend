@@ -52,11 +52,8 @@ namespace IMS.Common.Core.Data
             modelBuilder.Configurations.Add(new CurrencyMap());
             modelBuilder.Configurations.Add(new BankInfoMap());
             modelBuilder.Configurations.Add(new PaymentStatusMap());
-            modelBuilder.Configurations.Add(new CardPointHistoryMap());
-            modelBuilder.Configurations.Add(new MemberPromoCodeHistoryMap());
             modelBuilder.Configurations.Add(new SocialMediaUserMap());
             modelBuilder.Configurations.Add(new DeviceTypeTranslationMap());
-            modelBuilder.Configurations.Add(new DeviceRequestMap());
             modelBuilder.Configurations.Add(new DeviceRequestStatusTranslationMap());
             modelBuilder.Configurations.Add(new EnrollmentMap());
             modelBuilder.Configurations.Add(new EnrollmentProcessMap());
@@ -67,6 +64,7 @@ namespace IMS.Common.Core.Data
             modelBuilder.Configurations.Add(new PricingCategoryMap());
             modelBuilder.Configurations.Add(new NewsletterMap());
             modelBuilder.Configurations.Add(new UserNotificationMap());
+            modelBuilder.Configurations.Add(new CreditCardMap());
         }
 
         //private bool IsDirtyProperty(IMSEntities ctx, object entity, string propertyName)

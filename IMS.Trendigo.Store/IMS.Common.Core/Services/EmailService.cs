@@ -75,76 +75,6 @@ namespace IMS.Common.Core.Services
         }
 
         /// <summary>
-        /// This method send an email with a link to activate a card
-        /// </summary>
-        /// <param name="member">Member information</param>
-        /// <param name="membership">Membership information</param>
-        /// <param name="assignedCard">Assigned card information</param>
-        /// <param name="callbackUrl">The link that will activate the card</param>
-        /// <returns>Nothing</returns>
-        public Task SendCardValidationEmail(Member member, IMSMembership membership, IMSCard assignedCard, string callbackUrl)
-        {
-
-            string language = "en";
-            if (member.Language != null)
-                language = member.Language.ISO639_1;
-
-            string emailBodyTemplateName = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, String.Format("Views/Email/CardValidation.{0}.html", language));
-
-            string htmlBody;
-
-            using (var fs = File.OpenRead(emailBodyTemplateName))
-            using (var sr = new StreamReader(fs))
-            {
-                htmlBody = sr.ReadToEnd();
-                htmlBody = String.Format(htmlBody, member.FirstName, callbackUrl);
-            }
-
-            MailMessage mail = new MailMessage();
-            mail.To.Add(member.AspNetUser.Email);
-            mail.Body = htmlBody;
-            mail.IsBodyHtml = true;
-
-            return SendAsync(mail);
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="member"></param>
-        /// <param name="membership"></param>
-        /// <param name="assignedCard"></param>
-        /// <returns></returns>
-        public Task SendCardValidationNoShippingEmail(Member member, IMSMembership membership, IMSCard assignedCard)
-        {
-
-            string language = "en";
-            if (member.Language != null)
-                language = member.Language.ISO639_1;
-
-            string callbackUrlTemplate = ConfigurationManager.AppSettings["IMS.Store.Service.WebAPI.CardValidationNoShipping.CallbackUrl." + member.EnterpriseId];
-            string callbackUrl = String.Format(callbackUrlTemplate, member.UserId, assignedCard.ActivationNumber, membership.Id);
-
-            string emailBodyTemplateName = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, String.Format("Views/Email/CardValidation.{0}.html", language));
-
-            string htmlBody;
-
-            using (var fs = File.OpenRead(emailBodyTemplateName))
-            using (var sr = new StreamReader(fs))
-            {
-                htmlBody = sr.ReadToEnd();
-                htmlBody = String.Format(htmlBody, member.FirstName, callbackUrl);
-            }
-
-            MailMessage mail = new MailMessage();
-            mail.To.Add(member.AspNetUser.Email);
-            mail.Body = htmlBody;
-            mail.IsBodyHtml = true;
-
-            return SendAsync(mail);
-        }
-
-        /// <summary>
         /// This method send a email with a link to reset the password
         /// </summary>
         /// <param name="member">Member information</param>
@@ -547,22 +477,21 @@ namespace IMS.Common.Core.Services
                 throw new Exception("Location not found");
             }
 
-            IMSCard card = await db.IMSCards.FirstOrDefaultAsync(a => a.TransaxId == nonFinancial.cardNonFinancialId);
+            CreditCard creditCard = await db.CreditCards.FirstOrDefaultAsync(a => a.TransaxId == financial.creditCardId.ToString());
 
-            if (card == null)
+            if (creditCard == null)
             {
-                logger.ErrorFormat("NonFinancial transaction {0} - Non Financial Card not found for id {1}", nonFinancial.Id, nonFinancial.cardNonFinancialId);
-                throw new Exception("Non Financial Card not found");
+                logger.ErrorFormat("Financial transaction {0} - Credit Card not found for id {1}", financial.Id, financial.creditCardId);
+                throw new Exception("Credit Card not found");
             }
 
-            //TODO get member information
-            //Member member = card.Member;
+            Member member = await db.Members.FirstOrDefaultAsync(a => a.TransaxId == nonFinancial.memberId.ToString());
 
-            //if (member == null)
-            //{
-            //    logger.ErrorFormat("NonFinancial transaction {0} - No Member assign to card id {1}", nonFinancial.Id, card.Id);
-            //    throw new Exception("No Member assigned to card");
-            //}
+            if (member == null)
+            {
+                logger.ErrorFormat("NonFinancial transaction {0} - Member not found for Id {1}", nonFinancial.Id, nonFinancial.memberId);
+                throw new Exception("Member not found");
+            }
 
             ////Member does not want to receive a receipt by email
             //if (member.Receipt == null || (member.Receipt.HasValue && member.Receipt.Value == false))
@@ -570,23 +499,23 @@ namespace IMS.Common.Core.Services
             //    return;
             //}
 
-            //String currency = "$";
-            //Currency cur = db.Currencies.FirstOrDefault(a => a.TransaxId == financial.currencyId.Value.ToString());
+            String currency = "$";
+            Currency cur = db.Currencies.FirstOrDefault(a => a.TransaxId == financial.currencyId.Value.ToString());
 
-            //if (cur != null)
-            //{
-            //    currency = cur.Symbol;
-            //}
+            if (cur != null)
+            {
+                currency = cur.Symbol;
+            }
 
-            //try
-            //{
-            //    await SendReceiptEmail(location, member, card, financial, nonFinancial, currency, filePath, sendReceipt, saveReceipt);
-            //}
-            //catch (Exception ex)
-            //{
-            //    logger.ErrorFormat("SendEmailReceipt - Exception {0} InnerException {1}", ex.ToString(), ex.InnerException);
-            //    throw new Exception(string.Format("SendEmailReceipt - Exception {0} InnerException {1}", ex.ToString(), ex.InnerException));
-            //}
+            try
+            {
+                await SendReceiptEmail(location, member, creditCard, financial, nonFinancial, currency, filePath, sendReceipt, saveReceipt);
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("SendEmailReceipt - Exception {0} InnerException {1}", ex.ToString(), ex.InnerException);
+                throw new Exception(string.Format("SendEmailReceipt - Exception {0} InnerException {1}", ex.ToString(), ex.InnerException));
+            }
 
             return;
         }
@@ -596,13 +525,13 @@ namespace IMS.Common.Core.Services
         /// </summary>
         /// <param name="location">The location from where the transaction was process</param>
         /// <param name="member">The member that process that transaction</param>
-        /// <param name="assignedCard">The card used to process the transaction</param>
+        /// <param name="creditCard">The card used to process the transaction</param>
         /// <param name="financial">The detail of the financial transaction</param>
         /// <param name="nonFinancial">The detail of the non financial transaction</param>
         /// <param name="currency">The currency used for that transaction</param>
         /// <param name="filePath">The file location of the receipt</param>
         /// <returns>Nothing</returns>
-        public async Task SendReceiptEmail(Location location, Member member, IMSCard assignedCard, TrxFinancialTransaction financial, TrxNonFinancialTransaction nonFinancial, String currency, String filePath, Boolean sendReceipt = false, Boolean saveReceipt = false)
+        public async Task SendReceiptEmail(Location location, Member member, CreditCard creditCard, TrxFinancialTransaction financial, TrxNonFinancialTransaction nonFinancial, String currency, String filePath, Boolean sendReceipt = false, Boolean saveReceipt = false)
         {
             string language = "en";
             if (member.Language != null)
@@ -612,7 +541,7 @@ namespace IMS.Common.Core.Services
 
             try 
             {
-                htmlBody = await new TransactionManager().BuildReceipt(location, member, assignedCard, financial, nonFinancial, currency, filePath);
+                htmlBody = await new TransactionManager().BuildReceipt(location, member, creditCard, financial, nonFinancial, currency, filePath);
             }
             catch (Exception ex) 
             {

@@ -20,7 +20,6 @@ namespace IMS.Common.Core.Data
             this.ContractCommissions = new HashSet<ContractCommission>();
             this.SalesReps = new HashSet<SalesRep>();
             this.OutsideChannels = new HashSet<OutsideChannel>();
-            this.CardPointHistories = new HashSet<CardPointHistory>();
             this.Locations = new HashSet<Location>();
             this.Promotion_Schedules = new HashSet<Promotion_Schedules>();
             this.Merchants = new HashSet<Merchant>();
@@ -45,8 +44,6 @@ namespace IMS.Common.Core.Data
         public virtual ICollection<SalesRep> SalesReps { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OutsideChannel> OutsideChannels { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CardPointHistory> CardPointHistories { get; set; }
         public virtual Language Language { get; set; }
         public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

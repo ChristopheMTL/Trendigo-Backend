@@ -18,8 +18,8 @@ namespace IMS.Common.Core.Data
         public IMS_LineItem()
         {
             this.Contracts = new HashSet<Contract>();
-            this.IMS_Detail = new HashSet<IMS_Detail>();
             this.GiftCardTransactionDetails = new HashSet<GiftCardTransactionDetail>();
+            this.IMS_Detail = new HashSet<IMS_Detail>();
         }
     
         public int Id { get; set; }
@@ -33,8 +33,8 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contract> Contracts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IMS_Detail> IMS_Detail { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GiftCardTransactionDetail> GiftCardTransactionDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<IMS_Detail> IMS_Detail { get; set; }
     }
 }

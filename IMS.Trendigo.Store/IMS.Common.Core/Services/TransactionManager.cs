@@ -93,44 +93,6 @@ namespace IMS.Common.Core.Services
             return new List<TrxFinancialTransaction>();
         }
 
-        //public IQueryable<TrxNonFinancialTransaction> GetMemberTransactionHistory(Member member, long cardId)
-        //{
-        //    IMSCard IMScard = member.IMSCards.FirstOrDefault(a => a.Id == cardId);
-
-        //    if (IMScard == null)
-        //    {
-        //        throw new Exception("Card not found");
-        //    }
-
-        //    //We want transaction
-        //    //1 - Of that member
-        //    //2 - That are not voided (idRelatedTransaction == nothing)
-        //    //3 - Amount are greater than zero
-        //    return context.TrxNonFinancialTransactions.Where(a => a.cardNonFinancialId == IMScard.TransaxId &&
-        //                                                    //a.idRelatedTransaction.Length == 0 &&
-        //                                                    a.amount > 0);
-        //}
-
-        //public IQueryable<TrxNonFinancialTransaction> GetMemberTransactionHistory(Member member, long cardId, string maskedPan)
-        //{
-        //    IMSCard IMScard = member.IMSCards.FirstOrDefault(a => a.Id == cardId);
-
-        //    if (IMScard == null)
-        //    {
-        //        throw new Exception("Card not found");
-        //    }
-
-        //    //We want transaction
-        //    //1 - Of that member
-        //    //2 - That are not voided (idRelatedTransaction == nothing)
-        //    //3 - Amount are greater than zero
-        //    return from financial in context.TrxFinancialTransactions
-        //           join nonFinancial in context.TrxNonFinancialTransactions on financial.legTransaction equals nonFinancial.Id
-        //           where nonFinancial.cardNonFinancialId == IMScard.TransaxId &&
-        //           nonFinancial.amount > 0
-        //           select nonFinancial;
-        //}
-
         public List<TrxFinancialTransaction> GetLocationTransactionHistory(Location loc)
         {
             List<TrxFinancialTransaction> transactions = new List<TrxFinancialTransaction>();
@@ -157,16 +119,18 @@ namespace IMS.Common.Core.Services
 
                 Mapper.CreateMap<IMS.Utilities.PaymentAPI.Model.TransactionNonFinancial, TrxNonFinancialTransaction>()
                     .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.TransactionId.Value))
+                    .ForMember(dest => dest.orderNumber, opt => opt.MapFrom(src => src.OrderNumber))
                     .ForMember(dest => dest.baseAmount, opt => opt.MapFrom(src => src.BaseAmount.HasValue ? Convert.ToDecimal(src.BaseAmount.Value) : 0))
-                    //.ForMember(dest => dest.aditionalAmount, opt => opt.MapFrom(src => src.AdditionnalAmount.HasValue ? Convert.ToDecimal(src.AdditionnalAmount.Value) : 0))
-                    .ForMember(dest => dest.tip, opt => opt.MapFrom(src => src.Tip.HasValue ? Convert.ToDecimal(src.Tip.Value) : 0))
-                    .ForMember(dest => dest.amount, opt => opt.MapFrom(src => src.Amount.HasValue ? Convert.ToDecimal(src.Amount.Value) : 0))
                     .ForMember(dest => dest.approvedAmount, opt => opt.MapFrom(src => src.ApprovedAmount.HasValue ? Convert.ToDecimal(src.ApprovedAmount.Value) : 0))
-                    //.ForMember(dest => dest.cardNonFinancialId, opt => opt.MapFrom(src => src.CardId.Value))
+                    .ForMember(dest => dest.amount, opt => opt.MapFrom(src => src.Amount.HasValue ? Convert.ToDecimal(src.Amount.Value) : 0))
+                    .ForMember(dest => dest.aditionalAmount, opt => opt.MapFrom(src => src.AdditionalAmount.HasValue ? Convert.ToDecimal(src.AdditionalAmount.Value) : 0))
+                    .ForMember(dest => dest.tip, opt => opt.MapFrom(src => src.Tip.HasValue ? Convert.ToDecimal(src.Tip.Value) : 0))
+                    .ForMember(dest => dest.memberId, opt => opt.MapFrom(src => src.MemberId.Value))
                     .ForMember(dest => dest.pointsExpended, opt => opt.MapFrom(src => src.PointExpended.HasValue ? src.PointExpended.Value : 0))
                     .ForMember(dest => dest.pointsGained, opt => opt.MapFrom(src => src.PointGained.HasValue ? src.PointGained.Value : 0))
                     .ForMember(dest => dest.systemDateTime, opt => opt.MapFrom(src => src.SystemDateTime.Value))
                     .ForMember(dest => dest.localDateTime, opt => opt.MapFrom(src => src.TerminalDateTime.Value))
+                    .ForMember(dest => dest.terminalId, opt => opt.MapFrom(src => src.TerminalId.Value))
                     .ForMember(dest => dest.program, opt => opt.MapFrom(src => src.ProgramId.Value))
                     .ForMember(dest => dest.entityId, opt => opt.MapFrom(src => src.LocationId.Value))
                     .ForMember(dest => dest.promotion_appliedId, opt => opt.MapFrom(src => src.PromotionId.Value))
@@ -176,8 +140,10 @@ namespace IMS.Common.Core.Services
                     .ForMember(dest => dest.voided, opt => opt.MapFrom(src => src.Voided.HasValue ? (src.Voided.Value == true ? 1 : 0) : 0))
                     .ForMember(dest => dest.refunded, opt => opt.MapFrom(src => src.Refunded.HasValue ? (src.Refunded.Value == true ? 1 : 0) : 0))
                     .ForMember(dest => dest.concluded, opt => opt.MapFrom(src => src.Concluded.HasValue ? (src.Concluded.Value == true ? 1 : 0) : 0))
-                    .ForMember(dest => dest.EnterpriseId, opt => opt.MapFrom(src => src.EnterpriseId.HasValue ? enterprise.Id : enterprise.Id));
-
+                    .ForMember(dest => dest.creationDate, opt => opt.MapFrom(src => src.CreationDate.Value))
+                    .ForMember(dest => dest.EnterpriseId, opt => opt.MapFrom(src => src.EnterpriseId.HasValue ? enterprise.Id : enterprise.Id))
+                    .ForMember(dest => dest.responseMessage, opt => opt.MapFrom(src => src.ResponseMessage));
+                    
                 #endregion
 
                 try
@@ -213,33 +179,37 @@ namespace IMS.Common.Core.Services
 
                 Mapper.CreateMap<IMS.Utilities.PaymentAPI.Model.TransactionFinancial, TrxFinancialTransaction>()
                     .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.TransactionId.ToString()))
-                    .ForMember(dest => dest.acquirerResponseCode, opt => opt.MapFrom(src => src.AcquirerResponseCode))
-                    //.ForMember(dest => dest.aditionalAmount, opt => opt.MapFrom(src => src.AdditionnalAmount.HasValue ? Convert.ToDecimal(src.AdditionnalAmount.Value) : 0))
-                    .ForMember(dest => dest.amount, opt => opt.MapFrom(src => src.Amount.HasValue ? Convert.ToDecimal(src.Amount.Value) : 0))
-                    .ForMember(dest => dest.approvedAmount, opt => opt.MapFrom(src => src.ApprovedAmount.HasValue ? Convert.ToDecimal(src.ApprovedAmount.Value) : 0))
-                    .ForMember(dest => dest.baseAmount, opt => opt.MapFrom(src => src.BaseAmount.HasValue ? Convert.ToDecimal(src.BaseAmount.Value) : 0))
-                    .ForMember(dest => dest.cardTypeId, opt => opt.MapFrom(src => src.CreditCardTypeId.Value == 0 ? (int)TransaxCardType.Unknown : src.CreditCardTypeId.Value))
-                    .ForMember(dest => dest.concluded, opt => opt.MapFrom(src => src.Concluded.HasValue ? (src.Concluded.Value == true ? 1 : 0) : 0))
-                    .ForMember(dest => dest.currencyId, opt => opt.MapFrom(src => src.CurrencyId))
-                    .ForMember(dest => dest.entityId, opt => opt.MapFrom(src => src.LocationId))
-                    .ForMember(dest => dest.inputModeId, opt => opt.MapFrom(src => src.InputModeId))
-                    .ForMember(dest => dest.legTransaction, opt => opt.MapFrom(src => src.TransactionNonFinancialId))
-                    .ForMember(dest => dest.localDateTime, opt => opt.MapFrom(src => src.LocalDateTime.Value))
-                    .ForMember(dest => dest.acquirerReference, opt => opt.MapFrom(src => src.AcquirerResponseMessage))  //.Length > 0 ? src.AcquirerResponseMessage.Substring(src.AcquirerResponseMessage.IndexOf(" "), src.AcquirerResponseMessage.Length - src.AcquirerResponseMessage.IndexOf(" ")) : ""
-                    .ForMember(dest => dest.merchantResponseMessage, opt => opt.MapFrom(src => src.AcquirerResponseMessage))
+                    .ForMember(dest => dest.processorId, opt => opt.MapFrom(src => src.ProcessorId.Value))
                     .ForMember(dest => dest.acquirerId, opt => opt.MapFrom(src => (int)AcquirerEnum.GlobalPayment))
-                    .ForMember(dest => dest.refunded, opt => opt.MapFrom(src => src.Refunded.HasValue ? (src.Refunded.Value == true ? 1 : 0) : 0))
-                    .ForMember(dest => dest.systemDateTime, opt => opt.MapFrom(src => src.SystemDateTime))
-                    .ForMember(dest => dest.terminalReference, opt => opt.MapFrom(src => src.TerminalReference))
-                    .ForMember(dest => dest.tip, opt => opt.MapFrom(src => src.Tip.HasValue ? Convert.ToDecimal(src.Tip.Value) : 0))
-                    .ForMember(dest => dest.transactionTypeId, opt => opt.MapFrom(src => src.TransactionTypeId))
-                    .ForMember(dest => dest.transaxTerminalId, opt => opt.MapFrom(src => src.TerminalId))
-                    .ForMember(dest => dest.vendorId, opt => opt.MapFrom(src => src.VendorId))
-                    .ForMember(dest => dest.voided, opt => opt.MapFrom(src => src.Voided.HasValue ? (src.Voided.Value == true ? 1 : 0) : 0))
                     .ForMember(dest => dest.EnterpriseId, opt => opt.MapFrom(src => src.EnterpriseId.HasValue ? enterprise.Id : enterprise.Id))
-                    .ForMember(dest => dest.idRelatedTransaction, opt => opt.MapFrom(src => src.RelatedTransactionId))
-                    .ForMember(dest => dest.description, opt => opt.MapFrom(src => src.Clerk));
-
+                    .ForMember(dest => dest.baseAmount, opt => opt.MapFrom(src => src.BaseAmount.HasValue ? Convert.ToDecimal(src.BaseAmount.Value) : 0))
+                    .ForMember(dest => dest.approvedAmount, opt => opt.MapFrom(src => src.ApprovedAmount.HasValue ? Convert.ToDecimal(src.ApprovedAmount.Value) : 0))
+                    .ForMember(dest => dest.amount, opt => opt.MapFrom(src => src.Amount.HasValue ? Convert.ToDecimal(src.Amount.Value) : 0))
+                    .ForMember(dest => dest.aditionalAmount, opt => opt.MapFrom(src => src.AdditionalAmount.HasValue ? Convert.ToDecimal(src.AdditionalAmount.Value) : 0))
+                    .ForMember(dest => dest.tip, opt => opt.MapFrom(src => src.Tip.HasValue ? Convert.ToDecimal(src.Tip.Value) : 0))
+                    .ForMember(dest => dest.entityId, opt => opt.MapFrom(src => src.LocationId))
+                    .ForMember(dest => dest.vendorId, opt => opt.MapFrom(src => src.VendorId))
+                    .ForMember(dest => dest.terminalReference, opt => opt.MapFrom(src => src.TerminalReference))
+                    .ForMember(dest => dest.localDateTime, opt => opt.MapFrom(src => src.LocalDateTime.Value))
+                    .ForMember(dest => dest.acquirerReference, opt => opt.MapFrom(src => src.AcquirerReference))  //.Length > 0 ? src.AcquirerResponseMessage.Substring(src.AcquirerResponseMessage.IndexOf(" "), src.AcquirerResponseMessage.Length - src.AcquirerResponseMessage.IndexOf(" ")) : ""
+                    .ForMember(dest => dest.currencyId, opt => opt.MapFrom(src => src.CurrencyId))
+                    .ForMember(dest => dest.inputModeId, opt => opt.MapFrom(src => src.InputModeId))
+                    .ForMember(dest => dest.cardTypeId, opt => opt.MapFrom(src => src.CreditCardTypeId.Value == 0 ? (int)TransaxCardType.Unknown : src.CreditCardTypeId.Value))
+                    .ForMember(dest => dest.transactionTypeId, opt => opt.MapFrom(src => src.TransactionTypeId))
+                    .ForMember(dest => dest.legTransaction, opt => opt.MapFrom(src => src.TransactionNonFinancialId))
+                    .ForMember(dest => dest.systemDateTime, opt => opt.MapFrom(src => src.SystemDateTime))
+                    .ForMember(dest => dest.transaxTerminalId, opt => opt.MapFrom(src => src.TerminalId))
+                    .ForMember(dest => dest.creditCardId, opt => opt.MapFrom(src => src.CreditCardId.Value))
+                    .ForMember(dest => dest.merchantResponseMessage, opt => opt.MapFrom(src => src.AcquirerResponseMessage))
+                    .ForMember(dest => dest.acquirerResponseCode, opt => opt.MapFrom(src => src.AcquirerResponseCode))
+                    .ForMember(dest => dest.acquirerMerchantId, opt => opt.MapFrom(src => src.AcquirerMerchantId))
+                    .ForMember(dest => dest.acquirerTerminalId, opt => opt.MapFrom(src => src.AcquirerTerminalId))
+                    .ForMember(dest => dest.description, opt => opt.MapFrom(src => src.Clerk))
+                    .ForMember(dest => dest.voided, opt => opt.MapFrom(src => src.Voided.HasValue ? (src.Voided.Value == true ? 1 : 0) : 0))
+                    .ForMember(dest => dest.refunded, opt => opt.MapFrom(src => src.Refunded.HasValue ? (src.Refunded.Value == true ? 1 : 0) : 0))
+                    .ForMember(dest => dest.concluded, opt => opt.MapFrom(src => src.Concluded.HasValue ? (src.Concluded.Value == true ? 1 : 0) : 0))
+                    .ForMember(dest => dest.creationDate, opt => opt.MapFrom(src => src.CreationDate))
+                    .ForMember(dest => dest.idRelatedTransaction, opt => opt.MapFrom(src => src.RelatedTransactionId.Value));
 
                 #endregion
 
@@ -380,20 +350,14 @@ namespace IMS.Common.Core.Services
                 throw new Exception("Location not found");
             }
 
-            IMSCard card = await context.IMSCards.FirstOrDefaultAsync(a => a.TransaxId == nonFinancial.cardNonFinancialId);
-
-            if (card == null)
-            {
-                throw new Exception("Non Financial Card not found");
-            }
-
-            //Member member = card.Member;
-            Member member = null;
+            Member member = await context.Members.FirstOrDefaultAsync(a => a.TransaxId == nonFinancial.memberId.ToString());
 
             if (member == null)
             {
                 throw new Exception("No Member assigned to card");
             }
+
+            CreditCard creditCard = await context.CreditCards.FirstOrDefaultAsync(a => a.TransaxId == financial.creditCardId.ToString());
 
             String currency = "$";
             Currency cur = await context.Currencies.FirstOrDefaultAsync(a => a.TransaxId == financial.currencyId.Value.ToString());
@@ -407,7 +371,7 @@ namespace IMS.Common.Core.Services
 
             try
             {
-                receipt = await BuildReceipt(location, member, card, financial, nonFinancial, currency, filePath);
+                receipt = await BuildReceipt(location, member, creditCard, financial, nonFinancial, currency, filePath);
             }
             catch (Exception ex)
             {
@@ -417,7 +381,7 @@ namespace IMS.Common.Core.Services
             return receipt;
         }
 
-        public async Task<String> BuildReceipt(Location location, Member member, IMSCard assignedCard, TrxFinancialTransaction financial, TrxNonFinancialTransaction nonFinancial, String currency, String filePath)
+        public async Task<String> BuildReceipt(Location location, Member member, CreditCard creditCard, TrxFinancialTransaction financial, TrxNonFinancialTransaction nonFinancial, String currency, String filePath)
         {
             if (nonFinancial.transactionTypeId == (int)TransaxTransactionType.Sale || nonFinancial.transactionTypeId == (int)TransaxTransactionType.VoidSale)
             {
@@ -433,14 +397,14 @@ namespace IMS.Common.Core.Services
                     throw new Exception(string.Format("Build Receipt - Missing parameter Financial - NonFinancialId {0}", nonFinancial.Id.ToString()));
                 }
 
+                if (creditCard == null)
+                {
+                    throw new Exception(string.Format("Build Receipt - Missing parameter CreditCard - FinancialId {0}", financial.Id.ToString()));
+                }
+
                 if (member == null)
                 {
                     throw new Exception(string.Format("Build Receipt - Missing parameter Member - FinancialId {0}", financial.Id.ToString()));
-                }
-
-                if (assignedCard == null)
-                {
-                    throw new Exception(string.Format("Build Receipt - Missing parameter AssignedCard - FinancialId {0}", financial.Id.ToString()));
                 }
 
                 if (location == null)
@@ -599,7 +563,8 @@ namespace IMS.Common.Core.Services
                     string card = "Trendigo";
 
                     //Parameter {11} : Masked Card Number
-                    number = "****" + assignedCard.CardNumber.Substring(assignedCard.CardNumber.Length - 4, 4);
+                    //number = "****" + assignedCard.CardNumber.Substring(assignedCard.CardNumber.Length - 4, 4);
+                    number = member.Id.ToString().PadLeft(10, '0');
 
                     //Parameter {12} : Points Used/Returned for Transaction
                     pointUsed = nonFinancial.pointsExpended.HasValue ? nonFinancial.pointsExpended.Value : 0;
@@ -642,11 +607,11 @@ namespace IMS.Common.Core.Services
                     //Parameter {21} : Currency (this parameter is passed in the method)
 
                     //Parameter {22} : Merchant Logo
-                    default_logo = ConfigurationManager.AppSettings["IMS.Default.Merchant.Logo." + assignedCard.Enterprise.Id.ToString()];
+                    default_logo = ConfigurationManager.AppSettings["IMS.Default.Merchant.Logo." + location.Merchant.Enterprises.FirstOrDefault().Id.ToString()];
                     logo = new MerchantManager().GetMerchantLogoPath(location.Merchant.Id, location.Merchant.LogoPath);
 
                     //Parameter {23} : Merchant Image
-                    default_image = ConfigurationManager.AppSettings["IMS.Default.Merchant.Image." + assignedCard.Enterprise.Id.ToString()];
+                    default_image = ConfigurationManager.AppSettings["IMS.Default.Merchant.Image." + location.Merchant.Enterprises.FirstOrDefault().Id.ToString()];
                     merchantImage = new MerchantManager().GetMerchantDefaultImage(location.Merchant.Id, location.Merchant.MerchantImages.OrderBy(a => a.Weight).FirstOrDefault().ImagePath);
                     if (logo == default_logo)
                     {
@@ -716,7 +681,7 @@ namespace IMS.Common.Core.Services
 
         public Int64 GetLastTransactionId()
         {
-            Int64? lastTransaction = context.IMS_Detail.Where(o => o.TransactionTypeId == (int)IMSTransactionType.TRANSAX).Take(1).OrderByDescending(a => a.TransactionId).Select(a => a.TransactionId).FirstOrDefault();
+            Int64? lastTransaction = context.IMS_Detail.Take(1).OrderByDescending(a => a.TransactionId).Select(a => a.TransactionId).FirstOrDefault();
 
             lastTransaction = lastTransaction == null ? 0 : lastTransaction;
 
@@ -927,12 +892,9 @@ namespace IMS.Common.Core.Services
             {
                 long idRelatedFinancialTransaction = Convert.ToInt64(transaction.legTransaction);
 
-                Member member = (from c in context.IMSCards
-                                 from nf in context.TrxNonFinancialTransactions
+                Member member = (from nf in context.TrxNonFinancialTransactions
                                  from m in context.Members
-                                 where nf.cardNonFinancialId == c.TransaxId
-                                 where m.Id == c.MemberId
-                                 where nf.Id == idRelatedFinancialTransaction
+                                 where m.TransaxId == nf.memberId.ToString()
                                  select m).FirstOrDefault();
 
                 //if (member != null && member.OutsideChannelId != null)

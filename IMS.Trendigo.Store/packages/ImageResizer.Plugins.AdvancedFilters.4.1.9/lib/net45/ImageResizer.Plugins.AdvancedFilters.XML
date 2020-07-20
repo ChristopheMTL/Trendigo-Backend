@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ImageResizer.Plugins.AdvancedFilters</name>
+    </assembly>
+    <members>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AdvancedFilters.Install(ImageResizer.Configuration.Config)">
+            <summary>
+            Adds the plugin to the given configuration container
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AdvancedFilters.Uninstall(ImageResizer.Configuration.Config)">
+            <summary>
+            Removes the plugin from the given configuration container
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AdvancedFilters.GetRadius(ImageResizer.Resizing.ImageState,System.String,System.String,System.Double)">
+            <summary>
+            Calculates a radius based on the provided value, using min(width/height) as the normalizing factor. Querystring values are interpreted as 1/1000ths of the normalizing factor.
+            </summary>
+            <param name="s"></param>
+            <param name="key"></param>
+            <param name="key2"></param>
+            <param name="units"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AdvancedFilters.AdjustContrastBrightnessSaturation(AForge.Imaging.Filters.HSLLinear,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="f"></param>
+            <param name="contrast">-1..1 float to adjust contrast. </param>
+            <param name="brightness">-1..1 float to adjust luminance (brightness). 0 does nothing</param>
+            <param name="saturation">-1..1 float to adjust saturation.  0 does nothing  </param>
+            <param name="truncate">If false, adjusting brightness and luminance will adjust contrast also. True causes white/black washout instead.</param>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AdvancedFilters.GetSupportedQuerystringKeys">
+            <summary>
+            Returns the querystrings command keys supported by this plugin. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:ImageResizer.Plugins.AdvancedFilters.HistogramThresholdAlgorithm.Simple">
+            <summary>
+            Simple upper and lower usage thresholds are applied to the values in each channel's histogram to determine the input start/stop points for each individual channel. The start/stop points are used to calculate the scale factor and offset for the channel.
+            </summary>
+        </member>
+        <member name="F:ImageResizer.Plugins.AdvancedFilters.HistogramThresholdAlgorithm.Area">
+            <summary>
+            Threshold is applied based on cumulative area at the lower and upper ends of the histogram. Much larger thresholds are required for this than SimpleThreshold.
+            </summary>
+        </member>
+        <member name="F:ImageResizer.Plugins.AdvancedFilters.HistogramThresholdAlgorithm.GIMP">
+            <summary>
+            Threshold is applied based on strangely skewed cumulative area, identical to the process used by GIMP
+            </summary>
+        </member>
+        <member name="T:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance">
+            <summary>
+            In-place auto white balance filter with adjustable thresholds and 3 strategies.
+            </summary>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.#ctor">
+            <summary>
+            Creates an in-place auto-white-balance filter using the Area strategy and a threshold of 0.006 (0.6 percent)
+            </summary>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.#ctor(ImageResizer.Plugins.AdvancedFilters.HistogramThresholdAlgorithm)">
+            <summary>
+            Creates an in-place auto-white-balance filter, using the given strategy. If Simple is used, a threshold of 0.0006 is used; otherwise 0.006 is used.
+            </summary>
+            <param name="algorithm"></param>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.#ctor(ImageResizer.Plugins.AdvancedFilters.HistogramThresholdAlgorithm,System.Double)">
+            <summary>
+            Creates an in-place auto-white-balance filter, using the given strategy and (0..1) percent threshold.
+            </summary>
+            <param name="algorithm"></param>
+            <param name="threshold"></param>
+        </member>
+        <member name="P:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.Algorithm">
+            <summary>
+            The algorithm to use when determining the histogram sections to discard
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.LowThreshold">
+            <summary>
+            The usage threshold to use for lower channel values. Normally around 0.006 for area algorithms, or 0.0006 for iterative algorithms.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.HighThreshold">
+            <summary>
+            The usage threshold to use for higher channel values. Normally around 0.006 for area algorithms, or 0.0006 for iterative algorithms.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.FormatTranslations">
+            <summary>
+            Defines which pixel formats are supported for source images
+            and which pixel format will be used for resulting image.
+            See AForge.Imaging.Filters.IFilterInformation.FormatTranslations for more info.
+            </summary>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.ProcessFilter(AForge.Imaging.UnmanagedImage,System.Drawing.Rectangle)">
+            <summary>
+            
+            </summary>
+            <param name="image"></param>
+            <param name="rect"></param>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.SimpleThreshold(System.Int32[],System.Double,System.Double,System.Double,System.Int32@,System.Int32@)">
+            <summary>
+            Simple iterative thresholding
+            </summary>
+            <param name="histogram"></param>
+            <param name="totalPixels"></param>
+            <param name="lowThreshold"></param>
+            <param name="highThreshold"></param>
+            <param name="low"></param>
+            <param name="high"></param>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.AreaThreshold(System.Int32[],System.Double,System.Double,System.Double,System.Int32@,System.Int32@)">
+            <summary>
+            Simple histogram area thresholding
+            </summary>
+            <param name="histogram"></param>
+            <param name="totalPixels"></param>
+            <param name="lowThreshold"></param>
+            <param name="highThreshold"></param>
+            <param name="low"></param>
+            <param name="high"></param>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.AutoWhiteBalance.GIMPThreshold(System.Int32[],System.Double,System.Double,System.Double,System.Int32@,System.Int32@)">
+            <summary>
+            Matches the GIMP white balance algorithm, if provided 0.006 and 0.006 for the thresholds
+            </summary>
+            <param name="histogram"></param>
+            <param name="totalPixels"></param>
+            <param name="lowThreshold"></param>
+            <param name="highThreshold"></param>
+            <param name="low"></param>
+            <param name="high"></param>
+        </member>
+        <member name="T:ImageResizer.Plugins.AdvancedFilters.FeatherEdge">
+            <summary>
+            Allows for feathered edges.
+            </summary>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.FeatherEdge.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Declares the edges of the feathered image.
+            </summary>
+            <param name="outerAlpha"></param>
+            <param name="innerAlpha"></param>
+            <param name="width"></param>
+        </member>
+        <member name="P:ImageResizer.Plugins.AdvancedFilters.FeatherEdge.OuterAlpha">
+            <summary>
+            Outside limit of the feathered edge.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.AdvancedFilters.FeatherEdge.InnerAlpha">
+            <summary>
+            Inside limit of the feathered edge.
+            </summary>
+        </member>
+        <member name="P:ImageResizer.Plugins.AdvancedFilters.FeatherEdge.Width">
+            <summary>
+            Width of the feathered edge.
+            </summary>
+        </member>
+        <member name="M:ImageResizer.Plugins.AdvancedFilters.FeatherEdge.#ctor">
+            <summary>
+            Creates a new instance of FeatherEdge.
+            </summary>
+        </member>
+    </members>
+</doc>

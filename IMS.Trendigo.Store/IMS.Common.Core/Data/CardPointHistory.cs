@@ -21,7 +21,6 @@ namespace IMS.Common.Core.Data
         }
     
         public long Id { get; set; }
-        public long IMSCardId { get; set; }
         public int Points { get; set; }
         public string Reason { get; set; }
         public string TransaxId { get; set; }
@@ -29,11 +28,11 @@ namespace IMS.Common.Core.Data
         public System.DateTime CreatedDate { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
         public Nullable<long> PromoCodeId { get; set; }
+        public Nullable<long> MemberId { get; set; }
     
-        public virtual IMSCard IMSCard { get; set; }
+        public virtual Member Member { get; set; }
         public virtual PromoCode PromoCode { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MemberPromoCodeHistory> MemberPromoCodeHistories { get; set; }
-        public virtual IMSUser IMSUser { get; set; }
     }
 }

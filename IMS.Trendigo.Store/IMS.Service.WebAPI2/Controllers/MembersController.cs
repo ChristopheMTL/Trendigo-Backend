@@ -28,6 +28,7 @@ using System.Resources;
 using System.Collections;
 using System.Globalization;
 using IMS.Service.WebAPI2.Services;
+using Swashbuckle.Swagger.Annotations;
 
 namespace IMS.Service.WebAPI2.Controllers
 {
@@ -39,13 +40,13 @@ namespace IMS.Service.WebAPI2.Controllers
         private IMSEntities db = new IMSEntities();
         readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        
+
 
         #region Constructor Section
 
         public MembersController()
         {
-            
+
         }
 
         public MembersController(ApplicationUserManager userManager,
@@ -83,6 +84,7 @@ namespace IMS.Service.WebAPI2.Controllers
             Common.Core.Data.Member member = new Common.Core.Data.Member();
             createMemberRS response = new createMemberRS();
             IMS.Common.Core.Data.IMSUser imsUser = new IMS.Common.Core.Data.IMSUser();
+            Language language = null;
 
             #endregion
 
@@ -91,6 +93,13 @@ namespace IMS.Service.WebAPI2.Controllers
             if (model == null || !ModelState.IsValid)
             {
                 return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            language = await db.Languages.Where(a => a.ISO639_1 == model.language).FirstOrDefaultAsync();
+
+            if (language == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("LanguageNotFound_", locale));
             }
 
             #endregion
@@ -109,7 +118,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
                 if (exist != null)
                 {
-                    return Content(HttpStatusCode.NotModified, MessageService.GetMessage("EmailAlreadyUsed_", locale));
+                    return Content(HttpStatusCode.NotAcceptable, MessageService.GetMessage("EmailAlreadyUsed_", locale));
                 }
 
                 if (string.IsNullOrEmpty(model.password))
@@ -172,7 +181,7 @@ namespace IMS.Service.WebAPI2.Controllers
                     {
                         UserManager.Delete(user);
                     }
-                    catch{ }
+                    catch { }
 
                     logger.ErrorFormat("Create SocialMediaUser - Exception {0} InnerException {1} Member info {2}", ex.ToString(), ex.InnerException.ToString(), model.ToString());
                     return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("CannotCreateMember_", locale));
@@ -236,7 +245,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #region Membership Section
 
-            Common.Core.Data.Program program = await db.Programs.Where(a => a.ShortDescription.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
+            Common.Core.Data.Program program = await db.Programs.Where(a => a.Description.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
 
             try
             {
@@ -306,16 +315,12 @@ namespace IMS.Service.WebAPI2.Controllers
 
             try
             {
-                string language = locale;
-                if (member.Language != null)
-                    language = member.Language.ISO639_1;
-
                 var emailValidationToken = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
-                var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.Member.EmailValidation.CallbackUrl"], user.Id, HttpUtility.UrlEncode(emailValidationToken), locale);
+                var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.Member.EmailValidation.CallbackUrl"], member.Id, emailValidationToken, model.language);
 
-                var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + locale);
-                var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + locale);
+                var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + model.language);
+                var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + model.language);
 
                 await new EmailService().SendConfirmEmailAddressEmail(member, model.email, subject, textLink, callbackUrl);
             }
@@ -328,10 +333,53 @@ namespace IMS.Service.WebAPI2.Controllers
 
             createMemberRS memberRS = new createMemberRS();
 
-            memberRS = Mapper.Map<Common.Core.Data.Member, createMemberRS>(member);
-
-            return Content(HttpStatusCode.OK, memberRS);
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("UserAddedSuccessfully_", locale));
         }
+
+        [HttpPost]
+        [Route("resendEmailValidationLink")]
+        [AllowAnonymous]
+        public async Task<IHttpActionResult> ResendEmailValidationLink([FromBody] ForgotPasswordRQ model, [fromHeader] string locale = "en")
+        {
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            var user = await UserManager.FindByNameAsync(model.email);
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist or is not confirmed
+                return Content(HttpStatusCode.OK, MessageService.GetMessage("LinkWasSentSuccessfully_", locale));
+            }
+
+            #endregion
+
+            #region Email Validation Section
+
+            try
+            {
+                var emailValidationToken = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                var member =await db.Members.FirstOrDefaultAsync(x => x.UserId == user.Id);
+                var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.Member.EmailValidation.CallbackUrl"], member.Id, emailValidationToken, member.Language.ISO639_1);
+
+                var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + member.Language.ISO639_1);
+                var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + member.Language.ISO639_1);
+
+                await new EmailService().SendConfirmEmailAddressEmail(member, model.email, subject, textLink, callbackUrl);
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("SendValidationEmail - Exception {0} Inner Exception {1} Member info {2}", ex.ToString(), ex.InnerException.ToString(), model.ToString());
+            }
+
+            #endregion
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("LinkWasSentSuccessfully_", locale));
+        }
+
 
         [HttpPut]
         [Route("{memberId:long}")]
@@ -418,7 +466,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 {
                     await new EmailService().SendConfirmEmailAddressEmail(member, model.email, subject, textLink, callbackUrl);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     logger.ErrorFormat("SendConfirmEmailAddressEmail - Exception {0} InnerException {1} Member info {2)", ex.ToString(), ex.InnerException.ToString(), model.ToString());
                 }
@@ -436,18 +484,39 @@ namespace IMS.Service.WebAPI2.Controllers
         [JwtAuthentication]
         public async Task<IHttpActionResult> DeleteMember(long memberId, [fromHeader] string locale = "en")
         {
-            Common.Core.Data.Member member = null;
-
             #region Validation Section
 
-            member = await db.Members.FirstOrDefaultAsync(a => a.Id == memberId);
+            Common.Core.Data.Member member = await db.Members.FirstOrDefaultAsync(a => a.Id == memberId);
 
             if (member == null)
             {
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
             }
 
+            Common.Core.Data.IMSMembership membership = member.IMSMemberships.FirstOrDefault(a => a.IsActive);
+
             #endregion
+
+            //Delete membership first if exist
+            if (membership != null)
+            {
+                try
+                {
+                    var deleteMembershipCmd = DataCommandFactory.DeleteMembershipCommand(membership, db);
+                    var membershipResult = await deleteMembershipCmd.Execute();
+
+                    if (membershipResult != DataCommandResult.Success)
+                    {
+                        logger.ErrorFormat("DeleteMembershipCommand - Result {0} MemberId {1}", membershipResult.ToString(), memberId);
+                        return Content(HttpStatusCode.NotFound, MessageService.GetMessage("UnableToDeleteMember_", locale));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    logger.ErrorFormat("DeleteMembershipCommand - Exception {0} InnerException {1}, MemberId {2}", ex.ToString(), ex.InnerException.ToString(), memberId);
+                    return Content(HttpStatusCode.NotFound, MessageService.GetMessage("UnableToDeleteMember_", locale));
+                }
+            }
 
             try
             {
@@ -494,8 +563,8 @@ namespace IMS.Service.WebAPI2.Controllers
             }
 
             //Set Avatar link
-            if (!string.IsNullOrEmpty(member.AvatarLink))
-                member.AvatarLink = string.Concat(ConfigurationManager.AppSettings["IMS.WebAPI.Address"], member.AvatarLink);
+            //if (!string.IsNullOrEmpty(member.AvatarLink))
+            //    member.AvatarLink = string.Concat(ConfigurationManager.AppSettings["IMS.WebAPI.Address"], member.AvatarLink);
 
             memberDTO = Mapper.Map<Common.Core.Data.Member, MemberDTO>(member);
 
@@ -509,6 +578,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(LoginMemberRS))]
         public async Task<IHttpActionResult> Login([FromBody] LoginMemberRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -526,6 +596,10 @@ namespace IMS.Service.WebAPI2.Controllers
             }
 
             var _user = db.AspNetUsers.FirstOrDefault(a => a.UserName == model.email);
+            if (_user == null)
+            {
+                return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("InvalidUsernameOrPassword_", locale));
+            }
             var user = UserManager.FindById(_user.Id);
             if (user == null)
             {
@@ -539,7 +613,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             if (!await UserManager.IsEmailConfirmedAsync(user.Id))
             {
-                return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("EmailNotValidated_", locale));
+                return Content(HttpStatusCode.Forbidden, MessageService.GetMessage("EmailNotValidated_", locale));
             }
 
             var result = await UserManager.CheckPasswordAsync(user, model.password);
@@ -553,9 +627,16 @@ namespace IMS.Service.WebAPI2.Controllers
 
             if (member == null)
             {
-                db.Entry(_user).State = EntityState.Deleted;
-                await db.SaveChangesAsync();
-                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("AccountCreationFailed_", locale));
+                var userRole = _user.AspNetRoles.FirstOrDefault().Name;
+                if (userRole == Enum.GetName(typeof(IMSRole), IMSRole.Member))
+                {
+                    db.Entry(_user.AspNetRoles).State = EntityState.Deleted;
+                    db.Entry(_user.IMSUsers).State = EntityState.Deleted;
+                    db.Entry(_user).State = EntityState.Deleted;
+                    await db.SaveChangesAsync();
+                }
+
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
             }
 
             #endregion
@@ -578,6 +659,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             IMS.Utilities.PaymentAPI.Model.AuthenticationData TransaxEntity = new IMS.Utilities.PaymentAPI.Model.AuthenticationData();
             TransaxEntity.DeviceId = model.deviceId;
+            TransaxEntity.NotificationToken = model.notificationToken;
             TransaxEntity.Jti = token.jti;
 
             try
@@ -592,16 +674,23 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
+            #region Member Credit Card section
+            var isCardExist = await db.CreditCards.AnyAsync(a => a.AspNetUser.Members.FirstOrDefault().Id == member.Id && a.IsActive == true);
+            #endregion
+
+
             LoginMemberRS loginRS = new LoginMemberRS();
             loginRS.memberId = member.Id;
             loginRS.sessionToken = token.signedJwt;
-
+            loginRS.language = member.Language.ISO639_1;
+            loginRS.isCreditCardExist = isCardExist;
             return Content(HttpStatusCode.OK, loginRS);
         }
 
         [HttpPost]
         [Route("socialLogin")]
         [AllowAnonymous]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(LoginMemberRS))]
         public async Task<IHttpActionResult> SocialLogin([FromBody] SocialLoginRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -724,7 +813,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
                 #region Membership Section
 
-                Common.Core.Data.Program program = await db.Programs.Where(a => a.ShortDescription.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
+                Common.Core.Data.Program program = await db.Programs.Where(a => a.Description.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
 
                 try
                 {
@@ -807,7 +896,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 #endregion
             }
 
-            Common.Core.Data.Member existingMember = await db.Members.Where(a => a.AspNetUser.Email == model.email).FirstOrDefaultAsync();
+            Common.Core.Data.Member existingMember = await db.Members.Include(a=>a.Language).Where(a => a.AspNetUser.Email == model.email).FirstOrDefaultAsync();
 
             socialMediaUser = await db.SocialMediaUsers.FirstOrDefaultAsync(a => a.UserId == existingMember.AspNetUser.Id && a.UID == model.uid);
 
@@ -846,10 +935,15 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
+            #region Member Credit Card section
+            var isCardExist = await db.CreditCards.AnyAsync(a => a.AspNetUser.Members.FirstOrDefault().Id == member.Id && a.IsActive == true);
+            #endregion
+
             LoginMemberRS loginRS = new LoginMemberRS();
             loginRS.memberId = existingMember.Id;
             loginRS.sessionToken = token.signedJwt;
-
+            loginRS.language = existingMember.Language.ISO639_1;
+            loginRS.isCreditCardExist = isCardExist;
             return Content(HttpStatusCode.OK, loginRS);
         }
 
@@ -866,7 +960,11 @@ namespace IMS.Service.WebAPI2.Controllers
             Common.Core.Data.Member member = await db.Members.FirstOrDefaultAsync(a => a.Id == memberId);
 
             if (member == null)
+            {
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            logger.DebugFormat("Email Validation - MemberId {0} Email {1} Code {2}", member.Id, member.AspNetUser.Email, model.code);
 
             var result = await UserManager.ConfirmEmailAsync(member.UserId, model.code);
 
@@ -878,6 +976,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
                 if (!result.Succeeded)
                 {
+
                     return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("UnableToValidateEmailAddress_", locale));
                 }
             }
@@ -921,7 +1020,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
 
                 var callbackUrl = String.Format(
-                        ConfigurationManager.AppSettings["IMS.Service.WebAPI.Member.PasswordReset.CallbackUrl"], member.Id, HttpUtility.UrlEncode(code), locale);
+                        ConfigurationManager.AppSettings["IMS.Service.WebAPI.Member.PasswordReset.CallbackUrl"], member.Id, code, locale);  //HttpUtility.UrlEncode(code)
 
                 var subject = Messages.ResourceManager.GetString("CourrielPasswordResetSubject_" + locale);
                 var textLink = Messages.ResourceManager.GetString("CourrielPasswordResetTextLink_" + locale);
@@ -999,7 +1098,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("{memberId:long}/resetPassword")]
         [AllowAnonymous]
-        public async Task<IHttpActionResult> resetPassword(long memberId, [FromBody] ResetPasswordRQ model, [fromHeader] string locale = "en")
+        public async Task<IHttpActionResult> ResetPassword(long memberId, [FromBody] ResetPasswordRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
 
@@ -1079,7 +1178,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             if (member.AspNetUser.UserNotifications != null && member.AspNetUser.UserNotifications.Count > 0)
             {
-                foreach(UserNotification un in member.AspNetUser.UserNotifications.Where(a => a.IsActive == true).ToList())
+                foreach (UserNotification un in member.AspNetUser.UserNotifications.Where(a => a.IsActive == true).ToList())
                 {
                     oldDeviceId = un.DeviceId;
 
@@ -1115,7 +1214,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 }
 
                 //TODO send email for change in deviceId
-                if(!string.IsNullOrEmpty(oldDeviceId) && oldDeviceId != newNotification.DeviceId)
+                if (!string.IsNullOrEmpty(oldDeviceId) && oldDeviceId != newNotification.DeviceId)
                 {
 
                 }
@@ -1128,10 +1227,46 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddNotification_", locale));
             }
 
-            return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("NotificationAddedSuccessfully_", locale));
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("NotificationAddedSuccessfully_", locale));
         }
 
+        [HttpGet]
+        [Route("{memberId:long}/notifications")]
+        [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<NotificationRS>))]
+        public async Task<IHttpActionResult> GetNotification(long memberId, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+            var notifications = new List<NotificationRS>();
+            #endregion
 
+            #region Validation Section
+
+            var member = await db.Members.FirstOrDefaultAsync(a => a.Id == memberId);
+
+            if (member == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+            #endregion
+            try
+            {
+                notifications = member.AspNetUser.UserNotifications.Select(x => new NotificationRS
+                {
+                    deviceId = x.DeviceId,
+                    notificationToken = x.NotificationToken,
+                    creationDate = x.CreationDate
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToRetrieve_", locale));
+            }
+
+            return Content(HttpStatusCode.OK, notifications);
+        }
         #endregion
 
         #region Credit Card Section
@@ -1144,83 +1279,68 @@ namespace IMS.Service.WebAPI2.Controllers
             CreditCardDTO ccDTO = new CreditCardDTO();
             CreditCard cc = new CreditCard();
 
-            using (IMSEntities db = new IMSEntities())
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
             {
-                #region Validation Section
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
 
-                if (!ModelState.IsValid || model == null)
-                {
-                    return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
-                }
+            var member = await db.Members.FirstOrDefaultAsync(x => x.Id == memberId);
 
-                var member = await db.Members.FirstOrDefaultAsync(x => x.Id == memberId);
+            if (member == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
 
-                if (member == null)
-                {
-                    return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
-                }
+            List<CreditCard> ccards = await new CreditCardService().GetCreditCards(member.AspNetUser.Id);
 
-                model.memberId = memberId;
+            if (ccards.Count > 0 && ccards.Where(a => a.CardNumber == model.cardNumber && a.IsActive == true).FirstOrDefault() != null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("CreditCardAlreadyExist_", locale));
+            }
 
-                List<CreditCard> ccards = await new CreditCardService().GetCreditCards(member.Id);
-
-                if (ccards.Count > 0 && ccards.Where(a => a.CardNumber == model.cardNumber && a.IsActive == true).FirstOrDefault() != null)
-                {
-                    return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("CreditCardAlreadyExist_", locale));
-                }
-
-                if (member.AspNetUser.EmailConfirmed == false)
-                {
-                    try
-                    {
-                        string language = locale;
-                        if (member.Language != null)
-                            language = member.Language.ISO639_1;
-
-                        var emailValidationToken = await UserManager.GenerateEmailConfirmationTokenAsync(member.AspNetUser.Id);
-
-                        var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.Member.EmailValidation.CallbackUrl"], member.AspNetUser.Id, HttpUtility.UrlEncode(emailValidationToken), locale);
-
-                        var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + locale);
-                        var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + locale);
-
-                        await new EmailService().SendConfirmEmailAddressEmail(member, member.AspNetUser.Email, subject, textLink, callbackUrl);
-                    }
-                    catch (Exception ex)
-                    {
-                        logger.ErrorFormat("SendValidationEmail - Exception {0} Inner Exception {1} Member info {2}", ex.ToString(), ex.InnerException.ToString(), model.ToString());
-                    }
-
-                    return Content(HttpStatusCode.Forbidden, MessageService.GetMessage("EmailValidationNecessary_", locale));
-                }
-
-                #endregion
-
-                ccDTO = Mapper.Map<CreditCardDTO>(model);
-
-                ccDTO.CreationDate = DateTime.Now;
-                ccDTO.IsActive = true;
-
-                cc = Mapper.Map<CreditCardRQ, CreditCard>(model);
-                cc.CreationDate = DateTime.Now;
-                cc.IsActive = true;
-
-                var command = DataCommandFactory.AddCreditCardCommand(cc, ccDTO, member.TransaxId, db);
-
+            if (member.AspNetUser.EmailConfirmed == false)
+            {
                 try
                 {
-                    var result = await command.Execute();
+                    string language = locale;
+                    if (member.Language != null)
+                        language = member.Language.ISO639_1;
 
-                    if (result != DataCommandResult.Success)
-                    {
-                        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddCreditCard_", locale));
-                    }
+                    var emailValidationToken = await UserManager.GenerateEmailConfirmationTokenAsync(member.AspNetUser.Id);
+
+                    var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.Member.EmailValidation.CallbackUrl"], member.AspNetUser.Id, HttpUtility.UrlEncode(emailValidationToken), locale);
+
+                    var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + locale);
+                    var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + locale);
+
+                    await new EmailService().SendConfirmEmailAddressEmail(member, member.AspNetUser.Email, subject, textLink, callbackUrl);
                 }
                 catch (Exception ex)
                 {
-                    logger.ErrorFormat("AddCreditCard - MemberId {0} Exception {1} InnerException {2}", memberId, ex, ex.InnerException);
-                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddCreditCard_", locale));
+                    logger.ErrorFormat("SendValidationEmail - Exception {0} Inner Exception {1} Member info {2}", ex.ToString(), ex.InnerException.ToString(), model.ToString());
                 }
+
+                return Content(HttpStatusCode.Forbidden, MessageService.GetMessage("EmailValidationNecessary_", locale));
+            }
+
+            #endregion
+
+            ccDTO = Mapper.Map<CreditCardDTO>(model);
+            ccDTO.UserId = member.AspNetUser.Id;
+            ccDTO.CreationDate = DateTime.Now;
+            ccDTO.IsActive = true;
+            ccDTO.TransaxId = member.TransaxId;
+          
+            try
+            {
+                cc = await new CreditCardService().AddCreditCard(ccDTO);
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("AddCreditCard - MemberId {0} Exception {1} InnerException {2}", memberId, ex, ex.InnerException);
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddCreditCard_", locale));
             }
 
             CreditCardRS creditCardRS = Mapper.Map<CreditCardRS>(cc);
@@ -1231,6 +1351,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{memberId:long}/creditCards")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<CreditCardRS>))]
         public async Task<IHttpActionResult> GetCreditCards(long memberId, [fromHeader] string locale = "en")
         {
             List<CreditCardRS> CreditCards = null;
@@ -1246,7 +1367,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
-            List<CreditCard> ccards = await db.CreditCards.Where(a => a.MemberId == memberId && a.IsActive == true).ToListAsync();
+            List<CreditCard> ccards = await db.CreditCards.Where(a => a.AspNetUser.Members.FirstOrDefault().Id == memberId && a.IsActive == true).ToListAsync();
 
             if (ccards == null)
             {
@@ -1260,9 +1381,9 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{memberId:long}/creditCards/{creditCardId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(CreditCardRS))]
         public async Task<IHttpActionResult> GetCreditCard(long memberId, long creditCardId, [fromHeader] string locale = "en")
         {
-
             CreditCardRS CreditCard = null;
 
             #region Validation Section
@@ -1276,7 +1397,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
-            CreditCard ccard = await db.CreditCards.Where(a => a.MemberId == memberId && a.Id == creditCardId && a.IsActive == true).FirstOrDefaultAsync();
+            CreditCard ccard = await db.CreditCards.Where(a => a.AspNetUser.Members.FirstOrDefault().Id == memberId && a.Id == creditCardId && a.IsActive == true).FirstOrDefaultAsync();
 
             if (ccard == null)
             {
@@ -1292,8 +1413,6 @@ namespace IMS.Service.WebAPI2.Controllers
         [JwtAuthentication]
         public async Task<IHttpActionResult> UpdateCreditCard([FromBody] UpdateCreditCardRQ model, long memberId, long creditCardId, [fromHeader] string locale = "en")
         {
-            CreditCardRS creditCardRS = new CreditCardRS();
-
             #region Validation Section
 
             if (!ModelState.IsValid || model == null)
@@ -1301,7 +1420,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
             }
 
-            CreditCard ccard = await db.CreditCards.FirstOrDefaultAsync(x => x.Id == creditCardId && x.MemberId == memberId && x.IsActive == true);
+            CreditCard ccard = await db.CreditCards.FirstOrDefaultAsync(x => x.Id == creditCardId && x.AspNetUser.Members.FirstOrDefault().Id == memberId && x.IsActive == true);
 
             if (ccard == null)
             {
@@ -1313,31 +1432,23 @@ namespace IMS.Service.WebAPI2.Controllers
             ccard.CardHolder = model.cardholderName;
             ccard.ExpiryDate = model.expiryDate;
 
-            CreditCardDTO ccDTO = new CreditCardDTO();
-
-            ccDTO = Mapper.Map<CreditCard, CreditCardDTO>(ccard);
+            CreditCardDTO ccDTO = Mapper.Map<CreditCard, CreditCardDTO>(ccard);
 
             ccDTO.IsActive = true;
 
-            var command = DataCommandFactory.UpdateCreditCardCommand(ccard, ccDTO, db);
-
             try
             {
-                var result = await command.Execute();
+                Boolean result = await new CreditCardService().UpdateCreditCard(ccDTO);
 
-                if (result != DataCommandResult.Success)
+                if (result == false)
                 {
-                    logger.ErrorFormat("UpdateCreditCard - MemberId {0} DataCommandResult {1}", memberId, result);
                     return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateCreditCard_", locale));
                 }
             }
             catch (Exception ex)
             {
-                logger.ErrorFormat("UpdateCreditCard - MemberId {0} Exception {1} InnerException {2}", memberId, ex, ex.InnerException);
                 return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateCreditCard_", locale));
             }
-
-            //creditCardRS = Mapper.Map<CreditCard, CreditCardRS>(ccard);
 
             return Content(HttpStatusCode.OK, MessageService.GetMessage("CreditCardUpdated_", locale));
         }
@@ -1349,32 +1460,30 @@ namespace IMS.Service.WebAPI2.Controllers
         {
             #region Validation Section
 
-            CreditCard creditCard = await db.CreditCards.FirstOrDefaultAsync(a => a.Id == creditCardId && a.MemberId == memberId && a.IsActive == true);
+            CreditCard creditCard = await db.CreditCards.FirstOrDefaultAsync(a => a.Id == creditCardId && a.AspNetUser.Members.FirstOrDefault().Id == memberId && a.IsActive == true);
 
             if (creditCard == null)
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("CreditCardNotFound_", locale));
 
-            if (creditCard.Member == null)
+            if (creditCard.AspNetUser.Members.FirstOrDefault() == null)
             {
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
             }
 
             #endregion
 
-            var command = DataCommandFactory.DeleteCreditCardCommand(creditCard, db);
-
             try
             {
-                var result = await command.Execute();
+                Boolean result = await new CreditCardService().DeleteCreditCard(creditCard.UserId, creditCard.Id);
 
-                if (result != DataCommandResult.Success)
+                if (result == false)
                 {
                     return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToDeleteCreditCard_", locale));
                 }
             }
             catch (Exception ex)
             {
-                logger.ErrorFormat("MemberController - DeleteCreditCard - MemberId {0} CardId {1} Exception {2} InnerException {3}", creditCard.MemberId, creditCard.Id, ex.ToString(), ex.InnerException.ToString());
+                logger.ErrorFormat("MemberController - DeleteCreditCard - MemberId {0} CardId {1} Exception {2} InnerException {3}", creditCard.AspNetUser.Members.FirstOrDefault().Id, creditCard.Id, ex.ToString(), ex.InnerException.ToString());
                 return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToDeleteCreditCard_", locale));
             }
 
@@ -1388,6 +1497,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{memberId:long}/transactions")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<MemberTransactionHistoryRS>))]
         public async Task<IHttpActionResult> TransactionsHistory(long memberId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1430,7 +1540,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
                           }).OrderByDescending(a => a.date).ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logger.ErrorFormat("TransactionsHistory - MemberId {0} Exception {1} InnerException {2}", memberId, ex.ToString(), ex.InnerException.ToString());
                 return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToRetrieveTransaction_", locale));
@@ -1442,6 +1552,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{memberId:long}/wallets")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<pointBalanceRS>))]
         public async Task<IHttpActionResult> PointsBalance(long memberId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1470,21 +1581,21 @@ namespace IMS.Service.WebAPI2.Controllers
             {
                 response = await new IMS.Utilities.PaymentAPI.Api.MembersApi().FindMemberMemberships(Convert.ToInt32(member.TransaxId));
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 logger.ErrorFormat("PointsBalance - MemberId {0} Exception {1} InnerException {2}", memberId, ex.ToString(), ex.InnerException.ToString());
                 return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToRetrievePointBalance_", locale));
             }
-            
-            foreach(Membership m in response)
+
+            foreach (Membership m in response)
             {
                 Common.Core.Data.Program prg = programs.FirstOrDefault(a => a.TransaxId == m.ProgramId.ToString());
 
 
                 pointBalanceRS pointRS = new pointBalanceRS();
                 pointRS.communityType = prg.ProgramType.Description;
-                pointRS.communityName = prg.ShortDescription;
-                if (prg.ProgramTypeId == (int)ProgramTypeEnum.Personnal)
+                pointRS.communityName = prg.Description;
+                if (prg.ProgramTypeId != (int)ProgramTypeEnum.Global)
                 {
                     pointRS.merchantId = prg.Merchants.FirstOrDefault().Id;
                     pointRS.merchantName = prg.Merchants.FirstOrDefault().Name;
@@ -1498,13 +1609,73 @@ namespace IMS.Service.WebAPI2.Controllers
         }
 
         [HttpGet]
+        [Route("{memberId:long}/communityPoints")]
+        [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<memberCommunityPointRS>))]
+        public async Task<IHttpActionResult> CommunityPointBalance(long memberId, long merchantId, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+
+            Common.Core.Data.Member member = null;
+            List<Membership> response = null;
+            memberCommunityPointRS pointsRS = new memberCommunityPointRS();
+            #endregion
+
+            #region Validation Section
+            var merchant = await db.Merchants.Include(a => a.Program).Where(a => a.IsActive == true && a.Id == merchantId).FirstOrDefaultAsync();
+            if (merchant == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+
+            member = await db.Members.Where(a => a.Id == memberId).FirstOrDefaultAsync();
+
+            if (member == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            #endregion
+
+            try
+            {
+                response = await new IMS.Utilities.PaymentAPI.Api.MembersApi().FindMemberMemberships(Convert.ToInt32(member.TransaxId));
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("PointsBalance - MemberId {0} Exception {1} InnerException {2}", memberId, ex.ToString(), ex.InnerException.ToString());
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToRetrievePointBalance_", locale));
+            }
+
+            var transaction = (from ft in response
+                               join p in db.Programs
+                               on ft.ProgramId.ToString() equals p.TransaxId
+                               where p.ProgramTypeId == merchant.Program.ProgramTypeId
+                               select new
+                               {
+                                   point = ft.PointBalance.HasValue ? ft.PointBalance.Value : 0,
+
+                               }).ToList();
+
+            int total = transaction.Sum(item => item.point);
+
+
+            pointsRS.communityType = merchant.Program.ProgramType.Description;
+            pointsRS.communityTypeId = merchant.Program.ProgramTypeId ?? 0;
+            pointsRS.points = total;
+
+            return Content(HttpStatusCode.OK, pointsRS);
+        }
+
+        [HttpGet]
         [Route("{memberId:long}/invoices/{invoiceId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(MemberInvoiceTransactionRS))]
         public async Task<IHttpActionResult> GetInvoice(long memberId, long invoiceId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
 
-            Common.Core.Data.Member member = null; 
+            Common.Core.Data.Member member = null;
             Common.Core.Data.Location location = null;
             TrxFinancialTransaction financialTransaction = null;
             MemberInvoiceTransactionRS result = null;
@@ -1534,7 +1705,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("TransactionNotFound_", locale));
             }
 
-            if (financialTransaction.CreditCard != null && financialTransaction.CreditCard.MemberId != memberId)
+            if (financialTransaction.CreditCard != null && financialTransaction.CreditCard.AspNetUser.Members.FirstOrDefault().Id != memberId)
             {
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("TransactionNotFound_", locale));
             }
@@ -1588,6 +1759,114 @@ namespace IMS.Service.WebAPI2.Controllers
             }
 
             return Content(HttpStatusCode.OK, result);
+        }
+
+        [HttpPost]
+        [Route("{memberId:long}/paymentHistory")]
+        [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<MemberPaymentHistoryRS>))]
+        public async Task<IHttpActionResult> PaymentHistory(long memberId, [FromBody] transactionHistoryRQ model, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+
+            Common.Core.Data.Member member = null;
+            var paymentDetails = new MemberPaymentRS();
+            paymentDetails.paymentHistory = new List<MemberPaymentHistoryRS>();
+
+            #endregion
+
+            #region Validation Section
+            int start = model.start.HasValue ? model.start.Value : 0;
+            int length = model.length.HasValue ? model.length.Value : 1000;
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            member = await db.Members.Where(a => a.Id == memberId).FirstOrDefaultAsync();
+
+            if (member == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            #endregion
+
+            try
+            {
+                var transactions = (from ft in db.TrxFinancialTransactions
+                                    join nft in db.TrxNonFinancialTransactions on ft.legTransaction equals nft.Id
+                                    join l in db.Locations on ft.entityId equals l.TransaxId
+                                    join m in db.Merchants on l.MerchantId equals m.Id
+                                    where nft.memberId.ToString() == member.TransaxId
+                                    select new
+                                    {
+                                        invoiceId = ft.Id,
+                                        merchantId = m.Id,
+                                        merchant = m.Name,
+                                        merchantLogo = m.LogoPath,
+                                        locationAddress = l.Address.StreetAddress,
+                                        locationCity = l.Address.City,
+                                        locationState = l.Address.State.Name,
+                                        locationCountry = l.Address.Country.Name,
+                                        locationZip = l.Address.Zip,
+                                        date = ft.localDateTime ?? DateTime.Now,
+                                        amount = (ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0),
+                                        reward = nft.pointsGained ?? 0,
+                                        pointUsed = nft.pointsExpended ?? 0
+
+                                    }).AsQueryable();
+
+                paymentDetails.totalCount = transactions.Count();
+
+                var payments = transactions.OrderByDescending(x => x.date).Skip(start).Take(length);
+
+                //For getting reward point againt any transaction
+                paymentDetails.paymentHistory.AddRange(payments.Where(x => x.reward > 0).Select(x => new MemberPaymentHistoryRS
+                {
+                    invoiceId = x.invoiceId,
+                    merchantId = x.merchantId,
+                    merchant = x.merchant,
+                    merchantLogo = x.merchantLogo,
+                    locationAddress = x.merchantLogo,
+                    locationCity = x.locationCity,
+                    locationState = x.locationState,
+                    locationCountry = x.locationCountry,
+                    locationZip = x.locationZip,
+                    date = x.date,
+                    amount = x.amount,
+                    point = x.reward,
+                    isEarned = true
+                }).ToList());
+
+                //For getting used point againt any transaction
+                paymentDetails.paymentHistory.AddRange(payments.Where(x => x.pointUsed > 0).Select(x => new MemberPaymentHistoryRS
+                {
+                    invoiceId = x.invoiceId,
+                    merchantId = x.merchantId,
+                    merchant = x.merchant,
+                    merchantLogo = x.merchantLogo,
+                    locationAddress = x.merchantLogo,
+                    locationCity = x.locationCity,
+                    locationState = x.locationState,
+                    locationCountry = x.locationCountry,
+                    locationZip = x.locationZip,
+                    date = x.date,
+                    amount = x.amount,
+                    point = x.pointUsed,
+                    isEarned = false
+                }).ToList());
+
+                paymentDetails.paymentHistory = paymentDetails.paymentHistory.OrderByDescending(a => a.date).ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("TransactionsHistory - MemberId {0} Exception {1} InnerException {2}", memberId, ex.ToString(), ex.InnerException.ToString());
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToRetrieveTransaction_", locale));
+            }
+
+            return Content(HttpStatusCode.OK, paymentDetails);
         }
 
         #endregion

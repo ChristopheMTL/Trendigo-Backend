@@ -94,8 +94,6 @@ namespace IMS.Service.WebAPI2.Models
 
         public string avatar { get; set; }
 
-        public List<UpdateMemberNotificationRQ> notifications { get; set; }
-
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -127,6 +125,9 @@ namespace IMS.Service.WebAPI2.Models
         [Required]
         public string deviceId { get; set; }
 
+        [Required]
+        public string notificationToken { get; set; }
+
         public string uid { get; set; }
         public override string ToString()
         {
@@ -135,6 +136,7 @@ namespace IMS.Service.WebAPI2.Models
             sb.Append("  Email: ").Append(email).Append("\n");
             sb.Append("  Password: ").Append(password).Append("\n");
             sb.Append("  DeviceId: ").Append(deviceId).Append("\n");
+            sb.Append("  NotificationToken: ").Append(notificationToken).Append("\n");
             sb.Append("  UID: ").Append(uid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -164,6 +166,9 @@ namespace IMS.Service.WebAPI2.Models
         [Required]
         public string provider { get; set; }
 
+        [Required]
+        public string notificationToken { get; set; }
+
         /// <summary>
         /// Get the string presentation of the object
         /// </summary>
@@ -185,6 +190,8 @@ namespace IMS.Service.WebAPI2.Models
     {
         public long memberId { get; set; }
         public string sessionToken { get; set; }
+        public string language { get; set; }
+        public bool isCreditCardExist { get; set; }
     }
 
     public class EmailValidationRQ
@@ -276,8 +283,6 @@ namespace IMS.Service.WebAPI2.Models
 
     public class CreditCardRQ
     {
-        public long memberId { get; set; }
-
         [Required]
         public int creditCardTypeId { get; set; }
 
@@ -297,7 +302,6 @@ namespace IMS.Service.WebAPI2.Models
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("CreditCardRQ {\n");
-            sb.AppendLine("memberId=" + memberId);
             sb.AppendLine("cardHolderName=" + cardHolderName);
             sb.AppendLine("cardNumber=" + cardNumber);
             sb.AppendLine("expiryDate=" + expiryDate);
@@ -315,7 +319,6 @@ namespace IMS.Service.WebAPI2.Models
         public long transaxId { get; set; }
         public long memberId { get; set; }
         public int creditCardTypeId { get; set; }
-        public string creditCardType { get; set; }
         public string cardholderName { get; set; }
         public string cardNumber { get; set; }
         public string expiryDate { get; set; }
@@ -357,6 +360,11 @@ namespace IMS.Service.WebAPI2.Models
         public decimal reward { get; set; }
         public int pointUsed { get; set; }
     }
+    public class MemberInvoicesRS
+    {
+        public int totalCount { get; set; }
+        public List<MemberInvoiceTransactionRS>  invoiceTransaction { get; set; }
+    }
 
     public class MemberInvoiceTransactionRS
     {
@@ -382,6 +390,29 @@ namespace IMS.Service.WebAPI2.Models
         public string authorization { get; set; }
     }
 
+    public class MemberPaymentRS
+    {
+        public int totalCount { get; set; }
+        public List<MemberPaymentHistoryRS> paymentHistory { get; set; }
+
+    }
+
+    public class MemberPaymentHistoryRS
+    {
+        public long invoiceId { get; set; }
+        public DateTime date { get; set; }
+        public long merchantId { get; set; }
+        public string merchant { get; set; }
+        public string merchantLogo{ get; set; }
+        public string locationAddress { get; set; }
+        public string locationCity { get; set; }
+        public string locationState { get; set; }
+        public string locationCountry { get; set; }
+        public string locationZip { get; set; }
+        public decimal amount { get; set; }
+        public decimal point { get; set; }
+        public bool isEarned { get; set; }
+    }
     #endregion
 
     #region Message Section

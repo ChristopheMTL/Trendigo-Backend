@@ -25,9 +25,7 @@ namespace IMS.Common.Core.Data
     
         public virtual DeviceRequestStatu DeviceRequestStatu { get; set; }
         public virtual DeviceType DeviceType { get; set; }
-        public virtual IMSCard IMSCard { get; set; }
         public virtual IMSMembership IMSMembership { get; set; }
-        public virtual IMSCard IMSCard1 { get; set; }
         public virtual Member Member { get; set; }
     }
 }

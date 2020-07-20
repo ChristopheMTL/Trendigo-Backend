@@ -23,11 +23,14 @@ namespace IMS.Common.Core.DataCommands
         protected async override Task<TransaxProgram> ExecuteTransaxOperation()
         {
             IMS.Utilities.PaymentAPI.Model.Program program = new IMS.Utilities.PaymentAPI.Model.Program();
-            program.Name = Entity.ShortDescription;
-            program.Status = TransaxStatus.Active.ToString();
+            program.Name = Entity.Description;
+            program.EnterpriseId = Convert.ToInt32(Entity.Enterprise.TransaxId);
+            program.CurrencyId = Convert.ToInt32(Entity.Merchants.FirstOrDefault().Locations.FirstOrDefault().Address.Country.Currency.TransaxId);
+            program.Status = TransaxStatus.Active.ToString().ToUpper();
             program.LoyaltyValueGainingPoints = Entity.LoyaltyValueGainingPoints;
             program.LoyaltyCostUsingPoints = Entity.LoyaltyCostUsingPoints;
             program.FidelityRewardPercent = (float?)Entity.FidelityRewardPercent;
+            program.ProgramType = "REGULAR";
 
             EntityId response = await new IMS.Utilities.PaymentAPI.Api.ProgramsApi().CreateProgram(program);
 
@@ -67,7 +70,7 @@ namespace IMS.Common.Core.DataCommands
         {
             IMS.Utilities.PaymentAPI.Model.Program program = new IMS.Utilities.PaymentAPI.Model.Program();
             program.ProgramId = Convert.ToInt32(Entity.TransaxId);
-            program.Name = Entity.ShortDescription;
+            program.Name = Entity.Description;
             program.Status = Entity.IsActive ? TransaxStatus.Active.ToString() : TransaxStatus.Inactive.ToString();
             program.LoyaltyValueGainingPoints = Entity.LoyaltyValueGainingPoints;
             program.LoyaltyCostUsingPoints = Entity.LoyaltyCostUsingPoints;

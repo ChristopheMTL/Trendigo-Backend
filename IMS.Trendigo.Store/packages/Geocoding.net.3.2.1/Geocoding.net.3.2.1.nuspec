@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Geocoding.net</id>
+    <version>3.2.1</version>
+    <title>Geocoding.net</title>
+    <authors>chadly</authors>
+    <owners>chadly</owners>
+    <licenseUrl>https://github.com/chadly/Geocoding.net/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/chadly/Geocoding.net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Includes a model and interface for communicating with four popular Geocoding providers. Current implementations include: Google Maps, Yahoo! PlaceFinder, Bing Maps (aka Virtual Earth), and Mapquest.
+      The API returns latitude/longitude coordinates and normalized address information. This can be used to perform address validation, real time mapping of user-entered addresses, distance calculations, and much more.</description>
+    <summary>API for communicating with popular Geocoding services</summary>
+    <releaseNotes>https://github.com/chadly/Geocoding.net/wiki/Release-Notes</releaseNotes>
+    <tags>geocoding geocode geocoder maps address validation normalization google-maps bing-maps yahoo-placefinder mapquest</tags>
+  </metadata>
+</package>

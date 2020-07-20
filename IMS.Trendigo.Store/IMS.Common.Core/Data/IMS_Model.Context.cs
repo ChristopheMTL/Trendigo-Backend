@@ -30,7 +30,6 @@ namespace IMS.Common.Core.Data
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<BankInfo> BankInfos { get; set; }
-        public virtual DbSet<CardPointHistory> CardPointHistories { get; set; }
         public virtual DbSet<CardStatus> CardStatuses { get; set; }
         public virtual DbSet<CardType> CardTypes { get; set; }
         public virtual DbSet<City> Cities { get; set; }
@@ -41,7 +40,6 @@ namespace IMS.Common.Core.Data
         public virtual DbSet<Contract> Contracts { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<country_translations> country_translations { get; set; }
-        public virtual DbSet<CreditCardType> CreditCardTypes { get; set; }
         public virtual DbSet<Currency> Currencies { get; set; }
         public virtual DbSet<DeviceRequestStatu> DeviceRequestStatus { get; set; }
         public virtual DbSet<DeviceRequestStatus_translations> DeviceRequestStatus_translations { get; set; }
@@ -56,9 +54,7 @@ namespace IMS.Common.Core.Data
         public virtual DbSet<EvaluationCategory> EvaluationCategories { get; set; }
         public virtual DbSet<EvaluationCategory_translations> EvaluationCategory_translations { get; set; }
         public virtual DbSet<Identity> Identities { get; set; }
-        public virtual DbSet<IMS_Detail> IMS_Detail { get; set; }
         public virtual DbSet<IMS_LineItem> IMS_LineItem { get; set; }
-        public virtual DbSet<IMSCard> IMSCards { get; set; }
         public virtual DbSet<IMSEnterpriseParameter> IMSEnterpriseParameters { get; set; }
         public virtual DbSet<IMSEnterpriseParameterTerminal> IMSEnterpriseParameterTerminals { get; set; }
         public virtual DbSet<IMSMembership> IMSMemberships { get; set; }
@@ -69,7 +65,6 @@ namespace IMS.Common.Core.Data
         public virtual DbSet<language_translations> language_translations { get; set; }
         public virtual DbSet<Language> Languages { get; set; }
         public virtual DbSet<Location_Terminals> Location_Terminals { get; set; }
-        public virtual DbSet<LocationBusinessHour> LocationBusinessHours { get; set; }
         public virtual DbSet<LocationMemberDistance> LocationMemberDistances { get; set; }
         public virtual DbSet<LocationTax> LocationTaxes { get; set; }
         public virtual DbSet<MemberPromoCodeHistory> MemberPromoCodeHistories { get; set; }
@@ -98,11 +93,9 @@ namespace IMS.Common.Core.Data
         public virtual DbSet<program_translations> program_translations { get; set; }
         public virtual DbSet<ProgramFeature> ProgramFeatures { get; set; }
         public virtual DbSet<ProgramFee> ProgramFees { get; set; }
-        public virtual DbSet<Program> Programs { get; set; }
         public virtual DbSet<ProgramType> ProgramTypes { get; set; }
         public virtual DbSet<PromoCode> PromoCodes { get; set; }
         public virtual DbSet<promotion_translations> promotion_translations { get; set; }
-        public virtual DbSet<PromotionType> PromotionTypes { get; set; }
         public virtual DbSet<ReferralCampaign> ReferralCampaigns { get; set; }
         public virtual DbSet<Referral> Referrals { get; set; }
         public virtual DbSet<SalesRep> SalesReps { get; set; }
@@ -117,7 +110,6 @@ namespace IMS.Common.Core.Data
         public virtual DbSet<TelephoneType> TelephoneTypes { get; set; }
         public virtual DbSet<Terminal> Terminals { get; set; }
         public virtual DbSet<TimeZone> TimeZones { get; set; }
-        public virtual DbSet<TransactionType> TransactionTypes { get; set; }
         public virtual DbSet<UserDevis> UserDevises { get; set; }
         public virtual DbSet<Subscriber> Subscribers { get; set; }
         public virtual DbSet<Campaign> Campaigns { get; set; }
@@ -143,8 +135,6 @@ namespace IMS.Common.Core.Data
         public virtual DbSet<Acquirer> Acquirers { get; set; }
         public virtual DbSet<IMS_Header> IMS_Header { get; set; }
         public virtual DbSet<TrxFinancialTransaction> TrxFinancialTransactions { get; set; }
-        public virtual DbSet<TrxNonFinancialTransaction> TrxNonFinancialTransactions { get; set; }
-        public virtual DbSet<CreditCard> CreditCards { get; set; }
         public virtual DbSet<BadgeCategory> BadgeCategories { get; set; }
         public virtual DbSet<Badge> Badges { get; set; }
         public virtual DbSet<BadgeTranslation> BadgeTranslations { get; set; }
@@ -172,5 +162,22 @@ namespace IMS.Common.Core.Data
         public virtual DbSet<MerchantImage> MerchantImages { get; set; }
         public virtual DbSet<Merchant> Merchants { get; set; }
         public virtual DbSet<BankingInfo> BankingInfos { get; set; }
+        public virtual DbSet<TrxNonFinancialTransaction> TrxNonFinancialTransactions { get; set; }
+        public virtual DbSet<EnterpriseCommissionFee> EnterpriseCommissionFees { get; set; }
+        public virtual DbSet<Program> Programs { get; set; }
+        public virtual DbSet<CardPointHistory> CardPointHistories { get; set; }
+        public virtual DbSet<LocationBusinessHour> LocationBusinessHours { get; set; }
+        public virtual DbSet<CreditCardIssuer> CreditCardIssuers { get; set; }
+        public virtual DbSet<PromotionType> PromotionTypes { get; set; }
+        public virtual DbSet<CreditCard> CreditCards { get; set; }
+        public virtual DbSet<IMS_Detail> IMS_Detail { get; set; }
+        public virtual DbSet<Subscription> Subscriptions { get; set; }
+        public virtual DbSet<TransactionType> TransactionTypes { get; set; }
+        public virtual DbSet<BillingPeriod> BillingPeriods { get; set; }
+        public virtual DbSet<MerchantTransaction> MerchantTransactions { get; set; }
+        public virtual DbSet<ProgramTypeFee> ProgramTypeFees { get; set; }
+        public virtual DbSet<CreditCardType> CreditCardTypes { get; set; }
+        public virtual DbSet<MerchantProcessor> MerchantProcessors { get; set; }
+        public virtual DbSet<Processor> Processors { get; set; }
     }
 }

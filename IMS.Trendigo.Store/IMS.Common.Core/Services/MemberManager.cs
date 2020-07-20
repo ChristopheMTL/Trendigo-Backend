@@ -138,18 +138,6 @@ namespace IMS.Common.Core.Services
 
             return member;
         }
-
-        public String GetMemberNameWithAPICardNonFinancialId(String cardNonFinancialId)
-        {
-            String memberName = "";
-
-            IMSCard card = context.IMSCards.FirstOrDefault(a => a.TransaxId == cardNonFinancialId);
-
-            //if (card != null)
-            //    memberName = card.Member.FirstName + " " + card.Member.LastName;
-
-            return memberName;
-        }
-        
+       
     }
 }

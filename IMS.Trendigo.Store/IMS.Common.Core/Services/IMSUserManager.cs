@@ -97,8 +97,11 @@ namespace IMS.Common.Core.Services
             }
             catch(Exception ex)
             {
-                
+                throw new Exception(string.Format("IMSUserManager - GetMerchantAdminUserInfo merchantId {0} Exception {1} InnerException {2}", merchantId, ex.ToString(), ex.InnerException.ToString()));
             }
+
+            if (user == null)
+                throw new Exception("MerchantAdminUser not found");
 
             return user;
         }

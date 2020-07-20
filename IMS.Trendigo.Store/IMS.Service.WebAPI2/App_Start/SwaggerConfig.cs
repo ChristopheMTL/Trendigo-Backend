@@ -2,6 +2,7 @@ using System.Web.Http;
 using WebActivatorEx;
 using IMS.Service.WebAPI2;
 using Swashbuckle.Application;
+using Swashbuckle.Examples;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -33,7 +34,7 @@ namespace IMS.Service.WebAPI2
                         // additional fields by chaining methods off SingleApiVersion.
                         //
                         c.SingleApiVersion("v1", "IMS.Service.WebAPI2");
-
+                        c.OperationFilter<ExamplesOperationFilter>();
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //
                         //c.PrettyPrint();
@@ -62,10 +63,10 @@ namespace IMS.Service.WebAPI2
                         //    .Description("Basic HTTP Authentication");
                         //
                         // NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
-                        c.ApiKey("Token")
-                            .Description("API Key Authentication")
-                            .Name("Authorization")
-                            .In("header");
+                        c.ApiKey("Authotization")
+                              .Description("API Key Authentication")
+                              .Name("Bearer")
+                              .In("header");
                         //
                         //c.OAuth2("oauth2")
                         //    .Description("OAuth2 Implicit Grant")
@@ -101,9 +102,7 @@ namespace IMS.Service.WebAPI2
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-
-                        //c.IncludeXmlComments(string.Format(@"{0}\bin\FirstWebAPIDemo.XML",
-                        //               System.AppDomain.CurrentDomain.BaseDirectory));
+                        //c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
@@ -250,7 +249,7 @@ namespace IMS.Service.WebAPI2
                         // If your API supports ApiKey, you can override the default values.
                         // "apiKeyIn" can either be "query" or "header"
                         //
-                        c.EnableApiKeySupport("Authorization", "header");
+                        c.EnableApiKeySupport("Authotization", "header");
                     });
         }
     }

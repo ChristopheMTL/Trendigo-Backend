@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -29,6 +30,7 @@ using IMS.Utilities.PaymentAPI.Model;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Swashbuckle.Swagger.Annotations;
 
 namespace IMS.Service.WebAPI2.Controllers
 {
@@ -73,119 +75,14 @@ namespace IMS.Service.WebAPI2.Controllers
             AccessTokenFormat = accessTokenFormat;
         }
 
+      
         #endregion
 
         #region Merchant Section
 
-        [HttpPost]
-        [JwtAuthentication]
-        public async Task<IHttpActionResult> AddMerchant([FromBody] MerchantRQ model, [fromHeader] string locale = "en")
-        {
-            #region Declaration Section
-
-            Common.Core.Data.Merchant merchant = new Common.Core.Data.Merchant();
-            Common.Core.Data.Location location = new Common.Core.Data.Location();
-            IMSUser imsUser = null;
-            MerchantRS merchantRS = null;
-            MerchantLocationRS locationRS = null;
-
-            #endregion
-
-            #region Validation Section
-
-            if (!ModelState.IsValid || model == null)
-            {
-                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
-            }
-
-            imsUser = await db.IMSUsers.Where(a => a.Id == model.merchantAdminId).FirstOrDefaultAsync();
-
-            if (imsUser == null)
-            {
-                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("UserNotFound_", locale));
-            }
-
-            #endregion
-
-            merchant.Name = model.name;
-            merchant.ShortDescription = model.shortDesc;
-            //TODO need to revisit that parameter
-            merchant.TaxableProduct = true;
-            merchant.IsActive = true;
-            merchant.CreationDate = DateTime.Now;
-            merchant.IMSUsers.Add(imsUser);
-            merchant.Status = MerchantStatus.PENDING.ToString();
-
-            Enterprise enterprise = await db.Enterprises.Where(a => a.Name.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
-
-            var command = DataCommandFactory.AddMerchantCommand(merchant, enterprise.TransaxId, db);
-
-            var result = await command.Execute();
-
-            if (result != DataCommandResult.Success)
-            {
-                logger.ErrorFormat(string.Format("AddMerchantCommand - result {0} merchant {1} merchantAdminId {2}", result, model.name, model.merchantAdminId));
-                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddMerchant_", locale));
-            }
-
-            imsUser.Merchants.Add(merchant);
-
-            var userCommand = DataCommandFactory.UpdateIMSUserCommand(imsUser, "ADMIN", db);
-
-            var userResult = await command.Execute();
-
-            if (result != DataCommandResult.Success)
-            {
-                logger.ErrorFormat(string.Format("UpdateUserCommand - result {0} merchantAdminId {1}", result, model.merchantAdminId));
-                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddMerchant_", locale));
-            }
-
-            location.Merchant = merchant;
-            location.Name = model.city;
-            location.ApplyTaxes = true;
-            location.EnableTips = true;
-            location.PayWithPoints = true;
-            location.Telephone = model.phone;
-            location.Address = new Address();
-            location.Address.StreetAddress = model.streetAddress;
-            location.Address.City = model.city;
-            location.Address.StateId = model.stateId;
-            location.Address.State = await db.States.Where(a => a.Id == model.stateId).FirstOrDefaultAsync();
-            location.Address.CountryId = model.countryId;
-            location.Address.Country = await db.Countries.Where(a => a.Id == model.countryId).FirstOrDefaultAsync();
-            location.Address.Zip = model.zip;
-            location.Address.Longitude = Convert.ToDecimal(model.longitude);
-            location.Address.Latitude = Convert.ToDecimal(model.latitude);
-
-            string timeZoneName = new UtilityManager().getTimeZoneInfoForEntity(location, db).StandardName;
-            location.TimeZone = db.TimeZones.Where(a => a.Value == timeZoneName).FirstOrDefault();
-
-            var command2 = DataCommandFactory.AddLocationCommand(location, db);
-
-            var result2 = await command2.Execute();
-
-            if (result2 != DataCommandResult.Success)
-            {
-                if (result == DataCommandResult.IMSFailed)
-                {
-                    var commandDelete = DataCommandFactory.DeleteMerchantCommand(merchant, merchant.TransaxId, db);
-                    var resultDelete = await commandDelete.Execute();
-                }
-
-                logger.ErrorFormat(string.Format("AddLocationCommand - result {0} merchant {1} merchantAdminId {2}", result, model.name, model.merchantAdminId));
-                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddMerchant_", locale));
-            }
-
-            Common.Core.Data.Merchant merchantToReturn = await db.Merchants.Where(a => a.Id == merchant.Id).FirstOrDefaultAsync();
-            merchantRS = Mapper.Map<Common.Core.Data.Merchant, MerchantRS>(merchantToReturn);
-
-            merchantRS.locations.Add(locationRS);
-
-            return Content(HttpStatusCode.OK, merchantRS);
-        }
-
         [HttpGet]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<MerchantRS>))]
         public async Task<IHttpActionResult> GetMerchants([FromBody] getMerchantRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -236,41 +133,159 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<MerchantRS>))]
         public async Task<IHttpActionResult> GetMerchant(long merchantId, [fromHeader] string locale = "en")
         {
 
             #region Declaration Section
 
             Common.Core.Data.Merchant merchant = null;
+            Currency currency = null;
             MerchantRS merchantRS = null;
 
             #endregion
 
             #region Validation Section
 
-            merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
-
+            merchant = await db.Merchants.Include(a => a.IMSUsers).Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+            merchant.IMSUsers = merchant.IMSUsers.Where(x => x.IsActive).ToList();
             if (merchant == null)
             {
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+
+            if(merchant.Locations.Count > 0)
+            {
+                currency = merchant.Locations.FirstOrDefault(a => a.IsActive == true).Address.Country.Currency;
             }
 
             #endregion
 
             merchantRS = Mapper.Map<Common.Core.Data.Merchant, MerchantRS>(merchant);
 
+            if (currency != null && merchant.Program != null)
+            {
+                merchantRS.community.fees = merchant.Program.ProgramType.ProgramTypeFees.FirstOrDefault(a => a.IsActive == true && a.CurrencyId == currency.Id).Amount;
+                merchantRS.community.currency = merchant.Program.ProgramType.ProgramTypeFees.FirstOrDefault(a => a.IsActive == true && a.CurrencyId == currency.Id).Currency.Code;
+                if (merchant.Subscriptions.Count() > 0)
+                {
+                    var billingStartDate = merchant.Subscriptions.FirstOrDefault(a => a.MerchantId == merchant.Id).BillingStartDate;
+                    if (billingStartDate != null)
+                    {
+                        merchantRS.community.startDate = billingStartDate.Value;
+                        DateTime? nextBillingDate = billingStartDate.HasValue ?
+                                                        billingStartDate.Value.Day >= DateTime.Now.Day ?
+                                                            new DateTime(DateTime.Now.Year, DateTime.Now.Month, billingStartDate.Value.Day) :
+                                                            new DateTime(DateTime.Now.AddMonths(1).Year, DateTime.Now.AddMonths(1).Month, billingStartDate.Value.Day)
+                                                        : billingStartDate.Value;
+                        merchantRS.community.nextBillingDate = nextBillingDate.Value;
+                    }
+                }
+            }
+
             return Content(HttpStatusCode.OK, merchantRS);
         }
 
-        [HttpPut]
-        [Route("{merchantId:long}")]
+        [HttpGet]
+        [Route("{merchantId:long}/users/{userId:long}/messages")]
         [JwtAuthentication]
-        public async Task<IHttpActionResult> UpdateMerchant(long merchantId, [FromBody] UpdateMerchantRQ model, [fromHeader] string locale = "en")
+        public async Task<IHttpActionResult> GetMessages(long merchantId, long userId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
 
             Common.Core.Data.Merchant merchant = null;
-            Enterprise enterprise = await db.Enterprises.Where(a => a.Name.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
+            IMSUser user = null;
+            List<getMessageRS> messages = new List<getMessageRS>();
+
+            #endregion
+
+            #region Validation Section
+
+            merchant = await db.Merchants.FirstOrDefaultAsync(x => x.Id == merchantId);
+
+            if (merchant == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+
+            user = await db.IMSUsers.FirstOrDefaultAsync(a => a.Id == userId);
+
+            if (user == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("UserNotFound_", locale));
+            }
+
+            if (user.Merchants.FirstOrDefault(a => a.Id == merchantId) == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("UserNotFound_", locale));
+            }
+
+            #endregion
+
+            getMessageRS message = new getMessageRS();
+            message.messageId = 1;
+            message.title = "Welcome";
+            message.message = "Welcome to the Trendigo application !";
+
+            messages.Add(message);
+
+            return Content(HttpStatusCode.OK, messages);
+        }
+
+        [HttpPost]
+        [Route("resendEmailValidationLink")]
+        [AllowAnonymous]
+        public async Task<IHttpActionResult> ResendEmailValidationLink([FromBody] ForgotPasswordRQ model, [fromHeader] string locale = "en")
+        {
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            var user = await UserManager.FindByNameAsync(model.email);
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist or is not confirmed
+                return Content(HttpStatusCode.OK, MessageService.GetMessage("LinkWasSentSuccessfully_", locale));
+            }
+
+            #endregion
+
+            #region Email Validation Section
+
+            try
+            {
+                var emailValidationToken = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                var merchantAdmin = await db.IMSUsers.FirstOrDefaultAsync(x => x.UserId == user.Id);
+                var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.User.EmailValidation.CallbackUrl"], merchantAdmin.Id, HttpUtility.UrlEncode(emailValidationToken), locale);
+
+                var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + locale);
+                var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + locale);
+
+                await new EmailService().SendConfirmEmailAddressEmail(merchantAdmin, model.email, subject, textLink, callbackUrl);
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("SendValidationEmail - Exception {0} Inner Exception {1} Member info {2}", ex.ToString(), ex.InnerException.ToString(), model.ToString());
+            }
+
+            #endregion
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("LinkWasSentSuccessfully_", locale));
+        }
+        #region BackOffice Section
+
+        [HttpPut]
+        [Route("{merchantId:long}/updatePersonalInformation")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> UpdatePersonalInformation(long merchantId, [FromBody] UpdatePersonalInformationRQ model, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+
+            Common.Core.Data.Merchant merchant = null;
+            var enterprise = await new EnterpriseManager().GetTrendigoEnterprise();
 
             #endregion
 
@@ -292,9 +307,9 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #region Merchant Update Section
 
+            merchant.IMSUsers.FirstOrDefault(a => a.AspNetUser.AspNetRoles.FirstOrDefault().Name == IMSRole.MerchantAdmin.ToString()).FirstName = model.merchantAdminFirstName;
+            merchant.IMSUsers.FirstOrDefault(a => a.AspNetUser.AspNetRoles.FirstOrDefault().Name == IMSRole.MerchantAdmin.ToString()).LastName = model.merchantAdminLastName;
             merchant.Name = model.name;
-            merchant.LogoPath = model.logo;
-            merchant.TaxableProduct = true;
             merchant.ModificationDate = DateTime.Now;
 
             var command = DataCommandFactory.UpdateMerchantCommand(merchant, enterprise.TransaxId, db);
@@ -313,14 +328,39 @@ namespace IMS.Service.WebAPI2.Controllers
             foreach (UpdateMerchantLocationRQ loc in model.locations)
             {
                 Common.Core.Data.Location location = await db.Locations.Where(a => a.MerchantId == merchantId && a.IsActive == true).FirstOrDefaultAsync();
+                if (location.Address.StateId != loc.stateId)
+                {
+                    location.Address.StateId = loc.stateId;
+                    location.Address.State = await db.States.Where(a => a.Id == loc.stateId).FirstOrDefaultAsync();
+                }
+              
+                if (location.Address.CountryId != loc.countryId)
+                {
+                    location.Address.CountryId = loc.countryId;
+                    location.Address.Country = await db.Countries.Where(a => a.Id == loc.countryId).FirstOrDefaultAsync();
+                }
+
+                if (location.Address.StateId != loc.stateId || location.Address.CountryId != loc.countryId || location.Address.StreetAddress != loc.streetAddress || location.Address.City != loc.city) {
+                    #region Geolocation Section
+
+                    Geocoding.Address geoLocation = new GeolocationManager().GetGeoLocation(location.Address.StreetAddress, location.Address.City, location.Address.State.Name, location.Address.Country.Name);
+
+                    if (geoLocation != null && geoLocation.Coordinates != null)
+                    {
+                        location.Address.Longitude = Convert.ToDecimal(geoLocation.Coordinates.Longitude);
+                        location.Address.Latitude = Convert.ToDecimal(geoLocation.Coordinates.Latitude);
+                    }
+
+                    #endregion
+
+                    string timeZoneName = new UtilityManager().getTimeZoneInfoForEntity(location, db).StandardName;
+                    location.TimeZone = db.TimeZones.Where(a => a.Value == timeZoneName).FirstOrDefault();
+                }
 
                 location.Address.StreetAddress = loc.streetAddress;
                 location.Address.City = loc.city;
-                location.Address.StateId = loc.stateId;
-                location.Address.CountryId = loc.countryId;
                 location.Address.Zip = loc.zip;
                 location.Telephone = loc.phone;
-
                 var commandLocation = DataCommandFactory.UpdateLocationCommand(location, db);
 
                 var resultLocation = await commandLocation.Execute();
@@ -333,57 +373,120 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
+            //#region Promotion Section
+
+            //if (model.baseReward.HasValue && merchant.Locations.FirstOrDefault().Promotions.Count == 0)
+            //{
+            //    Common.Core.Data.Promotion promotion = new Common.Core.Data.Promotion();
+
+            //    promotion.IsActive = true;
+            //    promotion.Locations.Add(merchant.Locations.FirstOrDefault());
+            //    promotion.ModificationDate = DateTime.Now;
+            //    promotion.PromotionTypeId = (int)IMSPromotionType.BONIFICATION;
+            //    promotion.Title = merchant.Name;
+            //    promotion.Value = model.baseReward.Value / 100;
+
+            //    var commandReward = DataCommandFactory.AddPromotionCommand(promotion, db);
+
+            //    var resultReward = await commandReward.Execute();
+
+            //    if (resultReward != DataCommandResult.Success)
+            //    {
+            //        logger.ErrorFormat("UpdateMerchant - Unable to add promotion MerchantId {0} Result {1} ", merchantId, result.ToString());
+            //        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddBaseReward_", locale));
+            //    }
+
+            //    // Start date for the promotion calendar is DateTime Now + 1 day
+            //    DateTime startDate = DateTime.Now.AddDays(1);
+            //    // End date for the promotion calendar is if date is higher than 15, we expend the end date thru the end of the next month otherwise we stick to the actual month
+            //    DateTime targetEndDate = startDate.Day > 15 ? startDate.AddMonths(1) : startDate;
+            //    DateTime endDate = new DateTime(targetEndDate.Year, targetEndDate.Month, DateTime.DaysInMonth(targetEndDate.Year, targetEndDate.Month));
+
+            //    try
+            //    {
+            //        await new PromotionManager().CreateBasePromotionSchedule(promotion, promotion.Value, startDate, endDate, db);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        logger.ErrorFormat("UpdateMerchant - CreateBasePromotionSchedule MerchantId {0} PromotionId {1} Exception {2} InnerException {3}", merchantId, promotion.Id, ex.ToString(), ex.InnerException.ToString());
+            //        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddBaseRewardCalendar_", locale));
+            //    }
+            //}
+
+            //#endregion
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("SuccessfullyUpdated_", locale));
+        }
+
+        [HttpPut]
+        [Route("{merchantId:long}/updateMerchantInformation")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> UpdateMerchantInformation(long merchantId, [FromBody] UpdateMerchantInformationRQ model, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+
+            Common.Core.Data.Merchant merchant = null;
+            var enterprise = await new EnterpriseManager().GetTrendigoEnterprise();
+
+            #endregion
+
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+
+            if (merchant == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+
+            #endregion
+
             #region Merchant Translation Section
 
             if (model.merchantLocale != null)
             {
                 foreach (UpdateMerchantLocaleRQ merchantLocale in model.merchantLocale)
                 {
-                    if (merchantLocale.merchantLocaleId == null)
+                    merchant_translations mtExist = await db.merchant_translations.Where(a => a.merchant_id == merchantId && a.locale == merchantLocale.language).FirstOrDefaultAsync();
+
+                    if (mtExist == null)
                     {
-                        merchant_translations mtExist = await db.merchant_translations.Where(a => a.merchant_id == merchantId && a.locale == merchantLocale.language).FirstOrDefaultAsync();
-
-                        if (mtExist == null)
-                        {
-                            merchant_translations mt = new merchant_translations();
-                            mt.Name = model.name;
-                            mt.ShortDescription = merchantLocale.description;
-                            mt.locale = merchantLocale.language;
-                            mt.created_at = DateTime.Now;
-                            mt.updated_at = DateTime.Now;
-                            mt.merchant_id = merchant.Id;
-                            db.Entry(mt).State = EntityState.Added;
-                            try
-                            {
-                                await db.SaveChangesAsync();
-                            }
-                            catch (Exception ex)
-                            {
-                                logger.ErrorFormat("Add Merchant Locale - MerchantId {0} MerchantLocale {1} Exception {2} InnerException {3}", merchantId, mt.ToString(), ex.ToString(), ex.InnerException.ToString());
-                                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateMerchant_", locale));
-                            }
-                        }
-                    }
-                    else
-                    {
-                        merchant_translations mt = await db.merchant_translations.Where(a => a.id == merchantLocale.merchantLocaleId).FirstOrDefaultAsync();
-
-                        if (mt == null)
-                        {
-                            logger.ErrorFormat("UpdateMerchant - Merchant_Translation does not exist for merchantId {0} merchantLocaleId {1}",merchantId,  merchantLocale.merchantLocaleId);
-                            return Content(HttpStatusCode.NotFound, MessageService.GetMessage("UnableToUpdateMerchant_", locale));
-                        }
-
+                        merchant_translations mt = new merchant_translations();
+                        mt.Name = merchant.Name;
                         mt.ShortDescription = merchantLocale.description;
-
+                        mt.locale = merchantLocale.language;
+                        mt.created_at = DateTime.Now;
+                        mt.updated_at = DateTime.Now;
+                        mt.merchant_id = merchant.Id;
+                        db.Entry(mt).State = EntityState.Added;
                         try
                         {
-                            db.Entry(mt).State = EntityState.Modified;
                             await db.SaveChangesAsync();
                         }
                         catch (Exception ex)
                         {
-                            logger.ErrorFormat("UpdateMerchant Merchant_Translation SaveChangesAsync failed MerchantId {0} MerchantTranslationId {1} Exception {2} InnerException {3}", merchantId, mt.id, ex.ToString(), ex.InnerException.ToString());
+                            logger.ErrorFormat("Add Merchant Locale - MerchantId {0} MerchantLocale {1} Exception {2} InnerException {3}", merchantId, mt.ToString(), ex.ToString(), ex.InnerException.ToString());
+                            return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateMerchant_", locale));
+                        }
+                    }
+                    else
+                    {
+                        mtExist.Name = merchant.Name;
+                        mtExist.ShortDescription = merchantLocale.description;
+
+                        try
+                        {
+                            db.Entry(mtExist).State = EntityState.Modified;
+                            await db.SaveChangesAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            logger.ErrorFormat("UpdateMerchant Merchant_Translation SaveChangesAsync failed MerchantId {0} MerchantTranslationId {1} Exception {2} InnerException {3}", merchantId, mtExist.id, ex.ToString(), ex.InnerException.ToString());
                             return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateMerchant_", locale));
                         }
                     }
@@ -392,135 +495,235 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
-            #region Image Section
+            #region Enable Tips Section
 
-            if (model.images != null)
+            foreach (IMS.Common.Core.Data.Location location in merchant.Locations.Where(a => a.IsActive).ToList())
             {
-                foreach (UpdateMerchantImagesRQ img in model.images)
+                if (location.EnableTips != model.acceptTips)
                 {
-                    if (img.imageId.HasValue)
+                    location.EnableTips = model.acceptTips;
+
+                    var commandLocation = DataCommandFactory.UpdateLocationCommand(location, db);
+
+                    var resultLocation = await commandLocation.Execute();
+
+                    if (resultLocation != DataCommandResult.Success)
                     {
-                        MerchantImage imgExist = await db.MerchantImages.Where(a => a.Id == img.imageId.Value).FirstOrDefaultAsync();
-
-                        if (imgExist == null)
-                        {
-                            return Content(HttpStatusCode.NotFound, MessageService.GetMessage("ImageNotFound_", locale));
-                        }
-
-                        imgExist.ImagePath = img.path;
-
-                        try
-                        {
-                            db.Entry(imgExist).State = EntityState.Modified;
-                            await db.SaveChangesAsync();
-                        }
-                        catch (Exception ex)
-                        {
-                            logger.ErrorFormat("Update Image - ImageId {0} Exception {1} InnerException {2}", imgExist.Id, ex.ToString(), ex.InnerException.ToString());
-                            return Content(HttpStatusCode.NotFound, MessageService.GetMessage("UnableToUpdateImage_", locale));
-                        }
-                    }
-                    else
-                    {
-                        if (merchant.MerchantImages.Count() == 5)
-                        {
-                            return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("CannotAddNewImageQuotaReached_", locale));
-                        }
-
-                        MerchantImage mi = new MerchantImage();
-                        mi.MerchantId = merchantId;
-                        mi.CreationDate = DateTime.Now;
-                        mi.ImagePath = img.path;
-                        mi.IsActive = true;
-                        mi.IsPublished = true;
-                        mi.Weight = Convert.ToInt16(merchant.MerchantImages.Count() + 1);
-
-                        try
-                        {
-                            db.Entry(mi).State = EntityState.Added;
-                            await db.SaveChangesAsync();
-                        }
-                        catch (Exception ex)
-                        {
-                            return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("CannotAddNewImage_", locale));
-                        }
+                        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateMerchant_", locale));
                     }
                 }
             }
 
             #endregion
 
-            #region Category Section
+            #region Category and Tag Section
 
-            if (model.categoryId.HasValue)
+            tagging categoryExistForMerchant = await new TagService().GetMerchantCategory(merchantId);
+
+            if (categoryExistForMerchant != null && categoryExistForMerchant.tag_id != model.categoryId)
             {
-                tagging tagExist = await new TagService().GetMerchantCategory(merchantId);
-
-                if (tagExist != null && tagExist.tag_id != model.categoryId.Value)
-                {
-                    try
-                    {
-                        await new TagService().UpdateMerchantCategory(merchantId, model.categoryId.Value);
-                    }
-                    catch (Exception ex)
-                    {
-                        logger.ErrorFormat("UpdateMerchant - Unable to update category MerchantId {0} Exception {1} InnerException {2} ", merchantId, ex.ToString(), ex.InnerException.ToString());
-                        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateCategory_", locale));
-                    }
-                }
-                else if (tagExist == null)
-                {
-                    try
-                    {
-                        await new TagService().AddMerchantCategory(merchantId, model.categoryId.Value);
-                    }
-                    catch (Exception ex)
-                    {
-                        logger.ErrorFormat("UpdateMerchant - Unable to add category MerchantId {0} Exception {1} InnerException {2} ", merchantId, ex.ToString(), ex.InnerException.ToString());
-                        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddCategory_", locale));
-                    }
-                }
-            }
-
-            #endregion
-
-            #region Promotion Section
-
-            if (model.baseReward.HasValue && merchant.Locations.FirstOrDefault().Promotions.Count == 0)
-            {
-                Common.Core.Data.Promotion promotion = new Common.Core.Data.Promotion();
-
-                promotion.IsActive = true;
-                promotion.Locations.Add(merchant.Locations.FirstOrDefault());
-                promotion.ModificationDate = DateTime.Now;
-                promotion.PromotionTypeId = (int)IMSPromotionType.BONIFICATION;
-                promotion.Title = merchant.Name;
-                promotion.Value = model.baseReward.Value / 100;
-
-                var commandReward = DataCommandFactory.AddPromotionCommand(promotion, db);
-
-                var resultReward = await commandReward.Execute();
-
-                if (resultReward != DataCommandResult.Success)
-                {
-                    logger.ErrorFormat("UpdateMerchant - Unable to add promotion MerchantId {0} Result {1} ", merchantId, result.ToString());
-                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddBaseReward_", locale));
-                }
-
-                // Start date for the promotion calendar is DateTime Now + 1 day
-                DateTime startDate = DateTime.Now.AddDays(1);
-                // End date for the promotion calendar is if date is higher than 15, we expend the end date thru the end of the next month otherwise we stick to the actual month
-                DateTime targetEndDate = startDate.Day > 15 ? startDate.AddMonths(1) : startDate;
-                DateTime endDate = new DateTime(targetEndDate.Year, targetEndDate.Month, DateTime.DaysInMonth(targetEndDate.Year, targetEndDate.Month));
+                //TODO Delete tag associated to that merchant
 
                 try
                 {
-                    await new PromotionManager().CreateBasePromotionSchedule(promotion, promotion.Value, startDate, endDate, db);
+                    await new TagService().UpdateMerchantCategory(merchantId, model.categoryId);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    logger.ErrorFormat("UpdateMerchant - CreateBasePromotionSchedule MerchantId {0} PromotionId {1} Exception {2} InnerException {3}", merchantId, promotion.Id, ex.ToString(), ex.InnerException.ToString());
-                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddBaseRewardCalendar_", locale));
+                    logger.ErrorFormat("UpdateMerchant - Unable to update category MerchantId {0} Exception {1} InnerException {2} ", merchantId, ex.ToString(), ex.InnerException.ToString());
+                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateCategory_", locale));
+                }
+
+                //TODO Add new tag associated to that category for that merchant
+            }
+            else if (categoryExistForMerchant == null)
+            {
+                try
+                {
+                    await new TagService().AddMerchantCategory(merchantId, model.categoryId);
+                }
+                catch (Exception ex)
+                {
+                    logger.ErrorFormat("UpdateMerchant - Unable to add category MerchantId {0} Exception {1} InnerException {2} ", merchantId, ex.ToString(), ex.InnerException.ToString());
+                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddCategory_", locale));
+                }
+
+                //TODO Add tag associated to that category for that merchant
+            }
+
+            if (model.tags.Count > 0)
+            {
+                var updatedTags = model.tags.Select(x => x.tagId).ToList();
+                var tagsToAdd = updatedTags.Where(x => !merchant.MerchantTags.Any(y => y.TagId == x)).ToList();
+                var tagsToRemove = merchant.MerchantTags.Where(x => !updatedTags.Any(y => x.TagId == y) &&  x.tag.ParentId != null).ToList();
+                try
+                {
+                    db.MerchantTags.AddRange(tagsToAdd.Select(x => new MerchantTag { MerchantId = merchantId, TagId = Convert.ToInt32(x) }));
+                    db.MerchantTags.RemoveRange(tagsToRemove);
+                    await db.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    logger.ErrorFormat("UpdateMerchant - Unable to update Tags MerchantId {0} Exception {1} InnerException {2} ", merchantId, ex.ToString(), ex.InnerException.ToString());
+                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateTag_", locale));
+                }
+            }
+          
+            #endregion
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("SuccessfullyUpdated_", locale));
+        }
+
+        [HttpPut]
+        [Route("{merchantId:long}/updateOperationalHours")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> UpdateOperationalHours(long merchantId, [FromBody] UpdateOperationalHoursRQ model, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+
+            Common.Core.Data.Merchant merchant = null;
+            var enterprise = await new EnterpriseManager().GetTrendigoEnterprise();
+            LocationBusinessHour businessHour = new LocationBusinessHour();
+            LocationBusinessHour businessHourExist = null;
+
+            LocationHoliday holiday = null;
+            LocationHoliday holidayExist = null;
+            DateTime from;
+            DateTime to;
+
+            #endregion
+
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+
+            if (merchant == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+
+            #endregion
+
+            #region Business hours Section
+
+            foreach (AddBusinessHourRQ bhRQ in model.businessHours)
+            {
+                businessHourExist = merchant.Locations.FirstOrDefault().LocationBusinessHours.FirstOrDefault(a => a.DayOfWeekID == bhRQ.dayOfWeek);
+
+                if (businessHourExist == null)
+                {
+                    businessHour.LocationId = merchant.Locations.FirstOrDefault().Id;
+                    businessHour.DayOfWeekID = bhRQ.dayOfWeek;
+                    businessHour.OpeningHour = TimeSpan.Parse(bhRQ.openingHour);
+                    businessHour.ClosingHour = TimeSpan.Parse(bhRQ.closingHour);
+                    businessHour.IsClosed = bhRQ.isClosed;
+
+                    db.LocationBusinessHours.Add(businessHour);
+
+                    try
+                    {
+                        await db.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.ErrorFormat("AddBusinessHour - MerchantId {0} Exception {1} InnerException {2}", merchant.Id, ex.ToString(), ex.InnerException);
+                        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddBusinessHour_", locale));
+                    }
+                }
+                else
+                {
+                    businessHourExist.OpeningHour = TimeSpan.Parse(bhRQ.openingHour);
+                    businessHourExist.ClosingHour = TimeSpan.Parse(bhRQ.closingHour);
+                    businessHourExist.IsClosed = bhRQ.isClosed;
+
+                    try
+                    {
+                        db.Entry(businessHourExist).State = System.Data.Entity.EntityState.Modified;
+                        await db.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.ErrorFormat("UpdateBusinessHour businessHourId {0} Exception {1} InnerException {2}", businessHour.Id, ex.ToString(), ex.InnerException.ToString());
+                        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateBusinessHour_", locale));
+                    }
+                }
+            }
+
+            #endregion
+
+            #region Holidays Section
+
+            foreach (HolidayRQ hRQ in model.holidays)
+            {
+                if (!DateTime.TryParse(hRQ.startDate, out from))
+                {
+                    return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("StartingDateNotAValidDate_", locale));
+                }
+
+                if (!DateTime.TryParse(hRQ.endDate, out to))
+                {
+                    return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("EndingDateNotAValidDate_", locale));
+                }
+
+                if (hRQ.holidayId.HasValue)
+                {
+                    holidayExist = merchant.Locations.FirstOrDefault().LocationHolidays.FirstOrDefault(a => a.Location.MerchantId == merchantId && a.Id == hRQ.holidayId);
+
+                    if (holidayExist == null)
+                    {
+                        return Content(HttpStatusCode.NotFound, MessageService.GetMessage("HolidayNotFound_", locale));
+                    }
+                }
+                else
+                {
+                    holidayExist = merchant.Locations.FirstOrDefault().LocationHolidays.FirstOrDefault(a => a.FromDate <= from && a.ToDate >= from);
+                }
+
+                if (holidayExist == null)
+                {
+                    holiday = new LocationHoliday();
+
+                    holiday.Location = merchant.Locations.FirstOrDefault();
+                    holiday.Name = hRQ.name;
+                    holiday.FromDate = from;
+                    holiday.ToDate = to;
+                    holiday.CreationDate = DateTime.Now;
+                    holiday.ModificationDate = DateTime.Now;
+                    holiday.IsActive = true;
+
+                    db.LocationHolidays.Add(holiday);
+
+                    try
+                    {
+                        await db.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.ErrorFormat("AddHoliday - MerchantId {0} Exception {1} InnerException {2}", merchant.Id, ex.ToString(), ex.InnerException);
+                        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddHoliday_", locale));
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        holidayExist.Name = hRQ.name;
+                        holidayExist.FromDate = from;
+                        holidayExist.ToDate = to;
+
+                        db.Entry(holidayExist).State = EntityState.Modified;
+                        await db.SaveChangesAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.ErrorFormat("UpdateHoliday HolidayId {0} Exception {1} InnerException {2}", holidayExist.Id, ex.ToString(), ex.InnerException.ToString());
+                        return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateHoliday_", locale));
+                    }
                 }
             }
 
@@ -528,6 +731,10 @@ namespace IMS.Service.WebAPI2.Controllers
 
             return Content(HttpStatusCode.OK, MessageService.GetMessage("SuccessfullyUpdated_", locale));
         }
+
+        #endregion
+
+
 
         [HttpDelete]
         [Route("{merchantId:long}")]
@@ -567,6 +774,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(LoginMerchantRS))]
         public async Task<IHttpActionResult> Login([FromBody] LoginMerchantRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -584,6 +792,12 @@ namespace IMS.Service.WebAPI2.Controllers
             }
 
             var _user = await db.AspNetUsers.FirstOrDefaultAsync(a => a.UserName == model.email);
+
+            if (_user == null)
+            {
+                return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("InvalidUsernameOrPassword_", locale));
+            }
+
             var user = await UserManager.FindByIdAsync(_user.Id);
 
             if (user == null)
@@ -596,10 +810,10 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("AccountLocked_", locale));
             }
 
-            //if (!await UserManager.IsEmailConfirmedAsync(user.Id))
-            //{
-            //    return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("EmailNotValidated_", locale));
-            //}
+            if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+            {
+                return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("EmailNotValidated_", locale));
+            }
 
             var result = await UserManager.CheckPasswordAsync(user, model.password);
 
@@ -613,7 +827,17 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("UserNotFound_", locale));
             }
 
-            if (_user.AspNetRoles.FirstOrDefault().Name == IMSRole.MerchantUser.ToString() && string.IsNullOrEmpty(model.deviceId))
+            if (_user.AspNetRoles.FirstOrDefault().Name != IMSRole.MerchantAdmin.ToString() && string.IsNullOrEmpty(model.deviceId))
+            {
+                return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("UnauthorizedToLogin_", locale));
+            }
+
+            if ((_user.IMSUsers.FirstOrDefault().Merchants == null || _user.IMSUsers.FirstOrDefault().Merchants.Count == 0) && model.deviceId != "0")
+            {
+                return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("UnauthorizedToLogin_", locale));
+            }
+
+            if ((_user.IMSUsers.FirstOrDefault().Merchants.Count > 0 && _user.IMSUsers.FirstOrDefault().Merchants.FirstOrDefault(a => a.Status == MerchantStatus.PENDING.ToString()) != null) && model.deviceId != "0")
             {
                 return Content(HttpStatusCode.Unauthorized, MessageService.GetMessage("UnauthorizedToLogin_", locale));
             }
@@ -638,6 +862,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             IMS.Utilities.PaymentAPI.Model.AuthenticationData TransaxEntity = new IMS.Utilities.PaymentAPI.Model.AuthenticationData();
             TransaxEntity.DeviceId = model.deviceId;
+            TransaxEntity.NotificationToken = model.notificationToken;
             TransaxEntity.Jti = token.jti;
 
             try
@@ -652,10 +877,72 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
-            LoginMerchantRS loginMerchantRS = new LoginMerchantRS();
-            loginMerchantRS.userId = _user.IMSUsers.FirstOrDefault().Id;
-            loginMerchantRS.sessionToken = token.signedJwt;
+            #region Merchant Section
 
+            LoginMerchantRS loginMerchantRS = new LoginMerchantRS();
+            var merchantId = _user.IMSUsers.FirstOrDefault()?.Merchants.FirstOrDefault()?.Id ?? 0;
+            if (merchantId > 0)
+            {
+                IMS.Common.Core.Data.Merchant merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+
+                if (merchant != null)
+                {
+                    var location = merchant.Locations.FirstOrDefault();
+                    loginMerchantRS.merchantId = merchant.Id;
+                    loginMerchantRS.merchantName = merchant.Name;
+                    loginMerchantRS.status = merchant.Status;
+                    loginMerchantRS.logoFilePath = new ImageService().GetImagePath((int)ImageType.LOGO, merchant.Id, merchant.LogoPath);
+                    loginMerchantRS.communityTypeId = merchant.Program.ProgramTypeId;
+                    if (merchant.Subscriptions.Count > 0) {
+                        var merchantMemberId = merchant.Subscriptions.FirstOrDefault().MemberId;
+                        List<CreditCard> ccards = await db.CreditCards.Where(a => a.AspNetUser.Members.FirstOrDefault().Id == merchantMemberId && a.IsActive == true).ToListAsync();
+                        loginMerchantRS.isCardExists = ccards.Count > 0 ? true : false;
+                    }
+
+                    if (location != null)
+                    {
+                        loginMerchantRS.locationId = location.Id;
+                        loginMerchantRS.locationTransaxId = location.TransaxId;
+                        loginMerchantRS.locationAddress = location.Address.StreetAddress;
+                        loginMerchantRS.locationState = location.Address.State.Name;
+                        loginMerchantRS.locationCity = location.Address.City;
+                        loginMerchantRS.locationCountry = location.Address.Country.Name;
+                        loginMerchantRS.locationZip = location.Address.Zip;
+                        loginMerchantRS.payWithPoints = location.PayWithPoints ?? false;
+                        loginMerchantRS.enableTips = location.EnableTips ?? false;
+                        loginMerchantRS.currency = location.Address.Country.Currency.Code;
+                    }
+                    
+                    //Merchant info not completed
+                    if (merchant.Locations == null || merchant.Locations.Count == 0)
+                        loginMerchantRS.isCompleted = 1;
+                    //Merchant community not completed
+                    else if (!merchant.ProgramId.HasValue)
+                        loginMerchantRS.isCompleted = 2;
+                    //Merchant translation or tags or images not completed
+                    else if ((merchant.merchant_translations == null || merchant.merchant_translations.Count == 0) || (merchant.MerchantTags == null || merchant.MerchantTags.Count == 0) || (merchant.MerchantImages == null || merchant.MerchantImages.Count == 0))
+                        loginMerchantRS.isCompleted = 3;
+                    //Merchant bank information not completed
+                    else if (merchant.Locations.FirstOrDefault().LocationBusinessHours.Count == 0)
+                        loginMerchantRS.isCompleted = 4;
+                    else if (!merchant.BankingInfoId.HasValue && !loginMerchantRS.isCardExists)
+                        loginMerchantRS.isCompleted = 5;
+                    else if (merchant.ProgramId.HasValue && merchant.Program.ProgramTypeId != (int)ProgramTypeEnum.Global && !loginMerchantRS.isCardExists)
+                        loginMerchantRS.isCompleted = 6;
+                    //Merchant information completed
+                    else
+                        loginMerchantRS.isCompleted = 0;
+                }
+            }
+
+            #endregion
+
+            loginMerchantRS.userId = _user.IMSUsers.FirstOrDefault().Id;
+            loginMerchantRS.userTranxId = _user.IMSUsers.FirstOrDefault().TransaxId;
+            loginMerchantRS.sessionToken = token.signedJwt;
+            loginMerchantRS.email = _user.IMSUsers.FirstOrDefault().AspNetUser.Email;
+            loginMerchantRS.firstName = _user.IMSUsers.FirstOrDefault().FirstName;
+            loginMerchantRS.lastName = _user.IMSUsers.FirstOrDefault().LastName;
             return Content(HttpStatusCode.OK, loginMerchantRS);
         }
 
@@ -674,12 +961,12 @@ namespace IMS.Service.WebAPI2.Controllers
             if (user == null)
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("UserNotFound_", locale));
 
+            logger.DebugFormat("Email Validation - UserId {0} Email {1} Code {2}", user.Id, user.AspNetUser.Email, model.code);
+
             var result = await UserManager.ConfirmEmailAsync(user.AspNetUser.Email, model.code);
 
             if (!result.Succeeded)
             {
-                model.code = HttpUtility.UrlDecode(model.code);
-
                 result = await UserManager.ConfirmEmailAsync(user.UserId, model.code);
 
                 if (!result.Succeeded)
@@ -694,6 +981,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("getMerchantByName")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(MerchantRS))]
         public async Task<IHttpActionResult> GetMerchantByName([FromBody] getMerchantByNameRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -760,6 +1048,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("getMerchantByCategory")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(MerchantRS))]
         public async Task<IHttpActionResult> GetMerchantsByCategory([FromBody] getMerchantByCategoryRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -820,8 +1109,9 @@ namespace IMS.Service.WebAPI2.Controllers
         public async Task<IHttpActionResult> AddMerchantAdmin([FromBody] addUserRQ model, [fromHeader] string locale = "en")
         {
             ApplicationUser user = null;
+            ApplicationUser memberUser = null;
             Language language = null;
-            Enterprise enterprise = await db.Enterprises.Where(a => a.Name.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
+            var enterprise = await new EnterpriseManager().GetTrendigoEnterprise();
 
             #region Validation Section
 
@@ -890,16 +1180,18 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("CannotCreateUser_", locale));
             }
 
+            
+
             #region Email Validation Section
 
             try
             {
                 var emailValidationToken = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
-                var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.User.EmailValidation.CallbackUrl"], newUser.Id, HttpUtility.UrlEncode(emailValidationToken), locale);
+                var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.User.EmailValidation.CallbackUrl"], newUser.Id, HttpUtility.UrlEncode(emailValidationToken), model.language);
 
-                var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + locale);
-                var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + locale);
+                var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + model.language);
+                var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + model.language);
 
                 await new EmailService().SendConfirmEmailAddressEmail(newUser, model.email, subject, textLink, callbackUrl);
             }
@@ -1061,6 +1353,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("{merchantId:long}/businessHours")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(BusinessHourRS))]
         public async Task<IHttpActionResult> AddBusinessHour(long merchantId, [FromBody] List<AddBusinessHourRQ> models, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1102,6 +1395,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 businessHour.DayOfWeekID = model.dayOfWeek;
                 businessHour.OpeningHour = TimeSpan.Parse(model.openingHour);
                 businessHour.ClosingHour = TimeSpan.Parse(model.closingHour);
+                businessHour.IsClosed = model.isClosed;
 
                 db.LocationBusinessHours.Add(businessHour);
 
@@ -1126,6 +1420,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}/businessHours")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(BusinessHourRS))]
         public async Task<IHttpActionResult> GetBusinessHours(long merchantId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1154,6 +1449,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}/businessHours/{businessHourId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(BusinessHourRS))]
         public async Task<IHttpActionResult> GetBusinessHour(long merchantId, long businessHourId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1222,6 +1518,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             businessHour.OpeningHour = TimeSpan.Parse(model.openingHour);
             businessHour.ClosingHour = TimeSpan.Parse(model.closingHour);
+            businessHour.IsClosed = model.isClosed;
 
             try
             {
@@ -1295,6 +1592,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}/bankAccount/{bankAccountId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(BankAccountRS))]
         public async Task<IHttpActionResult> GetBankAccount(long merchantId, long bankAccountId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1325,7 +1623,41 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
-            bankAccountRS = Mapper.Map<BankingInfo, BankAccountRS>(merchant.BankingInfo.Locations.FirstOrDefault().BankingInfo);
+            bankAccountRS = Mapper.Map<BankingInfo, BankAccountRS>(merchant.Locations.FirstOrDefault(a => a.IsActive == true).BankingInfo);
+
+            return Content(HttpStatusCode.OK, bankAccountRS);
+        }
+
+        [HttpGet]
+        [Route("{merchantId:long}/bankAccount")]
+        [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(BankAccountRS))]
+        public async Task<IHttpActionResult> GetMerchantBankAccount(long merchantId, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+
+            Common.Core.Data.Merchant merchant = null;
+            BankAccountRS bankAccountRS = new BankAccountRS();
+
+            #endregion
+
+            #region Validation Section
+
+            merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+
+            if (merchant == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+
+            if (merchant.Locations.FirstOrDefault().BankingInfo == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("BankingInfoNotFound_", locale));
+            }
+
+            #endregion
+
+            bankAccountRS = Mapper.Map<BankingInfo, BankAccountRS>(merchant.Locations.FirstOrDefault(a => a.IsActive == true).BankingInfo);
 
             return Content(HttpStatusCode.OK, bankAccountRS);
         }
@@ -1333,6 +1665,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("{merchantId:long}/bankAccount")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(BankAccountRS))]
         public async Task<IHttpActionResult> AddBankAccount(long merchantId, [FromBody] addBankAccountRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1393,6 +1726,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPut]
         [Route("{merchantId:long}/bankAccount/{bankAccountId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(BankAccountRS))]
         public async Task<IHttpActionResult> UpdateBankAccount(long merchantId, long bankAccountId, [FromBody] UpdateBankAccountRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1436,7 +1770,6 @@ namespace IMS.Service.WebAPI2.Controllers
             bankingInfo.Transit = model.transit;
             bankingInfo.Account = model.account;
             bankingInfo.ModificationDate = DateTime.Now;
-            bankingInfo.SpecimenPath = model.specimenPath;
 
             try
             {
@@ -1461,11 +1794,12 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("{merchantId:long}/clerks")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(addClerkRS))]
         public async Task<IHttpActionResult> AddClerk(long merchantId, [FromBody] addUserRQ model, [fromHeader] string locale = "en")
         {
             ApplicationUser user = null;
             Language language = null;
-            Enterprise enterprise = await db.Enterprises.Where(a => a.Name.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
+            var enterprise = await new EnterpriseManager().GetTrendigoEnterprise();
             Common.Core.Data.Merchant merchant = null;
 
             #region Validation Section
@@ -1551,10 +1885,10 @@ namespace IMS.Service.WebAPI2.Controllers
             {
                 var emailValidationToken = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
-                var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.User.EmailValidation.CallbackUrl"], newUser.Id, HttpUtility.UrlEncode(emailValidationToken), locale);
+                var callbackUrl = String.Format(ConfigurationManager.AppSettings["IMS.Service.WebAPI.User.EmailValidation.CallbackUrl"], newUser.Id, HttpUtility.UrlEncode(emailValidationToken), model.language);
 
-                var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + locale);
-                var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + locale);
+                var subject = Messages.ResourceManager.GetString("CourrielEmailValidationSubject_" + model.language);
+                var textLink = Messages.ResourceManager.GetString("CourrielEmailValidationTextLink_" + model.language);
 
                 await new EmailService().SendConfirmEmailAddressEmail(newUser, model.email, subject, textLink, callbackUrl);
             }
@@ -1566,14 +1900,15 @@ namespace IMS.Service.WebAPI2.Controllers
             #endregion
 
             addClerkRS clerkRS = new addClerkRS();
-            clerkRS.clerkId = newUser.Id;
-
+            clerkRS = Mapper.Map<IMSUser, addClerkRS>(newUser);
+            clerkRS.email = model.email;
             return Content(HttpStatusCode.OK, clerkRS);
         }
 
         [HttpGet]
         [Route("{merchantId:long}/clerks")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<UserDTO>))]
         public async Task<IHttpActionResult> GetClerks(long merchantId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1605,6 +1940,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}/clerks/{clerkId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<UserNotificationDTO>))]
         public async Task<IHttpActionResult> GetClerk(long merchantId, long clerkId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1702,6 +2038,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPut]
         [Route("{merchantId:long}/clerks/{clerkId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(UserDTO))]
         public async Task<IHttpActionResult> UpdateClerk(long merchantId, long clerkId, [FromBody] UpdateUserRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1784,7 +2121,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
 
-            if (merchant == null)
+            if (merchant == null || merchant.Locations == null)
             {
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
             }
@@ -1794,21 +2131,30 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MerchantAlreadyInCommunity_", locale));
             }
 
+            IMS.Common.Core.Data.Program programExist = await db.Programs.Where(a => a.IsActive == true && a.Description == model.name).FirstOrDefaultAsync();
+
+            if (programExist != null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("CommunityAlreadyExist_", locale));
+            }
+
             #endregion
+
+            var enterprise = await new EnterpriseManager().GetTrendigoEnterprise();
 
             program = new Common.Core.Data.Program();
 
-            program = Mapper.Map<AddCommunityRQ, Common.Core.Data.Program>(model);
-
+            program.Description = model.name;
             program.ProgramTypeId = (int)ProgramTypeEnum.Local;
             program.CreationDate = DateTime.Now;
-            program.LoyaltyCostUsingPoints = 100;
-            program.LoyaltyValueGainingPoints = 100;
-            program.FidelityRewardPercent = 0;
-            program.WithoutPromoAllowed = false;
-            program.ExpirationInMonth = 12;
+            program.LoyaltyCostUsingPoints = Convert.ToInt32(ConfigurationManager.AppSettings["IMS.Default.Program.LoyaltyCostUsingPoints"]);
+            program.LoyaltyValueGainingPoints = Convert.ToInt32(ConfigurationManager.AppSettings["IMS.Default.Program.LoyaltyValueGainingPoints"]);
+            program.FidelityRewardPercent = Convert.ToInt32(ConfigurationManager.AppSettings["IMS.Default.Program.FidelityRewardPercent"]);
             program.IsActive = true;
             program.CardTypeId = (int)IMSCardType.MembershipCard;
+            program.EnterpriseId = enterprise.Id;
+            program.Enterprise = enterprise;
+            program.Merchants.Add(merchant);
 
             try
             {
@@ -1823,7 +2169,7 @@ namespace IMS.Service.WebAPI2.Controllers
             }
             catch (Exception ex)
             {
-                logger.ErrorFormat("AddBankingInfo - MerchantId {0} Exception {1} InnerException {2}", merchant.Id, ex.ToString(), ex.InnerException);
+                logger.ErrorFormat("AddCommunity - MerchantId {0} Exception {1} InnerException {2}", merchant.Id, ex.ToString(), ex.InnerException);
                 return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddCommunity_", locale));
             }
 
@@ -1871,7 +2217,7 @@ namespace IMS.Service.WebAPI2.Controllers
             merchant.ProgramId = communityId;
             merchant.Program = program;
 
-            Enterprise enterprise = await db.Enterprises.Where(a => a.Name.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
+            var enterprise = await new EnterpriseManager().GetTrendigoEnterprise();
 
             try
             {
@@ -1899,6 +2245,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPut]
         [Route("{merchantId:long}/communities/{communityId}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(CommunityRS))]
         public async Task<IHttpActionResult> UpdateCommunity(long merchantId, long communityId, [FromBody] UpdateCommunityRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -1937,7 +2284,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             #endregion
 
-            program.ShortDescription = model.name;
+            program.Description = model.name;
             program.Description = model.name;
 
             try
@@ -1965,6 +2312,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}/communities")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(CommunityRS))]
         public async Task<IHttpActionResult> GetMerchantCommunity(long merchantId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -2000,7 +2348,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             communityRS.communityId = merchant.ProgramId.Value;
             communityRS.communityTypeId = merchant.Program.ProgramTypeId.Value;
-            communityRS.name = merchant.Program.ShortDescription;
+            communityRS.name = merchant.Program.Description;
 
             return Content(HttpStatusCode.OK, communityRS);
         }
@@ -2240,14 +2588,9 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
             }
 
-            holiday = await db.LocationHolidays.Where(a => a.Id == holidayId).FirstOrDefaultAsync();
+            holiday = await db.LocationHolidays.Where(a => a.Location.MerchantId == merchantId && a.Id == holidayId).FirstOrDefaultAsync();
 
             if (holiday == null)
-            {
-                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("HolidayNotFound_", locale));
-            }
-
-            if (holiday.Location.MerchantId != merchant.Id)
             {
                 return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MerchantNotFound_", locale));
             }
@@ -2275,16 +2618,18 @@ namespace IMS.Service.WebAPI2.Controllers
 
         #region Transaction Section
 
-        [HttpGet]
+        [HttpPost]
         [Route("{merchantId:long}/transactions")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(MerchantTransactionRS))]
         public async Task<IHttpActionResult> TransactionHistory(long merchantId, [FromBody] transactionHistoryRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
 
             Common.Core.Data.Merchant merchant = null;
             List<int> LineItemIds = new List<int> { 7, 8, 9 };
-            List<MerchantTransactionHistoryRS> result = new List<MerchantTransactionHistoryRS>();
+            var transactionDetail = new MerchantTransactionRS();
+            transactionDetail.transactionHistory = new List<MerchantTransactionHistoryRS>();
 
             #endregion
 
@@ -2317,7 +2662,8 @@ namespace IMS.Service.WebAPI2.Controllers
 
             try
             {
-                result = (
+               
+              var  transactions = (
                           from ft in db.TrxFinancialTransactions
                           join nft in db.TrxNonFinancialTransactions on ft.legTransaction equals nft.Id
                           join l in db.Locations on nft.entityId equals l.TransaxId
@@ -2329,20 +2675,22 @@ namespace IMS.Service.WebAPI2.Controllers
                           && ft.localDateTime >= (model.fromDate ?? DateTime.MinValue)
                           && ft.localDateTime <= (model.toDate ?? DateTime.MaxValue)
                           where d.LineItemId == 700
-                            select new MerchantTransactionHistoryRS
-                            {
-                                transactionId = ft.Id,
-                                date = ft.localDateTime ?? DateTime.Now,
-                                //collaborator = string.Concat(u.FirstName, " ", u.LastName),
-                                amount = (ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0),
-                                tip = ft.tip ?? 0,
-                                fees = d.Amount,
-                                reward = nft.pointsGained == null ? 0 : nft.pointsGained.Value,
-                                pointUsed = nft.pointsExpended == null ? 0 : nft.pointsExpended.Value,
-                                toBePaid = ((ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0)) - d.Amount,
-                                paymentStatus = h.PaymentStatu.Description
+                          select new MerchantTransactionHistoryRS
+                          {
+                              transactionId = ft.Id,
+                              date = ft.localDateTime ?? DateTime.Now,
+                              amount = (ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0),
+                              collaborator = ft.description,
+                              tip = ft.tip ?? 0,
+                              fees = d.Amount,
+                              reward = nft.pointsGained == null ? 0 : nft.pointsGained.Value,
+                              pointUsed = nft.pointsExpended == null ? 0 : nft.pointsExpended.Value,
+                              toBePaid = ((ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0)) - d.Amount,
+                              paymentStatus = h.PaymentStatu.Description
 
-                            }).Distinct().OrderByDescending(a => a.date).Skip(start).Take(length).ToList();
+                          }).Distinct().OrderByDescending(a => a.date).AsQueryable();
+                transactionDetail.totalCount = transactions.Count();
+                transactionDetail.transactionHistory = transactions.Skip(start).Take(length).ToList();
             }
             catch(Exception ex)
             {
@@ -2350,14 +2698,86 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToGetTransactionHistory_", locale));
             }
 
-            //if (model.fromDate.HasValue && model.toDate.HasValue)
-            //{
-            //    result = result.Where(a => a.date >= model.fromDate.Value && a.date <= model.toDate.Value).ToList();
-            //}
-
-            return Content(HttpStatusCode.OK, result);
+           
+            return Content(HttpStatusCode.OK, transactionDetail);
         }
 
+
+        [HttpPost]
+        [Route("{merchantId:long}/transactions/ExportCsv")]
+        [JwtAuthentication]
+        public HttpResponseMessage ExportTransactionCsv(long merchantId, [FromBody] transactionHistoryRQ model, [fromHeader] string locale = "en")
+        {
+            int start = model.start.HasValue ? model.start.Value : 0;
+            int length = model.length.HasValue ? model.length.Value : 1000;
+            var transactions = (
+                        from ft in db.TrxFinancialTransactions
+                        join nft in db.TrxNonFinancialTransactions on ft.legTransaction equals nft.Id
+                        join l in db.Locations on nft.entityId equals l.TransaxId
+                        join m in db.Merchants on l.MerchantId equals m.Id
+                        join u in db.IMSUsers on nft.vendorId equals u.TransaxId
+                        join d in db.IMS_Detail on ft.Id equals d.TransactionId
+                        join h in db.IMS_Header on d.HeaderId equals h.Id
+                        where m.Id == merchantId
+                        && ft.localDateTime >= (model.fromDate ?? DateTime.MinValue)
+                        && ft.localDateTime <= (model.toDate ?? DateTime.MaxValue)
+                        where d.LineItemId == 700
+                        select new MerchantTransactionHistoryRS
+                        {
+                            transactionId = ft.Id,
+                            date = ft.localDateTime ?? DateTime.Now,
+                            amount = (ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0),
+                            collaborator = ft.description,
+                            tip = ft.tip ?? 0,
+                            fees = d.Amount,
+                            reward = nft.pointsGained == null ? 0 : nft.pointsGained.Value,
+                            pointUsed = nft.pointsExpended == null ? 0 : nft.pointsExpended.Value,
+                            toBePaid = ((ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0)) - d.Amount,
+                            paymentStatus = h.PaymentStatu.Description
+
+                        }).Distinct().OrderByDescending(a => a.date).Skip(start).Take(length).ToList();
+            StringBuilder sbRtn = new StringBuilder();
+            // If you want headers for your file
+            var header = string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\"",
+                                       FileHeaders.ResourceManager.GetString("transactionId"),
+                                       FileHeaders.ResourceManager.GetString("date"),
+                                       FileHeaders.ResourceManager.GetString("collaborator"),
+                                       FileHeaders.ResourceManager.GetString("amount"),
+                                       FileHeaders.ResourceManager.GetString("tip"),
+                                       FileHeaders.ResourceManager.GetString("fees"),
+                                       FileHeaders.ResourceManager.GetString("reward"),
+                                       FileHeaders.ResourceManager.GetString("toBePaid"),
+                                       FileHeaders.ResourceManager.GetString("paymentStatus")
+                                      );
+            sbRtn.AppendLine(header);
+            foreach (var item in transactions)
+            {
+                var listResults = string.Format("\"{0}\",\"{1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\",\"{7}\",\"{8}\"",
+                                                  item.transactionId,
+                                                  item.date,
+                                                  item.collaborator,
+                                                  item.amount,
+                                                  item.tip,
+                                                  item.fees,
+                                                  item.reward,
+                                                  item.toBePaid,
+                                                  item.paymentStatus
+                                                 );
+                sbRtn.AppendLine(listResults);
+            }
+        
+            MemoryStream stream = new MemoryStream();
+            StreamWriter writer = new StreamWriter(stream);
+            writer.Write(sbRtn);
+            writer.Flush();
+            stream.Position = 0;
+
+            HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
+            result.Content = new StreamContent(stream);
+            result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/csv");
+            result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment") { FileName = "Export.csv" };
+            return result;
+        }
         #endregion
 
         #region Statistics Section
@@ -2365,6 +2785,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}/stats")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(StatsRS))]
         public async Task<IHttpActionResult> GetStats(long merchantId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -2480,8 +2901,8 @@ namespace IMS.Service.WebAPI2.Controllers
             #region Declaration Section
 
             Common.Core.Data.Merchant merchant = null;
-            var token = Request.Headers.GetValues("sessionToken");
-
+            //var token = Request.Headers.GetValues("sessionToken");
+            var token = Request.Headers.Authorization.Parameter;
             #endregion
 
             #region Validation Section
@@ -2491,7 +2912,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
             }
 
-            if (string.IsNullOrEmpty(token.First()))
+            if (string.IsNullOrEmpty(token))
             {
                 return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
             }
@@ -2507,7 +2928,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             Payment.PaymentAPI.Model.QrcodeGenerationRequest qrCodeRQ = new Payment.PaymentAPI.Model.QrcodeGenerationRequest();
             qrCodeRQ.Amount = 0;
-            qrCodeRQ.Clerk = "";
+            qrCodeRQ.UserId = 0;
             qrCodeRQ.Currency = merchant.Locations.FirstOrDefault().Address.Country.Currency.Code;
             qrCodeRQ.LocationId = Convert.ToInt64(merchant.Locations.FirstOrDefault().TransaxId);
             qrCodeRQ.OrderNumber = "";
@@ -2519,7 +2940,7 @@ namespace IMS.Service.WebAPI2.Controllers
 
             try
             {
-                var qrCode = new Payment.PaymentAPI.Api.QrcodesApi().QrcodeGeneration(token.First(), "0", qrCodeRQ, locale);
+                var qrCode = new Payment.PaymentAPI.Api.QrcodesApi().QrcodeGeneration(token, "0", qrCodeRQ, locale);
 
                 MemoryStream stream = new MemoryStream();
                 stream.Write(qrCode, 0, qrCode.Length);
@@ -2551,13 +2972,175 @@ namespace IMS.Service.WebAPI2.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("{merchantId:long}/qrCodeWithBase64")]
+        public async Task<IHttpActionResult> GenerateQRCodeWithBase64(long merchantId, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+
+            Common.Core.Data.Merchant merchant = null;
+            MerchantQRCodeRS merchantQRCode = new MerchantQRCodeRS();
+            var token = Request.Headers.Authorization.Parameter;
+            #endregion
+
+            #region Validation Section
+
+            if (!ModelState.IsValid)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+
+            if (merchant == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+
+            #endregion
+
+            Payment.PaymentAPI.Model.QrcodeGenerationRequest qrCodeRQ = new Payment.PaymentAPI.Model.QrcodeGenerationRequest();
+            qrCodeRQ.Amount = 0;
+            qrCodeRQ.UserId = 0;
+            qrCodeRQ.Currency = merchant.Locations.FirstOrDefault().Address.Country.Currency.Code;
+            qrCodeRQ.LocationId = Convert.ToInt64(merchant.Locations.FirstOrDefault().TransaxId);
+            qrCodeRQ.OrderNumber = "";
+            qrCodeRQ.PayWithPoints = merchant.Locations.FirstOrDefault().PayWithPoints.HasValue ? merchant.Locations.FirstOrDefault().PayWithPoints.Value : true;
+            qrCodeRQ.SupportTips = merchant.Locations.FirstOrDefault().EnableTips.HasValue ? merchant.Locations.FirstOrDefault().EnableTips.Value : true;
+            qrCodeRQ.QrcodeInformation = new Payment.PaymentAPI.Model.QrcodeInformation();
+            qrCodeRQ.QrcodeInformation.ImageSize = 256;
+            qrCodeRQ.QrcodeInformation.ImageFormat = "PNG";
+
+            try
+            {
+                var qrCode = new Payment.PaymentAPI.Api.QrcodesApi().QrcodeGeneration(token, "0", qrCodeRQ, locale);
+                merchantQRCode.type = "image/png";
+                merchantQRCode.imagebase64 = Convert.ToBase64String(qrCode);
+                return Content(HttpStatusCode.OK, merchantQRCode);
+            }
+            catch (Payment.PaymentAPI.Client.ApiException apiEx)
+            {
+                logger.ErrorFormat("QrcodeGeneration - ErrorCode {0}", apiEx.ErrorCode);
+                logger.ErrorFormat("QrcodeGeneration - ErrorContent {0}", apiEx.ErrorContent);
+                logger.ErrorFormat("QrcodeGeneration - Data {0}", apiEx.Data);
+                logger.ErrorFormat("QrcodeGeneration - Message {0}", apiEx.Message);
+                logger.ErrorFormat("QrcodeGeneration - InnerException {0}", apiEx.InnerException);
+                logger.ErrorFormat("QrcodeGeneration - StackTrace {0}", apiEx.StackTrace);
+                logger.ErrorFormat("QrcodeGeneration - TargetSite {0}", apiEx.TargetSite);
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToGenerateQrCode_", locale));
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("GetQRCode - MerchantId {0} Exception {1} InnerException {2}", merchantId, ex.ToString(), ex.InnerException.ToString());
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToGenerateQrCode_", locale));
+            }
+        }
         #endregion
 
         #region Invoice Section
 
+        [HttpPost]
+        [Route("{merchantId:long}/invoices")]
+        [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(MemberInvoicesRS))]
+        public async Task<IHttpActionResult> GetInvoices(long merchantId, [FromBody] invoiceRQ model, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+            var invoices = new MemberInvoicesRS();
+            invoices.invoiceTransaction = new List<MemberInvoiceTransactionRS>();
+            Common.Core.Data.Merchant merchant = null;
+
+            #endregion
+
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+            int start = model.start.HasValue ? model.start.Value : 0;
+            int length = model.length.HasValue ? model.length.Value : 1000;
+            merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+
+            if (merchant == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+            DateTime startDate = DateTime.MinValue;
+            DateTime endDate = DateTime.MaxValue;
+            if (model.year > 0 && model.month == 0)
+            {
+                startDate = Convert.ToDateTime(model.year.ToString() + "-" + "01" + "-01");
+                endDate = Convert.ToDateTime(model.year.ToString() + "-" + "12" + "-31");
+            }
+            else if (model.year > 0 && model.month > 0)
+            {
+                startDate = Convert.ToDateTime(model.year.ToString() + "-" + model.month.ToString() + "-01");
+                endDate = startDate.AddMonths(1).AddDays(-1);
+            }
+
+            #endregion
+
+            try
+            {
+                var transaction = (from ft in db.TrxFinancialTransactions
+                                   join nft in db.TrxNonFinancialTransactions on ft.legTransaction equals nft.Id
+                                   join l in db.Locations on nft.entityId equals l.TransaxId
+                                   join m in db.Merchants on l.MerchantId equals m.Id
+                                   join u in db.IMSUsers on ft.vendorId equals u.TransaxId
+                                   join cc in db.CreditCards on ft.creditCardId.Value.ToString() equals cc.TransaxId into ncc
+                                   from ccardInfo in ncc.DefaultIfEmpty()
+                                   where m.Id == merchantId
+                                   where ft.localDateTime.Value >= startDate && ft.localDateTime.Value <= endDate
+                                   select new MemberInvoiceTransactionRS
+                                   {
+                                       merchantName = m.Name,
+                                       merchantAddress = l.Address.StreetAddress,
+                                       merchantCity = l.Address.City,
+                                       merchantState = l.Address.State.Name,
+                                       merchantZip = l.Address.Zip,
+                                       merchantPhone = l.Telephone,
+                                       invoiceId = ft.Id,
+                                       orderNumber = nft.orderNumber,
+                                       transactionTypeId = ft.transactionTypeId.Value,
+                                       collaborator = ft.description,
+                                       date = ft.localDateTime ?? DateTime.Now,
+                                       amount = (ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0) - ft.tip ?? 0,
+                                       tip = ft.tip ?? 0,
+                                       total = (ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0),
+                                       reward = nft.pointsGained == null ? 0 : nft.pointsGained.Value,
+                                       pointUsed = nft.pointsExpended == null ? 0 : nft.pointsExpended.Value,
+                                       cardNumber = ccardInfo.CardNumber ?? string.Empty,
+                                       cardType = ccardInfo.CreditCardType.Description ?? string.Empty,
+                                       authorization = ft.merchantResponseMessage.Replace(" ", "").Replace("APPROVED", ""),
+                                       cardTransactionAmount = (ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0) - (nft.pointsExpended.HasValue ? nft.pointsExpended.Value / 100 : 0)
+                                   }).Distinct().OrderByDescending(a => a.date).AsQueryable();
+                invoices.totalCount = transaction.Count();
+                invoices.invoiceTransaction = transaction.Skip(start).Take(length).ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("GetInvoices - MerchantId {0}, Exception {1} InnerException {2}", merchantId, ex.ToString(), ex.InnerException.ToString());
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToGetInvoice_", locale));
+            }
+
+            if (invoices == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("InvoiceNotFound_", locale));
+            }
+
+            return Content(HttpStatusCode.OK, invoices);
+        }
+
         [HttpGet]
         [Route("{merchantId:long}/invoices/{invoiceId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(MemberInvoiceTransactionRS))]
         public async Task<IHttpActionResult> GetInvoice(long merchantId, long invoiceId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -2614,7 +3197,6 @@ namespace IMS.Service.WebAPI2.Controllers
                               orderNumber = nft.orderNumber,
                               transactionTypeId = ft.transactionTypeId.Value,
                               collaborator = ft.description,
-                              //collaborator = string.Concat(u.FirstName, " ", u.LastName),
                               date = ft.localDateTime ?? DateTime.Now,
                               amount = (ft.baseAmount ?? 0) + (ft.aditionalAmount ?? 0) - ft.tip ?? 0,
                               tip = ft.tip ?? 0,
@@ -2641,13 +3223,84 @@ namespace IMS.Service.WebAPI2.Controllers
             return Content(HttpStatusCode.OK, result);
         }
 
+        [HttpPost]
+        [Route("{merchantId:long}/subscriptionInvoices")]
+        [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(MerchantSubscriptionsRS))]
+        public async Task<IHttpActionResult> GetSubscriptionInvoices(long merchantId, [FromBody] invoiceRQ model, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+            var subscriptionInvoices = new MerchantSubscriptionsRS();
+            subscriptionInvoices.invoices = new List<MerchantSubscriptionsInvoiceRS>();
+            Common.Core.Data.Merchant merchant = null;
+
+            #endregion
+
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+            int start = model.start.HasValue ? model.start.Value : 0;
+            int length = model.length.HasValue ? model.length.Value : 1000;
+            merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+
+            if (merchant == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+            DateTime startDate = DateTime.MinValue;
+            DateTime endDate = DateTime.MaxValue;
+            if (model.year > 0 && model.month == 0)
+            {
+                startDate = Convert.ToDateTime(model.year.ToString() + "-" + "01" + "-01");
+                endDate = Convert.ToDateTime(model.year.ToString() + "-" + "12" + "-31");
+            }
+            else if (model.year > 0 && model.month > 0)
+            {
+                startDate = Convert.ToDateTime(model.year.ToString() + "-" + model.month.ToString() + "-01");
+                endDate = startDate.AddMonths(1).AddDays(-1);
+            }
+
+            #endregion
+
+            try
+            {
+                var subscription = db.Subscriptions.Include(x=>x.Merchant).Where(x=>x.MerchantId == merchantId && x.BillingStartDate !=null && (x.CreationDate >= startDate && x.CreationDate <= endDate))
+                    .Select(x=> new MerchantSubscriptionsInvoiceRS { 
+                    invoiceId = x.Id,
+                    date = x.BillingStartDate,
+                    amount = x.BillingAmount ?? 0,
+                    merchantId = x.MerchantId,
+                    merchantName = x.Merchant.Name})
+                    .Distinct().OrderByDescending(a => a.date).AsQueryable();
+
+                subscriptionInvoices.totalCount = subscription.Count();
+                subscriptionInvoices.invoices = subscription.Skip(start).Take(length).ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("GetInvoices - MerchantId {0}, Exception {1} InnerException {2}", merchantId, ex.ToString(), ex.InnerException.ToString());
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToGetInvoice_", locale));
+            }
+
+            if (subscriptionInvoices == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("InvoiceNotFound_", locale));
+            }
+
+            return Content(HttpStatusCode.OK, subscriptionInvoices);
+        }
+
         #endregion
 
         #region Reward Section
 
-        [HttpGet]
-        [Route("{merchantId:long}/rewards")]
+        [HttpPost]
+        [Route("{merchantId:long}/getRewards")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<getRewardRS>))]
         public async Task<IHttpActionResult> GetRewards(long merchantId, [FromBody] getRewardRQ model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -2692,6 +3345,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpPost]
         [Route("{merchantId:long}/rewards")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<addRewardRS>))]
         public async Task<IHttpActionResult> AddReward(long merchantId, [FromBody] List<addRewardRQ> model, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -2779,7 +3433,7 @@ namespace IMS.Service.WebAPI2.Controllers
                 promo_schedule.EndDate = Convert.ToDateTime(reward.rewardDate).AddDays(1);
                 promo_schedule.EndTime = new TimeSpan(Convert.ToInt32(ConfigurationManager.AppSettings["Promotion.End.Time"]), 0, 0);
 
-                promo_schedule.Value = reward.rewardPercentage >= 1 ? reward.rewardPercentage / 100 : reward.rewardPercentage;
+                promo_schedule.Value = (double)reward.rewardPercentage / 100;
                 promo_schedule.Promotion = promotion;
 
                 try
@@ -2939,6 +3593,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}/tags")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<MerchantTagRS>))]
         public async Task<IHttpActionResult> GetTags(long merchantId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -2980,6 +3635,7 @@ namespace IMS.Service.WebAPI2.Controllers
         [HttpGet]
         [Route("{merchantId:long}/tags/{taggingId:long}")]
         [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(MerchantTagRS))]
         public async Task<IHttpActionResult> GetTag(long merchantId, long taggingId, [fromHeader] string locale = "en")
         {
             #region Declaration Section
@@ -3182,6 +3838,424 @@ namespace IMS.Service.WebAPI2.Controllers
             }
 
             return Content(HttpStatusCode.OK, MessageService.GetMessage("ImageDeleted_", locale));
+        }
+
+        #endregion
+
+        #region Credit Card Section
+
+        [HttpPost]
+        [Route("{merchantId:long}/creditCards")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> AddCreditCard(long merchantId, [FromBody] CreditCardRQ model, [fromHeader] string locale = "en")
+        {
+            CreditCardDTO ccDTO = new CreditCardDTO();
+            CreditCard cc = new CreditCard();
+
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            Subscription subscription = await db.Subscriptions.Where(a => a.MerchantId == merchantId).FirstOrDefaultAsync();
+
+            if (subscription == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            IMS.Common.Core.Data.Member member = await db.Members.Where(a => a.Id == subscription.MemberId).FirstOrDefaultAsync();
+
+            if (member == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            List<CreditCard> ccards = await new CreditCardService().GetCreditCards(member.AspNetUser.Id);
+
+            if (ccards.Count > 0 && ccards.Where(a => a.CardNumber == model.cardNumber && a.IsActive == true).FirstOrDefault() != null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("CreditCardAlreadyExist_", locale));
+            }
+
+            #endregion
+
+            ccDTO = Mapper.Map<CreditCardDTO>(model);
+            ccDTO.UserId = member.AspNetUser.Id;
+            ccDTO.CreationDate = DateTime.Now;
+            ccDTO.IsActive = true;
+            ccDTO.TransaxId = member.TransaxId;
+
+            try
+            {
+                cc = await new CreditCardService().AddCreditCard(ccDTO);
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("MerchantController - AddCreditCard - MemberId {0} Exception {1} InnerException {2}", member.Id, ex, ex.InnerException);
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddCreditCard_", locale));
+            }
+
+            CreditCardRS creditCardRS = Mapper.Map<CreditCardRS>(cc);
+            creditCardRS.memberId = member.Id;
+
+            return Content(HttpStatusCode.OK, creditCardRS);
+        }
+
+        [HttpGet]
+        [Route("{merchantId:long}/creditCards")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> GetCreditCards(long merchantId, [fromHeader] string locale = "en")
+        {
+            List<CreditCardRS> CreditCards = null;
+
+            #region Validation Section
+
+            Subscription subscription = await db.Subscriptions.Where(a => a.MerchantId == merchantId).FirstOrDefaultAsync();
+
+            if (subscription == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            IMS.Common.Core.Data.Member member = await db.Members.FirstOrDefaultAsync(x => x.Id == subscription.MemberId);
+
+            if (member == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            #endregion
+
+            List<CreditCard> ccards = await db.CreditCards.Where(a => a.AspNetUser.Members.FirstOrDefault().Id == member.Id && a.IsActive == true).ToListAsync();
+
+            if (ccards == null)
+            {
+                return Content(HttpStatusCode.OK, CreditCards);
+            }
+
+            CreditCards = Mapper.Map<List<CreditCardRS>>(ccards);
+            return Content(HttpStatusCode.OK, CreditCards);
+        }
+
+        [HttpGet]
+        [Route("{merchantId:long}/creditCards/{creditCardId:long}")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> GetCreditCard(long merchantId, long creditCardId, [fromHeader] string locale = "en")
+        {
+            CreditCardRS CreditCard = null;
+
+            #region Validation Section
+
+            Subscription subscription = await db.Subscriptions.FirstOrDefaultAsync(a => a.MerchantId == merchantId);
+
+            if (subscription == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            IMS.Common.Core.Data.Member member = await db.Members.FirstOrDefaultAsync(x => x.Id == subscription.MemberId);
+
+            if (member == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            #endregion
+
+            CreditCard ccard = await db.CreditCards.Where(a => a.AspNetUser.Members.FirstOrDefault().Id == member.Id && a.Id == creditCardId && a.IsActive == true).FirstOrDefaultAsync();
+
+            if (ccard == null)
+            {
+                return Content(HttpStatusCode.OK, CreditCard);
+            }
+
+            CreditCard = Mapper.Map<CreditCardRS>(ccard);
+            return Content(HttpStatusCode.OK, CreditCard);
+        }
+
+        [HttpPut]
+        [Route("{merchantId:long}/creditCards/{creditCardId:long}")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> UpdateCreditCard(long merchantId, long creditCardId, [FromBody] UpdateCreditCardRQ model, [fromHeader] string locale = "en")
+        {
+            #region Validation Section
+
+            if (!ModelState.IsValid || model == null)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            Subscription subscription = await db.Subscriptions.FirstOrDefaultAsync(a => a.MerchantId == merchantId);
+
+            if (subscription == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("MemberNotFound_", locale));
+            }
+
+            CreditCard ccard = await db.CreditCards.FirstOrDefaultAsync(x => x.Id == creditCardId && x.AspNetUser.Members.FirstOrDefault().Id == subscription.MemberId && x.IsActive == true);
+
+            if (ccard == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("CreditCardNotFound_", locale));
+            }
+
+            #endregion
+
+            ccard.CardHolder = model.cardholderName;
+            ccard.ExpiryDate = model.expiryDate;
+
+            CreditCardDTO ccDTO = Mapper.Map<CreditCard, CreditCardDTO>(ccard);
+
+            ccDTO.IsActive = true;
+
+            try
+            {
+                Boolean result = await new CreditCardService().UpdateCreditCard(ccDTO);
+
+                if (result == false)
+                {
+                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateCreditCard_", locale));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToUpdateCreditCard_", locale));
+            }
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("CreditCardUpdated_", locale));
+        }
+
+        [HttpDelete]
+        [Route("{merchantId:long}/creditCards/{creditCardId:long}")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> DeleteCreditCard(long merchantId, long creditCardId, [fromHeader] string locale = "en")
+        {
+            #region Validation Section
+
+            Subscription subscription = await db.Subscriptions.FirstOrDefaultAsync(a => a.MerchantId == merchantId);
+
+            CreditCard creditCard = await db.CreditCards.FirstOrDefaultAsync(a => a.Id == creditCardId && a.AspNetUser.Members.FirstOrDefault().Id == subscription.MemberId && a.IsActive == true);
+
+            if (creditCard == null)
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("CreditCardNotFound_", locale));
+
+            #endregion
+
+            try
+            {
+                Boolean result = await new CreditCardService().DeleteCreditCard(creditCard.UserId, creditCard.Id);
+
+                if (result == false)
+                {
+                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToDeleteCreditCard_", locale));
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("MerchantController - DeleteCreditCard - MemberId {0} CardId {1} Exception {2} InnerException {3}", creditCard.AspNetUser.Members.FirstOrDefault().Id, creditCard.Id, ex.ToString(), ex.InnerException.ToString());
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToDeleteCreditCard_", locale));
+            }
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("CreditCardDeleted_", locale));
+        }
+
+        [HttpPost]
+        [Route("{merchantId:long}/creditCards/{creditCardId:long}/replaceCreditCard")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> ReplaceCreditCard(long merchantId, long oldCreditCardId, [FromBody] CreditCardRQ newCreditCard, [fromHeader] string locale = "en")
+        {
+            #region Validation Section
+
+            if (!ModelState.IsValid)
+            {
+                return Content(HttpStatusCode.BadRequest, MessageService.GetMessage("MissingParameter_", locale));
+            }
+
+            CreditCard oldCreditCard = await db.CreditCards.FirstOrDefaultAsync(a => a.Id == oldCreditCardId);
+
+            if (oldCreditCard == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("CreditCardNotFound_", locale));
+            }
+
+            Subscription subscription = await db.Subscriptions.FirstOrDefaultAsync(a => a.MerchantId == merchantId);
+
+            if (oldCreditCard.AspNetUser.Members == null || subscription.MemberId != oldCreditCard.AspNetUser.Members.FirstOrDefault().Id)
+            {
+                return Content(HttpStatusCode.Forbidden, MessageService.GetMessage("UnableToDeleteCreditCard_", locale));
+            }
+
+            IMS.Common.Core.Data.Member member = subscription.Member;
+
+            #endregion
+
+            #region Add Credit Card Region
+
+            CreditCardDTO ccDTO = new CreditCardDTO();
+            CreditCard cc = new CreditCard();
+
+            ccDTO = Mapper.Map<CreditCardDTO>(newCreditCard);
+            ccDTO.UserId = member.AspNetUser.Id;
+            ccDTO.CreationDate = DateTime.Now;
+            ccDTO.IsActive = true;
+
+            try
+            {
+                cc = await new CreditCardService().AddCreditCard(ccDTO);
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("MerchantController - AddCreditCard - MemberId {0} Exception {1} InnerException {2}", member.Id, ex, ex.InnerException);
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToAddCreditCard_", locale));
+            }
+
+            #endregion
+
+            #region Delete Credit Card Region
+
+            try
+            {
+                Boolean result = await new CreditCardService().DeleteCreditCard(oldCreditCard.UserId, oldCreditCard.Id);
+
+                if (result == false)
+                {
+                    return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToDeleteCreditCard_", locale));
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("MerchantController - DeleteCreditCard - MemberId {0} CardId {1} Exception {2} InnerException {3}", oldCreditCard.AspNetUser.Members.FirstOrDefault().Id, oldCreditCard.Id, ex.ToString(), ex.InnerException.ToString());
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToDeleteCreditCard_", locale));
+            }
+
+            #endregion
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("CreditCardUpdated_", locale));
+        }
+
+        #endregion
+
+        #region Admin Section
+
+        [HttpPut]
+        [Route("{merchantId:long}/approveMerchantOnboarding")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> ApproveMerchantOnboarding(long merchantId, [fromHeader] string locale = "en")
+        {
+            try
+            {
+                await UpdateMerchantOnboardingStatus(merchantId, MerchantStatus.ACTIVE.ToString());
+            }
+            catch(Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToApproveMerchant_", locale));
+            }
+
+            //TODO send communication
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("SuccessfullyUpdated_", locale));
+        }
+
+        [HttpPut]
+        [Route("{merchantId:long}/refuseMerchantOnboarding")]
+        [JwtAuthentication]
+        public async Task<IHttpActionResult> RefuseMerchantOnboarding(long merchantId, [fromHeader] string locale = "en")
+        {
+            try
+            {
+                await UpdateMerchantOnboardingStatus(merchantId, MerchantStatus.INACTIVE.ToString());
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToRefuseMerchant_", locale));
+            }
+
+            //TODO send communication
+
+            return Content(HttpStatusCode.OK, MessageService.GetMessage("SuccessfullyUpdated_", locale));
+        }
+
+
+        #endregion
+
+
+        #region Private Methods
+
+        private async Task<bool> UpdateMerchantOnboardingStatus(long merchantId, string status, string locale = "en")
+        {
+            Enterprise enterprise = await new EnterpriseManager().GetTrendigoEnterprise();
+
+            #region Validation Section
+
+            IMS.Common.Core.Data.Merchant merchant = await db.Merchants.Where(a => a.Id == merchantId).FirstOrDefaultAsync();
+
+            if (merchant == null)
+            {
+                throw new Exception(MessageService.GetMessage("MerchantNotFound_", locale));
+            }
+
+            #endregion
+
+            merchant.Status = status;
+            merchant.ModificationDate = DateTime.Now;
+
+            if (status == MerchantStatus.ACTIVE.ToString() && merchant.Subscriptions != null && merchant.Subscriptions.FirstOrDefault(a => a.Status == SubscriptionStatusEnum.PENDING.ToString()) != null)
+            {
+                merchant.Subscriptions.FirstOrDefault(a => a.Status == SubscriptionStatusEnum.PENDING.ToString()).BillingStartDate = (DateTime.Now.Day == 29 || DateTime.Now.Day == 30 || DateTime.Now.Day == 31) ? new DateTime(DateTime.Now.AddMonths(1).Year, DateTime.Now.AddMonths(1).Month, 1) : DateTime.Now.AddDays(1);
+                merchant.Subscriptions.FirstOrDefault(a => a.Status == SubscriptionStatusEnum.PENDING.ToString()).ModificationDate = DateTime.Now;
+                merchant.Subscriptions.FirstOrDefault(a => a.Status == SubscriptionStatusEnum.PENDING.ToString()).Status = SubscriptionStatusEnum.ACTIVE.ToString();
+            }
+
+            try
+            {
+                var command = DataCommandFactory.UpdateMerchantCommand(merchant, enterprise.TransaxId, db);
+
+                var result = await command.Execute();
+
+                if (result != DataCommandResult.Success)
+                {
+                    throw new Exception(MessageService.GetMessage("UnableToUpdateMerchant_", locale));
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(string.Format("MerchantController - UpdateMerchantOnboardingStatus - MerchantId {0} Exception {1} InnerException {2}", merchantId, ex.ToString(), ex.InnerException.ToString()));
+            }
+
+            return true;
+
+        }
+
+        private IHttpActionResult GetErrorResult(IdentityResult result)
+        {
+            if (result == null)
+            {
+                return InternalServerError();
+            }
+
+            if (!result.Succeeded)
+            {
+                if (result.Errors != null)
+                {
+                    foreach (string error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
+                }
+
+                if (ModelState.IsValid)
+                {
+                    // Aucune erreur ModelState à envoyer, simple retour d'un BadRequest vide.
+                    return BadRequest();
+                }
+
+                return BadRequest(ModelState);
+            }
+
+            return null;
         }
 
         #endregion

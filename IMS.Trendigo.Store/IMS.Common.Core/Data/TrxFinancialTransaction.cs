@@ -52,6 +52,10 @@ namespace IMS.Common.Core.Data
         public string TerminalId { get; set; }
         public string idRelatedTransaction { get; set; }
         public Nullable<long> creditCardId { get; set; }
+        public Nullable<int> processorId { get; set; }
+        public string acquirerMerchantId { get; set; }
+        public string acquirerTerminalId { get; set; }
+        public Nullable<System.DateTime> creationDate { get; set; }
     
         public virtual Acquirer Acquirer { get; set; }
         public virtual GlobalResponseCode GlobalResponseCode { get; set; }

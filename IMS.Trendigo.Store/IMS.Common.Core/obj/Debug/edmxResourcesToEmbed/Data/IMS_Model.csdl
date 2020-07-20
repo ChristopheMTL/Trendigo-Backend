@@ -64,31 +64,12 @@
     <NavigationProperty Name="Country" Relationship="Self.FK_BankInfos_Countries" FromRole="BankInfos" ToRole="Countries" />
     <NavigationProperty Name="Currency" Relationship="Self.FK_BankInfos_Currencies" FromRole="BankInfos" ToRole="Currencies" />
   </EntityType>
-  <EntityType Name="CardPointHistory">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IMSCardId" Type="Int64" Nullable="false" />
-    <Property Name="Points" Type="Int32" Nullable="false" />
-    <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="TransaxId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="IsDeleted" Type="Boolean" />
-    <Property Name="PromoCodeId" Type="Int64" />
-    <NavigationProperty Name="IMSCard" Relationship="Self.FK_CardPointHistories_IMSCards" FromRole="CardPointHistories" ToRole="IMSCards" />
-    <NavigationProperty Name="PromoCode" Relationship="Self.FK_CardPointHistories_PromoCodes" FromRole="CardPointHistories" ToRole="PromoCodes" />
-    <NavigationProperty Name="MemberPromoCodeHistories" Relationship="Self.FK_MemberPromoCodeHistories_CardPointHistories" FromRole="CardPointHistories" ToRole="MemberPromoCodeHistories" />
-    <NavigationProperty Name="IMSUser" Relationship="TRENDIGO_OKIOKModel.FK_CardPointHistories_IMSUsers1" FromRole="CardPointHistory" ToRole="IMSUser" />
-  </EntityType>
   <EntityType Name="CardStatus">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="IMSCards" Relationship="TRENDIGO_OKIOKModel.FK_Card_Card_Status" FromRole="CardStatus" ToRole="IMSCard" />
   </EntityType>
   <EntityType Name="CardType">
     <Key>
@@ -99,9 +80,8 @@
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Programs" Relationship="Self.FK_Programs_CardTypes" FromRole="CardTypes" ToRole="Programs" />
-    <NavigationProperty Name="Programs1" Relationship="Self.ProgramCardTypes" FromRole="CardTypes" ToRole="Programs" />
-    <NavigationProperty Name="IMSCards" Relationship="TRENDIGO_OKIOKModel.FK_Card_CardTypeID" FromRole="CardType" ToRole="IMSCard" />
+    <NavigationProperty Name="Programs" Relationship="TRENDIGO_OKIOKModel.FK_Programs_CardTypes" FromRole="CardType" ToRole="Program" />
+    <NavigationProperty Name="Programs1" Relationship="TRENDIGO_OKIOKModel.ProgramCardTypes" FromRole="CardType" ToRole="Program" />
   </EntityType>
   <EntityType Name="City">
     <Key>
@@ -228,14 +208,6 @@
     <Property Name="updated_at" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Country" Relationship="Self.FK_CountriesTranslation_Countries" FromRole="country_translations" ToRole="Countries" />
   </EntityType>
-  <EntityType Name="CreditCardType">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="CreditCards" Relationship="TRENDIGO_OKIOKModel.FK_CreditCards_CreditCardTypes" FromRole="CreditCardType" ToRole="CreditCard" />
-  </EntityType>
   <EntityType Name="Currency">
     <Key>
       <PropertyRef Name="Id" />
@@ -258,6 +230,8 @@
     <NavigationProperty Name="CurrencyRates" Relationship="TRENDIGO_OKIOKModel.FK_CurrencyRates_Currencies" FromRole="Currency" ToRole="CurrencyRate" />
     <NavigationProperty Name="CurrencyRates1" Relationship="TRENDIGO_OKIOKModel.FK_CurrencyRates_Currencies1" FromRole="Currency" ToRole="CurrencyRate" />
     <NavigationProperty Name="IMS_Header" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_Currencies" FromRole="Currency" ToRole="IMS_Header" />
+    <NavigationProperty Name="MerchantTransactions" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Currencies" FromRole="Currency" ToRole="MerchantTransaction" />
+    <NavigationProperty Name="ProgramTypeFees" Relationship="TRENDIGO_OKIOKModel.FK_ProgramTypeFees_Currencies" FromRole="Currency" ToRole="ProgramTypeFee" />
   </EntityType>
   <EntityType Name="DeviceRequestStatu">
     <Key>
@@ -371,14 +345,11 @@
     <NavigationProperty Name="OutsideChannels" Relationship="Self.FK_OutsideChannels_Enterprises" FromRole="Enterprises" ToRole="OutsideChannels" />
     <NavigationProperty Name="Packages" Relationship="Self.FK_Packages_Enterprises" FromRole="Enterprises" ToRole="Packages" />
     <NavigationProperty Name="PackageTypes" Relationship="Self.FK_PackageTypes_Enterprises" FromRole="Enterprises" ToRole="PackageTypes" />
-    <NavigationProperty Name="Programs" Relationship="Self.FK_Program_Enterprise" FromRole="Enterprises" ToRole="Programs" />
     <NavigationProperty Name="Subscribers" Relationship="Self.FK_Subscribers_Enterprises" FromRole="Enterprises" ToRole="Subscribers" />
-    <NavigationProperty Name="Programs1" Relationship="Self.EnterprisePrograms" FromRole="Enterprises" ToRole="Programs" />
     <NavigationProperty Name="EnterpriseStateTaxNumbers" Relationship="TRENDIGO_OKIOKModel.FK_EnterpriseStateTaxNumbers_Enterprises" FromRole="Enterprise" ToRole="EnterpriseStateTaxNumber" />
     <NavigationProperty Name="GiftCardTransactionHeaders" Relationship="TRENDIGO_OKIOKModel.FK_GiftCardTransactionHeaders_Enterprises" FromRole="Enterprise" ToRole="GiftCardTransactionHeader" />
     <NavigationProperty Name="Languages" Relationship="TRENDIGO_OKIOKModel.EnterpriseLanguages" FromRole="Enterprise" ToRole="Language" />
     <NavigationProperty Name="Telephones" Relationship="TRENDIGO_OKIOKModel.EnterpriseTelephones" FromRole="Enterprise" ToRole="Telephone" />
-    <NavigationProperty Name="IMSCards" Relationship="TRENDIGO_OKIOKModel.FK_IMSCards_Enterprises" FromRole="Enterprise" ToRole="IMSCard" />
     <NavigationProperty Name="IMS_Header" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_Enterprises" FromRole="Enterprise" ToRole="IMS_Header" />
     <Property Name="ActiveCampaignEnable" Type="Boolean" />
     <Property Name="ActiveCampaignAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
@@ -389,6 +360,9 @@
     <NavigationProperty Name="Members" Relationship="TRENDIGO_OKIOKModel.FK_Member_Enterprise" FromRole="Enterprise" ToRole="Member" />
     <NavigationProperty Name="Merchants" Relationship="TRENDIGO_OKIOKModel.EnterpriseMerchants" FromRole="Enterprise" ToRole="Merchant" />
     <NavigationProperty Name="BankingInfo" Relationship="TRENDIGO_OKIOKModel.FK_Enterprises_BankingInfos" FromRole="Enterprise" ToRole="BankingInfo" />
+    <NavigationProperty Name="EnterpriseCommissionFees" Relationship="TRENDIGO_OKIOKModel.FK_EnterpriseCommissionFees_Enterprises" FromRole="Enterprise" ToRole="EnterpriseCommissionFee" />
+    <NavigationProperty Name="Programs" Relationship="TRENDIGO_OKIOKModel.FK_Program_Enterprise" FromRole="Enterprise" ToRole="Program" />
+    <NavigationProperty Name="Programs1" Relationship="TRENDIGO_OKIOKModel.EnterprisePrograms" FromRole="Enterprise" ToRole="Program" />
   </EntityType>
   <EntityType Name="EntityType">
     <Key>
@@ -431,22 +405,6 @@
     <Property Name="created_at" Type="DateTime" Precision="3" />
     <Property Name="updated_at" Type="DateTime" Precision="3" />
   </EntityType>
-  <EntityType Name="IMS_Detail">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="HeaderId" Type="Int64" Nullable="false" />
-    <Property Name="LineItemId" Type="Int32" Nullable="false" />
-    <Property Name="TransactionId" Type="Int64" Nullable="false" />
-    <Property Name="TransactionTypeId" Type="Int32" Nullable="false" />
-    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="IMS_LineItem" Relationship="Self.FK_IMS_Detail_IMS_LineItem" FromRole="IMS_Detail" ToRole="IMS_LineItem" />
-    <NavigationProperty Name="TransactionType" Relationship="Self.FK_IMS_Detail_TransactionTypes" FromRole="IMS_Detail" ToRole="TransactionTypes" />
-    <NavigationProperty Name="IMS_Header" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_Header" FromRole="IMS_Detail" ToRole="IMS_Header" />
-  </EntityType>
   <EntityType Name="IMS_LineItem">
     <Key>
       <PropertyRef Name="Id" />
@@ -459,44 +417,8 @@
     <Property Name="ModificationOfficer" Type="Int64" />
     <Property Name="ShowInBackOffice" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_IMS_LineItem" FromRole="IMS_LineItem" ToRole="Contracts" />
-    <NavigationProperty Name="IMS_Detail" Relationship="Self.FK_IMS_Detail_IMS_LineItem" FromRole="IMS_LineItem" ToRole="IMS_Detail" />
     <NavigationProperty Name="GiftCardTransactionDetails" Relationship="TRENDIGO_OKIOKModel.FK_GiftCardTransactionDetails_IMS_LineItem" FromRole="IMS_LineItem" ToRole="GiftCardTransactionDetail" />
-  </EntityType>
-  <EntityType Name="IMSCard">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CardNumber" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CardTypeId" Type="Int32" Nullable="false" />
-    <Property Name="LanguageId" Type="Int32" Nullable="false" />
-    <Property Name="CardDesignSpecification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MemberId" Type="Int64" />
-    <Property Name="CardStatusId" Type="Int32" Nullable="false" />
-    <Property Name="ActivationNumber" Type="Guid" Nullable="false" />
-    <Property Name="TransaxId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="EnterpriseID" Type="Int64" Nullable="false" />
-    <Property Name="ProgramID" Type="Int64" Nullable="false" />
-    <Property Name="PrefixPoints" Type="Int32" />
-    <Property Name="BalancePoints" Type="Int32" />
-    <Property Name="AssignDate" Type="DateTime" Precision="3" />
-    <Property Name="ShippingDate" Type="DateTime" Precision="3" />
-    <Property Name="ActivationDate" Type="DateTime" Precision="3" />
-    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
-    <Property Name="RenewalNotificationDate" Type="DateTime" Precision="3" />
-    <Property Name="NoShipping" Type="Boolean" Nullable="false" />
-    <Property Name="IsVirtual" Type="Boolean" Nullable="false" />
-    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="CardPointHistories" Relationship="Self.FK_CardPointHistories_IMSCards" FromRole="IMSCards" ToRole="CardPointHistories" />
-    <NavigationProperty Name="MemberPromoCodeHistories" Relationship="Self.FK_MemberPromoCodeHistories_IMSCards" FromRole="IMSCards" ToRole="MemberPromoCodeHistories" />
-    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_IMSCard_Program" FromRole="IMSCard" ToRole="Program" />
-    <NavigationProperty Name="CardStatus" Relationship="TRENDIGO_OKIOKModel.FK_Card_Card_Status" FromRole="IMSCard" ToRole="CardStatus" />
-    <NavigationProperty Name="Enterprise" Relationship="TRENDIGO_OKIOKModel.FK_IMSCards_Enterprises" FromRole="IMSCard" ToRole="Enterprise" />
-    <NavigationProperty Name="CardType" Relationship="TRENDIGO_OKIOKModel.FK_Card_CardTypeID" FromRole="IMSCard" ToRole="CardType" />
-    <NavigationProperty Name="Language" Relationship="TRENDIGO_OKIOKModel.FK_IMSCards_Languages" FromRole="IMSCard" ToRole="Language" />
-    <NavigationProperty Name="DeviceRequests" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequest_IMSCards" FromRole="IMSCard" ToRole="DeviceRequest" />
-    <NavigationProperty Name="DeviceRequests1" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequests_IMSCards" FromRole="IMSCard" ToRole="DeviceRequest" />
+    <NavigationProperty Name="IMS_Detail" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_LineItem" FromRole="IMS_LineItem" ToRole="IMS_Detail" />
   </EntityType>
   <EntityType Name="IMSEnterpriseParameter">
     <Key>
@@ -541,11 +463,11 @@
     <Property Name="RenewalNotificationDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollments_IMSMemberships" FromRole="IMSMemberships" ToRole="Enrollments" />
     <NavigationProperty Name="Enrollments1" Relationship="Self.FK_Enrollments_IMSMemberships1" FromRole="IMSMemberships" ToRole="Enrollments" />
-    <NavigationProperty Name="Program" Relationship="Self.FK_IMSMembership_Program" FromRole="IMSMemberships" ToRole="Programs" />
     <NavigationProperty Name="PromoCode" Relationship="Self.FK_IMSMemberships_PromoCodes" FromRole="IMSMemberships" ToRole="PromoCodes" />
     <NavigationProperty Name="MembershipTransactionDetails" Relationship="Self.FK_MembershipTransactionDetails_IMSMemberships" FromRole="IMSMemberships" ToRole="MembershipTransactionDetails" />
     <NavigationProperty Name="DeviceRequests" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequest_IMSMemberships" FromRole="IMSMembership" ToRole="DeviceRequest" />
     <NavigationProperty Name="Member" Relationship="TRENDIGO_OKIOKModel.FK_Membership_Member" FromRole="IMSMembership" ToRole="Member" />
+    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_IMSMembership_Program" FromRole="IMSMembership" ToRole="Program" />
   </EntityType>
   <EntityType Name="IMSPointTracker">
     <Key>
@@ -601,7 +523,6 @@
     <NavigationProperty Name="Enterprise" Relationship="Self.FK_IMSUsers_Enterprises" FromRole="IMSUsers" ToRole="Enterprises" />
     <NavigationProperty Name="SalesReps" Relationship="Self.FK_IMSUser_Merchants_IMSUsers" FromRole="IMSUsers" ToRole="SalesRep" />
     <NavigationProperty Name="OutsideChannels" Relationship="Self.FK_OutsideChannels_IMSUsers" FromRole="IMSUsers" ToRole="OutsideChannels" />
-    <NavigationProperty Name="CardPointHistories" Relationship="TRENDIGO_OKIOKModel.FK_CardPointHistories_IMSUsers1" FromRole="IMSUser" ToRole="CardPointHistory" />
     <NavigationProperty Name="Language" Relationship="TRENDIGO_OKIOKModel.FK_IMSUsers_Languages" FromRole="IMSUser" ToRole="Language" />
     <NavigationProperty Name="AspNetUser" Relationship="TRENDIGO_OKIOKModel.FK_IMS_User_AspNetUsers" FromRole="IMSUser" ToRole="AspNetUser" />
     <Property Name="AvatarLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -638,7 +559,6 @@
     <NavigationProperty Name="SectionTranslations" Relationship="TRENDIGO_OKIOKModel.FK_SectionTranslations_Languages" FromRole="Language" ToRole="SectionTranslation" />
     <NavigationProperty Name="Enterprises" Relationship="TRENDIGO_OKIOKModel.EnterpriseLanguages" FromRole="Language" ToRole="Enterprise" />
     <NavigationProperty Name="IMSUsers" Relationship="TRENDIGO_OKIOKModel.FK_IMSUsers_Languages" FromRole="Language" ToRole="IMSUser" />
-    <NavigationProperty Name="IMSCards" Relationship="TRENDIGO_OKIOKModel.FK_IMSCards_Languages" FromRole="Language" ToRole="IMSCard" />
     <NavigationProperty Name="BadgeTranslations" Relationship="TRENDIGO_OKIOKModel.FK_BadgeTranslations_Languages" FromRole="Language" ToRole="BadgeTranslation" />
     <NavigationProperty Name="Members" Relationship="TRENDIGO_OKIOKModel.FK_Members_Languages" FromRole="Language" ToRole="Member" />
     <NavigationProperty Name="PromotionCalendarTranslations" Relationship="TRENDIGO_OKIOKModel.FK_PromotionCalendarTranslations_Languages" FromRole="Language" ToRole="PromotionCalendarTranslation" />
@@ -657,17 +577,6 @@
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Terminal" Relationship="Self.FK_Merchant_Terminal_Terminal" FromRole="Location_Terminals" ToRole="Terminals" />
     <NavigationProperty Name="Location" Relationship="TRENDIGO_OKIOKModel.FK_Merchant_Terminals_Locations" FromRole="Location_Terminals" ToRole="Location" />
-  </EntityType>
-  <EntityType Name="LocationBusinessHour">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LocationId" Type="Int64" Nullable="false" />
-    <Property Name="DayOfWeekID" Type="Int32" Nullable="false" />
-    <Property Name="OpeningHour" Type="Time" Nullable="false" Precision="0" />
-    <Property Name="ClosingHour" Type="Time" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Location" Relationship="TRENDIGO_OKIOKModel.FK_LocationBusinessHours_Locations" FromRole="LocationBusinessHour" ToRole="Location" />
   </EntityType>
   <EntityType Name="LocationMemberDistance">
     <Key>
@@ -704,10 +613,9 @@
     <Property Name="CardId" Type="Int64" Nullable="false" />
     <Property Name="CardPointHistoryId" Type="Int64" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="CardPointHistory" Relationship="Self.FK_MemberPromoCodeHistories_CardPointHistories" FromRole="MemberPromoCodeHistories" ToRole="CardPointHistories" />
-    <NavigationProperty Name="IMSCard" Relationship="Self.FK_MemberPromoCodeHistories_IMSCards" FromRole="MemberPromoCodeHistories" ToRole="IMSCards" />
     <NavigationProperty Name="PromoCode" Relationship="Self.FK_MemberPromoCodeHistories_PromoCodes" FromRole="MemberPromoCodeHistories" ToRole="PromoCodes" />
     <NavigationProperty Name="Member" Relationship="TRENDIGO_OKIOKModel.FK_MemberPromoCodeHistories_Members" FromRole="MemberPromoCodeHistory" ToRole="Member" />
+    <NavigationProperty Name="CardPointHistory" Relationship="TRENDIGO_OKIOKModel.FK_MemberPromoCodeHistories_CardPointHistories" FromRole="MemberPromoCodeHistory" ToRole="CardPointHistory" />
   </EntityType>
   <EntityType Name="MembershipTransactionDetail">
     <Key>
@@ -885,8 +793,8 @@
     <NavigationProperty Name="MembershipTransactionHeaders" Relationship="Self.FK_MembershipTransactionHeaders_OutsideChannels" FromRole="OutsideChannels" ToRole="MembershipTransactionHeaders" />
     <NavigationProperty Name="OutsideChannelStyles" Relationship="Self.FK_OutsideChannelStyles_OutsideChannels" FromRole="OutsideChannels" ToRole="OutsideChannelStyles" />
     <NavigationProperty Name="PromoCodes" Relationship="Self.FK_PromoCode_OutsideChannel" FromRole="OutsideChannels" ToRole="PromoCodes" />
-    <NavigationProperty Name="Programs" Relationship="Self.OutsideChannelPrograms" FromRole="OutsideChannels" ToRole="Programs" />
     <NavigationProperty Name="IMS_Header" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_OutsideChannels" FromRole="OutsideChannel" ToRole="IMS_Header" />
+    <NavigationProperty Name="Programs" Relationship="TRENDIGO_OKIOKModel.OutsideChannelPrograms" FromRole="OutsideChannel" ToRole="Program" />
   </EntityType>
   <EntityType Name="OutsideChannelStyle">
     <Key>
@@ -1021,7 +929,7 @@
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="created_at" Type="DateTime" Precision="3" />
     <Property Name="updated_at" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Program" Relationship="Self.FK_program_translations_Programs" FromRole="program_translations" ToRole="Programs" />
+    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_program_translations_Programs" FromRole="program_translations" ToRole="Program" />
   </EntityType>
   <EntityType Name="ProgramFeature">
     <Key>
@@ -1038,7 +946,7 @@
     <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Language" Relationship="Self.FK_ProgramFeatures_Languages" FromRole="ProgramFeatures" ToRole="Languages" />
     <NavigationProperty Name="program_feature_translations" Relationship="Self.FK_program_feature_translations_ProgramFeatures" FromRole="ProgramFeatures" ToRole="program_feature_translations" />
-    <NavigationProperty Name="Program" Relationship="Self.FK_ProgramFeatures_Programs" FromRole="ProgramFeatures" ToRole="Programs" />
+    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_ProgramFeatures_Programs" FromRole="ProgramFeature" ToRole="Program" />
   </EntityType>
   <EntityType Name="ProgramFee">
     <Key>
@@ -1051,40 +959,7 @@
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="Currency" Relationship="Self.FK_ProgramFees_Currencies" FromRole="ProgramFees" ToRole="Currencies" />
-    <NavigationProperty Name="Program" Relationship="Self.FK_ProgramFees_Program" FromRole="ProgramFees" ToRole="Programs" />
-  </EntityType>
-  <EntityType Name="Program">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="EnterpriseId" Type="Int64" Nullable="false" />
-    <Property Name="TransaxId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ShortDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="FidelityRewardPercent" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
-    <Property Name="LoyaltyCostUsingPoints" Type="Int32" Nullable="false" />
-    <Property Name="LoyaltyValueGainingPoints" Type="Int32" Nullable="false" />
-    <Property Name="WithoutPromoAllowed" Type="Boolean" Nullable="false" />
-    <Property Name="ExpirationInMonth" Type="Int32" Nullable="false" />
-    <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CardTypeId" Type="Int32" />
-    <Property Name="ProgramTypeId" Type="Int32" />
-    <NavigationProperty Name="CardType" Relationship="Self.FK_Programs_CardTypes" FromRole="Programs" ToRole="CardTypes" />
-    <NavigationProperty Name="Enterprise" Relationship="Self.FK_Program_Enterprise" FromRole="Programs" ToRole="Enterprises" />
-    <NavigationProperty Name="IMSMemberships" Relationship="Self.FK_IMSMembership_Program" FromRole="Programs" ToRole="IMSMemberships" />
-    <NavigationProperty Name="program_translations" Relationship="Self.FK_program_translations_Programs" FromRole="Programs" ToRole="program_translations" />
-    <NavigationProperty Name="ProgramFeatures" Relationship="Self.FK_ProgramFeatures_Programs" FromRole="Programs" ToRole="ProgramFeatures" />
-    <NavigationProperty Name="ProgramFees" Relationship="Self.FK_ProgramFees_Program" FromRole="Programs" ToRole="ProgramFees" />
-    <NavigationProperty Name="ProgramType" Relationship="Self.FK_Programs_ProgramTypes" FromRole="Programs" ToRole="ProgramTypes" />
-    <NavigationProperty Name="PromoCodes" Relationship="Self.FK_PromoCode_Program" FromRole="Programs" ToRole="PromoCodes" />
-    <NavigationProperty Name="Enterprises" Relationship="Self.EnterprisePrograms" FromRole="Programs" ToRole="Enterprises" />
-    <NavigationProperty Name="OutsideChannels" Relationship="Self.OutsideChannelPrograms" FromRole="Programs" ToRole="OutsideChannels" />
-    <NavigationProperty Name="CardTypes" Relationship="Self.ProgramCardTypes" FromRole="Programs" ToRole="CardTypes" />
-    <NavigationProperty Name="IMSCards" Relationship="TRENDIGO_OKIOKModel.FK_IMSCard_Program" FromRole="Program" ToRole="IMSCard" />
-    <NavigationProperty Name="Promotions" Relationship="TRENDIGO_OKIOKModel.PromotionPrograms" FromRole="Program" ToRole="Promotion" />
-    <NavigationProperty Name="Merchants" Relationship="TRENDIGO_OKIOKModel.FK_Merchants_Programs" FromRole="Program" ToRole="Merchant" />
+    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_ProgramFees_Program" FromRole="ProgramFee" ToRole="Program" />
   </EntityType>
   <EntityType Name="ProgramType">
     <Key>
@@ -1092,7 +967,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Programs" Relationship="Self.FK_Programs_ProgramTypes" FromRole="ProgramTypes" ToRole="Programs" />
+    <NavigationProperty Name="Programs" Relationship="TRENDIGO_OKIOKModel.FK_Programs_ProgramTypes" FromRole="ProgramType" ToRole="Program" />
+    <NavigationProperty Name="ProgramTypeFees" Relationship="TRENDIGO_OKIOKModel.FK_ProgramTypeFees_ProgramTypes" FromRole="ProgramType" ToRole="ProgramTypeFee" />
   </EntityType>
   <EntityType Name="PromoCode">
     <Key>
@@ -1114,14 +990,14 @@
     <Property Name="NewMemberOnly" Type="Boolean" Nullable="false" />
     <Property Name="FromGiftCard" Type="Boolean" />
     <Property Name="ForNewsletter" Type="Boolean" />
-    <NavigationProperty Name="CardPointHistories" Relationship="Self.FK_CardPointHistories_PromoCodes" FromRole="PromoCodes" ToRole="CardPointHistories" />
     <NavigationProperty Name="IMSMemberships" Relationship="Self.FK_IMSMemberships_PromoCodes" FromRole="PromoCodes" ToRole="IMSMemberships" />
     <NavigationProperty Name="MemberPromoCodeHistories" Relationship="Self.FK_MemberPromoCodeHistories_PromoCodes" FromRole="PromoCodes" ToRole="MemberPromoCodeHistories" />
     <NavigationProperty Name="OutsideChannel" Relationship="Self.FK_PromoCode_OutsideChannel" FromRole="PromoCodes" ToRole="OutsideChannels" />
-    <NavigationProperty Name="Program" Relationship="Self.FK_PromoCode_Program" FromRole="PromoCodes" ToRole="Programs" />
     <NavigationProperty Name="Subscribers" Relationship="Self.FK_Subscribers_PromoCodes" FromRole="PromoCodes" ToRole="Subscribers" />
     <NavigationProperty Name="GiftCardPurchases" Relationship="TRENDIGO_OKIOKModel.FK_GiftCardPurchases_PromoCodes" FromRole="PromoCode" ToRole="GiftCardPurchas" />
     <NavigationProperty Name="LocationPromoCodes" Relationship="TRENDIGO_OKIOKModel.FK_LocationPromoCodes_PromoCodes" FromRole="PromoCode" ToRole="LocationPromoCode" />
+    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_PromoCode_Program" FromRole="PromoCode" ToRole="Program" />
+    <NavigationProperty Name="CardPointHistories" Relationship="TRENDIGO_OKIOKModel.FK_CardPointHistories_PromoCodes" FromRole="PromoCode" ToRole="CardPointHistory" />
   </EntityType>
   <EntityType Name="promotion_translations">
     <Key>
@@ -1136,14 +1012,6 @@
     <Property Name="updated_at" Type="DateTime" Precision="3" />
     <Property Name="promotion_id" Type="Int64" Nullable="false" />
     <NavigationProperty Name="Promotion" Relationship="TRENDIGO_OKIOKModel.FK_promotion_translations_promotion" FromRole="promotion_translations" ToRole="Promotion" />
-  </EntityType>
-  <EntityType Name="PromotionType">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Promotions" Relationship="TRENDIGO_OKIOKModel.FK_Promotion_PromotionType" FromRole="PromotionType" ToRole="Promotion" />
   </EntityType>
   <EntityType Name="ReferralCampaign">
     <Key>
@@ -1364,14 +1232,6 @@
     <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_TimeZones" FromRole="TimeZones" ToRole="Cities" />
     <NavigationProperty Name="Locations" Relationship="TRENDIGO_OKIOKModel.FK_Locations_TimeZones" FromRole="TimeZone" ToRole="Location" />
   </EntityType>
-  <EntityType Name="TransactionType">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="IMS_Detail" Relationship="Self.FK_IMS_Detail_TransactionTypes" FromRole="TransactionTypes" ToRole="IMS_Detail" />
-  </EntityType>
   <EntityType Name="UserDevis">
     <Key>
       <PropertyRef Name="id" />
@@ -1469,54 +1329,6 @@
       </Principal>
       <Dependent Role="BankInfos">
         <PropertyRef Name="CurrencyId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CardPointHistories_IMSCards">
-    <End Role="IMSCards" Type="Self.IMSCard" Multiplicity="1" />
-    <End Role="CardPointHistories" Type="Self.CardPointHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="IMSCards">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CardPointHistories">
-        <PropertyRef Name="IMSCardId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CardPointHistories_PromoCodes">
-    <End Role="PromoCodes" Type="Self.PromoCode" Multiplicity="0..1" />
-    <End Role="CardPointHistories" Type="Self.CardPointHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PromoCodes">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CardPointHistories">
-        <PropertyRef Name="PromoCodeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MemberPromoCodeHistories_CardPointHistories">
-    <End Role="CardPointHistories" Type="Self.CardPointHistory" Multiplicity="1" />
-    <End Role="MemberPromoCodeHistories" Type="Self.MemberPromoCodeHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CardPointHistories">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MemberPromoCodeHistories">
-        <PropertyRef Name="CardPointHistoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Programs_CardTypes">
-    <End Role="CardTypes" Type="Self.CardType" Multiplicity="0..1" />
-    <End Role="Programs" Type="Self.Program" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CardTypes">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Programs">
-        <PropertyRef Name="CardTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1892,18 +1704,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Program_Enterprise">
-    <End Role="Enterprises" Type="Self.Enterprise" Multiplicity="1" />
-    <End Role="Programs" Type="Self.Program" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Enterprises">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Programs">
-        <PropertyRef Name="EnterpriseId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Subscribers_Enterprises">
     <End Role="Enterprises" Type="Self.Enterprise" Multiplicity="1" />
     <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="*" />
@@ -1952,42 +1752,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_IMS_Detail_IMS_LineItem">
-    <End Role="IMS_LineItem" Type="Self.IMS_LineItem" Multiplicity="1" />
-    <End Role="IMS_Detail" Type="Self.IMS_Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="IMS_LineItem">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMS_Detail">
-        <PropertyRef Name="LineItemId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_IMS_Detail_TransactionTypes">
-    <End Role="TransactionTypes" Type="Self.TransactionType" Multiplicity="1" />
-    <End Role="IMS_Detail" Type="Self.IMS_Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TransactionTypes">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMS_Detail">
-        <PropertyRef Name="TransactionTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MemberPromoCodeHistories_IMSCards">
-    <End Role="IMSCards" Type="Self.IMSCard" Multiplicity="1" />
-    <End Role="MemberPromoCodeHistories" Type="Self.MemberPromoCodeHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="IMSCards">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MemberPromoCodeHistories">
-        <PropertyRef Name="CardId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_EnterpriseTerminals_IMSEnterpriseParameters">
     <End Role="IMSEnterpriseParameters" Type="Self.IMSEnterpriseParameter" Multiplicity="1" />
     <End Role="IMSEnterpriseParameterTerminals" Type="Self.IMSEnterpriseParameterTerminal" Multiplicity="*" />
@@ -1997,18 +1761,6 @@
       </Principal>
       <Dependent Role="IMSEnterpriseParameterTerminals">
         <PropertyRef Name="IMSEnterpriseParameterId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_IMSMembership_Program">
-    <End Role="Programs" Type="Self.Program" Multiplicity="1" />
-    <End Role="IMSMemberships" Type="Self.IMSMembership" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programs">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMSMemberships">
-        <PropertyRef Name="ProgramID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2288,66 +2040,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_program_translations_Programs">
-    <End Role="Programs" Type="Self.Program" Multiplicity="1" />
-    <End Role="program_translations" Type="Self.program_translations" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programs">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="program_translations">
-        <PropertyRef Name="program_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProgramFeatures_Programs">
-    <End Role="Programs" Type="Self.Program" Multiplicity="1" />
-    <End Role="ProgramFeatures" Type="Self.ProgramFeature" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programs">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ProgramFeatures">
-        <PropertyRef Name="ProgramId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ProgramFees_Program">
-    <End Role="Programs" Type="Self.Program" Multiplicity="1" />
-    <End Role="ProgramFees" Type="Self.ProgramFee" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programs">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ProgramFees">
-        <PropertyRef Name="ProgramId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Programs_ProgramTypes">
-    <End Role="ProgramTypes" Type="Self.ProgramType" Multiplicity="0..1" />
-    <End Role="Programs" Type="Self.Program" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ProgramTypes">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Programs">
-        <PropertyRef Name="ProgramTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PromoCode_Program">
-    <End Role="Programs" Type="Self.Program" Multiplicity="1" />
-    <End Role="PromoCodes" Type="Self.PromoCode" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Programs">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PromoCodes">
-        <PropertyRef Name="ProgramId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Subscribers_PromoCodes">
     <End Role="PromoCodes" Type="Self.PromoCode" Multiplicity="0..1" />
     <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="*" />
@@ -2444,25 +2136,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="EnterprisePrograms">
-    <End Role="Enterprises" Type="Self.Enterprise" Multiplicity="*" />
-    <End Role="Programs" Type="Self.Program" Multiplicity="*" />
-  </Association>
-  <Association Name="OutsideChannelPrograms">
-    <End Role="OutsideChannels" Type="Self.OutsideChannel" Multiplicity="*" />
-    <End Role="Programs" Type="Self.Program" Multiplicity="*" />
-  </Association>
-  <Association Name="ProgramCardTypes">
-    <End Role="CardTypes" Type="Self.CardType" Multiplicity="*" />
-    <End Role="Programs" Type="Self.Program" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="IMS_StoreEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Addresses" EntityType="Self.Address" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
     <EntitySet Name="BankInfos" EntityType="Self.BankInfo" />
-    <EntitySet Name="CardPointHistories" EntityType="Self.CardPointHistory" />
     <EntitySet Name="CardStatuses" EntityType="Self.CardStatus" />
     <EntitySet Name="CardTypes" EntityType="Self.CardType" />
     <EntitySet Name="Cities" EntityType="Self.City" />
@@ -2473,7 +2152,6 @@
     <EntitySet Name="Contracts" EntityType="Self.Contract" />
     <EntitySet Name="Countries" EntityType="Self.Country" />
     <EntitySet Name="country_translations" EntityType="Self.country_translations" />
-    <EntitySet Name="CreditCardTypes" EntityType="Self.CreditCardType" />
     <EntitySet Name="Currencies" EntityType="Self.Currency" />
     <EntitySet Name="DeviceRequestStatus" EntityType="Self.DeviceRequestStatu" />
     <EntitySet Name="DeviceRequestStatus_translations" EntityType="Self.DeviceRequestStatus_translations" />
@@ -2488,9 +2166,7 @@
     <EntitySet Name="EvaluationCategories" EntityType="Self.EvaluationCategory" />
     <EntitySet Name="EvaluationCategory_translations" EntityType="Self.EvaluationCategory_translations" />
     <EntitySet Name="Identities" EntityType="Self.Identity" />
-    <EntitySet Name="IMS_Detail" EntityType="Self.IMS_Detail" />
     <EntitySet Name="IMS_LineItem" EntityType="Self.IMS_LineItem" />
-    <EntitySet Name="IMSCards" EntityType="Self.IMSCard" />
     <EntitySet Name="IMSEnterpriseParameters" EntityType="Self.IMSEnterpriseParameter" />
     <EntitySet Name="IMSEnterpriseParameterTerminals" EntityType="Self.IMSEnterpriseParameterTerminal" />
     <EntitySet Name="IMSMemberships" EntityType="Self.IMSMembership" />
@@ -2501,7 +2177,6 @@
     <EntitySet Name="language_translations" EntityType="Self.language_translations" />
     <EntitySet Name="Languages" EntityType="Self.Language" />
     <EntitySet Name="Location_Terminals" EntityType="Self.Location_Terminals" />
-    <EntitySet Name="LocationBusinessHours" EntityType="Self.LocationBusinessHour" />
     <EntitySet Name="LocationMemberDistances" EntityType="Self.LocationMemberDistance" />
     <EntitySet Name="LocationTaxes" EntityType="Self.LocationTax" />
     <EntitySet Name="MemberPromoCodeHistories" EntityType="Self.MemberPromoCodeHistory" />
@@ -2530,11 +2205,9 @@
     <EntitySet Name="program_translations" EntityType="Self.program_translations" />
     <EntitySet Name="ProgramFeatures" EntityType="Self.ProgramFeature" />
     <EntitySet Name="ProgramFees" EntityType="Self.ProgramFee" />
-    <EntitySet Name="Programs" EntityType="Self.Program" />
     <EntitySet Name="ProgramTypes" EntityType="Self.ProgramType" />
     <EntitySet Name="PromoCodes" EntityType="Self.PromoCode" />
     <EntitySet Name="promotion_translations" EntityType="Self.promotion_translations" />
-    <EntitySet Name="PromotionTypes" EntityType="Self.PromotionType" />
     <EntitySet Name="ReferralCampaigns" EntityType="Self.ReferralCampaign" />
     <EntitySet Name="Referrals" EntityType="Self.Referral" />
     <EntitySet Name="SalesReps" EntityType="Self.SalesRep" />
@@ -2549,7 +2222,6 @@
     <EntitySet Name="TelephoneTypes" EntityType="Self.TelephoneType" />
     <EntitySet Name="Terminals" EntityType="Self.Terminal" />
     <EntitySet Name="TimeZones" EntityType="Self.TimeZone" />
-    <EntitySet Name="TransactionTypes" EntityType="Self.TransactionType" />
     <EntitySet Name="UserDevises" EntityType="Self.UserDevis" />
     <EntitySet Name="Subscribers" EntityType="Self.Subscriber" />
     <AssociationSet Name="FK_Address_Country" Association="Self.FK_Address_Country">
@@ -2571,22 +2243,6 @@
     <AssociationSet Name="FK_BankInfos_Currencies" Association="Self.FK_BankInfos_Currencies">
       <End Role="Currencies" EntitySet="Currencies" />
       <End Role="BankInfos" EntitySet="BankInfos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CardPointHistories_IMSCards" Association="Self.FK_CardPointHistories_IMSCards">
-      <End Role="IMSCards" EntitySet="IMSCards" />
-      <End Role="CardPointHistories" EntitySet="CardPointHistories" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CardPointHistories_PromoCodes" Association="Self.FK_CardPointHistories_PromoCodes">
-      <End Role="PromoCodes" EntitySet="PromoCodes" />
-      <End Role="CardPointHistories" EntitySet="CardPointHistories" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MemberPromoCodeHistories_CardPointHistories" Association="Self.FK_MemberPromoCodeHistories_CardPointHistories">
-      <End Role="CardPointHistories" EntitySet="CardPointHistories" />
-      <End Role="MemberPromoCodeHistories" EntitySet="MemberPromoCodeHistories" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Programs_CardTypes" Association="Self.FK_Programs_CardTypes">
-      <End Role="CardTypes" EntitySet="CardTypes" />
-      <End Role="Programs" EntitySet="Programs" />
     </AssociationSet>
     <AssociationSet Name="FK_Cities_TimeZones" Association="Self.FK_Cities_TimeZones">
       <End Role="TimeZones" EntitySet="TimeZones" />
@@ -2712,10 +2368,6 @@
       <End Role="Enterprises" EntitySet="Enterprises" />
       <End Role="PackageTypes" EntitySet="PackageTypes" />
     </AssociationSet>
-    <AssociationSet Name="FK_Program_Enterprise" Association="Self.FK_Program_Enterprise">
-      <End Role="Enterprises" EntitySet="Enterprises" />
-      <End Role="Programs" EntitySet="Programs" />
-    </AssociationSet>
     <AssociationSet Name="FK_Subscribers_Enterprises" Association="Self.FK_Subscribers_Enterprises">
       <End Role="Enterprises" EntitySet="Enterprises" />
       <End Role="Subscribers" EntitySet="Subscribers" />
@@ -2732,25 +2384,9 @@
       <End Role="Languages" EntitySet="Languages" />
       <End Role="EvaluationCategory_translations" EntitySet="EvaluationCategory_translations" />
     </AssociationSet>
-    <AssociationSet Name="FK_IMS_Detail_IMS_LineItem" Association="Self.FK_IMS_Detail_IMS_LineItem">
-      <End Role="IMS_LineItem" EntitySet="IMS_LineItem" />
-      <End Role="IMS_Detail" EntitySet="IMS_Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_IMS_Detail_TransactionTypes" Association="Self.FK_IMS_Detail_TransactionTypes">
-      <End Role="TransactionTypes" EntitySet="TransactionTypes" />
-      <End Role="IMS_Detail" EntitySet="IMS_Detail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MemberPromoCodeHistories_IMSCards" Association="Self.FK_MemberPromoCodeHistories_IMSCards">
-      <End Role="IMSCards" EntitySet="IMSCards" />
-      <End Role="MemberPromoCodeHistories" EntitySet="MemberPromoCodeHistories" />
-    </AssociationSet>
     <AssociationSet Name="FK_EnterpriseTerminals_IMSEnterpriseParameters" Association="Self.FK_EnterpriseTerminals_IMSEnterpriseParameters">
       <End Role="IMSEnterpriseParameters" EntitySet="IMSEnterpriseParameters" />
       <End Role="IMSEnterpriseParameterTerminals" EntitySet="IMSEnterpriseParameterTerminals" />
-    </AssociationSet>
-    <AssociationSet Name="FK_IMSMembership_Program" Association="Self.FK_IMSMembership_Program">
-      <End Role="Programs" EntitySet="Programs" />
-      <End Role="IMSMemberships" EntitySet="IMSMemberships" />
     </AssociationSet>
     <AssociationSet Name="FK_IMSMemberships_PromoCodes" Association="Self.FK_IMSMemberships_PromoCodes">
       <End Role="PromoCodes" EntitySet="PromoCodes" />
@@ -2844,26 +2480,6 @@
       <End Role="ProgramFeatures" EntitySet="ProgramFeatures" />
       <End Role="program_feature_translations" EntitySet="program_feature_translations" />
     </AssociationSet>
-    <AssociationSet Name="FK_program_translations_Programs" Association="Self.FK_program_translations_Programs">
-      <End Role="Programs" EntitySet="Programs" />
-      <End Role="program_translations" EntitySet="program_translations" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProgramFeatures_Programs" Association="Self.FK_ProgramFeatures_Programs">
-      <End Role="Programs" EntitySet="Programs" />
-      <End Role="ProgramFeatures" EntitySet="ProgramFeatures" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ProgramFees_Program" Association="Self.FK_ProgramFees_Program">
-      <End Role="Programs" EntitySet="Programs" />
-      <End Role="ProgramFees" EntitySet="ProgramFees" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Programs_ProgramTypes" Association="Self.FK_Programs_ProgramTypes">
-      <End Role="ProgramTypes" EntitySet="ProgramTypes" />
-      <End Role="Programs" EntitySet="Programs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PromoCode_Program" Association="Self.FK_PromoCode_Program">
-      <End Role="Programs" EntitySet="Programs" />
-      <End Role="PromoCodes" EntitySet="PromoCodes" />
-    </AssociationSet>
     <AssociationSet Name="FK_Subscribers_PromoCodes" Association="Self.FK_Subscribers_PromoCodes">
       <End Role="PromoCodes" EntitySet="PromoCodes" />
       <End Role="Subscribers" EntitySet="Subscribers" />
@@ -2895,18 +2511,6 @@
     <AssociationSet Name="FK_Telephone_TelephoneType" Association="Self.FK_Telephone_TelephoneType">
       <End Role="TelephoneTypes" EntitySet="TelephoneTypes" />
       <End Role="Telephones" EntitySet="Telephones" />
-    </AssociationSet>
-    <AssociationSet Name="EnterprisePrograms" Association="Self.EnterprisePrograms">
-      <End Role="Enterprises" EntitySet="Enterprises" />
-      <End Role="Programs" EntitySet="Programs" />
-    </AssociationSet>
-    <AssociationSet Name="OutsideChannelPrograms" Association="Self.OutsideChannelPrograms">
-      <End Role="OutsideChannels" EntitySet="OutsideChannels" />
-      <End Role="Programs" EntitySet="Programs" />
-    </AssociationSet>
-    <AssociationSet Name="ProgramCardTypes" Association="Self.ProgramCardTypes">
-      <End Role="CardTypes" EntitySet="CardTypes" />
-      <End Role="Programs" EntitySet="Programs" />
     </AssociationSet>
     <EntitySet Name="Campaigns" EntityType="TRENDIGO_OKIOKModel.Campaign" />
     <EntitySet Name="CampaignTypes" EntityType="TRENDIGO_OKIOKModel.CampaignType" />
@@ -3008,46 +2612,22 @@
       <End Role="Template" EntitySet="Templates" />
       <End Role="TemplateSection" EntitySet="TemplateSections" />
     </AssociationSet>
-    <AssociationSet Name="FK_IMSCard_Program" Association="TRENDIGO_OKIOKModel.FK_IMSCard_Program">
-      <End Role="Program" EntitySet="Programs" />
-      <End Role="IMSCard" EntitySet="IMSCards" />
-    </AssociationSet>
     <AssociationSet Name="EnterpriseLanguages" Association="TRENDIGO_OKIOKModel.EnterpriseLanguages">
       <End Role="Enterprise" EntitySet="Enterprises" />
       <End Role="Language" EntitySet="Languages" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CardPointHistories_IMSUsers1" Association="TRENDIGO_OKIOKModel.FK_CardPointHistories_IMSUsers1">
-      <End Role="IMSUser" EntitySet="IMSUsers" />
-      <End Role="CardPointHistory" EntitySet="CardPointHistories" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Card_Card_Status" Association="TRENDIGO_OKIOKModel.FK_Card_Card_Status">
-      <End Role="CardStatus" EntitySet="CardStatuses" />
-      <End Role="IMSCard" EntitySet="IMSCards" />
     </AssociationSet>
     <AssociationSet Name="EnterpriseTelephones" Association="TRENDIGO_OKIOKModel.EnterpriseTelephones">
       <End Role="Enterprise" EntitySet="Enterprises" />
       <End Role="Telephone" EntitySet="Telephones" />
     </AssociationSet>
-    <AssociationSet Name="FK_IMSCards_Enterprises" Association="TRENDIGO_OKIOKModel.FK_IMSCards_Enterprises">
-      <End Role="Enterprise" EntitySet="Enterprises" />
-      <End Role="IMSCard" EntitySet="IMSCards" />
-    </AssociationSet>
     <AssociationSet Name="CampaignNewsletters" Association="TRENDIGO_OKIOKModel.CampaignNewsletters">
       <End Role="Campaign" EntitySet="Campaigns" />
       <End Role="Newsletter" EntitySet="Newsletters" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Card_CardTypeID" Association="TRENDIGO_OKIOKModel.FK_Card_CardTypeID">
-      <End Role="CardType" EntitySet="CardTypes" />
-      <End Role="IMSCard" EntitySet="IMSCards" />
     </AssociationSet>
     <EntitySet Name="DirectDepositLogs" EntityType="TRENDIGO_OKIOKModel.DirectDepositLog" />
     <AssociationSet Name="FK_IMSUsers_Languages" Association="TRENDIGO_OKIOKModel.FK_IMSUsers_Languages">
       <End Role="Language" EntitySet="Languages" />
       <End Role="IMSUser" EntitySet="IMSUsers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_IMSCards_Languages" Association="TRENDIGO_OKIOKModel.FK_IMSCards_Languages">
-      <End Role="Language" EntitySet="Languages" />
-      <End Role="IMSCard" EntitySet="IMSCards" />
     </AssociationSet>
     <EntitySet Name="CurrencyRates" EntityType="TRENDIGO_OKIOKModel.CurrencyRate" />
     <AssociationSet Name="FK_CurrencyRates_Currencies" Association="TRENDIGO_OKIOKModel.FK_CurrencyRates_Currencies">
@@ -3067,16 +2647,8 @@
       <End Role="DeviceType" EntitySet="DeviceTypes" />
       <End Role="DeviceRequest" EntitySet="DeviceRequests" />
     </AssociationSet>
-    <AssociationSet Name="FK_DeviceRequest_IMSCards" Association="TRENDIGO_OKIOKModel.FK_DeviceRequest_IMSCards">
-      <End Role="IMSCard" EntitySet="IMSCards" />
-      <End Role="DeviceRequest" EntitySet="DeviceRequests" />
-    </AssociationSet>
     <AssociationSet Name="FK_DeviceRequest_IMSMemberships" Association="TRENDIGO_OKIOKModel.FK_DeviceRequest_IMSMemberships">
       <End Role="IMSMembership" EntitySet="IMSMemberships" />
-      <End Role="DeviceRequest" EntitySet="DeviceRequests" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DeviceRequests_IMSCards" Association="TRENDIGO_OKIOKModel.FK_DeviceRequests_IMSCards">
-      <End Role="IMSCard" EntitySet="IMSCards" />
       <End Role="DeviceRequest" EntitySet="DeviceRequests" />
     </AssociationSet>
     <EntitySet Name="BatchCloseLogs" EntityType="TRENDIGO_OKIOKModel.BatchCloseLog" />
@@ -3094,10 +2666,6 @@
       <End Role="Enterprise" EntitySet="Enterprises" />
       <End Role="IMS_Header" EntitySet="IMS_Header" />
     </AssociationSet>
-    <AssociationSet Name="FK_IMS_Detail_IMS_Header" Association="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_Header">
-      <End Role="IMS_Header" EntitySet="IMS_Header" />
-      <End Role="IMS_Detail" EntitySet="IMS_Detail" />
-    </AssociationSet>
     <AssociationSet Name="FK_IMS_Header_OutsideChannels" Association="TRENDIGO_OKIOKModel.FK_IMS_Header_OutsideChannels">
       <End Role="OutsideChannel" EntitySet="OutsideChannels" />
       <End Role="IMS_Header" EntitySet="IMS_Header" />
@@ -3111,7 +2679,6 @@
       <End Role="IMS_Header" EntitySet="IMS_Header" />
     </AssociationSet>
     <EntitySet Name="TrxFinancialTransactions" EntityType="TRENDIGO_OKIOKModel.TrxFinancialTransaction" />
-    <EntitySet Name="TrxNonFinancialTransactions" EntityType="TRENDIGO_OKIOKModel.TrxNonFinancialTransaction" />
     <AssociationSet Name="FK_TrxFinancialTransactions_Acquirers" Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_Acquirers">
       <End Role="Acquirer" EntitySet="Acquirers" />
       <End Role="TrxFinancialTransaction" EntitySet="TrxFinancialTransactions" />
@@ -3127,11 +2694,6 @@
     <AssociationSet Name="FK_TrxFinancialTransactions_IMSTransferStatus" Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_IMSTransferStatus">
       <End Role="IMSTransferStatu" EntitySet="IMSTransferStatus" />
       <End Role="TrxFinancialTransaction" EntitySet="TrxFinancialTransactions" />
-    </AssociationSet>
-    <EntitySet Name="CreditCards" EntityType="TRENDIGO_OKIOKModel.CreditCard" />
-    <AssociationSet Name="FK_CreditCards_CreditCardTypes" Association="TRENDIGO_OKIOKModel.FK_CreditCards_CreditCardTypes">
-      <End Role="CreditCardType" EntitySet="CreditCardTypes" />
-      <End Role="CreditCard" EntitySet="CreditCards" />
     </AssociationSet>
     <EntitySet Name="BadgeCategories" EntityType="TRENDIGO_OKIOKModel.BadgeCategory" />
     <EntitySet Name="Badges" EntityType="TRENDIGO_OKIOKModel.Badge" />
@@ -3221,10 +2783,6 @@
       <End Role="PromotionCalendarTranslation" EntitySet="PromotionCalendarTranslations" />
     </AssociationSet>
     <EntitySet Name="Members" EntityType="TRENDIGO_OKIOKModel.Member" />
-    <AssociationSet Name="FK_MemberEWallet_Member" Association="TRENDIGO_OKIOKModel.FK_MemberEWallet_Member">
-      <End Role="Member" EntitySet="Members" />
-      <End Role="CreditCard" EntitySet="CreditCards" />
-    </AssociationSet>
     <AssociationSet Name="FK_DeviceRequest_Members" Association="TRENDIGO_OKIOKModel.FK_DeviceRequest_Members">
       <End Role="Member" EntitySet="Members" />
       <End Role="DeviceRequest" EntitySet="DeviceRequests" />
@@ -3338,10 +2896,6 @@
       <End Role="Location" EntitySet="Locations" />
       <End Role="Location_Terminals" EntitySet="Location_Terminals" />
     </AssociationSet>
-    <AssociationSet Name="FK_LocationBusinessHours_Locations" Association="TRENDIGO_OKIOKModel.FK_LocationBusinessHours_Locations">
-      <End Role="Location" EntitySet="Locations" />
-      <End Role="LocationBusinessHour" EntitySet="LocationBusinessHours" />
-    </AssociationSet>
     <AssociationSet Name="FK_LocationHolidays_Locations" Association="TRENDIGO_OKIOKModel.FK_LocationHolidays_Locations">
       <End Role="Location" EntitySet="Locations" />
       <End Role="LocationHoliday" EntitySet="LocationHolidays" />
@@ -3378,10 +2932,6 @@
       <End Role="IMSUser" EntitySet="IMSUsers" />
       <End Role="Location" EntitySet="Locations" />
     </AssociationSet>
-    <AssociationSet Name="FK_TrxFinancialTransactions_CreditCards" Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_CreditCards">
-      <End Role="CreditCard" EntitySet="CreditCards" />
-      <End Role="TrxFinancialTransaction" EntitySet="TrxFinancialTransactions" />
-    </AssociationSet>
     <EntitySet Name="Promotions" EntityType="TRENDIGO_OKIOKModel.Promotion" />
     <AssociationSet Name="FK_Promotions_Packages" Association="TRENDIGO_OKIOKModel.FK_Promotions_Packages">
       <End Role="Package" EntitySet="Packages" />
@@ -3391,16 +2941,8 @@
       <End Role="Promotion" EntitySet="Promotions" />
       <End Role="promotion_translations" EntitySet="promotion_translations" />
     </AssociationSet>
-    <AssociationSet Name="FK_Promotion_PromotionType" Association="TRENDIGO_OKIOKModel.FK_Promotion_PromotionType">
-      <End Role="PromotionType" EntitySet="PromotionTypes" />
-      <End Role="Promotion" EntitySet="Promotions" />
-    </AssociationSet>
     <AssociationSet Name="PromotionLocations" Association="TRENDIGO_OKIOKModel.PromotionLocations">
       <End Role="Location" EntitySet="Locations" />
-      <End Role="Promotion" EntitySet="Promotions" />
-    </AssociationSet>
-    <AssociationSet Name="PromotionPrograms" Association="TRENDIGO_OKIOKModel.PromotionPrograms">
-      <End Role="Program" EntitySet="Programs" />
       <End Role="Promotion" EntitySet="Promotions" />
     </AssociationSet>
     <EntitySet Name="Promotion_Schedules" EntityType="TRENDIGO_OKIOKModel.Promotion_Schedules" />
@@ -3459,10 +3001,6 @@
       <End Role="PricingCategory" EntitySet="PricingCategories" />
       <End Role="Merchant" EntitySet="Merchants" />
     </AssociationSet>
-    <AssociationSet Name="FK_Merchants_Programs" Association="TRENDIGO_OKIOKModel.FK_Merchants_Programs">
-      <End Role="Program" EntitySet="Programs" />
-      <End Role="Merchant" EntitySet="Merchants" />
-    </AssociationSet>
     <AssociationSet Name="FK_MerchantTags_Merchants" Association="TRENDIGO_OKIOKModel.FK_MerchantTags_Merchants">
       <End Role="Merchant" EntitySet="Merchants" />
       <End Role="MerchantTag" EntitySet="MerchantTags" />
@@ -3499,6 +3037,175 @@
     <AssociationSet Name="FK_Merchants_BankingInfos" Association="TRENDIGO_OKIOKModel.FK_Merchants_BankingInfos">
       <End Role="BankingInfo" EntitySet="BankingInfos" />
       <End Role="Merchant" EntitySet="Merchants" />
+    </AssociationSet>
+    <EntitySet Name="TrxNonFinancialTransactions" EntityType="TRENDIGO_OKIOKModel.TrxNonFinancialTransaction" />
+    <EntitySet Name="EnterpriseCommissionFees" EntityType="TRENDIGO_OKIOKModel.EnterpriseCommissionFee" />
+    <AssociationSet Name="FK_EnterpriseCommissionFees_Enterprises" Association="TRENDIGO_OKIOKModel.FK_EnterpriseCommissionFees_Enterprises">
+      <End Role="Enterprise" EntitySet="Enterprises" />
+      <End Role="EnterpriseCommissionFee" EntitySet="EnterpriseCommissionFees" />
+    </AssociationSet>
+    <EntitySet Name="Programs" EntityType="TRENDIGO_OKIOKModel.Program" />
+    <AssociationSet Name="FK_Programs_CardTypes" Association="TRENDIGO_OKIOKModel.FK_Programs_CardTypes">
+      <End Role="CardType" EntitySet="CardTypes" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Program_Enterprise" Association="TRENDIGO_OKIOKModel.FK_Program_Enterprise">
+      <End Role="Enterprise" EntitySet="Enterprises" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IMSMembership_Program" Association="TRENDIGO_OKIOKModel.FK_IMSMembership_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="IMSMembership" EntitySet="IMSMemberships" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Merchants_Programs" Association="TRENDIGO_OKIOKModel.FK_Merchants_Programs">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="Merchant" EntitySet="Merchants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_program_translations_Programs" Association="TRENDIGO_OKIOKModel.FK_program_translations_Programs">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="program_translations" EntitySet="program_translations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramFeatures_Programs" Association="TRENDIGO_OKIOKModel.FK_ProgramFeatures_Programs">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="ProgramFeature" EntitySet="ProgramFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramFees_Program" Association="TRENDIGO_OKIOKModel.FK_ProgramFees_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="ProgramFee" EntitySet="ProgramFees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Programs_ProgramTypes" Association="TRENDIGO_OKIOKModel.FK_Programs_ProgramTypes">
+      <End Role="ProgramType" EntitySet="ProgramTypes" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PromoCode_Program" Association="TRENDIGO_OKIOKModel.FK_PromoCode_Program">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="PromoCode" EntitySet="PromoCodes" />
+    </AssociationSet>
+    <AssociationSet Name="EnterprisePrograms" Association="TRENDIGO_OKIOKModel.EnterprisePrograms">
+      <End Role="Enterprise" EntitySet="Enterprises" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="OutsideChannelPrograms" Association="TRENDIGO_OKIOKModel.OutsideChannelPrograms">
+      <End Role="OutsideChannel" EntitySet="OutsideChannels" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="ProgramCardTypes" Association="TRENDIGO_OKIOKModel.ProgramCardTypes">
+      <End Role="CardType" EntitySet="CardTypes" />
+      <End Role="Program" EntitySet="Programs" />
+    </AssociationSet>
+    <AssociationSet Name="PromotionPrograms" Association="TRENDIGO_OKIOKModel.PromotionPrograms">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="Promotion" EntitySet="Promotions" />
+    </AssociationSet>
+    <EntitySet Name="CardPointHistories" EntityType="TRENDIGO_OKIOKModel.CardPointHistory" />
+    <AssociationSet Name="FK_CardPointHistories_Members" Association="TRENDIGO_OKIOKModel.FK_CardPointHistories_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="CardPointHistory" EntitySet="CardPointHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CardPointHistories_PromoCodes" Association="TRENDIGO_OKIOKModel.FK_CardPointHistories_PromoCodes">
+      <End Role="PromoCode" EntitySet="PromoCodes" />
+      <End Role="CardPointHistory" EntitySet="CardPointHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberPromoCodeHistories_CardPointHistories" Association="TRENDIGO_OKIOKModel.FK_MemberPromoCodeHistories_CardPointHistories">
+      <End Role="CardPointHistory" EntitySet="CardPointHistories" />
+      <End Role="MemberPromoCodeHistory" EntitySet="MemberPromoCodeHistories" />
+    </AssociationSet>
+    <EntitySet Name="LocationBusinessHours" EntityType="TRENDIGO_OKIOKModel.LocationBusinessHour" />
+    <AssociationSet Name="FK_LocationBusinessHours_Locations" Association="TRENDIGO_OKIOKModel.FK_LocationBusinessHours_Locations">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="LocationBusinessHour" EntitySet="LocationBusinessHours" />
+    </AssociationSet>
+    <EntitySet Name="CreditCardIssuers" EntityType="TRENDIGO_OKIOKModel.CreditCardIssuer" />
+    <EntitySet Name="PromotionTypes" EntityType="TRENDIGO_OKIOKModel.PromotionType" />
+    <AssociationSet Name="FK_Promotion_PromotionType" Association="TRENDIGO_OKIOKModel.FK_Promotion_PromotionType">
+      <End Role="PromotionType" EntitySet="PromotionTypes" />
+      <End Role="Promotion" EntitySet="Promotions" />
+    </AssociationSet>
+    <EntitySet Name="CreditCards" EntityType="TRENDIGO_OKIOKModel.CreditCard" />
+    <AssociationSet Name="FK_CreditCards_AspNetUsers" Association="TRENDIGO_OKIOKModel.FK_CreditCards_AspNetUsers">
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+      <End Role="CreditCard" EntitySet="CreditCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrxFinancialTransactions_CreditCards" Association="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_CreditCards">
+      <End Role="CreditCard" EntitySet="CreditCards" />
+      <End Role="TrxFinancialTransaction" EntitySet="TrxFinancialTransactions" />
+    </AssociationSet>
+    <EntitySet Name="IMS_Detail" EntityType="TRENDIGO_OKIOKModel.IMS_Detail" />
+    <EntitySet Name="Subscriptions" EntityType="TRENDIGO_OKIOKModel.Subscription" />
+    <EntitySet Name="TransactionTypes" EntityType="TRENDIGO_OKIOKModel.TransactionType" />
+    <AssociationSet Name="FK_IMS_Detail_IMS_Header" Association="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_Header">
+      <End Role="IMS_Header" EntitySet="IMS_Header" />
+      <End Role="IMS_Detail" EntitySet="IMS_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IMS_Detail_IMS_LineItem" Association="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_LineItem">
+      <End Role="IMS_LineItem" EntitySet="IMS_LineItem" />
+      <End Role="IMS_Detail" EntitySet="IMS_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscriptions_Locations" Association="TRENDIGO_OKIOKModel.FK_Subscriptions_Locations">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Subscription" EntitySet="Subscriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscriptions_Merchants" Association="TRENDIGO_OKIOKModel.FK_Subscriptions_Merchants">
+      <End Role="Merchant" EntitySet="Merchants" />
+      <End Role="Subscription" EntitySet="Subscriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscriptions_Programs" Association="TRENDIGO_OKIOKModel.FK_Subscriptions_Programs">
+      <End Role="Program" EntitySet="Programs" />
+      <End Role="Subscription" EntitySet="Subscriptions" />
+    </AssociationSet>
+    <EntitySet Name="BillingPeriods" EntityType="TRENDIGO_OKIOKModel.BillingPeriod" />
+    <AssociationSet Name="FK_Subscriptions_BillingPeriods" Association="TRENDIGO_OKIOKModel.FK_Subscriptions_BillingPeriods">
+      <End Role="BillingPeriod" EntitySet="BillingPeriods" />
+      <End Role="Subscription" EntitySet="Subscriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscriptions_Members" Association="TRENDIGO_OKIOKModel.FK_Subscriptions_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Subscription" EntitySet="Subscriptions" />
+    </AssociationSet>
+    <EntitySet Name="MerchantTransactions" EntityType="TRENDIGO_OKIOKModel.MerchantTransaction" />
+    <AssociationSet Name="FK_MerchantTransactions_Currencies" Association="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Currencies">
+      <End Role="Currency" EntitySet="Currencies" />
+      <End Role="MerchantTransaction" EntitySet="MerchantTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MerchantTransactions_Locations" Association="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Locations">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="MerchantTransaction" EntitySet="MerchantTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MerchantTransactions_Merchants" Association="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Merchants">
+      <End Role="Merchant" EntitySet="Merchants" />
+      <End Role="MerchantTransaction" EntitySet="MerchantTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MerchantTransactions_TransactionTypes" Association="TRENDIGO_OKIOKModel.FK_MerchantTransactions_TransactionTypes">
+      <End Role="TransactionType" EntitySet="TransactionTypes" />
+      <End Role="MerchantTransaction" EntitySet="MerchantTransactions" />
+    </AssociationSet>
+    <EntitySet Name="ProgramTypeFees" EntityType="TRENDIGO_OKIOKModel.ProgramTypeFee" />
+    <AssociationSet Name="FK_ProgramTypeFees_Currencies" Association="TRENDIGO_OKIOKModel.FK_ProgramTypeFees_Currencies">
+      <End Role="Currency" EntitySet="Currencies" />
+      <End Role="ProgramTypeFee" EntitySet="ProgramTypeFees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProgramTypeFees_ProgramTypes" Association="TRENDIGO_OKIOKModel.FK_ProgramTypeFees_ProgramTypes">
+      <End Role="ProgramType" EntitySet="ProgramTypes" />
+      <End Role="ProgramTypeFee" EntitySet="ProgramTypeFees" />
+    </AssociationSet>
+    <EntitySet Name="CreditCardTypes" EntityType="TRENDIGO_OKIOKModel.CreditCardType" />
+    <AssociationSet Name="FK_CreditCardIssuers_CreditCardTypes" Association="TRENDIGO_OKIOKModel.FK_CreditCardIssuers_CreditCardTypes">
+      <End Role="CreditCardType" EntitySet="CreditCardTypes" />
+      <End Role="CreditCardIssuer" EntitySet="CreditCardIssuers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CreditCards_CreditCardTypes" Association="TRENDIGO_OKIOKModel.FK_CreditCards_CreditCardTypes">
+      <End Role="CreditCardType" EntitySet="CreditCardTypes" />
+      <End Role="CreditCard" EntitySet="CreditCards" />
+    </AssociationSet>
+    <EntitySet Name="MerchantProcessors" EntityType="TRENDIGO_OKIOKModel.MerchantProcessor" />
+    <EntitySet Name="Processors" EntityType="TRENDIGO_OKIOKModel.Processor" />
+    <AssociationSet Name="FK_MerchantProcessors_Merchants" Association="TRENDIGO_OKIOKModel.FK_MerchantProcessors_Merchants">
+      <End Role="Merchant" EntitySet="Merchants" />
+      <End Role="MerchantProcessor" EntitySet="MerchantProcessors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MerchantProcessors_Processors" Association="TRENDIGO_OKIOKModel.FK_MerchantProcessors_Processors">
+      <End Role="Processor" EntitySet="Processors" />
+      <End Role="MerchantProcessor" EntitySet="MerchantProcessors" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Campaign">
@@ -3963,77 +3670,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_IMSCard_Program">
-    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.IMSCard" Role="IMSCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Program">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMSCard">
-        <PropertyRef Name="ProgramID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="EnterpriseLanguages">
     <End Type="TRENDIGO_OKIOKModel.Enterprise" Role="Enterprise" Multiplicity="*" />
     <End Type="TRENDIGO_OKIOKModel.Language" Role="Language" Multiplicity="*" />
-  </Association>
-  <Association Name="FK_CardPointHistories_IMSUsers1">
-    <End Type="TRENDIGO_OKIOKModel.IMSUser" Role="IMSUser" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.CardPointHistory" Role="CardPointHistory" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="IMSUser">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CardPointHistory">
-        <PropertyRef Name="CreatedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Card_Card_Status">
-    <End Type="TRENDIGO_OKIOKModel.CardStatus" Role="CardStatus" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.IMSCard" Role="IMSCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CardStatus">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMSCard">
-        <PropertyRef Name="CardStatusId" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <Association Name="EnterpriseTelephones">
     <End Type="TRENDIGO_OKIOKModel.Enterprise" Role="Enterprise" Multiplicity="*" />
     <End Type="TRENDIGO_OKIOKModel.Telephone" Role="Telephone" Multiplicity="*" />
   </Association>
-  <Association Name="FK_IMSCards_Enterprises">
-    <End Type="TRENDIGO_OKIOKModel.Enterprise" Role="Enterprise" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.IMSCard" Role="IMSCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Enterprise">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMSCard">
-        <PropertyRef Name="EnterpriseID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="CampaignNewsletters">
     <End Type="TRENDIGO_OKIOKModel.Campaign" Role="Campaign" Multiplicity="*" />
     <End Type="TRENDIGO_OKIOKModel.Newsletter" Role="Newsletter" Multiplicity="*" />
-  </Association>
-  <Association Name="FK_Card_CardTypeID">
-    <End Type="TRENDIGO_OKIOKModel.CardType" Role="CardType" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.IMSCard" Role="IMSCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CardType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMSCard">
-        <PropertyRef Name="CardTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
   </Association>
   <EntityType Name="DirectDepositLog">
     <Key>
@@ -4061,18 +3708,6 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="IMSUser">
-        <PropertyRef Name="LanguageId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_IMSCards_Languages">
-    <End Type="TRENDIGO_OKIOKModel.Language" Role="Language" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.IMSCard" Role="IMSCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Language">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMSCard">
         <PropertyRef Name="LanguageId" />
       </Dependent>
     </ReferentialConstraint>
@@ -4135,9 +3770,7 @@
     <Property Name="IMSCardId" Type="Int64" />
     <NavigationProperty Name="DeviceRequestStatu" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequest_DeviceRequestStatus" FromRole="DeviceRequest" ToRole="DeviceRequestStatu" />
     <NavigationProperty Name="DeviceType" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequest_DeviceType" FromRole="DeviceRequest" ToRole="DeviceType" />
-    <NavigationProperty Name="IMSCard" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequest_IMSCards" FromRole="DeviceRequest" ToRole="IMSCard" />
     <NavigationProperty Name="IMSMembership" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequest_IMSMemberships" FromRole="DeviceRequest" ToRole="IMSMembership" />
-    <NavigationProperty Name="IMSCard1" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequests_IMSCards" FromRole="DeviceRequest" ToRole="IMSCard" />
     <NavigationProperty Name="Member" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequest_Members" FromRole="DeviceRequest" ToRole="Member" />
   </EntityType>
   <Association Name="FK_DeviceRequest_DeviceRequestStatus">
@@ -4164,18 +3797,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DeviceRequest_IMSCards">
-    <End Type="TRENDIGO_OKIOKModel.IMSCard" Role="IMSCard" Multiplicity="0..1" />
-    <End Type="TRENDIGO_OKIOKModel.DeviceRequest" Role="DeviceRequest" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="IMSCard">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DeviceRequest">
-        <PropertyRef Name="IMSCardId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_DeviceRequest_IMSMemberships">
     <End Type="TRENDIGO_OKIOKModel.IMSMembership" Role="IMSMembership" Multiplicity="1" />
     <End Type="TRENDIGO_OKIOKModel.DeviceRequest" Role="DeviceRequest" Multiplicity="*" />
@@ -4185,18 +3806,6 @@
       </Principal>
       <Dependent Role="DeviceRequest">
         <PropertyRef Name="IMSMembershipId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DeviceRequests_IMSCards">
-    <End Type="TRENDIGO_OKIOKModel.IMSCard" Role="IMSCard" Multiplicity="0..1" />
-    <End Type="TRENDIGO_OKIOKModel.DeviceRequest" Role="DeviceRequest" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="IMSCard">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DeviceRequest">
-        <PropertyRef Name="IMSCardId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -4256,13 +3865,13 @@
     <NavigationProperty Name="ContractCommission" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_ContractCommissions" FromRole="IMS_Header" ToRole="ContractCommission" />
     <NavigationProperty Name="Currency" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_Currencies" FromRole="IMS_Header" ToRole="Currency" />
     <NavigationProperty Name="Enterprise" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_Enterprises" FromRole="IMS_Header" ToRole="Enterprise" />
-    <NavigationProperty Name="IMS_Detail" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_Header" FromRole="IMS_Header" ToRole="IMS_Detail" />
     <NavigationProperty Name="OutsideChannel" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_OutsideChannels" FromRole="IMS_Header" ToRole="OutsideChannel" />
     <NavigationProperty Name="PaymentStatu" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_PaymentStatus" FromRole="IMS_Header" ToRole="PaymentStatu" />
     <NavigationProperty Name="SalesRep" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_SalesRep" FromRole="IMS_Header" ToRole="SalesRep" />
     <NavigationProperty Name="IncentiveProgramRefunds" Relationship="TRENDIGO_OKIOKModel.FK_IncentiveProgramRefunds_IMS_Header" FromRole="IMS_Header" ToRole="IncentiveProgramRefund" />
     <NavigationProperty Name="Location" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_Locations" FromRole="IMS_Header" ToRole="Location" />
     <NavigationProperty Name="Merchant" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_Merchants" FromRole="IMS_Header" ToRole="Merchant" />
+    <NavigationProperty Name="IMS_Detail" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_Header" FromRole="IMS_Header" ToRole="IMS_Detail" />
   </EntityType>
   <Association Name="FK_IMS_Header_ContractCommissions">
     <End Type="TRENDIGO_OKIOKModel.ContractCommission" Role="ContractCommission" Multiplicity="0..1" />
@@ -4297,18 +3906,6 @@
       </Principal>
       <Dependent Role="IMS_Header">
         <PropertyRef Name="EnterpriseId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_IMS_Detail_IMS_Header">
-    <End Type="TRENDIGO_OKIOKModel.IMS_Header" Role="IMS_Header" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.IMS_Detail" Role="IMS_Detail" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="IMS_Header">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="IMS_Detail">
-        <PropertyRef Name="HeaderId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -4389,39 +3986,11 @@
     <Property Name="idRelatedTransaction" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="IncentiveProgramRefunds" Relationship="TRENDIGO_OKIOKModel.FK_IncentiveProgramRefunds_TrxFinancialTransactions" FromRole="TrxFinancialTransaction" ToRole="IncentiveProgramRefund" />
     <Property Name="creditCardId" Type="Int64" />
+    <Property Name="processorId" Type="Int32" />
+    <Property Name="acquirerMerchantId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="acquirerTerminalId" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="creationDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="CreditCard" Relationship="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_CreditCards" FromRole="TrxFinancialTransaction" ToRole="CreditCard" />
-  </EntityType>
-  <EntityType Name="TrxNonFinancialTransaction">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" />
-    <Property Name="baseAmount" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="aditionalAmount" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="tip" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="approvedAmount" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="cardNonFinancialId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="type" Type="Int32" />
-    <Property Name="pointsExpended" Type="Int32" />
-    <Property Name="pointsGained" Type="Int32" />
-    <Property Name="systemDateTime" Type="DateTime" Precision="3" />
-    <Property Name="localDateTime" Type="DateTime" Precision="3" />
-    <Property Name="program" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="entityId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="promotion_appliedId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="vendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="inputModeId" Type="Int32" />
-    <Property Name="transactionTypeId" Type="Int32" />
-    <Property Name="voided" Type="Int32" />
-    <Property Name="refunded" Type="Int32" />
-    <Property Name="concluded" Type="Int32" />
-    <Property Name="receipt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="EnterpriseId" Type="Int64" Nullable="false" />
-    <Property Name="transaxTerminalId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="memberId" Type="Int32" />
-    <Property Name="orderNumber" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_TrxFinancialTransactions_Acquirers">
     <End Type="TRENDIGO_OKIOKModel.Acquirer" Role="Acquirer" Multiplicity="1" />
@@ -4468,37 +4037,6 @@
       </Principal>
       <Dependent Role="TrxFinancialTransaction">
         <PropertyRef Name="IMSTransferStatusId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="CreditCard">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MemberId" Type="Int64" Nullable="false" />
-    <Property Name="TransaxId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="CardHolder" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="CreditCardTypeId" Type="Int32" Nullable="false" />
-    <Property Name="CardNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ExpiryDate" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-    <Property Name="defaultCard" Type="Boolean" Nullable="false" />
-    <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Token" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="CreditCardType" Relationship="TRENDIGO_OKIOKModel.FK_CreditCards_CreditCardTypes" FromRole="CreditCard" ToRole="CreditCardType" />
-    <NavigationProperty Name="Member" Relationship="TRENDIGO_OKIOKModel.FK_MemberEWallet_Member" FromRole="CreditCard" ToRole="Member" />
-    <NavigationProperty Name="TrxFinancialTransactions" Relationship="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_CreditCards" FromRole="CreditCard" ToRole="TrxFinancialTransaction" />
-  </EntityType>
-  <Association Name="FK_CreditCards_CreditCardTypes">
-    <End Type="TRENDIGO_OKIOKModel.CreditCardType" Role="CreditCardType" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.CreditCard" Role="CreditCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CreditCardType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CreditCard">
-        <PropertyRef Name="CreditCardTypeId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -4941,7 +4479,6 @@
     <Property Name="ActivationKey" Type="Guid" Nullable="false" />
     <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="AvatarLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="CreditCards" Relationship="TRENDIGO_OKIOKModel.FK_MemberEWallet_Member" FromRole="Member" ToRole="CreditCard" />
     <NavigationProperty Name="DeviceRequests" Relationship="TRENDIGO_OKIOKModel.FK_DeviceRequest_Members" FromRole="Member" ToRole="DeviceRequest" />
     <NavigationProperty Name="Enrollments" Relationship="TRENDIGO_OKIOKModel.FK_Enrollments_Members" FromRole="Member" ToRole="Enrollment" />
     <NavigationProperty Name="Enterprise" Relationship="TRENDIGO_OKIOKModel.FK_Member_Enterprise" FromRole="Member" ToRole="Enterprise" />
@@ -4956,19 +4493,9 @@
     <NavigationProperty Name="Referrals1" Relationship="TRENDIGO_OKIOKModel.FK_Referrals_Members1" FromRole="Member" ToRole="Referral" />
     <NavigationProperty Name="AspNetUser" Relationship="TRENDIGO_OKIOKModel.FK_Members_AspNetUsers" FromRole="Member" ToRole="AspNetUser" />
     <NavigationProperty Name="Merchants" Relationship="TRENDIGO_OKIOKModel.Favorites" FromRole="Member" ToRole="Merchant" />
+    <NavigationProperty Name="CardPointHistories" Relationship="TRENDIGO_OKIOKModel.FK_CardPointHistories_Members" FromRole="Member" ToRole="CardPointHistory" />
+    <NavigationProperty Name="Subscriptions" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_Members" FromRole="Member" ToRole="Subscription" />
   </EntityType>
-  <Association Name="FK_MemberEWallet_Member">
-    <End Type="TRENDIGO_OKIOKModel.Member" Role="Member" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.CreditCard" Role="CreditCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Member">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CreditCard">
-        <PropertyRef Name="MemberId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_DeviceRequest_Members">
     <End Type="TRENDIGO_OKIOKModel.Member" Role="Member" Multiplicity="1" />
     <End Type="TRENDIGO_OKIOKModel.DeviceRequest" Role="DeviceRequest" Multiplicity="*" />
@@ -5139,6 +4666,7 @@
     <NavigationProperty Name="Badges" Relationship="TRENDIGO_OKIOKModel.AspnetuserBadges" FromRole="AspNetUser" ToRole="Badge" />
     <NavigationProperty Name="AspNetRoles" Relationship="TRENDIGO_OKIOKModel.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
     <NavigationProperty Name="UserNotifications" Relationship="TRENDIGO_OKIOKModel.FK_UserNotifications_AspNetUsers" FromRole="AspNetUser" ToRole="UserNotification" />
+    <NavigationProperty Name="CreditCards" Relationship="TRENDIGO_OKIOKModel.FK_CreditCards_AspNetUsers" FromRole="AspNetUser" ToRole="CreditCard" />
   </EntityType>
   <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
     <End Type="TRENDIGO_OKIOKModel.AspNetUser" Role="AspNetUser" Multiplicity="1">
@@ -5307,7 +4835,6 @@
     <NavigationProperty Name="EnrollLocations" Relationship="TRENDIGO_OKIOKModel.FK_EnterpriseLocations_Locations" FromRole="Location" ToRole="EnrollLocation" />
     <NavigationProperty Name="IMS_Header" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Header_Locations" FromRole="Location" ToRole="IMS_Header" />
     <NavigationProperty Name="Location_Terminals" Relationship="TRENDIGO_OKIOKModel.FK_Merchant_Terminals_Locations" FromRole="Location" ToRole="Location_Terminals" />
-    <NavigationProperty Name="LocationBusinessHours" Relationship="TRENDIGO_OKIOKModel.FK_LocationBusinessHours_Locations" FromRole="Location" ToRole="LocationBusinessHour" />
     <NavigationProperty Name="LocationHolidays" Relationship="TRENDIGO_OKIOKModel.FK_LocationHolidays_Locations" FromRole="Location" ToRole="LocationHoliday" />
     <NavigationProperty Name="LocationMemberDistances" Relationship="TRENDIGO_OKIOKModel.FK_LocationMemberDistances_Locations" FromRole="Location" ToRole="LocationMemberDistance" />
     <NavigationProperty Name="LocationPromoCodes" Relationship="TRENDIGO_OKIOKModel.FK_LocationPromoCodes_Locations" FromRole="Location" ToRole="LocationPromoCode" />
@@ -5320,6 +4847,9 @@
     <NavigationProperty Name="Promotions" Relationship="TRENDIGO_OKIOKModel.PromotionLocations" FromRole="Location" ToRole="Promotion" />
     <NavigationProperty Name="Merchant" Relationship="TRENDIGO_OKIOKModel.FK_Location_Merchant" FromRole="Location" ToRole="Merchant" />
     <NavigationProperty Name="BankingInfo" Relationship="TRENDIGO_OKIOKModel.FK_Locations_BankingInfos" FromRole="Location" ToRole="BankingInfo" />
+    <NavigationProperty Name="LocationBusinessHours" Relationship="TRENDIGO_OKIOKModel.FK_LocationBusinessHours_Locations" FromRole="Location" ToRole="LocationBusinessHour" />
+    <NavigationProperty Name="Subscriptions" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_Locations" FromRole="Location" ToRole="Subscription" />
+    <NavigationProperty Name="MerchantTransactions" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Locations" FromRole="Location" ToRole="MerchantTransaction" />
   </EntityType>
   <Association Name="FK_Location_Address">
     <End Type="TRENDIGO_OKIOKModel.Address" Role="Address" Multiplicity="1" />
@@ -5377,18 +4907,6 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Location_Terminals">
-        <PropertyRef Name="LocationId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LocationBusinessHours_Locations">
-    <End Type="TRENDIGO_OKIOKModel.Location" Role="Location" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.LocationBusinessHour" Role="LocationBusinessHour" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Location">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="LocationBusinessHour">
         <PropertyRef Name="LocationId" />
       </Dependent>
     </ReferentialConstraint>
@@ -5493,18 +5011,6 @@
     <End Type="TRENDIGO_OKIOKModel.IMSUser" Role="IMSUser" Multiplicity="*" />
     <End Type="TRENDIGO_OKIOKModel.Location" Role="Location" Multiplicity="*" />
   </Association>
-  <Association Name="FK_TrxFinancialTransactions_CreditCards">
-    <End Type="TRENDIGO_OKIOKModel.CreditCard" Role="CreditCard" Multiplicity="0..1" />
-    <End Type="TRENDIGO_OKIOKModel.TrxFinancialTransaction" Role="TrxFinancialTransaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CreditCard">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TrxFinancialTransaction">
-        <PropertyRef Name="creditCardId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Promotion">
     <Key>
       <PropertyRef Name="Id" />
@@ -5526,10 +5032,10 @@
     <Property Name="ComingSoon" Type="Boolean" />
     <NavigationProperty Name="Package" Relationship="TRENDIGO_OKIOKModel.FK_Promotions_Packages" FromRole="Promotion" ToRole="Package" />
     <NavigationProperty Name="promotion_translations" Relationship="TRENDIGO_OKIOKModel.FK_promotion_translations_promotion" FromRole="Promotion" ToRole="promotion_translations" />
-    <NavigationProperty Name="PromotionType" Relationship="TRENDIGO_OKIOKModel.FK_Promotion_PromotionType" FromRole="Promotion" ToRole="PromotionType" />
     <NavigationProperty Name="Locations" Relationship="TRENDIGO_OKIOKModel.PromotionLocations" FromRole="Promotion" ToRole="Location" />
-    <NavigationProperty Name="Programs" Relationship="TRENDIGO_OKIOKModel.PromotionPrograms" FromRole="Promotion" ToRole="Program" />
     <NavigationProperty Name="Promotion_Schedules" Relationship="TRENDIGO_OKIOKModel.FK_Promotion_Schedule_Promotion" FromRole="Promotion" ToRole="Promotion_Schedules" />
+    <NavigationProperty Name="Programs" Relationship="TRENDIGO_OKIOKModel.PromotionPrograms" FromRole="Promotion" ToRole="Program" />
+    <NavigationProperty Name="PromotionType" Relationship="TRENDIGO_OKIOKModel.FK_Promotion_PromotionType" FromRole="Promotion" ToRole="PromotionType" />
   </EntityType>
   <Association Name="FK_Promotions_Packages">
     <End Type="TRENDIGO_OKIOKModel.Package" Role="Package" Multiplicity="0..1" />
@@ -5555,24 +5061,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Promotion_PromotionType">
-    <End Type="TRENDIGO_OKIOKModel.PromotionType" Role="PromotionType" Multiplicity="1" />
-    <End Type="TRENDIGO_OKIOKModel.Promotion" Role="Promotion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PromotionType">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Promotion">
-        <PropertyRef Name="PromotionTypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="PromotionLocations">
     <End Type="TRENDIGO_OKIOKModel.Location" Role="Location" Multiplicity="*" />
-    <End Type="TRENDIGO_OKIOKModel.Promotion" Role="Promotion" Multiplicity="*" />
-  </Association>
-  <Association Name="PromotionPrograms">
-    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="*" />
     <End Type="TRENDIGO_OKIOKModel.Promotion" Role="Promotion" Multiplicity="*" />
   </Association>
   <EntityType Name="Promotion_Schedules">
@@ -5701,7 +5191,6 @@
     <NavigationProperty Name="MerchantImage" Relationship="TRENDIGO_OKIOKModel.FK_Merchants_MerchantImages" FromRole="Merchant" ToRole="MerchantImage" />
     <NavigationProperty Name="MerchantImage1" Relationship="TRENDIGO_OKIOKModel.FK_Merchants_MerchantImages1" FromRole="Merchant" ToRole="MerchantImage" />
     <NavigationProperty Name="PricingCategory" Relationship="TRENDIGO_OKIOKModel.FK_Merchants_PricingCategory" FromRole="Merchant" ToRole="PricingCategory" />
-    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_Merchants_Programs" FromRole="Merchant" ToRole="Program" />
     <NavigationProperty Name="MerchantTags" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTags_Merchants" FromRole="Merchant" ToRole="MerchantTag" />
     <NavigationProperty Name="Packages" Relationship="TRENDIGO_OKIOKModel.FK_Packages_Merchants" FromRole="Merchant" ToRole="Package" />
     <NavigationProperty Name="Ratings" Relationship="TRENDIGO_OKIOKModel.FK_Ratings_Merchants" FromRole="Merchant" ToRole="Rating" />
@@ -5710,6 +5199,10 @@
     <NavigationProperty Name="IMSUsers" Relationship="TRENDIGO_OKIOKModel.IMSUserMerchants" FromRole="Merchant" ToRole="IMSUser" />
     <Property Name="LogoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="BankingInfo" Relationship="TRENDIGO_OKIOKModel.FK_Merchants_BankingInfos" FromRole="Merchant" ToRole="BankingInfo" />
+    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_Merchants_Programs" FromRole="Merchant" ToRole="Program" />
+    <NavigationProperty Name="Subscriptions" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_Merchants" FromRole="Merchant" ToRole="Subscription" />
+    <NavigationProperty Name="MerchantTransactions" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Merchants" FromRole="Merchant" ToRole="MerchantTransaction" />
+    <NavigationProperty Name="MerchantProcessors" Relationship="TRENDIGO_OKIOKModel.FK_MerchantProcessors_Merchants" FromRole="Merchant" ToRole="MerchantProcessor" />
   </EntityType>
   <Association Name="FK_Contracts_Merchants">
     <End Type="TRENDIGO_OKIOKModel.Merchant" Role="Merchant" Multiplicity="0..1" />
@@ -5819,18 +5312,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Merchants_Programs">
-    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="0..1" />
-    <End Type="TRENDIGO_OKIOKModel.Merchant" Role="Merchant" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Program">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Merchant">
-        <PropertyRef Name="ProgramId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_MerchantTags_Merchants">
     <End Type="TRENDIGO_OKIOKModel.Merchant" Role="Merchant" Multiplicity="1" />
     <End Type="TRENDIGO_OKIOKModel.MerchantTag" Role="MerchantTag" Multiplicity="*" />
@@ -5933,6 +5414,704 @@
       </Principal>
       <Dependent Role="Merchant">
         <PropertyRef Name="BankingInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TrxNonFinancialTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="baseAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="aditionalAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="tip" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="approvedAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cardNonFinancialId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="Int32" />
+    <Property Name="pointsExpended" Type="Int32" />
+    <Property Name="pointsGained" Type="Int32" />
+    <Property Name="systemDateTime" Type="DateTime" Precision="3" />
+    <Property Name="localDateTime" Type="DateTime" Precision="3" />
+    <Property Name="program" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="entityId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="promotion_appliedId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vendorId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="inputModeId" Type="Int32" />
+    <Property Name="transactionTypeId" Type="Int32" />
+    <Property Name="voided" Type="Int32" />
+    <Property Name="refunded" Type="Int32" />
+    <Property Name="concluded" Type="Int32" />
+    <Property Name="receipt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EnterpriseId" Type="Int64" Nullable="false" />
+    <Property Name="transaxTerminalId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="memberId" Type="Int64" />
+    <Property Name="orderNumber" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="terminalId" Type="Int32" />
+    <Property Name="creationDate" Type="DateTime" Precision="3" />
+    <Property Name="responseMessage" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EnterpriseCommissionFee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnterpriseId" Type="Int64" Nullable="false" />
+    <Property Name="CommissionBaseFee" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="CommissionPercentFee" Type="Decimal" Nullable="false" Precision="4" Scale="4" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Enterprise" Relationship="TRENDIGO_OKIOKModel.FK_EnterpriseCommissionFees_Enterprises" FromRole="EnterpriseCommissionFee" ToRole="Enterprise" />
+  </EntityType>
+  <Association Name="FK_EnterpriseCommissionFees_Enterprises">
+    <End Type="TRENDIGO_OKIOKModel.Enterprise" Role="Enterprise" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.EnterpriseCommissionFee" Role="EnterpriseCommissionFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Enterprise">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EnterpriseCommissionFee">
+        <PropertyRef Name="EnterpriseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnterpriseId" Type="Int64" Nullable="false" />
+    <Property Name="TransaxId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FidelityRewardPercent" Type="Decimal" Nullable="false" Precision="4" Scale="4" />
+    <Property Name="LoyaltyCostUsingPoints" Type="Int32" Nullable="false" />
+    <Property Name="LoyaltyValueGainingPoints" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CardTypeId" Type="Int32" />
+    <Property Name="ProgramTypeId" Type="Int32" />
+    <NavigationProperty Name="CardType" Relationship="TRENDIGO_OKIOKModel.FK_Programs_CardTypes" FromRole="Program" ToRole="CardType" />
+    <NavigationProperty Name="Enterprise" Relationship="TRENDIGO_OKIOKModel.FK_Program_Enterprise" FromRole="Program" ToRole="Enterprise" />
+    <NavigationProperty Name="IMSMemberships" Relationship="TRENDIGO_OKIOKModel.FK_IMSMembership_Program" FromRole="Program" ToRole="IMSMembership" />
+    <NavigationProperty Name="Merchants" Relationship="TRENDIGO_OKIOKModel.FK_Merchants_Programs" FromRole="Program" ToRole="Merchant" />
+    <NavigationProperty Name="program_translations" Relationship="TRENDIGO_OKIOKModel.FK_program_translations_Programs" FromRole="Program" ToRole="program_translations" />
+    <NavigationProperty Name="ProgramFeatures" Relationship="TRENDIGO_OKIOKModel.FK_ProgramFeatures_Programs" FromRole="Program" ToRole="ProgramFeature" />
+    <NavigationProperty Name="ProgramFees" Relationship="TRENDIGO_OKIOKModel.FK_ProgramFees_Program" FromRole="Program" ToRole="ProgramFee" />
+    <NavigationProperty Name="ProgramType" Relationship="TRENDIGO_OKIOKModel.FK_Programs_ProgramTypes" FromRole="Program" ToRole="ProgramType" />
+    <NavigationProperty Name="PromoCodes" Relationship="TRENDIGO_OKIOKModel.FK_PromoCode_Program" FromRole="Program" ToRole="PromoCode" />
+    <NavigationProperty Name="Enterprises" Relationship="TRENDIGO_OKIOKModel.EnterprisePrograms" FromRole="Program" ToRole="Enterprise" />
+    <NavigationProperty Name="OutsideChannels" Relationship="TRENDIGO_OKIOKModel.OutsideChannelPrograms" FromRole="Program" ToRole="OutsideChannel" />
+    <NavigationProperty Name="CardTypes" Relationship="TRENDIGO_OKIOKModel.ProgramCardTypes" FromRole="Program" ToRole="CardType" />
+    <NavigationProperty Name="Promotions" Relationship="TRENDIGO_OKIOKModel.PromotionPrograms" FromRole="Program" ToRole="Promotion" />
+    <NavigationProperty Name="Subscriptions" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_Programs" FromRole="Program" ToRole="Subscription" />
+  </EntityType>
+  <Association Name="FK_Programs_CardTypes">
+    <End Type="TRENDIGO_OKIOKModel.CardType" Role="CardType" Multiplicity="0..1" />
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CardType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Program">
+        <PropertyRef Name="CardTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Program_Enterprise">
+    <End Type="TRENDIGO_OKIOKModel.Enterprise" Role="Enterprise" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Enterprise">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Program">
+        <PropertyRef Name="EnterpriseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IMSMembership_Program">
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.IMSMembership" Role="IMSMembership" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IMSMembership">
+        <PropertyRef Name="ProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Merchants_Programs">
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="0..1" />
+    <End Type="TRENDIGO_OKIOKModel.Merchant" Role="Merchant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Merchant">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_program_translations_Programs">
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.program_translations" Role="program_translations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="program_translations">
+        <PropertyRef Name="program_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramFeatures_Programs">
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.ProgramFeature" Role="ProgramFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramFeature">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramFees_Program">
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.ProgramFee" Role="ProgramFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramFee">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Programs_ProgramTypes">
+    <End Type="TRENDIGO_OKIOKModel.ProgramType" Role="ProgramType" Multiplicity="0..1" />
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Program">
+        <PropertyRef Name="ProgramTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PromoCode_Program">
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.PromoCode" Role="PromoCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PromoCode">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnterprisePrograms">
+    <End Type="TRENDIGO_OKIOKModel.Enterprise" Role="Enterprise" Multiplicity="*" />
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="*" />
+  </Association>
+  <Association Name="OutsideChannelPrograms">
+    <End Type="TRENDIGO_OKIOKModel.OutsideChannel" Role="OutsideChannel" Multiplicity="*" />
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="*" />
+  </Association>
+  <Association Name="ProgramCardTypes">
+    <End Type="TRENDIGO_OKIOKModel.CardType" Role="CardType" Multiplicity="*" />
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="*" />
+  </Association>
+  <Association Name="PromotionPrograms">
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="*" />
+    <End Type="TRENDIGO_OKIOKModel.Promotion" Role="Promotion" Multiplicity="*" />
+  </Association>
+  <EntityType Name="CardPointHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Points" Type="Int32" Nullable="false" />
+    <Property Name="Reason" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TransaxId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="PromoCodeId" Type="Int64" />
+    <Property Name="MemberId" Type="Int64" />
+    <NavigationProperty Name="Member" Relationship="TRENDIGO_OKIOKModel.FK_CardPointHistories_Members" FromRole="CardPointHistory" ToRole="Member" />
+    <NavigationProperty Name="PromoCode" Relationship="TRENDIGO_OKIOKModel.FK_CardPointHistories_PromoCodes" FromRole="CardPointHistory" ToRole="PromoCode" />
+    <NavigationProperty Name="MemberPromoCodeHistories" Relationship="TRENDIGO_OKIOKModel.FK_MemberPromoCodeHistories_CardPointHistories" FromRole="CardPointHistory" ToRole="MemberPromoCodeHistory" />
+  </EntityType>
+  <Association Name="FK_CardPointHistories_Members">
+    <End Type="TRENDIGO_OKIOKModel.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="TRENDIGO_OKIOKModel.CardPointHistory" Role="CardPointHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CardPointHistory">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CardPointHistories_PromoCodes">
+    <End Type="TRENDIGO_OKIOKModel.PromoCode" Role="PromoCode" Multiplicity="0..1" />
+    <End Type="TRENDIGO_OKIOKModel.CardPointHistory" Role="CardPointHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PromoCode">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CardPointHistory">
+        <PropertyRef Name="PromoCodeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberPromoCodeHistories_CardPointHistories">
+    <End Type="TRENDIGO_OKIOKModel.CardPointHistory" Role="CardPointHistory" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.MemberPromoCodeHistory" Role="MemberPromoCodeHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CardPointHistory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MemberPromoCodeHistory">
+        <PropertyRef Name="CardPointHistoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LocationBusinessHour">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LocationId" Type="Int64" Nullable="false" />
+    <Property Name="DayOfWeekID" Type="Int32" Nullable="false" />
+    <Property Name="OpeningHour" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="ClosingHour" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="IsClosed" Type="Boolean" />
+    <NavigationProperty Name="Location" Relationship="TRENDIGO_OKIOKModel.FK_LocationBusinessHours_Locations" FromRole="LocationBusinessHour" ToRole="Location" />
+  </EntityType>
+  <Association Name="FK_LocationBusinessHours_Locations">
+    <End Type="TRENDIGO_OKIOKModel.Location" Role="Location" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.LocationBusinessHour" Role="LocationBusinessHour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocationBusinessHour">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CreditCardIssuer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Issuer" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IIN_from" Type="Int32" Nullable="false" />
+    <Property Name="IIN_to" Type="Int32" Nullable="false" />
+    <Property Name="Min_Length" Type="Int32" Nullable="false" />
+    <Property Name="Max_Length" Type="Int32" Nullable="false" />
+    <Property Name="LunhValidation" Type="Boolean" Nullable="false" />
+    <Property Name="CreditCardTypeId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="CreditCardType" Relationship="TRENDIGO_OKIOKModel.FK_CreditCardIssuers_CreditCardTypes" FromRole="CreditCardIssuer" ToRole="CreditCardType" />
+  </EntityType>
+  <EntityType Name="PromotionType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Promotions" Relationship="TRENDIGO_OKIOKModel.FK_Promotion_PromotionType" FromRole="PromotionType" ToRole="Promotion" />
+  </EntityType>
+  <Association Name="FK_Promotion_PromotionType">
+    <End Type="TRENDIGO_OKIOKModel.PromotionType" Role="PromotionType" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.Promotion" Role="Promotion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PromotionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Promotion">
+        <PropertyRef Name="PromotionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CreditCard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransaxId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardHolder" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CreditCardTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CardNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpiryDate" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="defaultCard" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Token" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="TRENDIGO_OKIOKModel.FK_CreditCards_AspNetUsers" FromRole="CreditCard" ToRole="AspNetUser" />
+    <NavigationProperty Name="TrxFinancialTransactions" Relationship="TRENDIGO_OKIOKModel.FK_TrxFinancialTransactions_CreditCards" FromRole="CreditCard" ToRole="TrxFinancialTransaction" />
+    <NavigationProperty Name="CreditCardType" Relationship="TRENDIGO_OKIOKModel.FK_CreditCards_CreditCardTypes" FromRole="CreditCard" ToRole="CreditCardType" />
+  </EntityType>
+  <Association Name="FK_CreditCards_AspNetUsers">
+    <End Type="TRENDIGO_OKIOKModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.CreditCard" Role="CreditCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUser">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CreditCard">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrxFinancialTransactions_CreditCards">
+    <End Type="TRENDIGO_OKIOKModel.CreditCard" Role="CreditCard" Multiplicity="0..1" />
+    <End Type="TRENDIGO_OKIOKModel.TrxFinancialTransaction" Role="TrxFinancialTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreditCard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrxFinancialTransaction">
+        <PropertyRef Name="creditCardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="IMS_Detail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HeaderId" Type="Int64" Nullable="false" />
+    <Property Name="LineItemId" Type="Int32" Nullable="false" />
+    <Property Name="TransactionId" Type="Int64" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="IMS_Header" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_Header" FromRole="IMS_Detail" ToRole="IMS_Header" />
+    <NavigationProperty Name="IMS_LineItem" Relationship="TRENDIGO_OKIOKModel.FK_IMS_Detail_IMS_LineItem" FromRole="IMS_Detail" ToRole="IMS_LineItem" />
+  </EntityType>
+  <EntityType Name="Subscription">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MerchantId" Type="Int64" Nullable="false" />
+    <Property Name="ProgramId" Type="Int64" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BillingStartDate" Type="DateTime" Precision="3" />
+    <Property Name="BillingPeriodId" Type="Int32" Nullable="false" />
+    <Property Name="BillingAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LocationId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Location" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_Locations" FromRole="Subscription" ToRole="Location" />
+    <NavigationProperty Name="Merchant" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_Merchants" FromRole="Subscription" ToRole="Merchant" />
+    <NavigationProperty Name="Program" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_Programs" FromRole="Subscription" ToRole="Program" />
+    <NavigationProperty Name="BillingPeriod" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_BillingPeriods" FromRole="Subscription" ToRole="BillingPeriod" />
+    <Property Name="MemberId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_Members" FromRole="Subscription" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="TransactionType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MerchantTransactions" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTransactions_TransactionTypes" FromRole="TransactionType" ToRole="MerchantTransaction" />
+  </EntityType>
+  <Association Name="FK_IMS_Detail_IMS_Header">
+    <End Type="TRENDIGO_OKIOKModel.IMS_Header" Role="IMS_Header" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.IMS_Detail" Role="IMS_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IMS_Header">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IMS_Detail">
+        <PropertyRef Name="HeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IMS_Detail_IMS_LineItem">
+    <End Type="TRENDIGO_OKIOKModel.IMS_LineItem" Role="IMS_LineItem" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.IMS_Detail" Role="IMS_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IMS_LineItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IMS_Detail">
+        <PropertyRef Name="LineItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscriptions_Locations">
+    <End Type="TRENDIGO_OKIOKModel.Location" Role="Location" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.Subscription" Role="Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscriptions_Merchants">
+    <End Type="TRENDIGO_OKIOKModel.Merchant" Role="Merchant" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.Subscription" Role="Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Merchant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="MerchantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscriptions_Programs">
+    <End Type="TRENDIGO_OKIOKModel.Program" Role="Program" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.Subscription" Role="Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="ProgramId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BillingPeriod">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Subscriptions" Relationship="TRENDIGO_OKIOKModel.FK_Subscriptions_BillingPeriods" FromRole="BillingPeriod" ToRole="Subscription" />
+  </EntityType>
+  <Association Name="FK_Subscriptions_BillingPeriods">
+    <End Type="TRENDIGO_OKIOKModel.BillingPeriod" Role="BillingPeriod" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.Subscription" Role="Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BillingPeriod">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="BillingPeriodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscriptions_Members">
+    <End Type="TRENDIGO_OKIOKModel.Member" Role="Member" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.Subscription" Role="Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MerchantTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TransactionTypeId" Type="Int32" Nullable="false" />
+    <Property Name="MerchantId" Type="Int64" Nullable="false" />
+    <Property Name="LocationId" Type="Int64" Nullable="false" />
+    <Property Name="TransactionAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="AuthorizedAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AuthorizationCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+    <Property Name="ReferenceId" Type="Int64" Nullable="false" />
+    <Property Name="TransactionStartPeriod" Type="DateTime" Precision="3" />
+    <Property Name="TransactionEndPeriod" Type="DateTime" Precision="3" />
+    <Property Name="CurrencyId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Currency" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Currencies" FromRole="MerchantTransaction" ToRole="Currency" />
+    <NavigationProperty Name="Location" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Locations" FromRole="MerchantTransaction" ToRole="Location" />
+    <NavigationProperty Name="Merchant" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTransactions_Merchants" FromRole="MerchantTransaction" ToRole="Merchant" />
+    <NavigationProperty Name="TransactionType" Relationship="TRENDIGO_OKIOKModel.FK_MerchantTransactions_TransactionTypes" FromRole="MerchantTransaction" ToRole="TransactionType" />
+  </EntityType>
+  <Association Name="FK_MerchantTransactions_Currencies">
+    <End Type="TRENDIGO_OKIOKModel.Currency" Role="Currency" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.MerchantTransaction" Role="MerchantTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MerchantTransaction">
+        <PropertyRef Name="CurrencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MerchantTransactions_Locations">
+    <End Type="TRENDIGO_OKIOKModel.Location" Role="Location" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.MerchantTransaction" Role="MerchantTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MerchantTransaction">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MerchantTransactions_Merchants">
+    <End Type="TRENDIGO_OKIOKModel.Merchant" Role="Merchant" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.MerchantTransaction" Role="MerchantTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Merchant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MerchantTransaction">
+        <PropertyRef Name="MerchantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MerchantTransactions_TransactionTypes">
+    <End Type="TRENDIGO_OKIOKModel.TransactionType" Role="TransactionType" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.MerchantTransaction" Role="MerchantTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransactionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MerchantTransaction">
+        <PropertyRef Name="TransactionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProgramTypeFee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="ProgramTypeId" Type="Int32" Nullable="false" />
+    <Property Name="CurrencyId" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Currency" Relationship="TRENDIGO_OKIOKModel.FK_ProgramTypeFees_Currencies" FromRole="ProgramTypeFee" ToRole="Currency" />
+    <NavigationProperty Name="ProgramType" Relationship="TRENDIGO_OKIOKModel.FK_ProgramTypeFees_ProgramTypes" FromRole="ProgramTypeFee" ToRole="ProgramType" />
+  </EntityType>
+  <Association Name="FK_ProgramTypeFees_Currencies">
+    <End Type="TRENDIGO_OKIOKModel.Currency" Role="Currency" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.ProgramTypeFee" Role="ProgramTypeFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramTypeFee">
+        <PropertyRef Name="CurrencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProgramTypeFees_ProgramTypes">
+    <End Type="TRENDIGO_OKIOKModel.ProgramType" Role="ProgramType" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.ProgramTypeFee" Role="ProgramTypeFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProgramType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProgramTypeFee">
+        <PropertyRef Name="ProgramTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CreditCardType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CreditCardIssuers" Relationship="TRENDIGO_OKIOKModel.FK_CreditCardIssuers_CreditCardTypes" FromRole="CreditCardType" ToRole="CreditCardIssuer" />
+    <NavigationProperty Name="CreditCards" Relationship="TRENDIGO_OKIOKModel.FK_CreditCards_CreditCardTypes" FromRole="CreditCardType" ToRole="CreditCard" />
+  </EntityType>
+  <Association Name="FK_CreditCardIssuers_CreditCardTypes">
+    <End Type="TRENDIGO_OKIOKModel.CreditCardType" Role="CreditCardType" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.CreditCardIssuer" Role="CreditCardIssuer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreditCardType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CreditCardIssuer">
+        <PropertyRef Name="CreditCardTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CreditCards_CreditCardTypes">
+    <End Type="TRENDIGO_OKIOKModel.CreditCardType" Role="CreditCardType" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.CreditCard" Role="CreditCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CreditCardType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CreditCard">
+        <PropertyRef Name="CreditCardTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MerchantProcessor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MerchantId" Type="Int64" Nullable="false" />
+    <Property Name="ProcessorId" Type="Int32" Nullable="false" />
+    <Property Name="TransaxId" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Merchant" Relationship="TRENDIGO_OKIOKModel.FK_MerchantProcessors_Merchants" FromRole="MerchantProcessor" ToRole="Merchant" />
+    <NavigationProperty Name="Processor" Relationship="TRENDIGO_OKIOKModel.FK_MerchantProcessors_Processors" FromRole="MerchantProcessor" ToRole="Processor" />
+  </EntityType>
+  <EntityType Name="Processor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TransaxId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="MerchantProcessors" Relationship="TRENDIGO_OKIOKModel.FK_MerchantProcessors_Processors" FromRole="Processor" ToRole="MerchantProcessor" />
+  </EntityType>
+  <Association Name="FK_MerchantProcessors_Merchants">
+    <End Type="TRENDIGO_OKIOKModel.Merchant" Role="Merchant" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.MerchantProcessor" Role="MerchantProcessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Merchant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MerchantProcessor">
+        <PropertyRef Name="MerchantId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MerchantProcessors_Processors">
+    <End Type="TRENDIGO_OKIOKModel.Processor" Role="Processor" Multiplicity="1" />
+    <End Type="TRENDIGO_OKIOKModel.MerchantProcessor" Role="MerchantProcessor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Processor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MerchantProcessor">
+        <PropertyRef Name="ProcessorId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

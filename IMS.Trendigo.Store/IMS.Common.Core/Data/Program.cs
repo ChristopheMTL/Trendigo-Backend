@@ -18,6 +18,7 @@ namespace IMS.Common.Core.Data
         public Program()
         {
             this.IMSMemberships = new HashSet<IMSMembership>();
+            this.Merchants = new HashSet<Merchant>();
             this.program_translations = new HashSet<program_translations>();
             this.ProgramFeatures = new HashSet<ProgramFeature>();
             this.ProgramFees = new HashSet<ProgramFee>();
@@ -25,21 +26,17 @@ namespace IMS.Common.Core.Data
             this.Enterprises = new HashSet<Enterprise>();
             this.OutsideChannels = new HashSet<OutsideChannel>();
             this.CardTypes = new HashSet<CardType>();
-            this.IMSCards = new HashSet<IMSCard>();
             this.Promotions = new HashSet<Promotion>();
-            this.Merchants = new HashSet<Merchant>();
+            this.Subscriptions = new HashSet<Subscription>();
         }
     
         public long Id { get; set; }
         public long EnterpriseId { get; set; }
         public string TransaxId { get; set; }
-        public string ShortDescription { get; set; }
         public string Description { get; set; }
         public decimal FidelityRewardPercent { get; set; }
         public int LoyaltyCostUsingPoints { get; set; }
         public int LoyaltyValueGainingPoints { get; set; }
-        public bool WithoutPromoAllowed { get; set; }
-        public int ExpirationInMonth { get; set; }
         public bool IsActive { get; set; }
         public System.DateTime CreationDate { get; set; }
         public Nullable<int> CardTypeId { get; set; }
@@ -49,6 +46,8 @@ namespace IMS.Common.Core.Data
         public virtual Enterprise Enterprise { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMSMembership> IMSMemberships { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Merchant> Merchants { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<program_translations> program_translations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -65,10 +64,8 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CardType> CardTypes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IMSCard> IMSCards { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Promotion> Promotions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Merchant> Merchants { get; set; }
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
     }
 }

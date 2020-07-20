@@ -20,8 +20,8 @@ namespace IMS.Common.Core.Data
             this.MembershipTransactionHeaders = new HashSet<MembershipTransactionHeader>();
             this.OutsideChannelStyles = new HashSet<OutsideChannelStyle>();
             this.PromoCodes = new HashSet<PromoCode>();
-            this.Programs = new HashSet<Program>();
             this.IMS_Header = new HashSet<IMS_Header>();
+            this.Programs = new HashSet<Program>();
         }
     
         public long Id { get; set; }
@@ -43,8 +43,8 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PromoCode> PromoCodes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Program> Programs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMS_Header> IMS_Header { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Program> Programs { get; set; }
     }
 }

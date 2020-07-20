@@ -17,13 +17,13 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TransactionType()
         {
-            this.IMS_Detail = new HashSet<IMS_Detail>();
+            this.MerchantTransactions = new HashSet<MerchantTransaction>();
         }
     
         public int Id { get; set; }
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IMS_Detail> IMS_Detail { get; set; }
+        public virtual ICollection<MerchantTransaction> MerchantTransactions { get; set; }
     }
 }

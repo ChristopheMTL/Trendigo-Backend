@@ -37,7 +37,39 @@ namespace IMS.Service.WebAPI2
                 cfg.AddProfile(new PromotionProfile());
                 cfg.AddProfile(new CountryProfile());
                 cfg.AddProfile(new CreditCardTypeProfile());
+                cfg.AddProfile(new CreditCardIssuerProfile());
+                cfg.AddProfile(new ClerkProfile());
             });
+        }
+
+        public class ClerkProfile : Profile
+        {
+            protected override void Configure()
+            {
+                var map = Mapper.CreateMap<IMSUser, addClerkRS>();
+                map.ForMember(x => x.clerkId, o => o.MapFrom(model => model.Id));
+                map.ForMember(x => x.transaxId, o => o.MapFrom(model => model.TransaxId));
+                map.ForMember(x => x.email, o => o.MapFrom(model => model.AspNetUser.Email));
+                map.ForMember(x => x.firstName, o => o.MapFrom(model => model.FirstName));
+                map.ForMember(x => x.lastName, o => o.MapFrom(model => model.LastName));
+                map.ForMember(x => x.language, o => o.MapFrom(model => model.Language.ISO639_1));
+                map.ForMember(x => x.notifications, o => o.MapFrom(model => model.AspNetUser.UserNotifications.ToList()));
+            }
+        }
+
+        public class CreditCardIssuerProfile : Profile
+        {
+            protected override void Configure()
+            {
+                var map = Mapper.CreateMap<CreditCardIssuer, CreditCardIssuerRS>();
+                map.ForMember(x => x.Issuer, o => o.MapFrom(model => model.Issuer));
+                map.ForMember(x => x.IIN_from, o => o.MapFrom(model => model.IIN_from));
+                map.ForMember(x => x.IIN_to, o => o.MapFrom(model => model.IIN_to));
+                map.ForMember(x => x.minLength, o => o.MapFrom(model => model.Min_Length));
+                map.ForMember(x => x.maxLength, o => o.MapFrom(model => model.Max_Length));
+                map.ForMember(x => x.lunhValidation, o => o.MapFrom(model => model.LunhValidation));
+                map.ForMember(x => x.creditCardTypeId, o => o.MapFrom(model => model.CreditCardTypeId));
+            }
         }
 
         public class CreditCardTypeProfile : Profile
@@ -47,6 +79,7 @@ namespace IMS.Service.WebAPI2
                 var map = Mapper.CreateMap<CreditCardType, CreditCardTypeRS>();
                 map.ForMember(x => x.creditCardTypeId, o => o.MapFrom(model => model.Id));
                 map.ForMember(x => x.name, o => o.MapFrom(model => model.Description));
+                map.ForMember(x => x.logo, o => o.MapFrom(model => model.Logo));
             }
         }
 
@@ -183,8 +216,9 @@ namespace IMS.Service.WebAPI2
                 map7.ForMember(x => x.uid, o => o.MapFrom(model => model.AspNetUser.SocialMediaUsers.FirstOrDefault().UID));
                 map7.ForMember(x => x.provider, o => o.MapFrom(model => model.AspNetUser.SocialMediaUsers.FirstOrDefault().Provider));
                 map7.ForMember(x => x.language, o => o.MapFrom(model => model.Language.ISO639_1));
-                map7.ForMember(x => x.avatar, o => o.MapFrom(model => model.AvatarLink));
-                map7.ForMember(x => x.creditCards, o => o.MapFrom(model => model.CreditCards));
+                map7.ForMember(x => x.avatar, o => o.MapFrom(model =>  model.AvatarLink));
+                map7.ForMember(x => x.avatarPath, o => o.MapFrom(model => new ImageService().GetImagePath((int)ImageType.AVATAR_MEMBER, model.Id, model.AvatarLink)));
+                map7.ForMember(x => x.creditCards, o => o.MapFrom(model => model.AspNetUser.CreditCards));
 
             }
         }
@@ -201,7 +235,6 @@ namespace IMS.Service.WebAPI2
                 map.ForMember(x => x.ExpiryDate, o => o.MapFrom(model => model.expiryDate));
 
                 var map2 = Mapper.CreateMap<CreditCardRQ, CreditCard>();
-                map2.ForMember(x => x.MemberId, o => o.MapFrom(model => model.memberId));
                 map2.ForMember(x => x.CardHolder, o => o.MapFrom(model => model.cardHolderName));
                 map2.ForMember(x => x.CardNumber, o => o.MapFrom(model => model.cardNumber));
                 map2.ForMember(x => x.CreditCardTypeId, o => o.MapFrom(model => model.creditCardTypeId));
@@ -214,9 +247,8 @@ namespace IMS.Service.WebAPI2
                 map3.ForMember(x => x.creditCardId, o => o.MapFrom(model => model.Id));
                 map3.ForMember(x => x.creditCardTypeId, o => o.MapFrom(model => model.CreditCardTypeId));
                 map3.ForMember(x => x.expiryDate, o => o.MapFrom(model => model.ExpiryDate));
-                map3.ForMember(x => x.memberId, o => o.MapFrom(model => model.MemberId));
+                map3.ForMember(x => x.memberId, o => o.MapFrom(model => model.AspNetUser.Members.FirstOrDefault().Id));
                 map3.ForMember(x => x.transaxId, o => o.MapFrom(model => model.TransaxId));
-                map3.ForMember(x => x.creditCardType, o => o.Ignore());
 
                 var map4 = Mapper.CreateMap<CreditCard, CreditCardDTO>();
                 map4.ForMember(x => x.CardHolder, o => o.MapFrom(model => model.CardHolder));
@@ -224,9 +256,18 @@ namespace IMS.Service.WebAPI2
                 map4.ForMember(x => x.Id, o => o.MapFrom(model => model.Id));
                 map4.ForMember(x => x.CreditCardTypeId, o => o.MapFrom(model => model.CreditCardTypeId));
                 map4.ForMember(x => x.ExpiryDate, o => o.MapFrom(model => model.ExpiryDate));
-                map4.ForMember(x => x.MemberId, o => o.MapFrom(model => model.MemberId));
+                map4.ForMember(x => x.UserId, o => o.MapFrom(model => model.AspNetUser.Id));
                 map4.ForMember(x => x.TransaxId, o => o.MapFrom(model => model.TransaxId));
                 map4.ForMember(x => x.CreditCardType, o => o.Ignore());
+
+                var map5 = Mapper.CreateMap<CreditCardDTO, CreditCard>();
+                map5.ForMember(x => x.CardHolder, o => o.MapFrom(model => model.CardHolder));
+                map5.ForMember(x => x.CardNumber, o => o.MapFrom(model => model.CardNumber));
+                map5.ForMember(x => x.Id, o => o.MapFrom(model => model.Id));
+                map5.ForMember(x => x.CreditCardTypeId, o => o.MapFrom(model => model.CreditCardTypeId));
+                map5.ForMember(x => x.ExpiryDate, o => o.MapFrom(model => model.ExpiryDate));
+                map5.ForMember(x => x.TransaxId, o => o.MapFrom(model => model.TransaxId));
+                map5.ForMember(x => x.UserId, o => o.MapFrom(model => model.UserId));
             }
         }
 
@@ -234,20 +275,24 @@ namespace IMS.Service.WebAPI2
         {
             protected override void Configure()
             {
+                var map13 = Mapper.CreateMap<Program, CommunityRS>();
+                map13.ForMember(x => x.communityId, o => o.MapFrom(model => model.Id));
+                map13.ForMember(x => x.communityTypeId, o => o.MapFrom(model => model.ProgramTypeId));
+                map13.ForMember(x => x.name, o => o.MapFrom(model => model.Description));
+
                 var map12 = Mapper.CreateMap<BankingInfo, BankAccountRS>();
                 map12.ForMember(x => x.bankAccountId, o => o.MapFrom(model => model.Id));
                 map12.ForMember(x => x.accountName, o => o.MapFrom(model => model.AccountName));
                 map12.ForMember(x => x.account, o => o.MapFrom(model => model.Account));
                 map12.ForMember(x => x.branch, o => o.MapFrom(model => model.Branch));
                 map12.ForMember(x => x.transit, o => o.MapFrom(model => model.Transit));
-                map12.ForMember(x => x.specimenPath, o => o.MapFrom(model => model.SpecimenPath));
+                map12.ForMember(x => x.specimenPath, o => o.MapFrom(model => new ImageService().GetImagePath((int)ImageType.SPECIMEN, model.Locations.FirstOrDefault().MerchantId, model.SpecimenPath)));
 
                 var map11 = Mapper.CreateMap<IMSUser, MerchantAdminRS>();
                 map11.ForMember(x => x.merchantAdminId, o => o.MapFrom(model => model.Id));
                 map11.ForMember(x => x.email, o => o.MapFrom(model => model.AspNetUser.Email));
                 map11.ForMember(x => x.firstName, o => o.MapFrom(model => model.FirstName));
                 map11.ForMember(x => x.lastName, o => o.MapFrom(model => model.LastName));
-                map11.ForMember(x => x.avatar, o => o.MapFrom(model => model.AvatarLink));
                 map11.ForMember(x => x.notifications, o => o.MapFrom(model => model.AspNetUser.UserNotifications.ToList()));
 
                 var map10 = Mapper.CreateMap<tag_translations, tagLocale>();
@@ -255,6 +300,7 @@ namespace IMS.Service.WebAPI2
                 map10.ForMember(x => x.tagName, o => o.MapFrom(model => model.name));
 
                 var map9 = Mapper.CreateMap<MerchantTag, MerchantTagRS>();
+                map9.ForMember(x => x.TagId, o => o.MapFrom(model => model.TagId));
                 map9.ForMember(x => x.merchantTagId, o => o.MapFrom(model => model.Id));
                 map9.ForMember(x => x.name, o => o.MapFrom(model => model.tag.name));
                 map9.ForMember(x => x.locale, o => o.MapFrom(model => model.tag.tag_translations));
@@ -267,12 +313,12 @@ namespace IMS.Service.WebAPI2
 
                 var map7 = Mapper.CreateMap<MerchantImage, merchantImageRS>();
                 map7.ForMember(x => x.imageId, o => o.MapFrom(model => model.Id.ToString()));
-                map7.ForMember(x => x.path, o => o.MapFrom(model => model.ImagePath));
+                map7.ForMember(x => x.path, o => o.MapFrom(model => new ImageService().GetImagePath((int)ImageType.STORE, model.MerchantId, model.Filepath)));
 
                 var map6 = Mapper.CreateMap<LocationHoliday, HolidayRS>();
                 map6.ForMember(x => x.holidayId, o => o.MapFrom(model => model.Id));
                 map6.ForMember(x => x.name, o => o.MapFrom(model => model.Name));
-                map6.ForMember(x => x.startingDate, o => o.MapFrom(model => model.FromDate));
+                map6.ForMember(x => x.startDate, o => o.MapFrom(model => model.FromDate));
                 map6.ForMember(x => x.endDate, o => o.MapFrom(model => model.ToDate));
 
                 var map5 = Mapper.CreateMap<LocationBusinessHour, BusinessHourRS>();
@@ -280,6 +326,7 @@ namespace IMS.Service.WebAPI2
                 map5.ForMember(x => x.dayOfWeek, o => o.MapFrom(model => model.DayOfWeekID));
                 map5.ForMember(x => x.openingHour, o => o.MapFrom(model => model.OpeningHour));
                 map5.ForMember(x => x.closingHour, o => o.MapFrom(model => model.ClosingHour));
+                map5.ForMember(x => x.isClosed, o => o.MapFrom(model => model.IsClosed));
 
                 var map44 = Mapper.CreateMap<Currency, locationCurrencyRS>();
                 map44.ForMember(x => x.currencyId, o => o.MapFrom(model => model.Id));
@@ -293,8 +340,10 @@ namespace IMS.Service.WebAPI2
                 map4.ForMember(x => x.longitude, o => o.MapFrom(model => model.Address.Longitude));
                 map4.ForMember(x => x.latitude, o => o.MapFrom(model => model.Address.Latitude));
                 map4.ForMember(x => x.city, o => o.MapFrom(model => model.Address.City));
+                map4.ForMember(x => x.countryId, o => o.MapFrom(model => model.Address.CountryId));
                 map4.ForMember(x => x.country, o => o.MapFrom(model => model.Address.Country.Name));
                 map4.ForMember(x => x.phone, o => o.MapFrom(model => model.Telephone));
+                map4.ForMember(x => x.stateId, o => o.MapFrom(model => model.Address.StateId));
                 map4.ForMember(x => x.state, o => o.MapFrom(model => model.Address.State.Name));
                 map4.ForMember(x => x.streetAddress, o => o.MapFrom(model => model.Address.StreetAddress));
                 map4.ForMember(x => x.transaxId, o => o.MapFrom(model => model.TransaxId));
@@ -304,10 +353,12 @@ namespace IMS.Service.WebAPI2
                 map4.ForMember(x => x.enableTips, o => o.MapFrom(model => model.EnableTips));
                 map4.ForMember(x => x.payWithPoints, o => o.MapFrom(model => model.PayWithPoints));
                 map4.ForMember(x => x.currency, o => o.MapFrom(model => model.Address.Country.Currency));
+                map4.ForMember(x => x.bankingInfo, o => o.MapFrom(model => model.BankingInfo));
 
                 var map3 = Mapper.CreateMap<UserNotification, NotificationRS>();
                 map3.ForMember(x => x.deviceId, o => o.MapFrom(model => model.DeviceId));
                 map3.ForMember(x => x.notificationToken, o => o.MapFrom(model => model.NotificationToken));
+                map3.ForMember(x => x.creationDate, o => o.MapFrom(model => model.CreationDate));
 
                 var map2 = Mapper.CreateMap<IMSUser, MerchantClerkRS>();
                 map2.ForMember(x => x.clerkId, o => o.MapFrom(model => model.Id));
@@ -321,17 +372,17 @@ namespace IMS.Service.WebAPI2
                 map1.ForMember(x => x.merchantId, o => o.MapFrom(model => model.Id));
                 map1.ForMember(x => x.transaxId, o => o.MapFrom(model => model.TransaxId));
                 map1.ForMember(x => x.name, o => o.MapFrom(model => model.Name));
-                map1.ForMember(x => x.logo, o => o.MapFrom(model => model.LogoPath));
+                map1.ForMember(x => x.logo, o => o.MapFrom(model => new ImageService().GetImagePath((int)ImageType.LOGO, model.Id, model.LogoPath)));
                 map1.ForMember(x => x.status, o => o.MapFrom(model => model.Status));
                 map1.ForMember(x => x.reward, o => o.MapFrom(model => new PromotionManager().GetPromotionPercentageForMerchant(model.Id, DateTime.Now.Date)));
                 map1.ForMember(x => x.locales, o => o.MapFrom(model => model.merchant_translations));
-                map1.ForMember(x => x.bankAccount, o => o.MapFrom(model => model.Locations.FirstOrDefault().BankingInfo));
                 map1.ForMember(x => x.images, o => o.MapFrom(model => model.MerchantImages));
                 map1.ForMember(x => x.locations, o => o.MapFrom(model => model.Locations));
                 map1.ForMember(x => x.merchantAdmin, o => o.MapFrom(model => model.IMSUsers.Where(a => a.AspNetUser.AspNetRoles.FirstOrDefault().Name == IMSRole.MerchantAdmin.ToString()).FirstOrDefault()));
                 map1.ForMember(x => x.clerks, o => o.MapFrom(model => model.IMSUsers.Where(a => a.AspNetUser.AspNetRoles.FirstOrDefault().Name == IMSRole.MerchantUser.ToString()).ToList()));
                 map1.ForMember(x => x.category, o => o.MapFrom(model => model.MerchantTags.Where(a => a.tag.ParentId == null).FirstOrDefault()));
                 map1.ForMember(x => x.tags, o => o.MapFrom(model => model.MerchantTags.Where(a => a.tag.ParentId != null).ToList()));
+                map1.ForMember(x => x.community, o => o.MapFrom(model => model.Program));
             }
         }
 
@@ -402,14 +453,12 @@ namespace IMS.Service.WebAPI2
             protected override void Configure()
             {
                 var map = Mapper.CreateMap<AddCommunityRQ, Program>();
-                map.ForMember(x => x.Id, o => o.MapFrom(model => model.communityId));
-                map.ForMember(x => x.ShortDescription, o => o.MapFrom(model => model.name));
                 map.ForMember(x => x.Description, o => o.MapFrom(model => model.name));
 
                 var map2 = Mapper.CreateMap<Program, CommunityRS>();
                 map2.ForMember(x => x.communityId, o => o.MapFrom(model => model.Id));
                 map2.ForMember(x => x.communityTypeId, o => o.MapFrom(model => model.ProgramTypeId));
-                map2.ForMember(x => x.name, o => o.MapFrom(model => model.ShortDescription));
+                map2.ForMember(x => x.name, o => o.MapFrom(model => model.Description));
             }
         }
 
@@ -422,7 +471,6 @@ namespace IMS.Service.WebAPI2
                 map.ForMember(x => x.AccountName, o => o.MapFrom(model => model.accountName));
                 map.ForMember(x => x.Branch, o => o.MapFrom(model => model.branch));
                 map.ForMember(x => x.Transit, o => o.MapFrom(model => model.transit));
-                map.ForMember(x => x.SpecimenPath, o => o.MapFrom(model => model.specimenPath));
             }
         }
 

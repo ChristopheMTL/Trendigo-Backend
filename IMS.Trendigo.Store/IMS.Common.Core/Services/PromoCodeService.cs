@@ -57,73 +57,72 @@ namespace IMS.Common.Core.Services
         //    return newPromoCode;
         //}
 
-        public void ApplyPromoCode(long cardId, long promoCodeId, long memberId) 
-        {
-            //IMSUser ims_user = new RegistrationManager().GetUserWithEmail("francois.verdon@trendigo.com");
+        //public void ApplyPromoCode(long promoCodeId, long memberId) 
+        //{
+        //    IMSUser ims_user = new RegistrationManager().GetUserWithEmail("francois.verdon@trendigo.com");
 
-            //IMSCard card = db.IMSCards.FirstOrDefault(a => a.Id == cardId);
-            //PromoCode promoCode = db.PromoCodes.FirstOrDefault(a => a.Id == promoCodeId);
-            //Member member = db.Members.FirstOrDefault(a => a.Id == memberId);
+        //    PromoCode promoCode = db.PromoCodes.FirstOrDefault(a => a.Id == promoCodeId);
+        //    Member member = db.Members.FirstOrDefault(a => a.Id == memberId);
 
-            //CardPointHistory cardHistory = new CardPointHistory();
-            //cardHistory.IMSCard = card;
-            //cardHistory.IMSCardId = card.Id;
-            //cardHistory.Points = promoCode.PrefixPoints;
-            //cardHistory.Reason = "Website promocode insertion";
-            //cardHistory.CreatedBy = ims_user.Id;
+        //    CardPointHistory cardHistory = new CardPointHistory();
+        //    cardHistory.IMSCard = card;
+        //    cardHistory.IMSCardId = card.Id;
+        //    cardHistory.Points = promoCode.PrefixPoints;
+        //    cardHistory.Reason = "Website promocode insertion";
+        //    cardHistory.CreatedBy = ims_user.Id;
 
-            //var command = DataCommandFactory.AddPointsCardNonFinancialCommand(cardHistory, promoCode.PrefixPoints, member, this.db);
+        //    var command = DataCommandFactory.AddPointsCardNonFinancialCommand(cardHistory, promoCode.PrefixPoints, member, this.db);
 
-            //var result = await command.Execute();
+        //    var result = await command.Execute();
 
-            //if (result != DataCommandResult.Success)
-            //{
-            //    throw new Exception(string.Format("AddPointsCardNonFinancialCommand, unable to add points. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code));
-            //}
+        //    if (result != DataCommandResult.Success)
+        //    {
+        //        throw new Exception(string.Format("AddPointsCardNonFinancialCommand, unable to add points. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code));
+        //    }
 
-            //try
-            //{
-            //    MemberPromoCodeHistory newMemberPromoCodeHistory = new MemberPromoCodeHistory();
-            //    newMemberPromoCodeHistory.MemberId = member.Id;
-            //    newMemberPromoCodeHistory.PromocodeId = promoCode.Id;
-            //    newMemberPromoCodeHistory.CardId = card.Id;
-            //    newMemberPromoCodeHistory.CardPointHistoryId = cardHistory.Id;
-            //    newMemberPromoCodeHistory.CreationDate = DateTime.Now;
+        //    try
+        //    {
+        //        MemberPromoCodeHistory newMemberPromoCodeHistory = new MemberPromoCodeHistory();
+        //        newMemberPromoCodeHistory.MemberId = member.Id;
+        //        newMemberPromoCodeHistory.PromocodeId = promoCode.Id;
+        //        newMemberPromoCodeHistory.CardId = card.Id;
+        //        newMemberPromoCodeHistory.CardPointHistoryId = cardHistory.Id;
+        //        newMemberPromoCodeHistory.CreationDate = DateTime.Now;
 
-            //    db.MemberPromoCodeHistories.Add(newMemberPromoCodeHistory);
-            //    db.SaveChanges();
-            //}
-            //catch (Exception ex)
-            //{
-            //    //reverse transaction ... remove points
-            //    CardPointHistory cardHistory_removed = new CardPointHistory();
-            //    cardHistory_removed.IMSCardId = card.Id;
-            //    cardHistory_removed.Points = promoCode.PrefixPoints;
-            //    cardHistory_removed.Reason = "Website promocode reverse transaction";
-            //    cardHistory_removed.CreatedBy = ims_user.Id;
+        //        db.MemberPromoCodeHistories.Add(newMemberPromoCodeHistory);
+        //        db.SaveChanges();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //reverse transaction ... remove points
+        //        CardPointHistory cardHistory_removed = new CardPointHistory();
+        //        cardHistory_removed.IMSCardId = card.Id;
+        //        cardHistory_removed.Points = promoCode.PrefixPoints;
+        //        cardHistory_removed.Reason = "Website promocode reverse transaction";
+        //        cardHistory_removed.CreatedBy = ims_user.Id;
 
-            //    var command2 = DataCommandFactory.RemovePointsCardNonFinancialCommand(cardHistory_removed, promoCode.PrefixPoints, member, this.db);
-            //    var result2 = command2.Execute();
+        //        var command2 = DataCommandFactory.RemovePointsCardNonFinancialCommand(cardHistory_removed, promoCode.PrefixPoints, member, this.db);
+        //        var result2 = command2.Execute();
 
-            //    _logger.ErrorFormat("Unable to add promo code history. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code);
-            //    _logger.ErrorFormat("Exception", ex.ToString());
-            //    _logger.ErrorFormat("StackTrace", ex.StackTrace);
-            //    throw new Exception(string.Format("Unable to add promo code history. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code));
-            //}
+        //        _logger.ErrorFormat("Unable to add promo code history. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code);
+        //        _logger.ErrorFormat("Exception", ex.ToString());
+        //        _logger.ErrorFormat("StackTrace", ex.StackTrace);
+        //        throw new Exception(string.Format("Unable to add promo code history. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code));
+        //    }
 
-            //try
-            //{
-            //    promoCode.AlreadyUsed += 1;
-            //    db.Entry(promoCode).State = EntityState.Modified;
-            //    db.SaveChanges();
-            //}
-            //catch (Exception ex)
-            //{
-            //    _logger.ErrorFormat("Unable to update already used promo code. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code);
-            //    _logger.ErrorFormat("Exception", ex.ToString());
-            //    _logger.ErrorFormat("StackTrace", ex.StackTrace);
-            //    throw new Exception(string.Format("Unable to update already used promo code. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code));
-            //}
-        }
+        //    try
+        //    {
+        //        promoCode.AlreadyUsed += 1;
+        //        db.Entry(promoCode).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.ErrorFormat("Unable to update already used promo code. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code);
+        //        _logger.ErrorFormat("Exception", ex.ToString());
+        //        _logger.ErrorFormat("StackTrace", ex.StackTrace);
+        //        throw new Exception(string.Format("Unable to update already used promo code. memberId {0} cardId {1} code {2}", member.Id, card.Id, promoCode.Code));
+        //    }
+        //}
     }
 }

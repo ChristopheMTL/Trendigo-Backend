@@ -17,7 +17,6 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Member()
         {
-            this.CreditCards = new HashSet<CreditCard>();
             this.DeviceRequests = new HashSet<DeviceRequest>();
             this.Enrollments = new HashSet<Enrollment>();
             this.GiftCardPurchases = new HashSet<GiftCardPurchas>();
@@ -29,6 +28,8 @@ namespace IMS.Common.Core.Data
             this.Referrals = new HashSet<Referral>();
             this.Referrals1 = new HashSet<Referral>();
             this.Merchants = new HashSet<Merchant>();
+            this.CardPointHistories = new HashSet<CardPointHistory>();
+            this.Subscriptions = new HashSet<Subscription>();
         }
     
         public long Id { get; set; }
@@ -45,8 +46,6 @@ namespace IMS.Common.Core.Data
         public System.DateTime CreationDate { get; set; }
         public string AvatarLink { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CreditCard> CreditCards { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeviceRequest> DeviceRequests { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -72,5 +71,9 @@ namespace IMS.Common.Core.Data
         public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Merchant> Merchants { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CardPointHistory> CardPointHistories { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
     }
 }

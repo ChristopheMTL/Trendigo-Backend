@@ -30,6 +30,7 @@ namespace IMS.Common.Core.DTO
         [Required]
         public string language { get; set; }
         public string avatar { get; set; }
+        public string avatarPath { get; set; }
         public List<MemberCreditCardDTO> creditCards { get; set; }
         public List<NotificationDTO> notifications { get; set; }
 

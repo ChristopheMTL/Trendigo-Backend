@@ -277,6 +277,60 @@ namespace IMS.Service.WebAPI2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Community added successfully.
+        /// </summary>
+        internal static string CommunityAddedSuccessfully_en {
+            get {
+                return ResourceManager.GetString("CommunityAddedSuccessfully_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La communauté a été ajouté avec succès.
+        /// </summary>
+        internal static string CommunityAddedSuccessfully_fr {
+            get {
+                return ResourceManager.GetString("CommunityAddedSuccessfully_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Community already exist.
+        /// </summary>
+        internal static string CommunityAlreadyExist_en {
+            get {
+                return ResourceManager.GetString("CommunityAlreadyExist_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ce nom de communauté est déjà existant.
+        /// </summary>
+        internal static string CommunityAlreadyExist_fr {
+            get {
+                return ResourceManager.GetString("CommunityAlreadyExist_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Community join successfully.
+        /// </summary>
+        internal static string CommunityJoinSuccessfully_en {
+            get {
+                return ResourceManager.GetString("CommunityJoinSuccessfully_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Communauté jointe avec succès.
+        /// </summary>
+        internal static string CommunityJoinSuccessfully_fr {
+            get {
+                return ResourceManager.GetString("CommunityJoinSuccessfully_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Community not found.
         /// </summary>
         internal static string CommunityNotFound_en {
@@ -1105,6 +1159,24 @@ namespace IMS.Service.WebAPI2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Promo code not found.
+        /// </summary>
+        internal static string PromoCodeNotFound_en {
+            get {
+                return ResourceManager.GetString("PromoCodeNotFound_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code promotionnel introuvable.
+        /// </summary>
+        internal static string PromoCodeNotFound_fr {
+            get {
+                return ResourceManager.GetString("PromoCodeNotFound_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rating added successfully.
         /// </summary>
         internal static string RatingAddedSuccessfully_en {
@@ -1281,6 +1353,24 @@ namespace IMS.Service.WebAPI2 {
         internal static string StartingDateOlderThanEndingDate_fr {
             get {
                 return ResourceManager.GetString("StartingDateOlderThanEndingDate_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully added.
+        /// </summary>
+        internal static string SuccessfullyAdded_en {
+            get {
+                return ResourceManager.GetString("SuccessfullyAdded_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ajouté avec succès.
+        /// </summary>
+        internal static string SuccessfullyAdded_fr {
+            get {
+                return ResourceManager.GetString("SuccessfullyAdded_fr", resourceCulture);
             }
         }
         
@@ -1501,6 +1591,24 @@ namespace IMS.Service.WebAPI2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to add merchant information.
+        /// </summary>
+        internal static string UnableToAddMerchantInformation_en {
+            get {
+                return ResourceManager.GetString("UnableToAddMerchantInformation_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Impossible d&apos;ajouter les informations du marchand.
+        /// </summary>
+        internal static string UnableToAddMerchantInformation_fr {
+            get {
+                return ResourceManager.GetString("UnableToAddMerchantInformation_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to add notification.
         /// </summary>
         internal static string UnableToAddNotification_en {
@@ -1587,6 +1695,24 @@ namespace IMS.Service.WebAPI2 {
         internal static string UnableToAddUser_fr {
             get {
                 return ResourceManager.GetString("UnableToAddUser_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to approve merchant onboarding.
+        /// </summary>
+        internal static string UnableToApproveMerchant_en {
+            get {
+                return ResourceManager.GetString("UnableToApproveMerchant_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Impossible d&apos;approuver l&apos;approbation du marchand.
+        /// </summary>
+        internal static string UnableToApproveMerchant_fr {
+            get {
+                return ResourceManager.GetString("UnableToApproveMerchant_fr", resourceCulture);
             }
         }
         
@@ -1843,6 +1969,24 @@ namespace IMS.Service.WebAPI2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to refuse merchant onboarding.
+        /// </summary>
+        internal static string UnableToRefuseMerchant_en {
+            get {
+                return ResourceManager.GetString("UnableToRefuseMerchant_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Impossible de refuser l&apos;approbation du marchand.
+        /// </summary>
+        internal static string UnableToRefuseMerchant_fr {
+            get {
+                return ResourceManager.GetString("UnableToRefuseMerchant_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to remove that tag from this merchant.
         /// </summary>
         internal static string UnableToRemoveMerchantTag_en {
@@ -1875,6 +2019,24 @@ namespace IMS.Service.WebAPI2 {
         internal static string UnableToRetrieve_fr {
             get {
                 return ResourceManager.GetString("UnableToRetrieve_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to retrieve the community types.
+        /// </summary>
+        internal static string UnableToRetrieveCommunityType_en {
+            get {
+                return ResourceManager.GetString("UnableToRetrieveCommunityType_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Impossible de récupérer les types de communauté.
+        /// </summary>
+        internal static string UnableToRetrieveCommunityType_fr {
+            get {
+                return ResourceManager.GetString("UnableToRetrieveCommunityType_fr", resourceCulture);
             }
         }
         
@@ -2221,6 +2383,24 @@ namespace IMS.Service.WebAPI2 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to update the tag.
+        /// </summary>
+        internal static string UnableToUpdateTag_en {
+            get {
+                return ResourceManager.GetString("UnableToUpdateTag_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Impossible de modifier la tag.
+        /// </summary>
+        internal static string UnableToUpdateTag_fr {
+            get {
+                return ResourceManager.GetString("UnableToUpdateTag_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to update user.
         /// </summary>
         internal static string UnableToUpdateUser_en {
@@ -2289,6 +2469,24 @@ namespace IMS.Service.WebAPI2 {
         internal static string Unknown_fr {
             get {
                 return ResourceManager.GetString("Unknown_fr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User added successfully.
+        /// </summary>
+        internal static string UserAddedSuccessfully_en {
+            get {
+                return ResourceManager.GetString("UserAddedSuccessfully_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilisateur ajouté avec succès.
+        /// </summary>
+        internal static string UserAddedSuccessfully_fr {
+            get {
+                return ResourceManager.GetString("UserAddedSuccessfully_fr", resourceCulture);
             }
         }
         

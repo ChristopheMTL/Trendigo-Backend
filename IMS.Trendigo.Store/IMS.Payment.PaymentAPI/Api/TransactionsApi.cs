@@ -137,7 +137,7 @@ namespace IMS.Payment.PaymentAPI.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                         if (transactionToken != null) headerParams.Add("transactionToken", ApiClient.ParameterToString(transactionToken)); // header parameter
+                         if (transactionToken != null) headerParams.Add("apiKey", ApiClient.ParameterToString(transactionToken)); // header parameter
  if (locale != null) headerParams.Add("locale", ApiClient.ParameterToString(locale)); // header parameter
                             
             // authentication setting, if any
@@ -180,7 +180,7 @@ namespace IMS.Payment.PaymentAPI.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                         if (transactionToken != null) headerParams.Add("transactionToken", ApiClient.ParameterToString(transactionToken)); // header parameter
+                         if (transactionToken != null) headerParams.Add("apiKey", ApiClient.ParameterToString(transactionToken)); // header parameter
  if (locale != null) headerParams.Add("locale", ApiClient.ParameterToString(locale)); // header parameter
                         postBody = ApiClient.Serialize(purchaseRequest); // http body (model) parameter
     
@@ -228,7 +228,7 @@ namespace IMS.Payment.PaymentAPI.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                         if (sessionToken != null) headerParams.Add("sessionToken", ApiClient.ParameterToString(sessionToken)); // header parameter
+                         if (sessionToken != null) headerParams.Add("apiKey", ApiClient.ParameterToString(sessionToken)); // header parameter
  if (deviceId != null) headerParams.Add("deviceId", ApiClient.ParameterToString(deviceId)); // header parameter
  if (locale != null) headerParams.Add("locale", ApiClient.ParameterToString(locale)); // header parameter
                         postBody = ApiClient.Serialize(purchaseValidationRequest); // http body (model) parameter
@@ -269,7 +269,7 @@ namespace IMS.Payment.PaymentAPI.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                         if (transactionToken != null) headerParams.Add("transactionToken", ApiClient.ParameterToString(transactionToken)); // header parameter
+                         if (transactionToken != null) headerParams.Add("apiKey", ApiClient.ParameterToString(transactionToken)); // header parameter
  if (locale != null) headerParams.Add("locale", ApiClient.ParameterToString(locale)); // header parameter
                             
             // authentication setting, if any
@@ -316,7 +316,7 @@ namespace IMS.Payment.PaymentAPI.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                         if (sessionToken != null) headerParams.Add("sessionToken", ApiClient.ParameterToString(sessionToken)); // header parameter
+                         if (sessionToken != null) headerParams.Add("apiKey", ApiClient.ParameterToString(sessionToken)); // header parameter
  if (deviceId != null) headerParams.Add("deviceId", ApiClient.ParameterToString(deviceId)); // header parameter
  if (locale != null) headerParams.Add("locale", ApiClient.ParameterToString(locale)); // header parameter
                         postBody = ApiClient.Serialize(refundRequest); // http body (model) parameter
@@ -365,7 +365,7 @@ namespace IMS.Payment.PaymentAPI.Api
             var fileParams = new Dictionary<String, FileParameter>();
             String postBody = null;
     
-                         if (sessionToken != null) headerParams.Add("sessionToken", ApiClient.ParameterToString(sessionToken)); // header parameter
+                         if (sessionToken != null) headerParams.Add("apiKey", ApiClient.ParameterToString(sessionToken)); // header parameter
  if (deviceId != null) headerParams.Add("deviceId", ApiClient.ParameterToString(deviceId)); // header parameter
  if (locale != null) headerParams.Add("locale", ApiClient.ParameterToString(locale)); // header parameter
                         postBody = ApiClient.Serialize(voidValidationRequest); // http body (model) parameter

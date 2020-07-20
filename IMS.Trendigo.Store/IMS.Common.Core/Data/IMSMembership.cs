@@ -38,12 +38,12 @@ namespace IMS.Common.Core.Data
         public virtual ICollection<Enrollment> Enrollments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Enrollment> Enrollments1 { get; set; }
-        public virtual Program Program { get; set; }
         public virtual PromoCode PromoCode { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MembershipTransactionDetail> MembershipTransactionDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DeviceRequest> DeviceRequests { get; set; }
         public virtual Member Member { get; set; }
+        public virtual Program Program { get; set; }
     }
 }

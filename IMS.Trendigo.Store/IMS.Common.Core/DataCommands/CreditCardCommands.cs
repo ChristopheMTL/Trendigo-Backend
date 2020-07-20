@@ -24,13 +24,13 @@ namespace IMS.Common.Core.DataCommands
     public class AddCreditCardCommand : BaseDataCommand<Data.CreditCard, IMS.Utilities.PaymentAPI.Model.Creditcard>
     {
         private readonly int _memberId;
-        private readonly CreditCardDTO _cc;
+        private readonly string _token;
 
-        public AddCreditCardCommand(Data.CreditCard imsEntity, CreditCardDTO cc, string memberId, Data.IMSEntities context)  : base(imsEntity)
+        public AddCreditCardCommand(Data.CreditCard imsEntity, string token, string memberId, Data.IMSEntities context)  : base(imsEntity)
         {
             this.context = context;
             _memberId = Convert.ToInt32(memberId);
-            _cc = cc;
+            _token = token;
         }
 
         protected override async Task<Creditcard> ExecuteTransaxOperation()
@@ -38,11 +38,11 @@ namespace IMS.Common.Core.DataCommands
             Creditcard ccard = new Creditcard();
             ccard.CreditCardId = 0;
             ccard.MemberId = _memberId;
-            ccard.PanMask = _cc.CardNumber;
-            ccard.NameOnCard = _cc.CardHolder;
-            ccard.Token = _cc.Token;
-            ccard.ExpirationDate = _cc.ExpiryDate;
-            ccard.CardTypeId = _cc.CreditCardTypeId;
+            ccard.PanMask = Entity.CardNumber;
+            ccard.NameOnCard = Entity.CardHolder;
+            ccard.Token = _token;
+            ccard.ExpirationDate = Entity.ExpiryDate;
+            ccard.CardTypeId = Entity.CreditCardTypeId;
             ccard.Status = TransaxStatus.Active.ToString().ToUpper();
 
             EntityId response = await new IMS.Utilities.PaymentAPI.Api.MembersApi().CreateCreditCard(_memberId, ccard);
@@ -58,7 +58,7 @@ namespace IMS.Common.Core.DataCommands
         protected override async Task ExecuteIMSOperation()
         {
             Data.CreditCard cc = new Data.CreditCard();
-
+            Entity.Token = null;
             Entity.CreationDate = DateTime.Now;
             Entity.IsActive = true;
 
@@ -83,9 +83,8 @@ namespace IMS.Common.Core.DataCommands
     {
         private readonly CreditCardDTO _cc;
 
-        public UpdateCreditCardCommand(Data.CreditCard imsEntity, CreditCardDTO cc, Data.IMSEntities context) : base(imsEntity)
+        public UpdateCreditCardCommand(Data.CreditCard imsEntity, Data.IMSEntities context) : base(imsEntity)
         {
-            _cc = cc;
             this.context = context;
         }
 
@@ -93,16 +92,14 @@ namespace IMS.Common.Core.DataCommands
         {
             TransaxEntity = new Creditcard();
             TransaxEntity.CreditCardId = Convert.ToInt32(Entity.TransaxId);
-            TransaxEntity.MemberId = Convert.ToInt32(Entity.Member.TransaxId);
-            TransaxEntity.NameOnCard = _cc.CardHolder;
-            //TransaxEntity.Token = _cc.Token;
-            //TransaxEntity.PanMask = _cc.CardNumber;
-            TransaxEntity.ExpirationDate = _cc.ExpiryDate;
-            TransaxEntity.CardTypeId = _cc.CreditCardTypeId;
-            TransaxEntity.CreationDate = _cc.CreationDate.ToUniversalTime();
+            TransaxEntity.MemberId = Convert.ToInt32(Entity.AspNetUser.Members.FirstOrDefault().TransaxId);
+            TransaxEntity.NameOnCard = Entity.CardHolder;
+            TransaxEntity.ExpirationDate = Entity.ExpiryDate;
+            TransaxEntity.CardTypeId = Entity.CreditCardTypeId;
+            TransaxEntity.CreationDate = Entity.CreationDate.ToUniversalTime();
             TransaxEntity.Status = Entity.IsActive ? TransaxStatus.Active.ToString().ToUpper() : TransaxStatus.Inactive.ToString().ToUpper();
 
-            await new IMS.Utilities.PaymentAPI.Api.MembersApi().UpdateCreditCard(Convert.ToInt32(Entity.Member.TransaxId), Convert.ToInt32(Entity.TransaxId), TransaxEntity);
+            await new IMS.Utilities.PaymentAPI.Api.MembersApi().UpdateCreditCard(Convert.ToInt32(Entity.AspNetUser.Members.FirstOrDefault().TransaxId), Convert.ToInt32(Entity.TransaxId), TransaxEntity);
 
             return TransaxEntity;
         }
@@ -129,7 +126,7 @@ namespace IMS.Common.Core.DataCommands
 
         protected override async Task<Creditcard> ExecuteTransaxOperation()
         {
-            await new IMS.Utilities.PaymentAPI.Api.MembersApi().DeleteCreditCard(Convert.ToInt32(Entity.Member.TransaxId), Convert.ToInt32(Entity.TransaxId));
+            await new IMS.Utilities.PaymentAPI.Api.MembersApi().DeleteCreditCard(Convert.ToInt32(Entity.AspNetUser.Members.FirstOrDefault().TransaxId), Convert.ToInt32(Entity.TransaxId));
 
             return TransaxEntity;
         }

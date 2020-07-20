@@ -25,9 +25,9 @@ namespace IMS.Payment.PaymentAPI.Model
     /// The clerk identifier.
     /// </summary>
     /// <value>The clerk identifier.</value>
-    [DataMember(Name="clerk", EmitDefaultValue=false)]
-    [JsonProperty(PropertyName = "clerk")]
-    public string Clerk { get; set; }
+    [DataMember(Name="userId", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "userId")]
+    public long UserId { get; set; }
 
     /// <summary>
     /// The transaction total in cents (including the taxes).
@@ -35,7 +35,7 @@ namespace IMS.Payment.PaymentAPI.Model
     /// <value>The transaction total in cents (including the taxes).</value>
     [DataMember(Name="amount", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "amount")]
-    public long? Amount { get; set; }
+    public decimal? Amount { get; set; }
 
     /// <summary>
     /// The transaction currency based on ISO 4217 code list. Common values are : CAD, USD, EUR.
@@ -62,7 +62,7 @@ namespace IMS.Payment.PaymentAPI.Model
       var sb = new StringBuilder();
       sb.Append("class PurchaseValidationRequest {\n");
       sb.Append("  LocationId: ").Append(LocationId).Append("\n");
-      sb.Append("  Clerk: ").Append(Clerk).Append("\n");
+      sb.Append("  UserId: ").Append(UserId).Append("\n");
       sb.Append("  Amount: ").Append(Amount).Append("\n");
       sb.Append("  Currency: ").Append(Currency).Append("\n");
       sb.Append("  OrderNumber: ").Append(OrderNumber).Append("\n");

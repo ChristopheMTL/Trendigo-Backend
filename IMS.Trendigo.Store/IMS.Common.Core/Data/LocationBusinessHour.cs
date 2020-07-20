@@ -19,6 +19,7 @@ namespace IMS.Common.Core.Data
         public int DayOfWeekID { get; set; }
         public System.TimeSpan OpeningHour { get; set; }
         public System.TimeSpan ClosingHour { get; set; }
+        public Nullable<bool> IsClosed { get; set; }
     
         public virtual Location Location { get; set; }
     }

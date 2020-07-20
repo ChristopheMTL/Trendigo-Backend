@@ -24,12 +24,36 @@ namespace IMS.Common.Core.Services
             {
                 var map = Mapper.CreateMap<Program, CommunityDTO>();
                 map.ForMember(x => x.communityId, o => o.MapFrom(model => model.Id));
-                map.ForMember(x => x.name, o => o.MapFrom(model => model.ShortDescription));
+                map.ForMember(x => x.name, o => o.MapFrom(model => model.Description));
+                map.ForMember(x => x.communityTypeId, o => o.MapFrom(model => model.ProgramTypeId));
 
                 communities = Mapper.Map<List<CommunityDTO>>(programs);
             }
 
             return communities;
+        }
+
+        public async Task<List<CommunityTypeDTO>> GetCommunityTypes()
+        {
+            List<ProgramType> programTypes = await db.ProgramTypes.ToListAsync();
+
+            List<CommunityTypeDTO> communityTypes = new List<CommunityTypeDTO>();
+
+            if (programTypes.Count() > 0)
+            {
+                var map1 = Mapper.CreateMap<ProgramTypeFee, CommunityTypeFeeDTO>();
+                map1.ForMember(x => x.currency, o => o.MapFrom(model => model.Currency.Code));
+                map1.ForMember(x => x.amount, o => o.MapFrom(model => model.Amount));
+
+                var map = Mapper.CreateMap<ProgramType, CommunityTypeDTO>();
+                map.ForMember(x => x.communityTypeId, o => o.MapFrom(model => model.Id));
+                map.ForMember(x => x.description, o => o.MapFrom(model => model.Description));
+                map.ForMember(x => x.fees, o => o.MapFrom(model => model.ProgramTypeFees));
+
+                communityTypes = Mapper.Map<List<CommunityTypeDTO>>(programTypes);
+            }
+
+            return communityTypes;
         }
     }
 }

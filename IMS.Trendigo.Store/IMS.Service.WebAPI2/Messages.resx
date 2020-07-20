@@ -879,4 +879,70 @@
   <data name="UnableToAddBaseRewardCalendar_fr" xml:space="preserve">
     <value>Impossible d'ajouter le calendrier de bonification de base</value>
   </data>
+  <data name="CommunityAlreadyExist_en" xml:space="preserve">
+    <value>Community already exist</value>
+  </data>
+  <data name="CommunityAlreadyExist_fr" xml:space="preserve">
+    <value>Ce nom de communauté est déjà existant</value>
+  </data>
+  <data name="PromoCodeNotFound_en" xml:space="preserve">
+    <value>Promo code not found</value>
+  </data>
+  <data name="PromoCodeNotFound_fr" xml:space="preserve">
+    <value>Code promotionnel introuvable</value>
+  </data>
+  <data name="UserAddedSuccessfully_en" xml:space="preserve">
+    <value>User added successfully</value>
+  </data>
+  <data name="UserAddedSuccessfully_fr" xml:space="preserve">
+    <value>Utilisateur ajouté avec succès</value>
+  </data>
+  <data name="CommunityAddedSuccessfully_en" xml:space="preserve">
+    <value>Community added successfully</value>
+  </data>
+  <data name="CommunityAddedSuccessfully_fr" xml:space="preserve">
+    <value>La communauté a été ajouté avec succès</value>
+  </data>
+  <data name="CommunityJoinSuccessfully_en" xml:space="preserve">
+    <value>Community join successfully</value>
+  </data>
+  <data name="CommunityJoinSuccessfully_fr" xml:space="preserve">
+    <value>Communauté jointe avec succès</value>
+  </data>
+  <data name="SuccessfullyAdded_en" xml:space="preserve">
+    <value>Successfully added</value>
+  </data>
+  <data name="SuccessfullyAdded_fr" xml:space="preserve">
+    <value>Ajouté avec succès</value>
+  </data>
+  <data name="UnableToAddMerchantInformation_en" xml:space="preserve">
+    <value>Unable to add merchant information</value>
+  </data>
+  <data name="UnableToAddMerchantInformation_fr" xml:space="preserve">
+    <value>Impossible d'ajouter les informations du marchand</value>
+  </data>
+  <data name="UnableToUpdateTag_en" xml:space="preserve">
+    <value>Unable to update the tag</value>
+  </data>
+  <data name="UnableToUpdateTag_fr" xml:space="preserve">
+    <value>Impossible de modifier la tag</value>
+  </data>
+  <data name="UnableToApproveMerchant_en" xml:space="preserve">
+    <value>Unable to approve merchant onboarding</value>
+  </data>
+  <data name="UnableToApproveMerchant_fr" xml:space="preserve">
+    <value>Impossible d'approuver l'approbation du marchand</value>
+  </data>
+  <data name="UnableToRefuseMerchant_en" xml:space="preserve">
+    <value>Unable to refuse merchant onboarding</value>
+  </data>
+  <data name="UnableToRefuseMerchant_fr" xml:space="preserve">
+    <value>Impossible de refuser l'approbation du marchand</value>
+  </data>
+  <data name="UnableToRetrieveCommunityType_en" xml:space="preserve">
+    <value>Unable to retrieve the community types</value>
+  </data>
+  <data name="UnableToRetrieveCommunityType_fr" xml:space="preserve">
+    <value>Impossible de récupérer les types de communauté</value>
+  </data>
 </root>

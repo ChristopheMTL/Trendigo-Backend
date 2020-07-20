@@ -3,7 +3,7 @@ using IMS.Common.Core.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Data.Entity;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -43,6 +43,11 @@ namespace IMS.Common.Core.Services
             var listOfEnterpriseId = enterprises.Select(m => m.Id);
 
             return context.Enterprises.Where(a => a.Id.ToString() == enterpriseId).Where(a => listOfEnterpriseId.Contains(a.Id)).FirstOrDefault();
+        }
+
+        public async Task<Enterprise> GetTrendigoEnterprise()
+        {
+            return await context.Enterprises.Where(a => a.Name.ToLower().Contains("trendigo")).FirstOrDefaultAsync();
         }
     }
 }

@@ -1,31 +1,36 @@
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CoreCompileInputs.cache
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll.config
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.pdb
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\log4net.dll
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\Newtonsoft.Json.dll
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\RestSharp.dll
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\System.ValueTuple.dll
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\log4net.xml
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\Newtonsoft.Json.xml
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\System.ValueTuple.xml
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CopyComplete
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.dll
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.pdb
-C:\Trendigo\Branches\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csprojAssemblyReference.cache
-D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll.config
-D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll
-D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.pdb
-D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csprojAssemblyReference.cache
-D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CoreCompileInputs.cache
-D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CopyComplete
-D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.dll
-D:\Trendigo Project\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.pdb
-C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll.config
-C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll
-C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.pdb
-C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csprojAssemblyReference.cache
-C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CoreCompileInputs.cache
-C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CopyComplete
-C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.dll
-C:\Users\Asif Khan\Downloads\Microsoft.SkypeApp_kzf8qxf38zg5c!App\All\New code\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.pdb
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll.config
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.pdb
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\log4net.dll
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\Newtonsoft.Json.dll
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\RestSharp.dll
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\System.ValueTuple.dll
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\log4net.xml
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\Newtonsoft.Json.xml
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\System.ValueTuple.xml
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csprojAssemblyReference.cache
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CoreCompileInputs.cache
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CopyComplete
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.dll
+D:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.pdb
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll.config
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.pdb
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\log4net.dll
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\Newtonsoft.Json.dll
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\RestSharp.dll
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\System.ValueTuple.dll
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\log4net.xml
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\Newtonsoft.Json.xml
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\bin\Debug\System.ValueTuple.xml
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csprojAssemblyReference.cache
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CopyComplete
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.dll
+E:\Trendigo Project\Trendigo code\KIWITECH\IMS.Trendigo.Portal\WebService\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.pdb
+E:\Trendigo Project\TrendigoGit\Trendigo-Backend\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll.config
+E:\Trendigo Project\TrendigoGit\Trendigo-Backend\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.dll
+E:\Trendigo Project\TrendigoGit\Trendigo-Backend\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\bin\Debug\IMS.Payment.PaymentAPI.pdb
+E:\Trendigo Project\TrendigoGit\Trendigo-Backend\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csprojAssemblyReference.cache
+E:\Trendigo Project\TrendigoGit\Trendigo-Backend\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.csproj.CopyComplete
+E:\Trendigo Project\TrendigoGit\Trendigo-Backend\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.dll
+E:\Trendigo Project\TrendigoGit\Trendigo-Backend\IMS.Trendigo.Store\IMS.Payment.PaymentAPI\obj\Debug\IMS.Payment.PaymentAPI.pdb

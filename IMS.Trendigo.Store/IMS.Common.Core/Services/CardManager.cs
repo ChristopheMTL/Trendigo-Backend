@@ -28,18 +28,6 @@ namespace IMS.Common.Core.Services
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="memberId"></param>
-        /// <returns></returns>
-        public async Task<IMSCard> GetActiveIMSCard(long memberId)
-        {
-            IMSCard activeCard = await context.IMSCards.FirstOrDefaultAsync(a => a.MemberId == memberId && a.CardStatusId == (int)IMSCardStatus.ACTIVATED);
-
-            return activeCard;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="membershipId"></param>
         /// <returns></returns>
         public async Task<int> GetNonFinancialCardPointBalance(string membershipId) 

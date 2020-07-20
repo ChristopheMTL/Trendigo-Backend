@@ -39,7 +39,10 @@ namespace IMS.Common.Core.Data
         public long EnterpriseId { get; set; }
         public string transaxTerminalId { get; set; }
         public string description { get; set; }
-        public Nullable<int> memberId { get; set; }
+        public Nullable<long> memberId { get; set; }
         public string orderNumber { get; set; }
+        public Nullable<int> terminalId { get; set; }
+        public Nullable<System.DateTime> creationDate { get; set; }
+        public string responseMessage { get; set; }
     }
 }

@@ -28,7 +28,8 @@ namespace IMS.Common.Core.DataCommands
         {
             IMS.Utilities.PaymentAPI.Model.Promotion promotion = new IMS.Utilities.PaymentAPI.Model.Promotion();
             promotion.PromotionId = 0;
-            promotion.PromotionType = Entity.Promotion.PromotionType.Description.ToUpper();
+            //promotion.PromotionType = Entity.Promotion.PromotionType.Description.ToUpper();
+            promotion.PromotionType = IMSPromotionType.BONIFICATION.ToString();
             promotion.Value = (float?)Entity.Value;
             promotion.MaxDiscount = Entity.Promotion.MaxDiscountForPromotion > 0 ? Entity.Promotion.MaxDiscountForPromotion : 0;
             promotion.MaxAmount = Entity.Promotion.MaxAmountForPromotion > 0 ? Entity.Promotion.MaxAmountForPromotion : 0;
@@ -79,7 +80,8 @@ namespace IMS.Common.Core.DataCommands
         {
             IMS.Utilities.PaymentAPI.Model.Promotion promotion = new IMS.Utilities.PaymentAPI.Model.Promotion();
             promotion.PromotionId = Convert.ToInt32(Entity.TransaxId);
-            promotion.PromotionType = Entity.Promotion.PromotionType.Description.ToUpper();
+            //promotion.PromotionType = Entity.Promotion.PromotionType.Description.ToUpper();
+            promotion.PromotionType = IMSPromotionType.BONIFICATION.ToString();
             promotion.Value = (float?)Entity.Value;
             promotion.MaxDiscount = Entity.Promotion.MaxDiscountForPromotion > 0 ? Entity.Promotion.MaxDiscountForPromotion : 0;
             promotion.MaxAmount = Entity.Promotion.MaxAmountForPromotion > 0 ? Entity.Promotion.MaxAmountForPromotion : 0;

@@ -1,8 +1,11 @@
 ﻿using IMS.Common.Core.Data;
+using IMS.Common.Core.DataCommands;
 using IMS.Common.Core.Enumerations;
+using IMS.Common.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity;
 using System.Data.Entity.Core;
 using System.Linq;
 using System.Text;
@@ -14,6 +17,7 @@ namespace IMS.Common.Core.Services
     public class MerchantManager
     {
         IMSEntities context = new IMSEntities();
+        readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public List<Merchant> GetMerchantListWithRole(IMSUser user, String EnterpriseId, Boolean ActiveOnly = false, Boolean LocationMustBePresent = true) 
         {
@@ -139,6 +143,77 @@ namespace IMS.Common.Core.Services
             }
 
             return imagePath;
+        }
+
+        public async Task<Merchant> GetTrendigoBillingMerchant(long enterpriseId, long currencyId)
+        {
+            Currency currency = await context.Currencies.Where(a => a.Id == currencyId).FirstOrDefaultAsync();
+            Enterprise enterprise = await context.Enterprises.Where(a => a.Id == enterpriseId).FirstOrDefaultAsync();
+
+            Merchant exist = await context.Merchants.Where(a => a.Locations.FirstOrDefault(b => b.IsActive).Address.Country.CurrencyId == currencyId).FirstOrDefaultAsync();
+
+            if (exist == null)
+            {
+                Merchant merchant = new Merchant();
+
+                merchant.Name = string.Concat("TrendigoBilling", currency.Code);
+                merchant.TaxableProduct = true;
+                merchant.IsActive = false;
+                merchant.CreationDate = DateTime.Now;
+                merchant.Status = MerchantStatus.PENDING.ToString();
+
+                var command = DataCommandFactory.AddMerchantCommand(merchant, enterprise.TransaxId, context);
+
+                var result = await command.Execute();
+
+                if (result != DataCommandResult.Success)
+                {
+                    logger.ErrorFormat(string.Format("MerchantManager - GetTrendigoBillingMerchant - AddMerchantCommand - result {0}", result));
+                    throw new Exception("UnableToAddBillingMerchant");
+                }
+
+                Location location = new Location();
+                location.Merchant = merchant;
+                location.Name = enterprise.Address.City;
+                location.ApplyTaxes = true;
+                location.EnableTips = true;
+                location.PayWithPoints = true;
+                location.Telephone = enterprise.Telephones.FirstOrDefault().Number.ToString();
+                location.Address = new Address();
+                location.Address.StreetAddress = enterprise.Address.StreetAddress;
+                location.Address.City = enterprise.Address.City;
+                location.Address.StateId = enterprise.Address.StateId;
+                location.Address.CountryId = enterprise.Address.CountryId;
+                location.Address.Zip = enterprise.Address.Zip;
+                location.Address.Longitude = enterprise.Address.Longitude;
+                location.Address.Latitude = enterprise.Address.Latitude;
+
+                string timeZoneName = new UtilityManager().getTimeZoneInfoForEntity(location, context).StandardName;
+                location.TimeZone = context.TimeZones.Where(a => a.Value == timeZoneName).FirstOrDefault();
+
+                var locationCommand = DataCommandFactory.AddLocationCommand(location, context);
+
+                var locationResult = await locationCommand.Execute();
+
+                if (locationResult != DataCommandResult.Success)
+                {
+                    if (locationResult == DataCommandResult.IMSFailed)
+                    {
+                        var commandDelete = DataCommandFactory.DeleteMerchantCommand(merchant, merchant.TransaxId, context);
+                        var resultDelete = await commandDelete.Execute();
+                    }
+
+                    logger.ErrorFormat(string.Format("MerchantManager - GetTrendigoBillingMerchant - AddLocationCommand - result {0}", result));
+                    throw new Exception("UnableToAddBillingMerchant");
+                }
+
+                Merchant merchantToReturn = await context.Merchants.Where(a => a.Id == merchant.Id).FirstOrDefaultAsync();
+
+
+                return merchantToReturn;
+            }
+
+            return exist;
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using IMS.Common.Core.Data;
+using IMS.Common.Core.DTO;
 using IMS.Common.Core.Entities.IMS;
 using IMS.Common.Core.Entities.Transax;
 using IMS.Common.Core.Enumerations;
+using IMS.Common.Core.Services;
 using IMS.Common.Core.Utilities;
 using IMS.Store.Common.Extensions;
 using IMS.Utilities.PaymentAPI.Model;
@@ -136,6 +138,55 @@ namespace IMS.Common.Core.DataCommands
         protected override async Task RollbackTransaxOperation(TransaxEntity trxEntity)
         {
             // Rétablir valeurs originales
+        }
+    }
+
+    public class AddMerchantProcessorCommand : BaseDataCommand<Data.MerchantProcessor, TransaxEntity>
+    {
+        public AddMerchantProcessorCommand(Data.MerchantProcessor imsEntity, IMSEntities context) : base(imsEntity)
+        {
+            this.context = context;
+        }
+
+        protected override async Task<TransaxEntity> ExecuteTransaxOperation()
+        {
+            ProcessorDTO processor = await new ProcessorManager().GetProcessor((int)ProcessorEnum.GlobalPayment, Entity.MerchantId);
+
+            IMS.Utilities.PaymentAPI.Model.MerchantProcessor merchantProcessor = new IMS.Utilities.PaymentAPI.Model.MerchantProcessor();
+
+            merchantProcessor.MerchantId = Convert.ToInt32(Entity.Merchant.TransaxId);
+            merchantProcessor.ProcessorId = Entity.ProcessorId;
+            merchantProcessor.ProcessorSelectorId = processor.processorSelectorId;
+            merchantProcessor.MerchantLogin = processor.merchantLogin;
+            merchantProcessor.MerchantPassword = processor.merchantPassword;
+            merchantProcessor.ProcessorSelectorIdentity = Convert.ToInt32(processor.processorSelectorIdentity);
+            EntityId response = await new IMS.Utilities.PaymentAPI.Api.MerchantsApi().CreateMerchantProcessor(merchantProcessor);
+
+            if (response != null)
+            {
+                Entity.TransaxId = response.Id.Value.ToString();
+            }
+
+            return TransaxEntity;
+        }
+
+        protected override async Task ExecuteIMSOperation()
+        {
+            DateTime date = DateTime.Now;
+            Entity.CreationDate = date;
+            Entity.ModificationDate = date;
+            Entity.IsActive = true;
+
+            context.MerchantProcessors.Add(Entity);
+            await context.SaveChangesAsync();
+        }
+
+        protected override async Task RollbackTransaxOperation(TransaxEntity TransaxEntity)
+        {
+            if (!string.IsNullOrEmpty(Entity.TransaxId))
+            {
+                await new IMS.Utilities.PaymentAPI.Api.MerchantsApi().DeleteMerchantProcessor(Convert.ToInt32(Entity.TransaxId));
+            }
         }
     }
 

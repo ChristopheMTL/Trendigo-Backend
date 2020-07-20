@@ -23,6 +23,14 @@ namespace IMS.Utilities.PaymentAPI.Model
         public string DeviceId { get; set; }
 
         /// <summary>
+        /// This is the unique identifier that is used to identify the device in Google Firebase
+        /// </summary>
+        /// <value>This is the unique identifier that is used to identify the device in Google Firebase</value>
+        [DataMember(Name = "notificationToken", EmitDefaultValue = false)]
+        [JsonProperty(PropertyName = "notificationToken")]
+        public string NotificationToken { get; set; }
+
+        /// <summary>
         /// The is the JWT Token unique identifier.
         /// </summary>
         /// <value>The is the JWT Token unique identifier.</value>
@@ -40,6 +48,7 @@ namespace IMS.Utilities.PaymentAPI.Model
             var sb = new StringBuilder();
             sb.Append("class AuthenticationData {\n");
             sb.Append("  DeviceId: ").Append(DeviceId).Append("\n");
+            sb.Append("  NotificationToken: ").Append(NotificationToken).Append("\n");
             sb.Append("  Jti: ").Append(Jti).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

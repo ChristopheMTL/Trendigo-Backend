@@ -21,7 +21,6 @@ namespace IMS.Common.Core.Data
             this.EnrollLocations = new HashSet<EnrollLocation>();
             this.IMS_Header = new HashSet<IMS_Header>();
             this.Location_Terminals = new HashSet<Location_Terminals>();
-            this.LocationBusinessHours = new HashSet<LocationBusinessHour>();
             this.LocationHolidays = new HashSet<LocationHoliday>();
             this.LocationMemberDistances = new HashSet<LocationMemberDistance>();
             this.LocationPromoCodes = new HashSet<LocationPromoCode>();
@@ -31,6 +30,9 @@ namespace IMS.Common.Core.Data
             this.PromotionCalendarNotifications = new HashSet<PromotionCalendarNotification>();
             this.IMSUsers = new HashSet<IMSUser>();
             this.Promotions = new HashSet<Promotion>();
+            this.LocationBusinessHours = new HashSet<LocationBusinessHour>();
+            this.Subscriptions = new HashSet<Subscription>();
+            this.MerchantTransactions = new HashSet<MerchantTransaction>();
         }
     
         public long Id { get; set; }
@@ -57,8 +59,6 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Location_Terminals> Location_Terminals { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LocationBusinessHour> LocationBusinessHours { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LocationHoliday> LocationHolidays { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LocationMemberDistance> LocationMemberDistances { get; set; }
@@ -79,5 +79,11 @@ namespace IMS.Common.Core.Data
         public virtual ICollection<Promotion> Promotions { get; set; }
         public virtual Merchant Merchant { get; set; }
         public virtual BankingInfo BankingInfo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LocationBusinessHour> LocationBusinessHours { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subscription> Subscriptions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MerchantTransaction> MerchantTransactions { get; set; }
     }
 }

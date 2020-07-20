@@ -21,9 +21,8 @@ namespace IMS.Common.Core.Data
         public long CardPointHistoryId { get; set; }
         public System.DateTime CreationDate { get; set; }
     
-        public virtual CardPointHistory CardPointHistory { get; set; }
-        public virtual IMSCard IMSCard { get; set; }
         public virtual PromoCode PromoCode { get; set; }
         public virtual Member Member { get; set; }
+        public virtual CardPointHistory CardPointHistory { get; set; }
     }
 }

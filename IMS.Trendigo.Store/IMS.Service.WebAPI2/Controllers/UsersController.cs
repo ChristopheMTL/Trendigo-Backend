@@ -1,13 +1,16 @@
 ﻿using AutoMapper;
 using IMS.Common.Core.Data;
 using IMS.Common.Core.DTO;
+using IMS.Common.Core.Enumerations;
 using IMS.Common.Core.Services;
 using IMS.Service.WebAPI2.Bindings;
 using IMS.Service.WebAPI2.Filters;
 using IMS.Service.WebAPI2.Models;
+using IMS.Service.WebAPI2.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Swashbuckle.Swagger.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -263,7 +266,14 @@ namespace IMS.Service.WebAPI2.Controllers
             try
             {
                 var _user = db.AspNetUsers.FirstOrDefault(a => a.Id == imsUser.AspNetUser.Id);
+
+                if (_user == null)
+                {
+                    return Content(HttpStatusCode.Unauthorized, "Wrong email or password");
+                }
+
                 var user = UserManager.FindById(_user.Id);
+
                 if (user == null)
                 {
                     return Content(HttpStatusCode.Unauthorized, "Wrong email or password");
@@ -307,13 +317,15 @@ namespace IMS.Service.WebAPI2.Controllers
             if (imsUser == null)
                 return Content(HttpStatusCode.NotFound, "User not found");
 
+            logger.DebugFormat("Email Validation - UserId {0} Email {1} Code {2}", imsUser.Id, imsUser.AspNetUser.Email, model.code);
+
             #endregion
 
             var result = await UserManager.ConfirmEmailAsync(imsUser.UserId, model.code);
 
             if (!result.Succeeded)
             {
-                model.code = HttpUtility.UrlDecode(model.code);
+                //model.code = HttpUtility.UrlDecode(model.code);
                 result = await UserManager.ConfirmEmailAsync(imsUser.UserId, model.code);
 
                 if (!result.Succeeded)
@@ -323,6 +335,44 @@ namespace IMS.Service.WebAPI2.Controllers
             }
 
             return Content(HttpStatusCode.OK, "Email address was validated successfully");
+        }
+
+        [HttpGet]
+        [Route("{userId:long}/notifications")]
+        [JwtAuthentication]
+        [SwaggerResponse(HttpStatusCode.OK, "Success", typeof(List<NotificationRS>))]
+        public async Task<IHttpActionResult> GetNotification(long userId, [fromHeader] string locale = "en")
+        {
+            #region Declaration Section
+            var notifications = new List<NotificationRS>();
+            #endregion
+
+            #region Validation Section
+             var  imsUser = await db.IMSUsers.FirstOrDefaultAsync(a => a.Id == userId && a.IsActive == true);
+
+            if (imsUser == null)
+            {
+                return Content(HttpStatusCode.NotFound, MessageService.GetMessage("UserNotFound_", locale));
+            }
+            #endregion
+            try
+            {
+                notifications = imsUser.AspNetUser.UserNotifications.Select(x => new NotificationRS
+                {
+                    deviceId = x.DeviceId,
+                    notificationToken = x.NotificationToken,
+                    creationDate = x.CreationDate
+
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+
+                return Content(HttpStatusCode.InternalServerError, MessageService.GetMessage("UnableToRetrieve_", locale));
+            }
+
+            return Content(HttpStatusCode.OK, notifications);
         }
     }
 }

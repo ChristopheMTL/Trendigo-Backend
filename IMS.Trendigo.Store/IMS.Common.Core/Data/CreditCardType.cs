@@ -17,12 +17,16 @@ namespace IMS.Common.Core.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CreditCardType()
         {
+            this.CreditCardIssuers = new HashSet<CreditCardIssuer>();
             this.CreditCards = new HashSet<CreditCard>();
         }
     
         public int Id { get; set; }
         public string Description { get; set; }
+        public string Logo { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CreditCardIssuer> CreditCardIssuers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CreditCard> CreditCards { get; set; }
     }

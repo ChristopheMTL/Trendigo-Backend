@@ -138,77 +138,6 @@ namespace IMS.Common.Core.Services
             return notifications;
         }
 
-        #region CardActivation Section
-
-        /// <summary>
-        /// Method that send a card activation notification to a member. This will change the status of the notification to PROCESSED or ERROR depending of the process completion
-        /// </summary>
-        /// <param name="notification">This is the notification information</param>
-        /// <param name="subject">This is the subject of the email</param>
-        /// <param name="db">This is the data context to use</param>
-        /// <returns>Nothing is returned</returns>
-        public async Task CardActivationNotification(Notification notification, String language, String subject, IMSEntities db)
-        {
-            ExceptionDispatchInfo capturedException = null;
-
-            if (notification.NotificationStatusId != (int)NotificationStatusEnum.READY)
-            {
-                logger.ErrorFormat("NotificationService - CardActivationNotification - Notification not ready : NotificationId {0}", notification.Id);
-                await ErrorNotification(notification.Id);
-                return;
-            }
-
-            if (notification.CreationDate.AddDays(notification.NotificationType.Interval).Date > DateTime.Now.Date)
-            {
-                logger.ErrorFormat("NotificationService - CardActivationNotification - Wrong Date to notify : NotificationId {0} NotificationDate {1}", notification.Id, notification.CreationDate.AddDays(notification.NotificationType.Interval).Date.ToString());
-                await ErrorNotification(notification.Id);
-                return;
-            }
-
-            AspNetUser user = await db.AspNetUsers.FirstOrDefaultAsync(a => a.Id == notification.UserId);
-
-            if (user == null)
-            {
-                logger.ErrorFormat("NotificationService - CardActivationNotification - User not found : NotificationId {0} UserId {1}", notification.Id, notification.UserId);
-                await ErrorNotification(notification.Id);
-                return;
-            }
-            
-            Member member = user.Members.FirstOrDefault();
-
-            if (member == null)
-            {
-                logger.ErrorFormat("NotificationService - CardActivationNotification - Member not found : NotificationId {0} UserId {1}", notification.Id, notification.UserId);
-                await ErrorNotification(notification.Id);
-                return;
-            }
-
-            IMSCard cardWaitingForActivation = await db.IMSCards.FirstOrDefaultAsync(a => a.MemberId == member.Id && a.CardStatusId == (int)IMSCardStatus.SHIPPED);
-
-            if (cardWaitingForActivation != null)
-            {
-                try
-                {
-                    await new EmailService().SendCardNotificationEmail(notification, member, language, subject);
-                }
-                catch (Exception ex)
-                {
-                    logger.ErrorFormat("NotificationService - CardActivationNotification - MemberId {0} Exception {1} InnerException {2}", member.Id, ex.ToString(), ex.InnerException.ToString());
-                    capturedException = ExceptionDispatchInfo.Capture(ex);
-                }
-
-                if (capturedException != null)
-                {
-                    await ErrorNotification(notification.Id);
-                    return;
-                }
-            }
-
-            await SuccessNotification(notification.Id);
-        }
-
-        #endregion
-
         #region CreditCardExpiration Section
 
         /// <summary>
@@ -247,7 +176,7 @@ namespace IMS.Common.Core.Services
 
             CreditCard expiringCard = null;
 
-            foreach (CreditCard cc in member.CreditCards)
+            foreach (CreditCard cc in member.AspNetUser.CreditCards)
             {
                 if (new CreditCardService().ExpiringThisMonth(cc.ExpiryDate))
                 {

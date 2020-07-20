@@ -10,5 +10,7 @@ namespace IMS.Service.WebAPI2.Models
         public string deviceId { get; set; }
 
         public string notificationToken { get; set; }
+
+        public DateTime creationDate { get; set; }
     }
 }

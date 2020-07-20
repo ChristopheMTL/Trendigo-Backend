@@ -19,7 +19,7 @@ namespace IMS.Payment.PaymentAPI.Model
     /// <value>The transaction total in cents (excluding the taxes and the tips). If not provided, the amount will be taken from the Transaction Token.</value>
     [DataMember(Name="amount", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "amount")]
-    public long? Amount { get; set; }
+    public decimal? Amount { get; set; }
 
     /// <summary>
     /// The tips that was applied on this transaction in cents.

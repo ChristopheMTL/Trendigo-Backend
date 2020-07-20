@@ -239,15 +239,16 @@ namespace IMS.Common.Core.Services
             {
                 return 0;
             }
-
+            double reward = 0;
             Promotion_Schedules promoSched = promo.Promotion_Schedules.FirstOrDefault(a => a.IsActive == true && a.StartDate.Date == startDate.Date);
 
             if (promoSched == null)
-            {
-                return 0;
-            }
+               reward = promo.Value;
+            else
+               reward = promoSched.Value;
 
-            return Convert.ToInt32(promoSched.Value < 1 ? promoSched.Value * 100 : promoSched.Value);
+
+            return Convert.ToInt32(reward < 1 ? reward * 100 : reward);
         }
 
         #region Base Calendar Section
@@ -260,34 +261,37 @@ namespace IMS.Common.Core.Services
                 {
                     Promotion_Schedules schedule = new Promotion_Schedules();
 
-                    var dayOfWeek = (int)day.DayOfWeek;
-                    LocationBusinessHour businessHour = promotion.Locations.FirstOrDefault(a => a.IsActive == true).LocationBusinessHours.FirstOrDefault(x => x.DayOfWeekID == dayOfWeek);
+                    //var dayOfWeek = (int)day.DayOfWeek;
+                    //LocationBusinessHour businessHour = promotion.Locations.FirstOrDefault(a => a.IsActive == true).LocationBusinessHours.FirstOrDefault(x => x.DayOfWeekID == dayOfWeek);
 
-                    TimeSpan? locationOpeningHour = businessHour != null ? businessHour.OpeningHour : (TimeSpan?)null;
-                    TimeSpan? locationClosingHour = businessHour != null ? businessHour.ClosingHour : (TimeSpan?)null;
+                    //TimeSpan? locationOpeningHour = businessHour != null ? businessHour.OpeningHour : (TimeSpan?)null;
+                    //TimeSpan? locationClosingHour = businessHour != null ? businessHour.ClosingHour : (TimeSpan?)null;
 
-                    LocationHoliday holiday = promotion.Locations.FirstOrDefault(a => a.IsActive == true).LocationHolidays.FirstOrDefault(x => x.FromDate.Date <= day.Date && x.ToDate >= day.Date);
+                    //LocationHoliday holiday = promotion.Locations.FirstOrDefault(a => a.IsActive == true).LocationHolidays.FirstOrDefault(x => x.FromDate.Date <= day.Date && x.ToDate >= day.Date);
 
-                    if (holiday == null && locationOpeningHour != null && locationClosingHour != null)
+                    //if (holiday == null && locationOpeningHour != null && locationClosingHour != null)
+                    //{
+                        
+                    //}
+
+                    schedule.StartDate = day;
+                    schedule.StartTime = new TimeSpan(Convert.ToInt32(ConfigurationManager.AppSettings["Promotion.Start.Time"]), 0, 0);
+                    //Promotion End Date Time
+                    schedule.EndDate = day.AddDays(1);
+                    schedule.EndTime = new TimeSpan(Convert.ToInt32(ConfigurationManager.AppSettings["Promotion.End.Time"]), 0, 0);
+
+                    schedule.Value = basePercentage >= 1 ? basePercentage / 100 : basePercentage;
+                    schedule.CreatedBy = 1;
+                    schedule.IsPrime = false;
+                    schedule.PromotionId = promotion.Id;
+                    schedule.Promotion = promotion;
+
+                    //Add promo_schedule
+                    var command = DataCommandFactory.AddPromotionScheduleCommand(schedule, db);
+                    var result = await command.Execute();
+                    if (result == DataCommandResult.Success)
                     {
-                        schedule.StartDate = day;
-                        schedule.StartTime = new TimeSpan(Convert.ToInt32(ConfigurationManager.AppSettings["Promotion.Start.Time"]), 0, 0);
-                        //Promotion End Date Time
-                        schedule.EndDate = day.AddDays(1);
-                        schedule.EndTime = new TimeSpan(Convert.ToInt32(ConfigurationManager.AppSettings["Promotion.End.Time"]), 0, 0);
-
-                        schedule.Value = basePercentage >= 1 ? basePercentage / 100 : basePercentage;
-                        schedule.CreatedBy = 1;
-                        schedule.IsPrime = false;
-                        schedule.PromotionId = promotion.Id;
-
-                        //Add promo_schedule
-                        var command = DataCommandFactory.AddPromotionScheduleCommand(schedule, db);
-                        var result = await command.Execute();
-                        if (result == DataCommandResult.Success)
-                        {
-                            promotion.Promotion_Schedules.Add(schedule);
-                        }
+                        promotion.Promotion_Schedules.Add(schedule);
                     }
                 }
                 catch (Exception ex)

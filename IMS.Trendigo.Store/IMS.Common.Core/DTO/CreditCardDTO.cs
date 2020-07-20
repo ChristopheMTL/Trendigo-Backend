@@ -9,7 +9,7 @@ namespace IMS.Common.Core.DTO
     public class CreditCardDTO
     {
         public long Id { get; set; }
-        public long MemberId { get; set; }
+        public string UserId { get; set; }
         public string TransaxId { get; set; }
         public string CardHolder { get; set; }
         public int CreditCardTypeId { get; set; }

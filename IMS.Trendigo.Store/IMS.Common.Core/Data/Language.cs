@@ -27,7 +27,6 @@ namespace IMS.Common.Core.Data
             this.SectionTranslations = new HashSet<SectionTranslation>();
             this.Enterprises = new HashSet<Enterprise>();
             this.IMSUsers = new HashSet<IMSUser>();
-            this.IMSCards = new HashSet<IMSCard>();
             this.BadgeTranslations = new HashSet<BadgeTranslation>();
             this.Members = new HashSet<Member>();
             this.PromotionCalendarTranslations = new HashSet<PromotionCalendarTranslation>();
@@ -57,8 +56,6 @@ namespace IMS.Common.Core.Data
         public virtual ICollection<Enterprise> Enterprises { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IMSUser> IMSUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<IMSCard> IMSCards { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BadgeTranslation> BadgeTranslations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

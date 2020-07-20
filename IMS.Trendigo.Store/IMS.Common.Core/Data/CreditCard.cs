@@ -21,7 +21,6 @@ namespace IMS.Common.Core.Data
         }
     
         public long Id { get; set; }
-        public long MemberId { get; set; }
         public string TransaxId { get; set; }
         public string CardHolder { get; set; }
         public int CreditCardTypeId { get; set; }
@@ -31,10 +30,11 @@ namespace IMS.Common.Core.Data
         public bool IsActive { get; set; }
         public System.DateTime CreationDate { get; set; }
         public string Token { get; set; }
+        public string UserId { get; set; }
     
-        public virtual CreditCardType CreditCardType { get; set; }
-        public virtual Member Member { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TrxFinancialTransaction> TrxFinancialTransactions { get; set; }
+        public virtual CreditCardType CreditCardType { get; set; }
     }
 }

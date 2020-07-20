@@ -172,7 +172,6 @@ namespace IMS.Common.Core.Services
             detail.HeaderId = HeaderId;
             detail.LineItemId = LineItemId;
             detail.TransactionId = ReferenceId;
-            detail.TransactionTypeId = TransactionTypeId;
             detail.Amount = Amount;
             detail.Description = Description;
             detail.CreationDate = TransactionDate;

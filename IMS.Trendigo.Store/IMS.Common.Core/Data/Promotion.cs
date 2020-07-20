@@ -19,8 +19,8 @@ namespace IMS.Common.Core.Data
         {
             this.promotion_translations = new HashSet<promotion_translations>();
             this.Locations = new HashSet<Location>();
-            this.Programs = new HashSet<Program>();
             this.Promotion_Schedules = new HashSet<Promotion_Schedules>();
+            this.Programs = new HashSet<Program>();
         }
     
         public long Id { get; set; }
@@ -42,12 +42,12 @@ namespace IMS.Common.Core.Data
         public virtual Package Package { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<promotion_translations> promotion_translations { get; set; }
-        public virtual PromotionType PromotionType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Location> Locations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Program> Programs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Promotion_Schedules> Promotion_Schedules { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Program> Programs { get; set; }
+        public virtual PromotionType PromotionType { get; set; }
     }
 }
